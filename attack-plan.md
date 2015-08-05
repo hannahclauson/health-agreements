@@ -1,0 +1,6 @@
+- List some services that are fairly popular
+- Read through some of their agreements
+- Keep rough list of patterns
+- Build site to report
+- Build basic iconography to represent important aspects of agreements
+- Add user based submissions
