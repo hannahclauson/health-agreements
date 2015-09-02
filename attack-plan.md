@@ -3,7 +3,6 @@
   - create list view - X
   - make 'new' view - X
   - Deploy to heroku -X
-  - make seed data
   - add validators
 - Create 'guidelines' model to describe how an aspect of a company's relationship w its users
   - these will correspond to the columns in my GSS
@@ -12,6 +11,7 @@
   - generally all true or false
   - Company <-> metric is one to many
 - Consolidate some layout / IA
+  - make seed data
   - update homepage
   - get header working / layout/application views inheriting properly
 - Update company schema / controllers:

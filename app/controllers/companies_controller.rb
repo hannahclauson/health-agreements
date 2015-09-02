@@ -8,8 +8,11 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(article_params)
-    @company.save
-    redirect_to @company
+    if @company.save
+      redirect_to @company
+    else
+      render 'new'
+    end
   end
 
   def show
