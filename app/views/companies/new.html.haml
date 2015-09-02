@@ -1,6 +1,12 @@
 %h1 New Company
 
-Form fields should follow...
+= if @company.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@company.errors.count, "Error")} prohibited this company from being saved"
+    %ul
+      - @company.errors.full_messages.each do |msg|
+        %li= msg
+
 
 = form_for :company, url: companies_path do |f|
   %p
