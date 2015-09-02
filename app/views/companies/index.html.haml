@@ -1,0 +1,5 @@
+%h1 Companies
+
+%ul
+  - @companies.each do |c|
+    %li= link_to(c.name, c)
