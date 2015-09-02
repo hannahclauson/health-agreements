@@ -1,7 +1,7 @@
 - Create company scaffold (mvc)
-  - create company view
-  - create list view
-  - make 'new' view
+  - create company view - X
+  - create list view - X
+  - make 'new' view - X
   - make seed data
   - Deploy to heroku
 - Update company schema / controllers:
