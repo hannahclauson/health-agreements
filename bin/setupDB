@@ -1,0 +1,8 @@
+# Start server via: postgres -D /usr/local/var/postgres/
+# if not running
+dropdb health_agreements_dev
+createdb health_agreements_dev
+dropdb health_agreements_test
+createdb health_agreements_test
+
+
