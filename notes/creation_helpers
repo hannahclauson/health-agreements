@@ -1,0 +1,38 @@
+$bin/rake db:create
+
+# added resource 'company' to routes
+# http://guides.rubyonrails.org/getting_started.html
+# now create controller for resource
+$ bin/rails generate controller company
+
+$ bin/rails generate model Company name:string description:text url:string
+      invoke  active_record
+      create    db/migrate/20150902223734_create_companies.rb
+      create    app/models/company.rb
+      invoke    test_unit
+      create      test/models/company_test.rb
+      create      test/fixtures/companies.yml
+
+$ bin/rake db:migrate
+== 20150902223734 CreateCompanies: migrating ==================================
+-- create_table(:companies)
+   -> 0.0129s
+== 20150902223734 CreateCompanies: migrated (0.0131s) =========================
+
+# Config / setup heroku DB
+# Made sure to use DATABASE_URL in database.yml for production
+$ heroku run rake db:migrate
+Running `rake db:migrate` attached to terminal... up, run.4996
+   (53.6ms)  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+   (17.8ms)  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  ActiveRecord::SchemaMigration Load (2.6ms)  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCompanies (20150902223734)
+   (4.8ms)  BEGIN
+== 20150902223734 CreateCompanies: migrating ==================================
+-- create_table(:companies)
+   (53.2ms)  CREATE TABLE "companies" ("id" serial primary key, "name" character varying, "description" text, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0544s
+== 20150902223734 CreateCompanies: migrated (0.0545s) =========================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150902223734"]]
+
