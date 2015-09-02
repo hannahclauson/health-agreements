@@ -11,6 +11,9 @@
   - e.g. 'research data without authorization?'
   - generally all true or false
   - Company <-> metric is one to many
+- Consolidate some layout / IA
+  - update homepage
+  - get header working / layout/application views inheriting properly
 - Update company schema / controllers:
   - hook in activeadmin for company creation for now
     - will this suffice for relationships too?
