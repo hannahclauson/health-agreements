@@ -1,3 +1,18 @@
 %h1 New Company
 
-Form fields should follow:
+Form fields should follow...
+
+= form_for :company do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    = f.label :url
+    = f.text_field :url
+
+  %p
+    = f.label :description
+    = f.text_field :description
+
+
