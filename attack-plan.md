@@ -3,7 +3,7 @@
   - create list view - X
   - make 'new' view - X
   - Deploy to heroku -X
-  - add validators
+  - add validators - X
 - Create 'guidelines' model to describe how an aspect of a company's relationship w its users
   - these will correspond to the columns in my GSS
   - e.g. 'special consent for minors' (T/F)?
@@ -39,12 +39,14 @@
   - search by badge
   - search by rule values
 - Create users
+  - use devise (seems standard)
   - editor-level
   - can add information / modify results
   - need to make sure edit history is logged
 - Data Entry Phase II
   - another few dozen companies
   - refine existing data / review
+  - refine badges (definitions / new ones / etc)
 - Make production ready
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
