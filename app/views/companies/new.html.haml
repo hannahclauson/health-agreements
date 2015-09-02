@@ -2,7 +2,7 @@
 
 Form fields should follow...
 
-= form_for :company do |f|
+= form_for :company, url: companies_path do |f|
   %p
     = f.label :name
     = f.text_field :name
