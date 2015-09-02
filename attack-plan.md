@@ -4,7 +4,8 @@
   - make 'new' view - X
   - Deploy to heroku -X
   - make seed data
-- Create 'metric' model to describe how an aspect of a company's relationship w its users
+  - add validators
+- Create 'guidelines' model to describe how an aspect of a company's relationship w its users
   - these will correspond to the columns in my GSS
   - e.g. 'special consent for minors' (T/F)?
   - e.g. 'research data without authorization?'
