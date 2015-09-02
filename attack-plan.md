@@ -2,8 +2,14 @@
   - create company view - X
   - create list view - X
   - make 'new' view - X
+  - Deploy to heroku -X
   - make seed data
-  - Deploy to heroku
+- Create 'metric' model to describe how an aspect of a company's relationship w its users
+  - these will correspond to the columns in my GSS
+  - e.g. 'special consent for minors' (T/F)?
+  - e.g. 'research data without authorization?'
+  - generally all true or false
+  - Company <-> metric is one to many
 - Update company schema / controllers:
   - hook in activeadmin for company creation for now
     - will this suffice for relationships too?
@@ -12,21 +18,56 @@
     - privacy link
     - Terms of Service link
   - update seeds
-- Create 'metric' model to describe how an aspect of a company's relationship w its users
-  - these will correspond to the columns in my GSS
-  - e.g. 'special consent for minors' (T/F)?
-  - e.g. 'research data without authorization?'
-  - generally all true or false
-  - Company <-> metric is one to many
+- Data entry phase I
+  - enter data for ~12 companies
+  - maybe ideally a few dozen ... like 50?
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
   - e.g. 'Privacy Warden' icon - they only share info w explicit consent
   - badge -> metric is one to many
   - Build basic iconography to represent important aspects of agreements
-
+- Add basic auth wall
+- Basic styling
+  - bootstrap / kickstrap?
+  - something to make it look ok, nothing fancy
+  - create iconography / find iconography for badges
+- Create search methods
+  - search by badge
+  - search by rule values
+- Create users
+  - editor-level
+  - can add information / modify results
+  - need to make sure edit history is logged
+- Data Entry Phase II
+  - another few dozen companies
+  - refine existing data / review
+- Make production ready
+  - upgrade middleware (puma / unicorn)
+  - have mechanism for high fidelity DB backup / routinely do this
+  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
+- Setup polling data
+  - New model: Document
+    - URL
+    - poll date
+    - hash
+  - Async jobs to get these periodically
+  - New view (for companies) to see revision history per document type
+    - comparison view to compare two versions (visualize diff)
+  - alerts  / UI changes to denot
+  - cost est for this amt of data / traffic
+- Data Entry Phase III
+  - make sure all document links are specified
+  - big data push - hundreds of sites as goal
+  - ideally 1k companies
+- Request Addition / Modification
+  - form to request a company added to list
+  - form to request a modification
+  - form for new badge type?
 
 Nice to Haves:
 
+- Add some more details
+  - add t/f or n/a or ambiguous to acceptable values for a 'rule'
 - if they support public peer-reviewed research, links to relevant studies
 - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
 - Add user based submissions
