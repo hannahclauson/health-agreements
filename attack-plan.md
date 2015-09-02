@@ -1,8 +1,8 @@
-- Start w rails skeleton
-  - Create company scaffold (mvc)
-    - seed w a few companies
-    - create list view
-  - Create heroku endpoint
+- Create company scaffold (mvc)
+  - create company view
+  - create list view
+  - make 'new' view
+  - make seed data
   - Deploy to heroku
 - Update company schema / controllers:
   - hook in activeadmin for company creation for now
