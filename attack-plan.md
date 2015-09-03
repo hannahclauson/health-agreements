@@ -5,14 +5,18 @@
   - Deploy to heroku -X
   - add validators - X
   - add udpate method - X
-  - refactor views into partials 
-  - create delete method
+  - refactor views into partials - X  
+  - create delete method - X
+- Think about new model a bit before generating
+  - I want abstract 'guidelines' that a company implements some way via a 'practice'
+  
 - Create 'guidelines' model to describe how an aspect of a company's relationship w its users
   - these will correspond to the columns in my GSS
   - e.g. 'special consent for minors' (T/F)?
   - e.g. 'research data without authorization?'
   - generally all true or false
   - Company <-> metric is one to many
+  - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
 - Consolidate some layout / IA
   - make seed data
   - update homepage
