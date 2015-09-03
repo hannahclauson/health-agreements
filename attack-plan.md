@@ -34,11 +34,6 @@
 - Update company schema / controllers:
   - hook in activeadmin for company creation for now
     - will this suffice for relationships too?
-  - add fields:
-    - website
-    - privacy link
-    - Terms of Service link
-  - update seeds
 - Data entry phase I
   - enter data for ~12 companies
   - maybe ideally a few dozen ... like 50?
@@ -68,11 +63,14 @@
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
+  - estimate monthly costs
+  - add to my contracting firm?
 - Setup polling data
   - New model: Document
     - URL
     - poll date
     - hash
+  - Company has_many documents
   - Async jobs to get these periodically
   - New view (for companies) to see revision history per document type
     - comparison view to compare two versions (visualize diff)
@@ -80,6 +78,13 @@
   - cost est for this amt of data / traffic
 - Data Entry Phase III
   - make sure all document links are specified
+  - should have about a hundred companies
+  - let run for a week or so to see how data performs
+  - include test company (maybe this site itself) to validate change detection
+- Launch Site
+  - remove basic auth wall
+  - publish / make OSS?
+- Data Entry Phase IV
   - big data push - hundreds of sites as goal
   - ideally 1k companies
 - Request Addition / Modification
