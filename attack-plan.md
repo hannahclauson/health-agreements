@@ -8,14 +8,24 @@
   - refactor views into partials - X  
   - create delete method - X
 - Think about new model a bit before generating
-  - I want abstract 'guidelines' that a company implements some way via a 'practice'
-  
-- Create 'guidelines' model to describe how an aspect of a company's relationship w its users
+  - I want abstract 'guidelines' that a company implements some way via a 'practice' -X
+- Create 'guideline' model
+  - abstract rule that can be followed
+  - name
+  - desc
+  - truth_value - what it means to be followed
+  - false_value - what it means to not be followed
+  - na_value - what it means to be n/a
+  - no parent object
+- Create 'practice' model
   - these will correspond to the columns in my GSS
+  - has_one: guideline
+  - belongs_to: company (a company has_many: practices)
+  - implementation of a guideline for this company. Do they follow it? t/f/n-a/ambiguous?
+  - later on will probably want the values to be a proper enum ... for now int is fine
   - e.g. 'special consent for minors' (T/F)?
   - e.g. 'research data without authorization?'
   - generally all true or false
-  - Company <-> metric is one to many
   - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
 - Consolidate some layout / IA
   - make seed data
