@@ -32,8 +32,8 @@
   - update homepage
   - get header working / layout/application views inheriting properly
 - Update company schema / controllers:
-  - hook in activeadmin for company creation for now
-    - will this suffice for relationships too?
+  - want to see edit times / etc
+  - plus helpful as I build public facing functionality (search / etc)
 - Data entry phase I
   - enter data for ~12 companies
   - maybe ideally a few dozen ... like 50?
