@@ -3,12 +3,26 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+
+    if @company.update(company_params)
+      redirect_to @company
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @companies = Company.all
   end
 
   def create
-    @company = Company.new(article_params)
+    @company = Company.new(company_params)
     if @company.save
       redirect_to @company
     else
@@ -22,7 +36,7 @@ class CompaniesController < ApplicationController
 
   private
 
-  def article_params
+  def company_params
     params.require(:company).permit(
                                     :name,
                                     :description,

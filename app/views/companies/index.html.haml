@@ -2,4 +2,8 @@
 
 %ul
   - @companies.each do |c|
-    %li= link_to(c.name, c)
+    %li
+      %span= c.name      
+      %a=link_to("Show", c)
+      %a=link_to("Edit", edit_company_path(c))
+

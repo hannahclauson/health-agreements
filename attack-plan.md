@@ -4,6 +4,9 @@
   - make 'new' view - X
   - Deploy to heroku -X
   - add validators - X
+  - add udpate method - X
+  - refactor views into partials 
+  - create delete method
 - Create 'guidelines' model to describe how an aspect of a company's relationship w its users
   - these will correspond to the columns in my GSS
   - e.g. 'special consent for minors' (T/F)?
