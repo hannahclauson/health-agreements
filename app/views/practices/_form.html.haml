@@ -1,14 +1,17 @@
-= form_for ([@company, @company.practices.build]) do |f|
-  %p 
-    = f.label :implementation
-    = select_tag('practice[implementation]', options_for_select(enumerated_implementations))
+/= form_for ([@company, @company.practices.build]) do |f|
+/ @company.practices.build]) do |f|
+= form_for @company do |cf|
+  = cf.fields_for :practices do |f|
+    %p 
+      = f.label :implementation
+      = select_tag('practice[implementation]', options_for_select(enumerated_implementations))
 
-  %p
-    = f.label :notes
-    = f.text_field :notes
+    %p
+      = f.label :notes
+      = f.text_field :notes
 
-  %p
-    = f.label :guideline_id
-    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines))
-
-  = f.submit
+    %p
+      = f.label :guideline_id
+      = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines))
+  
+    = f.submit

@@ -7,6 +7,7 @@
     - Get edit / update working
     - No need for index 
     - Get delete working
+    - Get validators in place (for impl and guideline esp)
     - if I delete a guideline ... the assoc practices should go away
       - no IA reason for this ... should be almost never used ... but worse if it doenstwork this way
 - Consolidate some layout / IA

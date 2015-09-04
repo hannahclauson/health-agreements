@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :practices
+  accepts_nested_attributes_for :practices
 
   validates :name, presence: true, length: {minimum: 3}
   validates :url, presence: true
