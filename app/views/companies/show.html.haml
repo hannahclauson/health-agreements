@@ -11,11 +11,16 @@
 %h2 Practices:
 
 %table
+  %tr
+    %th Name
+    %th Implementation
+    %th Notes
+    %th{colspan: 2} Actions
   - @company.practices.each do |p|
     %tr
-      %td= p.implementation
-      %td= p.notes
       %td= p.guideline.name
+      %td= p.implementation_text
+      %td= p.notes
       %td= link_to('Show', company_practice_path(@company,p)) 
       %td= link_to('Delete', company_practice_path(@company,p), method: :delete) 
 
@@ -25,7 +30,7 @@
 = form_for ([@company, @company.practices.build]) do |f|
   %p 
     = f.label :implementation
-    = f.number_field :implementation
+    = select_tag('practice[implementation]', options_for_select(@enumerated_implementations))
 
   %p
     = f.label :notes

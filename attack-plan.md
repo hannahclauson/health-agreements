@@ -1,8 +1,9 @@
 - Get practice objects working
   - Fill in CRUD methods / controllers / views
     - Get basic practice creation working - X
-    - hook in guidelines so that the p->g assoc works
-    - add form helpers to make guidelines available via a select
+    - hook in guidelines so that the p->g assoc works - X
+    - add form helpers to make guidelines available via a select - X
+    - update form to enum implementation options
     - if I delete a guideline ... the assoc practices should go away
       - no IA reason for this ... should be almost never used ... but worse if it doenstwork this way
     - Get edit / update working
