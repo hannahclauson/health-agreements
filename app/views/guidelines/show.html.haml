@@ -9,3 +9,4 @@
 %p="In order to be unfulfilled, the following criteria must be met: #{@guideline.false_description}"
 
 %a=link_to("Edit", edit_guideline_path(@guideline))
+%a=link_to("Delete", guideline_path(@guideline), method: :delete)

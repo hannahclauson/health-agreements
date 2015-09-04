@@ -1,0 +1,8 @@
+%h1 All Guidelines
+
+%ul
+  - @guidelines.each do |g|
+    %li
+      %a= link_to(g.name, guideline_path(g))
+      %a= link_to("Edit", edit_guideline_path(g))
+      %a= link_to("Delete", guideline_path(g), method: :delete)
