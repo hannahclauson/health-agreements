@@ -1,9 +1,10 @@
 class PracticesController < ApplicationController
   def create
-    @practice = Practice.new(allowed_params)
+    @company = Company.find(params[:company_id])
+    @practice = @company.practices.create(allowed_params)
 
     if @practice.save
-      redirect_to practice_path(@practice)
+      redirect_to company_path(@company)
     else
       render 'new'
     end

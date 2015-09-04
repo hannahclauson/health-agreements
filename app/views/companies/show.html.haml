@@ -8,6 +8,15 @@
 
 %a=link_to("Edit", edit_company_path(@company))
 
+%h2 Practices:
+
+%table
+  - @company.practices.each do |p|
+    %tr
+      %td= p.implementation
+      %td= p.notes
+      / Need to add guideline info here as well
+
 
 %h2 Add a Practice
 
