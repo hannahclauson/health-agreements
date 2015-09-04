@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyText
+  implementation: 1
+  company_id: 
+  guideline_id: 
+
+two:
+  notes: MyText
+  implementation: 1
+  company_id: 
+  guideline_id: 

@@ -58,3 +58,10 @@ $ bin/rails generate controller guidelines
       create      app/assets/javascripts/guidelines.coffee
       invoke    scss
       create      app/assets/stylesheets/guidelines.scss
+$ bin/rails generate model practice notes:text implementation:integer company:belongs_to guideline:belongs_to
+      invoke  active_record
+      create    db/migrate/20150904040311_create_practices.rb
+      create    app/models/practice.rb
+      invoke    test_unit
+      create      test/models/practice_test.rb
+      create      test/fixtures/practices.yml
