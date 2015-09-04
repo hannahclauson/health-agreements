@@ -1,10 +1,16 @@
-- Consolidate some layout / IA
-  - make seed data
-  - update homepage
-  - get header working / layout/application views inheriting properly
 - Data entry phase I
   - enter data for ~12 companies
   - maybe ideally a few dozen ... like 50?
+- Consolidate some layout / IA
+  - make seed data
+    - make export script
+    - and seed script
+    - so I can seed DB on heroku
+  - update homepage
+  - get header working / layout/application views inheriting properly
+  - add some basic docs
+    - basic ToS
+    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS etc
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
   - e.g. 'Privacy Warden' icon - they only share info w explicit consent
