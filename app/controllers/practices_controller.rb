@@ -25,6 +25,16 @@ class PracticesController < ApplicationController
     @company = @practice.company # Syntactic sugar to let me reuse the form partial
   end
 
+  def update
+    @practice = Practice.find(params[:id])
+
+    if @practice.update(allowed_params)
+      redirect_to @practice.company
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @practice = Practice.find(params[:id])
     company = @practice.company
