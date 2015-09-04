@@ -2,8 +2,29 @@
 
 %a{:href => @company.url} Website
 
-%br
+%hr
 
 %p= @company.description
 
 %a=link_to("Edit", edit_company_path(@company))
+
+%hr
+
+%h2 Add a Practice
+
+- form_for ([@company, @company.practices.build]) do |f|
+  %p 
+    f.label :implementation
+    f.integer :implementation
+
+  %p
+    f.label :notes
+    f.text_field :notes
+
+  %p
+    # Not sure how to do this ... select a guideline that its similar to?
+    # f.fields_for :guideline do |gf|
+    # hmmm ... this is only good for a new guideline ... I probably only want to enable using existing guidelines / see : http://stackoverflow.com/questions/11539151/rails-mulitple-belongs-to-assignment
+
+
+

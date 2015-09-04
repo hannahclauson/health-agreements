@@ -18,7 +18,7 @@
   - make CRUD actions / views - X
 - Create 'practice' model
   - these will correspond to the columns in my GSS
-  - has_one: guideline
+  - belongs_to: guideline
   - belongs_to: company (a company has_many: practices)
   - implementation of a guideline for this company. Do they follow it? t/f/n-a/ambiguous?
   - later on will probably want the values to be a proper enum ... for now int is fine
@@ -26,13 +26,11 @@
   - e.g. 'research data without authorization?'
   - generally all true or false
   - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
+  - Fill in CRUD methods / controllers / views
 - Consolidate some layout / IA
   - make seed data
   - update homepage
   - get header working / layout/application views inheriting properly
-- Update company schema / controllers:
-  - want to see edit times / etc
-  - plus helpful as I build public facing functionality (search / etc)
 - Data entry phase I
   - enter data for ~12 companies
   - maybe ideally a few dozen ... like 50?
@@ -54,6 +52,9 @@
   - editor-level
   - can add information / modify results
   - need to make sure edit history is logged
+- Update company schema / controllers:
+  - want to see edit times / etc
+  - plus helpful as I build public facing functionality (search / etc)
 - Data Entry Phase II
   - another few dozen companies
   - refine existing data / review
