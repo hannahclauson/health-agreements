@@ -1,5 +1,7 @@
 - Data entry phase I
   - enter data for ~12 companies
+    - enter a set of guidelines
+    - then fill in companies / practices for all relevant guidelines
   - maybe ideally a few dozen ... like 50?
 - Consolidate some layout / IA
   - make seed data
@@ -10,7 +12,11 @@
   - get header working / layout/application views inheriting properly
   - add some basic docs
     - basic ToS
-    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS etc
+    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc
+    - would also be helpful to define a glossary of terms:
+      - usage data (ip address / cookies / order history)
+      - health data (personal metrics on health)
+      - aggregate data
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
   - e.g. 'Privacy Warden' icon - they only share info w explicit consent
