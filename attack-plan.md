@@ -1,4 +1,4 @@
-- Create company scaffold (mvc)
+- Create company scaffold (mvc) - X
   - create company view - X
   - create list view - X
   - make 'new' view - X
@@ -7,8 +7,8 @@
   - add udpate method - X
   - refactor views into partials - X  
   - create delete method - X
-- Think about new model a bit before generating
-  - I want abstract 'guidelines' that a company implements some way via a 'practice' -X
+- Think about new model a bit before generating - X
+  - I want abstract 'guidelines' that a company implements some way via a 'practice' - X
 - Create 'guideline' model
   - abstract rule that can be followed
   - name
