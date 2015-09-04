@@ -11,7 +11,8 @@ class Practice < ActiveRecord::Base
     1 => :follows,
     2 => :does_not_follow,
     3 => :na,
-    4 => :ambiguous
+    4 => :ambiguous,
+    5 => :unknown
   }
 
   def implementation_text

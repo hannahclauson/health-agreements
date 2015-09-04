@@ -6,6 +6,10 @@
         - @practice.errors.full_messages.each do |msg|
           %li= msg
 
+  %p
+    = f.label :guideline_id
+    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
+
   %p 
     = f.label :implementation
     = select_tag('practice[implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)
@@ -14,8 +18,5 @@
     = f.label :notes
     = f.text_field :notes
 
-  %p
-    = f.label :guideline_id
-    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
 
   = f.submit
