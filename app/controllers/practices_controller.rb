@@ -10,6 +10,14 @@ class PracticesController < ApplicationController
     end
   end
 
+  def destroy
+    @practice = Practice.find(params[:id])
+    company = @practice.company
+    @practice.destroy
+
+    redirect_to company
+  end
+
   private
 
   def allowed_params
