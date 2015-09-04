@@ -22,7 +22,6 @@ class PracticesController < ApplicationController
 
   def edit
     @practice = Practice.find(params[:id])
-    puts "Found practice: #{@practice}"
     @company = @practice.company # Syntactic sugar to let me reuse the form partial
   end
 
