@@ -11,7 +11,7 @@ class PracticesController < ApplicationController
   end
 
   def show
-    @practice = Practice.find(params[:id])
+    @practice = Practice.includes(:company).find(params[:id])
   end
 
   def destroy

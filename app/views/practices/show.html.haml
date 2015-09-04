@@ -1,5 +1,13 @@
 %h1="Practice - #{@practice.id}"
 
-%p="Belongs to #{@practice.company_id}"
+%p="Belongs to (#{@practice.company_id})"
 
-%p="Guideline: #{@practice.guideline}"
+%p="Guideline: (#{@practice.guideline})"
+
+%br
+
+%p= @practice.inspect
+
+%br
+
+%p= @practice.methods.sort
