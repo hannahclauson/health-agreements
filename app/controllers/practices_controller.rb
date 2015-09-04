@@ -6,7 +6,7 @@ class PracticesController < ApplicationController
     if @practice.save
       redirect_to company_path(@company)
     else
-      render 'new'
+      render 'edit'
     end
   end
 
@@ -22,6 +22,7 @@ class PracticesController < ApplicationController
 
   def edit
     @practice = Practice.find(params[:id])
+    puts "Found practice: #{@practice}"
     @company = @practice.company # Syntactic sugar to let me reuse the form partial
   end
 
@@ -31,7 +32,7 @@ class PracticesController < ApplicationController
     if @practice.update(allowed_params)
       redirect_to @practice.company
     else
-      render 'edit'
+      redirect_to edit_company_practice_path(@practice.company, @practice)
     end
   end
 

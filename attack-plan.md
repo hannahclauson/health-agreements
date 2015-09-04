@@ -4,10 +4,11 @@
     - hook in guidelines so that the p->g assoc works - X
     - add form helpers to make guidelines available via a select - X
     - update form to enum implementation options - X
-    - Get edit / update working
-    - No need for index 
-    - Get delete working
+    - Get edit / update working - X
+    - No need for index - X
+    - Get delete working - X
     - Get validators in place (for impl and guideline esp)
+
     - if I delete a guideline ... the assoc practices should go away
       - no IA reason for this ... should be almost never used ... but worse if it doenstwork this way
 - Consolidate some layout / IA
