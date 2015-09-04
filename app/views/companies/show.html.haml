@@ -15,7 +15,7 @@
     %tr
       %td= p.implementation
       %td= p.notes
-      / Need to add guideline info here as well
+      / %td= p.guideline.name
 
 
 %h2 Add a Practice
@@ -29,5 +29,9 @@
     = f.label :notes
     = f.text_field :notes
 
+  %p
+    = select_tag(:guideline_id, options_for_select(@enumerated_guidelines))
+
   = f.submit
 
+  

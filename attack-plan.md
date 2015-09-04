@@ -1,6 +1,6 @@
 - Get practice objects working
   - Fill in CRUD methods / controllers / views
-    - Get basic practice creation working
+    - Get basic practice creation working - X
     - hook in guidelines so that the p->g assoc works
     - add form helpers to make guidelines available via a select
     - if I delete a guideline ... the assoc practices should go away

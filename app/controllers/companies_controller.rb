@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+
     @company = Company.find(params[:id])
   end
 
@@ -33,6 +34,11 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    guidelines = Guideline.all
+    @enumerated_guidelines = guidelines.collect do |g|
+      [g.name, g.id]
+    end
+
   end
 
   def destroy
@@ -40,7 +46,8 @@ class CompaniesController < ApplicationController
     @company.destroy
 
     redirect_to companies_path
-  end
+ 
+ end
 
   private
 
