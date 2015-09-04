@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  has_many :practices
+  has_many :practices, dependent: :destroy
   accepts_nested_attributes_for :practices
 
   validates :name, presence: true, length: {minimum: 3}

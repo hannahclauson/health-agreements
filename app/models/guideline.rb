@@ -1,5 +1,5 @@
 class Guideline < ActiveRecord::Base
-  has_many :practices
+  has_many :practices, dependent: :destroy
 
   validates :name, presence: true, length: {minimum: 3}
   validates :description, presence: true, length: {minimum: 10}

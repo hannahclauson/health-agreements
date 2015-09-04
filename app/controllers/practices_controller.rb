@@ -1,4 +1,9 @@
 class PracticesController < ApplicationController
+  def index
+    @company = Company.find(params[:company_id])
+    @practices = @company.practices
+  end
+
   def create
     @company = Company.find(params[:company_id])
     @practice = @company.practices.create(allowed_params)
