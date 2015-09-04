@@ -1,0 +1,28 @@
+- Create company scaffold (mvc) - X
+  - create company view - X
+  - create list view - X
+  - make 'new' view - X
+  - Deploy to heroku -X
+  - add validators - X
+  - add udpate method - X
+  - refactor views into partials - X  
+  - create delete method - X
+- Think about new model a bit before generating - X
+  - I want abstract 'guidelines' that a company implements some way via a 'practice' - X
+- Create 'guideline' model
+  - abstract rule that can be followed - X
+  - name - X
+  - desc - X
+  - truth_value - description of what it means to be followed - X
+  - false_value - what it means to not be followed - X
+  - make CRUD actions / views - X
+- Create 'practice' model - X
+  - these will correspond to the columns in my GSS
+  - belongs_to: guideline
+  - belongs_to: company (a company has_many: practices)
+  - implementation of a guideline for this company. Do they follow it? t/f/n-a/ambiguous?
+  - later on will probably want the values to be a proper enum ... for now int is fine
+  - e.g. 'special consent for minors' (T/F)?
+  - e.g. 'research data without authorization?'
+  - generally all true or false
+  - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
