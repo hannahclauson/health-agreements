@@ -16,7 +16,7 @@
   - truth_value - description of what it means to be followed - X
   - false_value - what it means to not be followed - X
   - make CRUD actions / views - X
-- Create 'practice' model
+- Create 'practice' model - X
   - these will correspond to the columns in my GSS
   - belongs_to: guideline
   - belongs_to: company (a company has_many: practices)
@@ -26,7 +26,9 @@
   - e.g. 'research data without authorization?'
   - generally all true or false
   - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
+- Get practice objects working
   - Fill in CRUD methods / controllers / views
+  - add <select> input to abstract away 'implements' as integer
 - Consolidate some layout / IA
   - make seed data
   - update homepage

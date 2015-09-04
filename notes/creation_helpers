@@ -65,3 +65,18 @@ $ bin/rails generate model practice notes:text implementation:integer company:be
       invoke    test_unit
       create      test/models/practice_test.rb
       create      test/fixtures/practices.yml
+$ bin/rails generate controller practices
+      create  app/controllers/practices_controller.rb
+      invoke  erb
+      create    app/views/practices
+      invoke  test_unit
+      create    test/controllers/practices_controller_test.rb
+      invoke  helper
+      create    app/helpers/practices_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/practices.coffee
+      invoke    scss
+      create      app/assets/stylesheets/practices.scss
+
