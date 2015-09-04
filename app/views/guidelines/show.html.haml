@@ -1,0 +1,11 @@
+%h1 Guideline
+
+%h2= @guideline.name
+
+%p= @guideline.description
+
+%p="In order to be fulfilled, the following criteria must be met: #{@guideline.true_description}"
+
+%p="In order to be unfulfilled, the following criteria must be met: #{@guideline.false_description}"
+
+%a=link_to("Edit", edit_guideline_path(@guideline))

@@ -36,3 +36,25 @@ Migrating to CreateCompanies (20150902223734)
 
   SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150902223734"]]
 
+$ bin/rails generate model Guideline name:string description:text true_description:text false_description:text
+      invoke  active_record
+      create    db/migrate/20150904014305_create_guidelines.rb
+      create    app/models/guideline.rb
+      invoke    test_unit
+      create      test/models/guideline_test.rb
+      create      test/fixtures/guidelines.yml
+
+$ bin/rails generate controller guidelines
+      create  app/controllers/guidelines_controller.rb
+      invoke  erb
+      create    app/views/guidelines
+      invoke  test_unit
+      create    test/controllers/guidelines_controller_test.rb
+      invoke  helper
+      create    app/helpers/guidelines_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/guidelines.coffee
+      invoke    scss
+      create      app/assets/stylesheets/guidelines.scss

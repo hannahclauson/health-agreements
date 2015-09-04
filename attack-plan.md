@@ -13,10 +13,10 @@
   - abstract rule that can be followed
   - name
   - desc
-  - truth_value - what it means to be followed
+  - truth_value - description of what it means to be followed
   - false_value - what it means to not be followed
-  - na_value - what it means to be n/a
   - no parent object
+  - make CRUD actions / views
 - Create 'practice' model
   - these will correspond to the columns in my GSS
   - has_one: guideline
