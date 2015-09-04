@@ -15,7 +15,7 @@
     %tr
       %td= p.implementation
       %td= p.notes
-      %td (p.guideline.name)
+      %td= p.guideline.name
       %td= link_to('Show', company_practice_path(@company,p)) 
       %td= link_to('Delete', company_practice_path(@company,p), method: :delete) 
 
