@@ -14,7 +14,8 @@ class Practice < ActiveRecord::Base
   }
 
   def implementation_text
-    IMPLEMENTATION_MAP[self.implementation]
+    # Displays current implementation as text
+    Practice::IMPLEMENTATION_MAP[self.implementation]
   end
 
 end

@@ -22,24 +22,11 @@
       %td= p.implementation_text
       %td= p.notes
       %td= link_to('Show', company_practice_path(@company,p)) 
+      %td= link_to('Edit', edit_company_practice_path(@company,p)) 
       %td= link_to('Delete', company_practice_path(@company,p), method: :delete) 
 
 
 %h2 Add a Practice
 
-= form_for ([@company, @company.practices.build]) do |f|
-  %p 
-    = f.label :implementation
-    = select_tag('practice[implementation]', options_for_select(@enumerated_implementations))
-
-  %p
-    = f.label :notes
-    = f.text_field :notes
-
-  %p
-    = f.label :guideline_id
-    = select_tag('practice[guideline_id]', options_for_select(@enumerated_guidelines))
-
-  = f.submit
-
+= render 'practices/form'
   

@@ -3,13 +3,12 @@
     - Get basic practice creation working - X
     - hook in guidelines so that the p->g assoc works - X
     - add form helpers to make guidelines available via a select - X
-    - update form to enum implementation options
-    - if I delete a guideline ... the assoc practices should go away
-      - no IA reason for this ... should be almost never used ... but worse if it doenstwork this way
+    - update form to enum implementation options - X
     - Get edit / update working
     - No need for index 
     - Get delete working
-  - add <select> input to abstract away 'implements' as integer
+    - if I delete a guideline ... the assoc practices should go away
+      - no IA reason for this ... should be almost never used ... but worse if it doenstwork this way
 - Consolidate some layout / IA
   - make seed data
   - update homepage

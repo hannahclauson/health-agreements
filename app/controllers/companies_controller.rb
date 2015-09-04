@@ -34,16 +34,6 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-
-    guidelines = Guideline.all
-    @enumerated_guidelines = guidelines.collect do |g|
-      [g.name, g.id]
-    end
-
-    @enumerated_implementations = Practice::IMPLEMENTATION_MAP.collect do |int_value, name|
-      [name, int_value]
-    end
-
   end
 
   def destroy

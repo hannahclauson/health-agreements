@@ -20,6 +20,11 @@ class PracticesController < ApplicationController
 
   end
 
+  def edit
+    @practice = Practice.find(params[:id])
+    @company = @practice.company # Syntactic sugar to let me reuse the form partial
+  end
+
   def destroy
     @practice = Practice.find(params[:id])
     company = @practice.company
