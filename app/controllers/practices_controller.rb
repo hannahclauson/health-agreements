@@ -10,6 +10,10 @@ class PracticesController < ApplicationController
     end
   end
 
+  def show
+    @practice = Practice.find(params[:id])
+  end
+
   def destroy
     @practice = Practice.find(params[:id])
     company = @practice.company
