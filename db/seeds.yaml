@@ -1,0 +1,18 @@
+---
+guidelines:
+  - 
+    name: peer reviewed publications
+    description: 'Published in publicly available peer reviewed publications?'
+    true_description: 'MUST be published in'
+    false_description: 'NOT published in ANY peer reviewed public journals'
+  - 
+    name: optin for health data research
+    description: "Is an opt-in mechanism used when sharing your health data for research?"
+    true_description: "MUST NOT use your personal health data for research WITHOUT your explicit consent (the ToS DO NOT suffice as consent)"
+    false_description: "MAY use your personal health data for research WITHOUT your explicit consent (the ToS DO suffice as consent)"
+companies:
+  - 
+    name: 23andme
+    url: http://23andme.com
+    practices:
+  
