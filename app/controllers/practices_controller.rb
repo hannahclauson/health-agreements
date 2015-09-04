@@ -12,6 +12,11 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.includes(:company).find(params[:id])
+    # To determine if I just cannot see this in the view, I'll play w assoc objs here
+    @c = @practice.company
+    @g = @practice.guideline
+    
+
   end
 
   def destroy
