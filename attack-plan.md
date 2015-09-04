@@ -10,13 +10,12 @@
 - Think about new model a bit before generating - X
   - I want abstract 'guidelines' that a company implements some way via a 'practice' - X
 - Create 'guideline' model
-  - abstract rule that can be followed
-  - name
-  - desc
-  - truth_value - description of what it means to be followed
-  - false_value - what it means to not be followed
-  - no parent object
-  - make CRUD actions / views
+  - abstract rule that can be followed - X
+  - name - X
+  - desc - X
+  - truth_value - description of what it means to be followed - X
+  - false_value - what it means to not be followed - X
+  - make CRUD actions / views - X
 - Create 'practice' model
   - these will correspond to the columns in my GSS
   - has_one: guideline
