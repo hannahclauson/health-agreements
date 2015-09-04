@@ -1,7 +1,7 @@
 = form_for [@company, @practice] do |f|
   %p 
     = f.label :implementation
-    = select_tag('practice[implementation]', options_for_select(enumerated_implementations))
+    = select_tag('practice[implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation))
 
   %p
     = f.label :notes
@@ -9,6 +9,6 @@
 
   %p
     = f.label :guideline_id
-    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines))
-  
+    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id))
+
   = f.submit
