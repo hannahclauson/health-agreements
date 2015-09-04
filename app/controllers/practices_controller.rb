@@ -32,7 +32,8 @@ class PracticesController < ApplicationController
     if @practice.update(allowed_params)
       redirect_to @practice.company
     else
-      redirect_to edit_company_practice_path(@practice.company, @practice)
+      @company = @practice.company
+      render 'edit'
     end
   end
 
