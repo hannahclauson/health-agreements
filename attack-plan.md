@@ -9,6 +9,9 @@
       - jumbotron style?
     - make company show look good - X
       - use panels / table styles for list of practices
+    - fix some styles
+      - fix highlight style -- I messed up the colors for the highlighting of active state in the nav bar ... think I just need to namespace the styles I added properly
+      - same highlight issue in footer
     - make company edit look good
       - lots of form helpers / fieldsets
     - same for practice show (needs more description around how it relates to its guideline)
@@ -85,6 +88,8 @@
     - Learn about guidelines / badges
     - Highlight some common searches / most frequent searches?
     - Showcase Good Citizens
+- Update UX
+  - on company show page, provide JS filters for each column (prob at least implements col)
 - Launch Site
   - marketing time
 
