@@ -9,10 +9,10 @@
 
 %body
   = render 'shared/navigation'
-  = yield
+  .container
+    = yield
 
-
-  %hr
   %footer
-    - footer_links.each do |text, path|
-      %a= link_to text, path
+    %ul
+      - footer_links.each do |text, path|
+        %li= link_to text, path
