@@ -65,6 +65,7 @@
   - should have about a hundred companies
   - let run for a week or so to see how data performs
   - include test company (maybe this site itself) to validate change detection
+  - paginate company index
 - Soft Launch Site
   - remove basic auth wall
   - publish / make OSS?

@@ -1,10 +1,11 @@
-%h1 Companies
+.container
+  %h1 Companies
 
-%ul
-  - @companies.each do |c|
-    %li
-      %span= c.name      
-      %a=link_to("Show", c)
-      %a=link_to("Edit", edit_company_path(c))
-      %a=link_to("Delete", company_path(c), method: :delete, data: {confirm: 'Are you sure?'})
+  %ul
+    - @companies.each do |c|
+      %li
+        %span= c.name      
+        %a=link_to("Show", c)
+        %a=link_to("Edit", edit_company_path(c))
+        %a=link_to("Delete", company_path(c), method: :delete, data: {confirm: 'Are you sure?'})
 
