@@ -12,7 +12,7 @@
     #logo
       Health Agreements
     #nav
-      %a= link_to 'All Companies', companies_path
-      %a= link_to 'Guidelines', guidelines_path
-      %a= link_to 'Glossary', 'tbd'
+      - header_links.each do |name, path|
+        %a= link_to name.capitalize, path
+
   = yield

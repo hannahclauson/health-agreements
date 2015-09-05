@@ -1,11 +1,10 @@
 - Consolidate some layout / IA
   - make seed data - X
-    - make export script
-    - and seed script
-    - so I can seed DB on heroku
-  - update homepage
-  - get header working / layout/application views inheriting properly
-  - add footer
+    -  seed script - X
+    - so I can seed DB on heroku - X
+  - update homepage - X
+  - get header working / layout/application views inheriting properly - X
+  - make header smart (update links appropriately)
   - add some basic docs
     - basic ToS
     - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc
@@ -13,6 +12,10 @@
       - usage data (ip address / cookies / order history)
       - health data (personal metrics on health)
       - aggregate data
+  - add footer
+- Basic styling
+  - bootstrap / kickstrap?
+  - something to make it look ok, nothing fancy
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
   - e.g. 'Privacy Warden' icon - they only share info w explicit consent
@@ -25,10 +28,6 @@
   - maybe theres a better way to do this
   - Build basic iconography to represent important aspects of agreements
 - Add basic auth wall
-- Basic styling
-  - bootstrap / kickstrap?
-  - something to make it look ok, nothing fancy
-  - create iconography / find iconography for badges
 - Create search methods
   - search by badge
   - search by rule values
