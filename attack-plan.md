@@ -1,5 +1,17 @@
 - Basic styling
   - bootstrap
+    - make header look good
+      - navbar
+      - logo / title
+    - make footer look good
+      - dark color      
+    - homepage
+      - jumbotron style?
+    - make company show look good	
+      - use panels / table styles for list of practices
+    - make company edit look good
+      - lots of form helpers / fieldsets
+    - same for guideline show / edit
   - update the color palette
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research

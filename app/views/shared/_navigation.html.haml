@@ -1,0 +1,8 @@
+%header
+  %nav.navbar.navbar-default{:role => 'navigation'}
+    .container-fluid
+      .navbar-header
+        %a.navbar-brand{href: "/"} Health Agreements
+      %ul.navbar-nav.nav
+        - header_links.each do |name, path|
+          %li= link_to name.capitalize, path

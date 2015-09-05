@@ -8,13 +8,7 @@
     %title HealthAgreements
 
 %body
-  %header
-    #logo
-      Health Agreements
-    #nav
-      - header_links.each do |name, path|
-        %a= link_to name.capitalize, path
-
+  = render 'shared/navigation'
   = yield
 
 
