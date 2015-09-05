@@ -5,13 +5,13 @@
   - update homepage - X
   - get header working / layout/application views inheriting properly - X
   - add some basic docs
-    - basic ToS
-    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc
-    - would also be helpful to define a glossary of terms:
+    - basic ToS - X
+    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc - X (linked to ietf description ... should later clean up the words used to make sure they match up)
+    - would also be helpful to define a glossary of terms: - X
       - usage data (ip address / cookies / order history)
       - health data (personal metrics on health)
       - aggregate data
-  - add footer
+  - add footer - X
 - Basic styling
   - bootstrap / kickstrap?
   - something to make it look ok, nothing fancy
@@ -80,6 +80,13 @@
   - form for new badge type?
 - Launch Site
   - marketing time
+
+Pre-Launch
+
+- audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
+- make sure errors are handled properly
+- do a DB dump / restore
+
 
 Nice to Haves:
 

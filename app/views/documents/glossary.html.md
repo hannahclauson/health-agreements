@@ -1,5 +1,9 @@
 # Glossary
 
+## Keywords
+
+You may have noticed that some words throughout the site are in CAPs. We're not yelling at you, but instead trying to be precise with our language. This language SHOULD follow the guidelines that the IETF (Internet Engineering Task Force) adopts when using this language to write their RFCs. For more information, [see this description](https://www.ietf.org/rfc/rfc2119.txt).
+
 ## Types of Data
 
 ### Service / Usage Data
