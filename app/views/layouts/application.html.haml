@@ -9,4 +9,10 @@
 
 %body
   %header
-    = yield
+    #logo
+      Health Agreements
+    #nav
+      %a= link_to 'All Companies', companies_path
+      %a= link_to 'Guidelines', guidelines_path
+      %a= link_to 'Glossary', 'tbd'
+  = yield
