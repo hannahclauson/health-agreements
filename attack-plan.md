@@ -1,5 +1,11 @@
 - Basic styling
   - bootstrap / kickstrap?
+    - skeleton
+    - bootstrap
+    - tuktuk
+    - html kickstart
+    - pure
+    - uikit (uses less) - X
   - something to make it look ok, nothing fancy
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
