@@ -1,11 +1,13 @@
 .container
-  %h1 Companies
+  .page-header
+    %h1 Companies
+    %p Browse Companies for detailed health information
 
-  %ul
+  %ul.list-group
     - @companies.each do |c|
-      %li
-        %span= c.name      
-        %a=link_to("Show", c)
-        %a=link_to("Edit", edit_company_path(c))
-        %a=link_to("Delete", company_path(c), method: :delete, data: {confirm: 'Are you sure?'})
+      %li.list-group-item
+        = link_to c.name, c
+        %span.actions.btn-group.btn-group-xs.btn-group-link
+          =link_to("Edit", edit_company_path(c), {class: "btn btn-link"})
+          =link_to("Delete", company_path(c), class: "btn btn-link", method: :delete, data: {confirm: 'Are you sure?'})
 

@@ -3,9 +3,9 @@
     - make header look good - X
       - navbar - X
       - logo / title - X
-    - make footer look good
+    - make footer look good - X
       - dark color      
-    - homepage
+    - homepage - X
       - jumbotron style?
     - make company show look good	
       - use panels / table styles for list of practices
@@ -77,6 +77,11 @@
   - form to request a company added to list
   - form to request a modification
   - form for new badge type?
+- Update copy
+  - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
+    - Learn about guidelines / badges
+    - Highlight some common searches / most frequent searches?
+    - Showcase Good Citizens
 - Launch Site
   - marketing time
 
