@@ -26,3 +26,9 @@
   - e.g. 'research data without authorization?'
   - generally all true or false
   - later on ... the 'parent' object will the Document object (which legal doc did the guideline come from?) ... this is important because as I track changes, I'll need to know which guidelines are possibly out of date
+- Data entry phase I
+  - enter data for ~12 companies
+    - enter a set of guidelines
+    - then fill in companies / practices for all relevant guidelines
+  - maybe ideally a few dozen ... like 50?
+  - push to heroku and seed there

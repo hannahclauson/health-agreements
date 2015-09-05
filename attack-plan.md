@@ -1,10 +1,5 @@
-- Data entry phase I
-  - enter data for ~12 companies
-    - enter a set of guidelines
-    - then fill in companies / practices for all relevant guidelines
-  - maybe ideally a few dozen ... like 50?
 - Consolidate some layout / IA
-  - make seed data
+  - make seed data - X
     - make export script
     - and seed script
     - so I can seed DB on heroku
