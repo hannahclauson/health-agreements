@@ -29,7 +29,9 @@
           = link_to('Delete', company_practice_path(@company,p), class: 'btn btn-xs btn-danger', method: :delete) 
 
 
-  %h2 Add a Practice
-
-  = render 'practices/form'
+  .panel.panel-default
+    .panel-heading
+      %h2 Add a Practice
+    .panel-body
+      = render 'practices/form'
   

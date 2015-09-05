@@ -1,4 +1,4 @@
-= form_for [@company, @practice] do |f|
+= form_for [@company, @practice], html: {class: 'form-horizontal'} do |f|
   = if @practice.errors.any?
     #error_explanation
       %h2= "#{pluralize(@practice.errors.count, "Error")} prohibited this practice from being saved"
@@ -6,17 +6,20 @@
         - @practice.errors.full_messages.each do |msg|
           %li= msg
 
-  %p
-    = f.label :guideline_id
-    = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
+  .field.form-group
+    = f.label :guideline_id, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
 
-  %p 
-    = f.label :implementation
-    = select_tag('practice[implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)
+  .field.form-group
+    = f.label :implementation, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = select_tag('practice[implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)
 
-  %p
-    = f.label :notes
-    = f.text_field :notes
+  .field.form-group
+    = f.label :notes, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :notes
 
 
   = f.submit
