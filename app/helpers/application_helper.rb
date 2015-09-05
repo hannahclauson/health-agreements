@@ -1,13 +1,15 @@
 module ApplicationHelper
 
-  def header_links(this_page=nil)
-    # Will make it a smart header later
-    links = {
-      :home => "/",
-      :companies => companies_path,
-      :guidelines => guidelines_path,
-      :glossary => "/documents/glossary"
-    }.reject {|k,v| true if k == this_page }
+  def active_page
+    self.page_class.split(" ").join("_").to_sym
+  end
+
+  def header_links
+    {
+      :companies_index => ['Companies', companies_path], # companies index
+      :guidelines_index => ['Guidelines', guidelines_path], #guidelines index
+      :documents_glossary => ['Glossary', "/documents/glossary"] #documents glossary
+    }
   end
 
   def footer_links

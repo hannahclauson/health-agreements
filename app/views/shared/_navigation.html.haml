@@ -4,5 +4,6 @@
       .navbar-header
         %a.navbar-brand{href: "/"} Health Agreements
       %ul.navbar-nav.nav
-        - header_links.each do |name, path|
-          %li= link_to name.capitalize, path
+        - header_links.each do |name, info|
+          - active_attribute = (name == active_page) ? "active" : ""
+          %li{class: active_attribute}= link_to info.first, info.last
