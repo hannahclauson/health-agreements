@@ -8,6 +8,6 @@
       %li.list-group-item
         = link_to c.name, c
         %span.actions.btn-group.btn-group-xs.btn-group-link
-          =link_to("Edit", edit_company_path(c), {class: "btn btn-link"})
-          =link_to("Delete", company_path(c), class: "btn btn-link", method: :delete, data: {confirm: 'Are you sure?'})
+          =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
+          =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
 
