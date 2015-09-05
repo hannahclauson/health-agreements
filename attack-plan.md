@@ -1,8 +1,8 @@
 - Basic styling
   - bootstrap
-    - make header look good
-      - navbar
-      - logo / title
+    - make header look good - X
+      - navbar - X
+      - logo / title - X
     - make footer look good
       - dark color      
     - homepage
