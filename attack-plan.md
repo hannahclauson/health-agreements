@@ -4,7 +4,6 @@
     - so I can seed DB on heroku - X
   - update homepage - X
   - get header working / layout/application views inheriting properly - X
-  - make header smart (update links appropriately)
   - add some basic docs
     - basic ToS
     - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc

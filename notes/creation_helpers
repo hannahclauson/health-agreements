@@ -83,3 +83,20 @@ $ bin/rails generate controller practices
 # To seed the DB
 $ bin/rake db:drop
 $ bin/rake db:setup
+# on heroku, cant drop so just did
+$ heroku run rake db:seed
+
+$ rails generate controller documents
+      create  app/controllers/documents_controller.rb
+      invoke  erb
+      create    app/views/documents
+      invoke  test_unit
+      create    test/controllers/documents_controller_test.rb
+      invoke  helper
+      create    app/helpers/documents_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/documents.coffee
+      invoke    scss
+      create      app/assets/stylesheets/documents.scss

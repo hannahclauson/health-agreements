@@ -16,3 +16,8 @@ consent is a big question and may need a lot more refinement
 - companies that report should be rated higher
 - should all practices be reported for all companies? even if unknown?
  
+# Research
+
+- want to refine 'public / peer reviewed' into separate guidelines
+- published in a way that anyone can download should be separated and touted
+- may also include a badge for high impact studies?
