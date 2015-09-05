@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :guidelines
 
+  get 'documents/terms_of_service'
+  get 'documents/glossary'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

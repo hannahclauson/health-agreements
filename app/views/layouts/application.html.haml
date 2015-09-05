@@ -16,3 +16,9 @@
         %a= link_to name.capitalize, path
 
   = yield
+
+
+  %hr
+  %footer
+    - footer_links.each do |text, path|
+      %a= link_to text, path
