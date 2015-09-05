@@ -7,26 +7,33 @@
     %a{:href => @company.url, :target => "_blank"} Visit Website
     %a=link_to("Edit", edit_company_path(@company), {class: 'btn btn-xs btn-info page_edit'})
 
-  %p= @company.description
+  .panel.panel-default
+    .panel-heading Description
+    .panel-body     
+      %p= @company.description
 
+  .panel.panel-primary
+    .panel-heading
+      %h2 Practices
+    .panel-body
+      %p
+        The following is a list of practices that #{@company.name} follows. Click on a practice to understand what it means to follow that practice.
 
-  %h2 Practices:
-
-  %table.table
-    %tr.info
-      %th Name
-      %th Implementation
-      %th Notes
-      %th Actions
-    - @company.practices.each do |p|
-      %tr
-        %td= p.guideline.name
-        %td= p.implementation_text
-        %td= p.notes
-        %td.actions
-          = link_to('Show', company_practice_path(@company,p), {class: 'btn btn-xs btn-info'})
-          = link_to('Edit', edit_company_practice_path(@company,p), {class: 'btn btn-xs btn-info'}) 
-          = link_to('Delete', company_practice_path(@company,p), class: 'btn btn-xs btn-danger', method: :delete) 
+    %table.table
+      %tr.info
+        %th Name
+        %th Implementation
+        %th Notes
+        %th Actions
+      - @company.practices.each do |p|
+        %tr
+          %td= p.guideline.name
+          %td= p.implementation_text
+          %td= p.notes
+          %td.actions
+            = link_to('Show', company_practice_path(@company,p), {class: 'btn btn-xs btn-info'})
+            = link_to('Edit', edit_company_practice_path(@company,p), {class: 'btn btn-xs btn-info'}) 
+            = link_to('Delete', company_practice_path(@company,p), class: 'btn btn-xs btn-danger', method: :delete) 
 
 
   .panel.panel-default
