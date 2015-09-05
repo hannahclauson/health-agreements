@@ -7,12 +7,15 @@
       - dark color      
     - homepage - X
       - jumbotron style?
-    - make company show look good	
+    - make company show look good - X
       - use panels / table styles for list of practices
     - make company edit look good
       - lots of form helpers / fieldsets
+    - same for practice show (needs more description around how it relates to its guideline)
     - same for guideline show / edit
-  - update the color palette
+      - provide a guideline 'landing page' to explain how they work
+      - guess I found a use for guideline#index after all
+  - update the color palette - X
 - Create 'badges' model to show succinct information about a company's use of health data
   - e.g. 'Public Research' icon - they provide info for research
   - e.g. 'Privacy Warden' icon - they only share info w explicit consent
