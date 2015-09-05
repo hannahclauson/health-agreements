@@ -41,19 +41,22 @@
   - editor-level
   - can add information / modify results
   - need to make sure edit history is logged
-- Update company schema / controllers:
-  - want to see edit times / etc
-  - plus helpful as I build public facing functionality (search / etc)
 - Data Entry Phase II
   - another few dozen companies
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
+- Update company schema / controllers:
+  - want to see edit times / etc
+  - plus helpful as I build public facing functionality (search / etc)
+  - may get all this for free already -- via active admin
 - Make production ready
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
   - estimate monthly costs
   - add to my contracting firm?
+  - add tests in place / proper error handling
+  - add mixpanel / GA
 - Setup polling data
   - New model: Document
     - URL
@@ -70,19 +73,25 @@
   - should have about a hundred companies
   - let run for a week or so to see how data performs
   - include test company (maybe this site itself) to validate change detection
-- Launch Site
+- Soft Launch Site
   - remove basic auth wall
   - publish / make OSS?
 - Data Entry Phase IV
   - big data push - hundreds of sites as goal
   - ideally 1k companies
+  - upgrade search (to elastic search?) so that its good / fast
 - Request Addition / Modification
   - form to request a company added to list
   - form to request a modification
   - form for new badge type?
+- Launch Site
+  - marketing time
 
 Nice to Haves:
 
+- Add script to dump current DB to a seeds.rb file
+  - a la : http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
+  - will be handy as I go through iterations of populating the DB and revising the content
 - Add some more details
   - add t/f or n/a or ambiguous to acceptable values for a 'rule'
 - if they support public peer-reviewed research, links to relevant studies
@@ -91,3 +100,4 @@ Nice to Haves:
   - is there a way to use linkedin to verify you're a lawyer?
   - or a public registry for identity / prove you passed the bar?
   - would be nice to be able to have lawyers volunteer their time in some capacity
+- Add developer API for access to the information programmatically

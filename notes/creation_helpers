@@ -80,3 +80,6 @@ $ bin/rails generate controller practices
       invoke    scss
       create      app/assets/stylesheets/practices.scss
 
+# To seed the DB
+$ bin/rake db:drop
+$ bin/rake db:setup

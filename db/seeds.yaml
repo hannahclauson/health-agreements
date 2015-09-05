@@ -10,9 +10,288 @@ guidelines:
     description: "Is an opt-in mechanism used when sharing your health data for research?"
     true_description: "MUST NOT use your personal health data for research WITHOUT your explicit consent (the ToS DO NOT suffice as consent)"
     false_description: "MAY use your personal health data for research WITHOUT your explicit consent (the ToS DO suffice as consent)"
+  - 
+    name: Consent for Minors
+    description: "Is a minor allowed to use the service?"
+    true_description: "A minor is ALLOWED SOME access to the service, and MAY be required to have explicit consent from a guardian"
+    false_description: "A minor is NOT ALLOWED to use ANY of the services"
+  - 
+    name: Research Opt Out
+    description: "Is there a mechanism to opt out of having your personal health data used for research?"
+    true_description: "There IS a mechanism that will prevent your personal health data from being used for future research"
+    false_description: "There IS NOT a mechanism that will prevent your personal health data from being used for future research once you have opted in"
+  - 
+    name: Sharing Aggregate Data for Research
+    description: Is aggregated data shared with 3rd parties for research?"
+    true_description: "Aggregated data MAY be shared for research purposes (ToS suffices as consent)"
+    false_description: "Aggregated data MAY NOT be shared for research purposes"
+  - 
+    name: Sharing Aggregate Data for Services
+    description: Is aggregated data shared with 3rd parties in order to deliver you services?"
+    true_description: "Aggregated data MAY be shared in order to deliver services to you (ToS suffices as consent)"
+    false_description: "Aggregated data MAY NOT be shared with 3rd parties in order to deliver you a service"
+  - 
+    name: Shares PHI with healthcare providers
+    description: Shares your PHI with healthcare providers as part of the service
+    true_description: "As part of the service, MAY share your PHI to HCPs"
+    false_description: "WILL NOT share your PHI with HCPs"
+  - 
+    name: Data Hosting in a Single State
+    description: Is your data hosted within a single nation/state?
+    true_description: "Your data WILL NOT be stored physically in any medium beyond the borders of a single nation/state"
+    false_description: "MAY store your data beyond a single nation/state"
+  -
+    name: Right to Inspect/Copy
+    description: Is a method provided to inspect and copy ALL of your PHI?
+    true_description: "A mechanism IS provided to inspect AND copy ALL of your PHI"
+    false_description: "A mechanism IS NOT provided to inspect AND copy ALL of your PHI"
+  - 
+    name: Full PHI Deletion
+    description: Is a mechanism provided for deletion of ALL of your PHI?
+    true_description: "A mechanism IS provided to delete ALL of your PHI"
+    false_description: "A mechanism IS NOT provided to delete ALL of your PHI"
 companies:
   - 
     name: 23andme
     url: http://23andme.com
     practices:
-  
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 3 # consent for minors
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 4 # PHI research opt out
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 7 # shares PHI w HCPs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 8 # PHI hosting in single state
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 9 # right to inspect/copy
+        implementation: 5
+        notes: 
+  - 
+    name: ubiome
+    url: http://ubiome.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 3 # consent for minors
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 4 # PHI research opt out
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 4
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 7 # shares PHI w HCPs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 8 # PHI hosting in single state
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 9 # right to inspect/copy
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 10 # full PHI deletion
+        implementation: 5
+        notes:
+  - 
+    name: flatiron
+    url: http://flatiron.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 3 # consent for minors
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 4 # PHI research opt out
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+  -
+    name: theranos
+    url: http://theranos.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 7 # shares PHI w HCPs
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 9 # right to inspect/copy
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 10 # full PHI deletion
+        implementation: 5
+        notes:
+  - 
+    name: omada health
+    url: http://omadahealth.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+  - 
+    name: patients like me
+    url: http://patientslikeme.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 2
+        notes: ToS suffice to sharing ALL of your data
+      - 
+        guideline_id: 4 # PHI research opt out
+        implementation: 4
+        notes: Only for their restricted data?
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+  - 
+    name: recombine
+    url: http://recombine.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 5
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+  - 
+    name: picnic health
+    url: http://picnichealth.com
+    practices:
+      - 
+        guideline_id: 1 # peer reviewed pubs
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 2 # optin for PHI research
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 3 # consent for minors
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 4 # PHI research opt out
+        implementation: 2
+        notes: 
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 10 # full PHI deletion
+        implementation: 1
+        notes:
+  - 
+    name: klarismo
+    url: http://klarismo.com
+    practices:
+      - 
+        guideline_id: 5 # agg data for research
+        implementation: 1
+        notes: With consent?
+      - 
+        guideline_id: 6 # agg data for services
+        implementation: 1
+        notes: 
+      - 
+        guideline_id: 8 # PHI hosting in single state
+        implementation: 2
+        notes: Hosts in all countries
+      - 
+        guideline_id: 10 # full PHI deletion
+        implementation: 1
+        notes: Aside from order history / usage info
