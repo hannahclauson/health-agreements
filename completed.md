@@ -32,3 +32,17 @@
     - then fill in companies / practices for all relevant guidelines
   - maybe ideally a few dozen ... like 50?
   - push to heroku and seed there
+- Consolidate some layout / IA
+  - make seed data - X
+    -  seed script - X
+    - so I can seed DB on heroku - X
+  - update homepage - X
+  - get header working / layout/application views inheriting properly - X
+  - add some basic docs
+    - basic ToS - X
+    - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc - X (linked to ietf description ... should later clean up the words used to make sure they match up)
+    - would also be helpful to define a glossary of terms: - X
+      - usage data (ip address / cookies / order history)
+      - health data (personal metrics on health)
+      - aggregate data
+  - add footer - X
