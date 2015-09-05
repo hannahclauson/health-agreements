@@ -1,3 +1,6 @@
+= content_for :head do
+  %title= "#{@company.name} Practices"
+
 %h1= @company.name
 
 %a{:href => @company.url} Website

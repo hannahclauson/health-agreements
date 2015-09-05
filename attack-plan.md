@@ -5,6 +5,7 @@
     - so I can seed DB on heroku
   - update homepage
   - get header working / layout/application views inheriting properly
+  - add footer
   - add some basic docs
     - basic ToS
     - define terms (a la RFC) : MUST / SOME / NEVER / ALWAYS / MAY etc
