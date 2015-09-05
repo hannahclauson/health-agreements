@@ -18,12 +18,29 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+body
+  position: relative
+  display: block
+  min-height: 800px
+
 .banner
   max-width: 100%
+  position: relative
+  top: -20px
 
+.container.home
+  .jumbotron
+    position: absolute
+    top: 120px
+    left: 0px
+    margin: 0px 30px
+  
 footer
-  min-height: 200px
+  min-height: 120px
   background-color: $link-hover-color
   padding-top: 40px
+  position: absolute
+  bottom: -10px
+  width: 100%
   a
     color: $gray-light
