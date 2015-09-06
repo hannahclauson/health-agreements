@@ -1,3 +1,29 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+// Index:
+
+li {
+  .actions {
+    float: right;
+    visibility: hidden;
+    position: relative;
+    top: -20px;
+  }
+  a {
+    display: block;
+  }
+}
+
+.container { 
+  li:hover {
+    background-color: $gray-lighter;
+    .actions {
+      visibility: visible;
+    }
+  }
+}
+
