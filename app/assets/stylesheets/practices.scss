@@ -1,3 +1,19 @@
 // Place all the styles related to the practices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+$icon-font-path: 'bootstrap/'; // Seems like you need to 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.implementation_status {
+  margin-left: 20px;
+  &.follows {
+    @extend .glyphicon;
+    @extend .glyphicon-ok;
+    @extend .btn-success;
+  }
+
+}

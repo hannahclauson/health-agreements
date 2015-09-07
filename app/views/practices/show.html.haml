@@ -5,8 +5,14 @@
   %h1
     ="#{@practice.company.name}'s practices"
 
-  %h2
-    Guideline
+  %h2 Implementation
+  .panel.panel-default
+    .panel-body
+      %span="Does #{@practice.company.name} follow the '#{@practice.guideline.name}' guideline?"      
+      %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
+
+
+  %h2 Guideline
 
   .panel.panel-default
     .panel-heading
@@ -29,11 +35,3 @@
         For more details,
         =link_to "read about this guideline.", @practice.guideline
 
-  %h2 Implementation
-  .panel.panel-default
-    .panel-heading
-      %h3.panel-title= "How does #{@practice.company.name} implement #{@practice.guideline.name}?"
-    .panel-body
-      %p
-        ="#{@practice.company.name}'s implementation: "
-        %span.btn.btn-default.implementation_status=@practice.implementation_text
