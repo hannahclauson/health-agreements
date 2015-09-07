@@ -1,4 +1,4 @@
-= form_for @guideline do |f|
+= form_for @guideline, html: {class: 'form-horizontal'} do |f|
 
   = if @guideline.errors.any?
     #error_explanation
@@ -7,20 +7,27 @@
         - @guideline.errors.full_messages.each do |msg|
           %li= msg
 
-  %p
-    = f.label :name
-    = f.text_field :name
+  .field.form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :name
 
-  %p
-    = f.label :description
-    = f.text_field :description
+  .field.form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :description
 
-  %p
-    = f.label :true_description
-    = f.text_field :true_description
+  .field.form-group
+    = f.label :true_description, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :true_description
 
-  %p
-    = f.label :false_description
-    = f.text_field :false_description
+  .field.form-group
+    = f.label :false_description, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :false_description
 
-  = f.submit
+  .field.form-group
+    %label.col-sm-2.control-label
+    .col-sm-10.input_wrapper
+      = f.submit
