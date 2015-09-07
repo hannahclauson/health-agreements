@@ -46,3 +46,24 @@
       - health data (personal metrics on health)
       - aggregate data
   - add footer - X
+- Basic styling
+  - bootstrap
+    - make header look good - X
+      - navbar - X
+      - logo / title - X
+    - make footer look good - X
+      - dark color      
+    - homepage - X
+      - jumbotron style?
+    - make company show look good - X
+      - use panels / table styles for list of practices
+    - fix some styles - X
+      - fix highlight style -- I messed up the colors for the highlighting of active state in the nav bar ... think I just need to namespace the styles I added properly
+      - same highlight issue in footer
+    - make company edit look good - X
+      - lots of form helpers / fieldsets - X
+    - same for practice show (needs more description around how it relates to its guideline) -X
+    - same for guideline show / edit - X
+      - provide a guideline 'landing page' to explain how they work
+      - guess I found a use for guideline#index after all
+  - update the color palette - X
