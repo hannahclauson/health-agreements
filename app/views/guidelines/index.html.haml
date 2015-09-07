@@ -1,8 +1,11 @@
-%h1 All Guidelines
+.container
+  .page-header
+    %h1 All Guidelines
 
-%ul
-  - @guidelines.each do |g|
-    %li
-      %a= link_to(g.name, guideline_path(g))
-      %a= link_to("Edit", edit_guideline_path(g))
-      %a= link_to("Delete", guideline_path(g), method: :delete)
+  %ul.list-group
+    - @guidelines.each do |g|
+      %li.list-group-item
+        = link_to(g.name, guideline_path(g))
+        %span.actions.btn-group.btn-group-xs.btn-group-link
+          = link_to("Edit", edit_guideline_path(g), {class: "btn btn-xs btn-info"})
+          = link_to("Delete", guideline_path(g), class: "btn btn-xs btn-danger", method: :delete)

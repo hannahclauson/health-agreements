@@ -1,0 +1,22 @@
+// Index:
+
+li {
+  .actions {
+    float: right;
+    visibility: hidden;
+    position: relative;
+    top: -20px;
+  }
+  a {
+    display: block;
+  }
+}
+
+.container { 
+  li:hover {
+    background-color: $gray-lighter;
+    .actions {
+      visibility: visible;
+    }
+  }
+}
