@@ -1,10 +1,12 @@
 .container
   = content_for :head do
-    %title= "Edit #{@company.name} Information"
+    %title= "Edit #{@company.name}"
 
   .page-header
-    %h1="Editing #{@company.name} Info:"
+    %h1
+      = @company.name
+      %small Edit Info:    
 
   = render 'form'
 
-  = link_to 'Back', companies_path
+  = link_to 'Back', @company, {class: 'btn btn-default'}
