@@ -1,12 +1,17 @@
-%h1 Guideline
+= content_for :head do
+  %title="Guideline for '#{@guideline.name}'"
 
-%h2= @guideline.name
+.container
+  .page-header
+    %h1="Guideline for '#{@guideline.name}'"
+    =link_to("Delete", guideline_path(@guideline), class: 'btn btn-xs btn-danger object_action', method: :delete)
+    =link_to("Edit", edit_guideline_path(@guideline), class: 'btn btn-xs btn-info object_action')
 
-%p= @guideline.description
 
-%p="In order to be fulfilled, the following criteria must be met: #{@guideline.true_description}"
 
-%p="In order to be unfulfilled, the following criteria must be met: #{@guideline.false_description}"
+  %p= @guideline.description
+  
+  %p="In order to be fulfilled, the following criteria must be met: #{@guideline.true_description}"
 
-%a=link_to("Edit", edit_guideline_path(@guideline))
-%a=link_to("Delete", guideline_path(@guideline), method: :delete)
+  %p="In order to be unfulfilled, the following criteria must be met: #{@guideline.false_description}"
+

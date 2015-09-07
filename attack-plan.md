@@ -12,9 +12,9 @@
     - fix some styles - X
       - fix highlight style -- I messed up the colors for the highlighting of active state in the nav bar ... think I just need to namespace the styles I added properly
       - same highlight issue in footer
-    - make company edit look good
+    - make company edit look good - X
       - lots of form helpers / fieldsets
-    - same for practice show (needs more description around how it relates to its guideline)
+    - same for practice show (needs more description around how it relates to its guideline) -X
     - same for guideline show / edit
       - provide a guideline 'landing page' to explain how they work
       - guess I found a use for guideline#index after all

@@ -2,8 +2,10 @@
   %title= "#{@practice.company.name}'s practices regarding #{@practice.guideline.name}"
 
 .container
-  %h1
-    ="#{@practice.company.name}'s practices"
+  .page-header
+    %h1
+      ="#{@practice.company.name}'s practices"
+      %small=@practice.guideline.name
 
   %h2 Implementation
   .panel.panel-default
