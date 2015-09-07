@@ -21,18 +21,7 @@
       %h3.panel-title=@practice.guideline.name
     .panel-body
       %p= @practice.guideline.description
-      %table.table
-        %tr.info
-          %th Criteria
-          %th Result
-        %tr
-          %td= @practice.guideline.true_description
-          %td ... in order to 'follow' this guideline
-
-        %tr
-          %td= @practice.guideline.false_description
-          %td ... in order to 'not follow' this guideline
-
+      =render 'guidelines/table'
       %p
         For more details,
         =link_to "read about this guideline.", @practice.guideline

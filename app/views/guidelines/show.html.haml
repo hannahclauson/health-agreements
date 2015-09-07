@@ -11,7 +11,5 @@
 
   %p= @guideline.description
   
-  %p="In order to be fulfilled, the following criteria must be met: #{@guideline.true_description}"
-
-  %p="In order to be unfulfilled, the following criteria must be met: #{@guideline.false_description}"
-
+  =render 'table'
+  
