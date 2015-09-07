@@ -17,12 +17,7 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find(params[:id])
-    # Dont seem to need to eager load just to access
-    #Practice.includes(:company).find(params[:id])
-    # To determine if I just cannot see this in the view, I'll play w assoc objs here
-    @c = @practice.company
-    @g = @practice.guideline
-
+    @description = @practice.implementation_description
   end
 
   def edit

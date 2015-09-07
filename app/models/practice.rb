@@ -15,9 +15,18 @@ class Practice < ActiveRecord::Base
     5 => :unknown
   }
 
+  IMPLEMENTATION_DESC = {
+    :follows => :true_description,
+    :does_not_follow => :false_description
+  }
+
   def implementation_text
     # Displays current implementation as text
     Practice::IMPLEMENTATION_MAP[self.implementation]
+  end
+
+  def implementation_description
+    self.guideline[Practice::IMPLEMENTATION_DESC[implementation_text]]
   end
 
 end

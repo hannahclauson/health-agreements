@@ -1,17 +1,40 @@
-%h1="Practice - #{@practice.id}"
+= content_for :head do
+  %title= "#{@practice.company.name}'s practices regarding #{@practice.guideline.name}"
 
-%p="Belongs to (#{@practice.company_id})"
+.container
+  %h1
+    ="#{@practice.company.name}'s practices"
 
-%p="Guideline: (#{@practice.guideline})"
+  %h2
+    Guideline: 
+    =@practice.guideline.name
 
-%p="(#{ @g})"
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title Criteria
+    .panel-body
+      %p= @practice.guideline.description
+      %table.table
+        %tr.info
+          %th Criterion
+          %th Condition
+        %tr
+          %td Criteria that MUST be met to follow this guideline:
+          %td= @practice.guideline.true_description
+        %tr
+          %td Criteria that MUST be met to fail to implement this guideline:
+          %td= @practice.guideline.false_description
 
-%p="(#{ @c })"
+      %p
+        For more details,
+        =link_to "read about this guideline.", @practice.guideline
 
-%br
-
-%p= @practice.inspect
-
-%br
-
-%p= @practice.methods.sort
+  %h2 Implementation
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title= "How does #{@practice.company.name} implement #{@practice.guideline.name}?"
+    .panel-body
+      %p
+        ="#{@practice.company.name}'s implementation: #{@practice.implementation_text}"
+      %p
+        ="#{@practice.implementation_text} means: #{@description}"
