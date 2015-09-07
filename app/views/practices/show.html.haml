@@ -6,24 +6,24 @@
     ="#{@practice.company.name}'s practices"
 
   %h2
-    Guideline: 
-    =@practice.guideline.name
+    Guideline
 
   .panel.panel-default
     .panel-heading
-      %h3.panel-title Criteria
+      %h3.panel-title=@practice.guideline.name
     .panel-body
       %p= @practice.guideline.description
       %table.table
         %tr.info
-          %th Criterion
-          %th Condition
+          %th Criteria
+          %th Result
         %tr
-          %td Criteria that MUST be met to follow this guideline:
           %td= @practice.guideline.true_description
+          %td ... in order to 'follow' this guideline
+
         %tr
-          %td Criteria that MUST be met to fail to implement this guideline:
           %td= @practice.guideline.false_description
+          %td ... in order to 'not follow' this guideline
 
       %p
         For more details,
@@ -35,6 +35,5 @@
       %h3.panel-title= "How does #{@practice.company.name} implement #{@practice.guideline.name}?"
     .panel-body
       %p
-        ="#{@practice.company.name}'s implementation: #{@practice.implementation_text}"
-      %p
-        ="#{@practice.implementation_text} means: #{@description}"
+        ="#{@practice.company.name}'s implementation: "
+        %span.btn.btn-default.implementation_status=@practice.implementation_text
