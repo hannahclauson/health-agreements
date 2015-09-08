@@ -1,9 +1,11 @@
 - Badge
-  - Add to seeds
   - Build basic iconography to represent important aspects of agreements
 - Update seeds
   - Add a few archetypes
   - Make sure some companies implement none/one/some
+- Add some tests!!!!
+  - Esp around practice uniqueness
+  - And around badge eligibility / revoking
 - Add basic auth wall
 - Create search methods
   - search by badge

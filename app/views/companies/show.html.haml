@@ -15,8 +15,8 @@
       %ul.list-group
         - @company.badges.each do |b|
           %li.list-item
-            %span= b.archetype.name
-
+            = link_to b.archetype.name, b.archetype
+            = render partial: "badges/badge", object: b
 
   = render 'practices/panel_list'
 

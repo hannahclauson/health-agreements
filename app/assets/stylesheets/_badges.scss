@@ -1,4 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 $badge_background: $gray-lighter;
+
+.research {
+  @extend .glyphicon;
+  @extend .glyphicon-flash;
+}
+
+.badge-icon {
+  width: 40px;
+  background: $badge_background;
+
+  .body {
+    padding: 5px;    
+  }
+}
 
 .lower_left {
   width: 0px;

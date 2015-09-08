@@ -1,16 +1,16 @@
 = content_for :head do
-  %title= "#{@practice.company.name}'s practices regarding #{@practice.guideline.name}"
+  %title= "#{@parent.name}'s practices regarding #{@practice.guideline.name}"
 
 .container
   .page-header
     %h1
-      ="#{@practice.company.name}'s practices"
+      ="#{@parent.name}'s practices"
       %small=@practice.guideline.name
 
   %h2 Implementation
   .panel.panel-default
     .panel-body
-      %span="Does #{@practice.company.name} follow the '#{@practice.guideline.name}' guideline?"      
+      %span="Does #{@parent.name} follow the '#{@practice.guideline.name}' guideline?"      
       %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
 
 

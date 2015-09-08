@@ -19,7 +19,12 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find(params[:id])
-    @guideline = @practice.guideline # syntactic sugar to reuse table partial
+
+    # for individual practice show
+    @parent = polymorphic_parent
+
+    # syntactic sugar to reuse table partial (on company/arch show pages)
+    @guideline = @practice.guideline 
     @description = @practice.implementation_description
   end
 
