@@ -21,3 +21,12 @@ consent is a big question and may need a lot more refinement
 - want to refine 'public / peer reviewed' into separate guidelines
 - published in a way that anyone can download should be separated and touted
 - may also include a badge for high impact studies?
+
+- list studies that have been published w links
+- weighted avg w impact factor
+
+- types of studies
+- retrospective studys
+- cross section
+- case study
+- LCT - long cont study - going forward
