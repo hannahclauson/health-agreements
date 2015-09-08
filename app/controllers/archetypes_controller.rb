@@ -27,6 +27,16 @@ class ArchetypesController < ApplicationController
     end
   end
 
+  def update
+    @archetype = Archetype.find(params[:id])
+
+    if @archetype.update(allowed_params)
+      redirect_to @archetype
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def allowed_params
