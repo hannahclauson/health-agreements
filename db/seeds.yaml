@@ -302,14 +302,14 @@ archetypes:
     practices:
       -
         guideline_id: 1
-	implementation: 1
-	notes: Publishes in peer reviewed journals
+        implementation: 1
+        notes: Publishes in peer reviewed journals
       -
         guideline_id: 2
-	implementation: 1
+        implementation: 1
       -
         guideline_id: 4
-	implementation: 1
+        implementation: 1
   - 
     name: "data_aggregation"
     description: "Shares your aggregated data using only ToS as consent"
@@ -319,28 +319,28 @@ archetypes:
         implementation: 1
       -
         guideline_id: 6
-	implementation: 1
+        implementation: 1
   - 
     name: "full_data_access"
     description: "To you have full access to your PHI?"
     practices:
       -
         guideline_id: 9
-	implementation: 1
+        implementation: 1
       -
         guideline_id: 10
-	implementation: 1
+        implementation: 1
   - 
     name: "single_state_hosted"
     description: "Is your data protected within a single state?"
     practices:
       -
         guideline_id: 8
-	implementation: 1
+        implementation: 1
   - 
     name: "single_state_hosted"
     description: "Is your data protected within a single state?"
     practices:
       -
         guideline_id: 8
-	implementation: 0
+        implementation: 0

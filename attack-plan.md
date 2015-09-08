@@ -1,5 +1,8 @@
 - Update seeds
   - Add a few archetypes
+  - hmmm now im now populating companies correctly ...
+    - i think this may have happened whn i introd polymorphism
+  - update seeds.rb to populate archetypes
   - Make sure some companies implement none/one/some
 - Add some tests!!!!
   - Esp around practice uniqueness

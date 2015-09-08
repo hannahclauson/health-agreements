@@ -34,9 +34,13 @@ data['companies'].each do |c|
   puts "norm pract #{normalized_practices}"
 
   p = Practice.create( c['practices'] )
-  Company.create(
+  r = Company.create(
                  name: c['name'],
                  url: c['url'],
                  practices_attributes: normalized_practices
                  )
+  puts "Created company?"
+  puts r
+  puts r.errors.full_messages.join("\n")
+
 end
