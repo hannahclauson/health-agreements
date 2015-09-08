@@ -11,6 +11,7 @@
   - Add to seeds
   - Archetype
     - index / show / edit / delete
+      - show (should have form inline to add practices)
     - add to seeds
   - Badge
     - list on company show page
