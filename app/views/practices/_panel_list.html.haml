@@ -1,0 +1,23 @@
+.panel.panel-primary
+  .panel-heading
+    %h2 Practices
+  .panel-body
+    %p
+      The following is a list of practices that #{@parent.name} follows. Click on a practice to understand what it means to follow that practice.
+
+  %table.table
+    %tr.info
+      %th Name
+      %th Implementation
+      %th Notes
+      %th Actions
+    - @parent.practices.each do |p|
+      %tr
+        %td= p.guideline.name
+        %td= p.implementation_text
+        %td= p.notes
+        %td.actions
+          = link_to('Show', polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'})
+          = link_to('Edit', edit_polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'}) 
+          = link_to('Delete', polymorphic_path([@parent,p]), class: 'btn btn-xs btn-danger', method: :delete) 
+

@@ -7,6 +7,10 @@ class ArchetypesController < ApplicationController
     @archetype = Archetype.new
   end
 
+  def edit
+    @archetype = Archetype.find(params[:id])
+  end
+
   def show
     @archetype = Archetype.find(params[:id])
     @parent = @archetype # syntactic sugar so I can reuse the practices form partial

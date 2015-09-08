@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908004432) do
+ActiveRecord::Schema.define(version: 20150908021316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,16 @@ ActiveRecord::Schema.define(version: 20150908004432) do
     t.integer  "implementation"
     t.integer  "company_id"
     t.integer  "guideline_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "archetypes_id"
+    t.integer  "practiceable_id"
+    t.string   "practiceable_type"
   end
 
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
+  add_index "practices", ["practiceable_type", "practiceable_id"], name: "index_practices_on_practiceable_type_and_practiceable_id", using: :btree
 
   add_foreign_key "practices", "companies"
   add_foreign_key "practices", "guidelines"

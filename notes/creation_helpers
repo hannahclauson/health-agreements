@@ -124,3 +124,9 @@ $ bin/rails generate controller archetypes
       create      app/assets/javascripts/archetypes.coffee
       invoke    scss
       create      app/assets/stylesheets/archetypes.scss
+
+$ rails generate migration MakePracticesPolymorphic
+      invoke  active_record
+      create    db/migrate/20150908021316_make_practices_polymorphic.rb
+
+# generate empty migration so I can add polymorphism by hand

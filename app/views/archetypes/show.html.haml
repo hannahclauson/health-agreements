@@ -10,5 +10,7 @@
   .page-body
     %p= @archetype.description
 
+    = render 'practices/panel_list'
+
   .panel.panel-default
-    - render 'practices/form'
+    = render 'practices/form'

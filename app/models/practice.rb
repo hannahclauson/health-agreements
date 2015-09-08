@@ -1,15 +1,13 @@
 class Practice < ActiveRecord::Base
-  belongs_to :company
   belongs_to :guideline
-  belongs_to :archetype
+  belongs_to :practiceable, polymorphic: true # either :company or :archetype
 
   validates :implementation, presence: true
   # should also validate its in the expected range
   # and should really not expose the integers to the user for now but have a select input instead
 
   validates :guideline, presence: true
-  # DOES NOT need to validate presence of archetype. Not all practices will be part of an archetype
-
+  validates :practiceable, presence: true
 
   IMPLEMENTATION_MAP = {
     1 => :follows,

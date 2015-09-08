@@ -1,15 +1,16 @@
 class PracticesController < ApplicationController
+
   def index
     @company = Company.find(params[:company_id])
     @practices = @company.practices
   end
 
   def create
-    @company = Company.find(params[:company_id])
-    @practice = @company.practices.create(allowed_params)
+    @parent = polymorphic_parent
+    @practice = @parent.practices.create(allowed_params)
 
     if @practice.save
-      redirect_to company_path(@company)
+      redirect_to polymorphic_path(@parent)
     else
       render 'edit'
     end
@@ -23,7 +24,7 @@ class PracticesController < ApplicationController
 
   def edit
     @practice = Practice.find(params[:id])
-    @company = @practice.company # Syntactic sugar to let me reuse the form partial
+    @parent = @practice.practiceable
   end
 
   def update
@@ -51,4 +52,14 @@ class PracticesController < ApplicationController
     # need to whitelist foreign_id for guideline? and owner company?
     params.require(:practice).permit(:implementation, :notes, :guideline_id)
   end
+
+  def polymorphic_parent
+    request.path_parameters.each do |k, v|
+      if k =~ /_id\z/
+        parent_name = k.to_s.gsub(/_id\z/, "")
+        return parent_name.classify.constantize.find(v)
+      end
+    end
+  end
+
 end

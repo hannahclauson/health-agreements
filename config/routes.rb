@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :guidelines
-  resources :archetypes
+  resources :archetypes do
+    resources :practices
+  end
 
   get 'documents/terms_of_service'
   get 'documents/glossary'
