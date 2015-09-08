@@ -8,15 +8,14 @@
     - belongs_to: company
     - belongs_to: archetype
 - Implement new models
-  - Add to seeds
   - Archetype
     - index / show / edit / delete
       - show (should have form inline to add practices)
-    - add to seeds
   - Badge
     - list on company show page
     - should be added automatically when guidelines match new archetype
     - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
+  - Add to seeds
   - Build basic iconography to represent important aspects of agreements
 - Add basic auth wall
 - Create search methods

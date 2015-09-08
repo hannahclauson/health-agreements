@@ -1,9 +1,14 @@
 digraph obj{
 	node[shape=record];
+	splines=true;
+	sep="+25,25";
+	overlap=scalexy;
+	nodesep=0.6;
+	node [fontsize=11];
 	
-	company [label = "{<f0> Company|<f1> has_many: practices\n<f2> has_many: badges}"];
+	company [label = "{<f0> Company|<f1> has_many: practices\n|<f2> has_many: badges}"];
 	guideline [label = "{<f0> Guideline|<f1> has_many: practices}"];
-	practice [label = "{<f0> Practice|<f1> belongs_to: :practiceable\n|<f2> belongs_to: guideline"];
+	practice [label = "{<f0> Practice|<f1> belongs_to: :practiceable\n|<f2> belongs_to: guideline}"];
 	archetype [label = "{<f0> Archetype|<f1> has_many: practices\n|<f2> has_many: badges}"];
 	badge [label = "{<f0> Badge|<f1> belongs_to: company\n|<f2> belongs_to: archetype}"];
 
