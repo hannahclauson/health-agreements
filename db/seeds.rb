@@ -21,26 +21,30 @@ end
 
 
 data['companies'].each do |c|
+
+#  p = Practice.create( c['practices'] )
+  new_c = Company.create(
+                 name: c['name'],
+                 url: c['url']
+                 )
+
   normalized_practices = []
   c['practices'].each do |p|
     this_p = {}
     p.each do |k,v|
       this_p[k.to_sym] = v
     end
+    this_p[:practiceable_id] = new_c.id
+    puts "Creating practice from: #{this_p}"
     normalized_practices << this_p
+#    p = Practice.create(this_p)
+#    new_c.update({:practices => [p]})
   end
 
-  puts "raw pract #{c['practices']}"
-  puts "norm pract #{normalized_practices}"
+  new_c.update({:practices => Practice.create(normalized_practices)})
 
-  p = Practice.create( c['practices'] )
-  r = Company.create(
-                 name: c['name'],
-                 url: c['url'],
-                 practices_attributes: normalized_practices
-                 )
   puts "Created company?"
-  puts r
-  puts r.errors.full_messages.join("\n")
+  puts new_c
+  puts new_c.errors.full_messages.join("\n")
 
 end
