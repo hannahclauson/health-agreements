@@ -46,6 +46,8 @@ class PracticesController < ApplicationController
     @parent = polymorphic_parent
     @practice.destroy
 
+    reevaluate_badges
+
     redirect_to @parent
   end
 
