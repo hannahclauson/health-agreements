@@ -100,3 +100,10 @@ $ rails generate controller documents
       create      app/assets/javascripts/documents.coffee
       invoke    scss
       create      app/assets/stylesheets/documents.scss
+$ bin/rails generate model archetype name:string description:text practice practice:has_many
+      invoke  active_record
+      create    db/migrate/20150908004432_create_archetypes.rb
+      create    app/models/archetype.rb
+      invoke    test_unit
+      create      test/models/archetype_test.rb
+      create      test/fixtures/archetypes.yml

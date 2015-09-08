@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904040311) do
+ActiveRecord::Schema.define(version: 20150908004432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "archetypes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150904040311) do
     t.integer  "guideline_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "archetypes_id"
   end
 
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
