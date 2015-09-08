@@ -7,7 +7,7 @@ class CreateArchetypes < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_reference :practices, :archetype, on_delete: :cascade
+    add_reference :practices, :archetype, on_delete: :cascade, index: true
 
   end
 end
