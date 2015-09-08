@@ -3,7 +3,7 @@
     %title= "#{@company.name} Practices"
 
   .page-header
-    %h1= @company.name
+    %h1= "Companies >> #{@company.name}"
     %a{:href => @company.url, :target => "_blank"} Visit Website
     %a=link_to("Edit", edit_company_path(@company), {class: 'btn btn-xs btn-info page_edit'})
 
