@@ -1,0 +1,16 @@
+digraph obj{
+	node[shape=record];
+	
+	company [label = "{<f0> Company|<f1> has_many: practices\n<f2> has_many: badges}"];
+	guideline [label = "{<f0> Guideline|<f1> has_many: practices}"];
+	practice [label = "{<f0> Practice|<f1> belongs_to: :practiceable\n|<f2> belongs_to: guideline"];
+	archetype [label = "{<f0> Archetype|<f1> has_many: practices\n|<f2> has_many: badges}"];
+	badge [label = "{<f0> Badge|<f1> belongs_to: company\n|<f2> belongs_to: archetype}"];
+
+	company->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+	company->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+	guideline->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+	archetype->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+	archetype->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+
+}
