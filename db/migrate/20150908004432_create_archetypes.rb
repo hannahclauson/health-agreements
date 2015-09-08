@@ -7,7 +7,6 @@ class CreateArchetypes < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-#    add_foreign_key :practices, :archetypes, on_delete: cascade #, :practices
     add_reference :practices, :archetype, on_delete: :cascade
 
   end
