@@ -91,3 +91,5 @@
       - wont be an issue immediately ... but eventually if there are 10k company rows ... this is will be costly
       - then again ... probably wont be adding / changing badges very often
     - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
+- Badge
+  - Build basic iconography to represent important aspects of agreements

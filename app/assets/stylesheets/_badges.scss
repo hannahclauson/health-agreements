@@ -6,12 +6,28 @@ $icon-font-path: 'bootstrap/';
 $badge_background: $gray-lighter;
 
 .research {
-  @extend .glyphicon;
   // Beaker Icon Credit to by Joshua Wold (noun 19127) under Creative Commons
   background-image: url('/assets/beaker.svg');
-  background-size: 40px 40px;
-  width: 40px !important;
-  height: 36px;
+}
+
+.data_aggregation {
+  // Data Extraction Credit to Kirill Ulitin (noun 86706) under Creative Commons
+  background-image: url('/assets/data_aggregation.svg')
+}
+
+.data_download {
+  // Data Responsibility Credit to Samuel Q. Green (noun 4083) under Creative Commons
+  background-image: url('/assets/data_download.svg')
+}
+
+.single_state_hosted {
+  // Single State Credit to Aha-Soft (noun 164387) under Creative Commons
+  background-image: url('/assets/single_state_hosted.svg')
+}
+
+.multi_state_hosted {
+  // Single State Credit to Aha-Soft (noun 164402) under Creative Commons
+  background-image: url('/assets/multi_state_hosted.svg')
 }
 
 
@@ -27,6 +43,9 @@ $badge_background: $gray-lighter;
     width: 100%;
     height: 40px;
     .content {
+      background-size: 40px 40px;
+      width: 40px;
+      height: 36px;
 
       margin: auto;
       padding: 5px;

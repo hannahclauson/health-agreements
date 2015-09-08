@@ -1,5 +1,3 @@
-- Badge
-  - Build basic iconography to represent important aspects of agreements
 - Update seeds
   - Add a few archetypes
   - Make sure some companies implement none/one/some
