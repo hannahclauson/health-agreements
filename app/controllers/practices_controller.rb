@@ -29,11 +29,12 @@ class PracticesController < ApplicationController
 
   def update
     @practice = Practice.find(params[:id])
+    @parent = @practice.practiceable
 
     if @practice.update(allowed_params)
-      redirect_to @practice.company
+      redirect_to @parent
     else
-      @company = @practice.company
+      @company = @parent
       render 'edit'
     end
   end
