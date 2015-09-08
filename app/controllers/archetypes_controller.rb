@@ -37,6 +37,12 @@ class ArchetypesController < ApplicationController
     end
   end
 
+  def destroy
+    @archetype = Archetype.find(params[:id])
+    @archetype.destroy
+    redirect_to archetypes_path
+  end
+
   private
 
   def allowed_params
