@@ -67,3 +67,27 @@
       - provide a guideline 'landing page' to explain how they work
       - guess I found a use for guideline#index after all
   - update the color palette - X
+- Thought a bit more on badges, going w the following schema:
+  - 'archetype' object
+    - is abstract set of practices that one must follow to earn a badge
+    - has_many practices
+    - has_many badges
+  - 'badge' obj
+    - stamp of adherance to a set of guidelines
+    - belongs_to: company
+    - belongs_to: archetype
+- Implement new models
+  - Archetype
+    - index / show / edit / delete
+      - show (should have form inline to add practices)
+  - Badge
+    - list on company show page
+    - when practices updated on COMPANY parent object ...
+      - there should be a check to see if it implements any badges / if any existing badges need to be removed
+    - when practices updated on ARCHETYPE parent object ... need to re-index all badges!!!?!?
+      - that seems like it will take quite a long time
+      - cant just negate existing badges that use archetype ... because new companies may qualify for the badge
+      - maybe negate the ones that have it ... then update the ones that are newly eligible next time they're saved? Or kickoff long term job to cycle through those?
+      - wont be an issue immediately ... but eventually if there are 10k company rows ... this is will be costly
+      - then again ... probably wont be adding / changing badges very often
+    - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
