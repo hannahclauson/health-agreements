@@ -1,0 +1,37 @@
+$badge_background: $gray-lighter;
+
+.lower_left {
+  width: 0px;
+  height: 0px;
+  border-left: 0px solid $badge_background;
+  border-bottom: 0px solid $badge_background;
+  border-right: 0px solid transparent;
+  border-top: 0px solid transparent;
+}
+
+.lower_right {
+  width: 0px;
+  height: 0px;
+  border-right: 0px solid $badge_background;
+  border-bottom: 0px solid $badge_background;
+  border-left: 0px solid transparent;
+  border-top: 0px solid transparent;
+}
+
+.upper_left {
+  width: 0px;
+  height: 0px;
+  border-left: 0px solid $badge_background;
+  border-top: 0px solid $badge_background;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+}
+
+.upper_right {
+  width: 0px;
+  height: 0px;
+  border-right: 0px solid $badge_background;
+  border-top: 0px solid $badge_background;
+  border-left: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+}
