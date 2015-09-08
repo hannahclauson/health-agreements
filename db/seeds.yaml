@@ -338,9 +338,9 @@ archetypes:
         guideline_id: 8
         implementation: 1
   - 
-    name: "single_state_hosted"
+    name: "multi_state_hosted"
     description: "Is your data protected within a single state?"
     practices:
       -
         guideline_id: 8
-        implementation: 0
+        implementation: 2
