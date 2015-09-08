@@ -51,6 +51,12 @@ guidelines:
     true_description: "A mechanism IS provided to delete ALL of your PHI"
     false_description: "A mechanism IS NOT provided to delete ALL of your PHI"
 companies:
+  - name: acme
+    url: http://acme.com
+    practices:
+      - 
+        guideline_id: 8
+        implementation: 1
   - 
     name: 23andme
     url: http://23andme.com
