@@ -1,9 +1,3 @@
-- Update seeds
-  - Add a few archetypes
-  - hmmm now im now populating companies correctly ...
-    - i think this may have happened whn i introd polymorphism
-  - update seeds.rb to populate archetypes
-  - Make sure some companies implement none/one/some
 - Add some tests!!!!
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
@@ -86,6 +80,7 @@ Nice to Haves:
   - add t/f or n/a or ambiguous to acceptable values for a 'rule'
 - if they support public peer-reviewed research, links to relevant studies
 - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
+- update credits page w example of icons -- need to abstract badge helper some more
 - Add user based submissions
   - is there a way to use linkedin to verify you're a lawyer?
   - or a public registry for identity / prove you passed the bar?

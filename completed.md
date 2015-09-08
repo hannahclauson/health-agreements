@@ -93,3 +93,9 @@
     - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
 - Badge
   - Build basic iconography to represent important aspects of agreements
+- Update seeds
+  - Add a few archetypes
+  - hmmm now im now populating companies correctly ...
+    - i think this may have happened whn i introd polymorphism
+  - update seeds.rb to populate archetypes
+  - Make sure some companies implement none/one/some

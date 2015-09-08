@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'documents/terms_of_service'
   get 'documents/glossary'
+  get 'documents/credit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -15,7 +15,8 @@ module ApplicationHelper
   def footer_links
     links = {
       "Terms of Service" => "/documents/terms_of_service",
-      "Glossary" => "/documents/glossary"
+      "Glossary" => "/documents/glossary",
+      "Credit" => "/documents/credit"
     }
   end
 
