@@ -1,3 +1,5 @@
+- Get icon paths working on heroku
+  - this is prob going to be annoying
 - Add some tests!!!!
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
