@@ -10,7 +10,7 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-%w( application companies documents guidelines practices welcome ).each do |controller|
+%w( archetypes companies documents guidelines practices welcome ).each do |controller|
   value = ["#{controller}.js.coffee", "#{controller}.css"]
   puts "ADDING CONTROLLER ASSETS"
   puts value

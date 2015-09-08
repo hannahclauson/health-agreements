@@ -1,0 +1,14 @@
+= content_for :head do
+  %title List of Archetypes
+
+.container
+  .page-header
+    %h1 List of Archetypes
+    %a=link_to("New", new_archetype_path, {class: 'btn btn-xs btn-info object_action'})
+
+  %ul.list-group
+    - @archetypes.each do |a|
+      %li.list-group-item
+        %span= a.name
+        link_to "Edit", edit_archetype(a), {class: 'btn btn-xs btn-info'}
+        link_to "Delete", edit_archetype(a), class: 'btn btn-xs btn-info', method: :delete

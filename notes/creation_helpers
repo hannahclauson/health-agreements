@@ -107,3 +107,20 @@ $ bin/rails generate model archetype name:string description:text practice pract
       invoke    test_unit
       create      test/models/archetype_test.rb
       create      test/fixtures/archetypes.yml
+
+# Had to modify the above migration to add foreign_key / belongs_to relationship to existing Practices table
+
+$ bin/rails generate controller archetypes
+      create  app/controllers/archetypes_controller.rb
+      invoke  erb
+      create    app/views/archetypes
+      invoke  test_unit
+      create    test/controllers/archetypes_controller_test.rb
+      invoke  helper
+      create    app/helpers/archetypes_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/archetypes.coffee
+      invoke    scss
+      create      app/assets/stylesheets/archetypes.scss
