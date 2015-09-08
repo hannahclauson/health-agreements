@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908021316) do
+ActiveRecord::Schema.define(version: 20150908183726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20150908021316) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "badges", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "archetype_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "badges", ["archetype_id"], name: "index_badges_on_archetype_id", using: :btree
+  add_index "badges", ["company_id"], name: "index_badges_on_company_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150908021316) do
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
   add_index "practices", ["practiceable_type", "practiceable_id"], name: "index_practices_on_practiceable_type_and_practiceable_id", using: :btree
 
+  add_foreign_key "badges", "archetypes"
+  add_foreign_key "badges", "companies"
   add_foreign_key "practices", "companies"
   add_foreign_key "practices", "guidelines"
 end

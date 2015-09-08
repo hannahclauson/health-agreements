@@ -130,3 +130,18 @@ $ rails generate migration MakePracticesPolymorphic
       create    db/migrate/20150908021316_make_practices_polymorphic.rb
 
 # generate empty migration so I can add polymorphism by hand
+
+$ bin/rails generate model Badge name:string description:text company:belongs_to archetype:belongs_to
+      invoke  active_record
+      create    db/migrate/20150908183726_create_badges.rb
+      create    app/models/badge.rb
+      invoke    test_unit
+      create      test/models/badge_test.rb
+      create      test/fixtures/badges.yml
+$ bin/rake db:migrate
+== 20150908183726 CreateBadges: migrating =====================================
+-- create_table(:badges)
+   -> 0.0379s
+== 20150908183726 CreateBadges: migrated (0.0381s) ============================
+
+
