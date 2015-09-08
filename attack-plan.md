@@ -1,13 +1,21 @@
-- Create 'badges' model to show succinct information about a company's use of health data
-  - e.g. 'Public Research' icon - they provide info for research
-  - e.g. 'Privacy Warden' icon - they only share info w explicit consent
-  - schema:
-    - badge belongs_to: company
-    - company has_many: badges
-    - badge has_many: practices
-    - practice belongs_to: badge (now this is a three way belongs_to ?)
-  - seems like I'm dancing around some sort of measure of equality of a set of practices
-  - maybe theres a better way to do this
+- Thought a bit more on badges, going w the following schema:
+  - 'archetype' object
+    - is abstract set of practices that one must follow to earn a badge
+    - has_many practices
+    - has_many badges
+  - 'badge' obj
+    - stamp of adherance to a set of guidelines
+    - belongs_to: company
+    - belongs_to: archetype
+- Implement new models
+  - Add to seeds
+  - Archetype
+    - index / show / edit / delete
+    - add to seeds
+  - Badge
+    - list on company show page
+    - should be added automatically when guidelines match new archetype
+    - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
   - Build basic iconography to represent important aspects of agreements
 - Add basic auth wall
 - Create search methods
