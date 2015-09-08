@@ -1,4 +1,5 @@
 @import "variables";
+$icon-font-path: 'bootstrap/';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -6,8 +7,13 @@ $badge_background: $gray-lighter;
 
 .research {
   @extend .glyphicon;
-  @extend .glyphicon-ok;
+  // Beaker Icon Credit to by Joshua Wold (noun 19127) under Creative Commons
+  background-image: url('/assets/beaker.svg');
+  background-size: 40px 40px;
+  width: 40px !important;
+  height: 36px;
 }
+
 
 .badge-icon {
 
@@ -21,7 +27,7 @@ $badge_background: $gray-lighter;
     width: 100%;
     height: 40px;
     .content {
-      width: 20px;
+
       margin: auto;
       padding: 5px;
       display: block;

@@ -30,3 +30,10 @@ consent is a big question and may need a lot more refinement
 - cross section
 - case study
 - LCT - long cont study - going forward
+
+# Other guidelines for types of data collected?
+
+- body / exercise metrics
+- genome / etc
+- expressions
+- other fluid cultures
