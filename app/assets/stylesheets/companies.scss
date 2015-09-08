@@ -16,3 +16,17 @@
   padding: 5px 15px
 }
 
+// Badges context
+
+.badge-row {
+  > span{
+    display: inline-block;
+    vertical-align: middle;
+    &.name {
+      padding: 20px;
+    }
+
+  }
+  height: 80px;
+  display: block;
+}

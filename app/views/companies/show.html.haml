@@ -11,12 +11,17 @@
     .panel-heading Description
     .panel-body     
       %p= @company.description
-      %h3 Badges:
-      %ul.list-group
-        - @company.badges.each do |b|
-          %li.list-item
-            = link_to b.archetype.name, b.archetype
-            = render partial: "badges/badge", object: b
+
+  %h3 Badges:
+  %ul.list-group
+    - @company.badges.each do |b|
+      %li.list-group-item
+        %a.badge-row{:href => archetype_path(b.archetype)}
+          = render partial: "badges/badge", object: b
+          %span.name
+            %h4= b.archetype.name.split("_").collect {|w| w.capitalize}.join(" ")
+
+
 
   = render 'practices/panel_list'
 
