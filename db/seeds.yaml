@@ -295,3 +295,6 @@ companies:
         guideline_id: 10 # full PHI deletion
         implementation: 1
         notes: Aside from order history / usage info
+archetypes:
+  - 
+    
