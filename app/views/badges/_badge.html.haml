@@ -1,10 +1,15 @@
-%span{}
+%span.badge-icon
   %table
     %tr
-      %td.upper_left
-      %td.upper_right
+      %td
+        .lower_right
+      %td
+        .lower_left
     %tr
-      %td.body{:colspan => 2, :class => "#{badge.archetype.name} badge-icon"}
+      %td.body{:colspan => 2}
+        .content{:class => badge.archetype.name}
     %tr
-      %td.lower_left
-      %td.lower_right
+      %td
+        .upper_right
+      %td
+        .upper_left
