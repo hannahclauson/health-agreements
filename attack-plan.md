@@ -13,7 +13,14 @@
       - show (should have form inline to add practices)
   - Badge
     - list on company show page
-    - should be added automatically when guidelines match new archetype
+    - when practices updated on COMPANY parent object ...
+      - there should be a check to see if it implements any badges / if any existing badges need to be removed
+    - when practices updated on ARCHETYPE parent object ... need to re-index all badges!!!?!?
+      - that seems like it will take quite a long time
+      - cant just negate existing badges that use archetype ... because new companies may qualify for the badge
+      - maybe negate the ones that have it ... then update the ones that are newly eligible next time they're saved? Or kickoff long term job to cycle through those?
+      - wont be an issue immediately ... but eventually if there are 10k company rows ... this is will be costly
+      - then again ... probably wont be adding / changing badges very often
     - shouldn't have to add anything special to seeds as long as a company implements an arch, they should get the badge upon guideline creation
   - Add to seeds
   - Build basic iconography to represent important aspects of agreements

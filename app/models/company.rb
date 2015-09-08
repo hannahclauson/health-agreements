@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   has_many :practices, as: :practiceable, dependent: :destroy
   accepts_nested_attributes_for :practices
-  has_many :badges, dependent: destroy
+  has_many :badges, dependent: :destroy
 
   validates :name, presence: true, length: {minimum: 3}
   validates :url, presence: true

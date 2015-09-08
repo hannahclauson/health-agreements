@@ -11,6 +11,12 @@
     .panel-heading Description
     .panel-body     
       %p= @company.description
+      %h3 Badges:
+      %ul.list-group
+        - @company.badges.each do |b|
+          %li.list-item
+            %span= b.archetype.name
+
 
   = render 'practices/panel_list'
 
