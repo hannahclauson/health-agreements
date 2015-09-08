@@ -3,31 +3,37 @@ $icon-font-path: 'bootstrap/';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$badge_background: $gray-lighter;
+$badge_background: $navbar-inverse-bg;
+$badge_color:  white;
 
 .research {
   // Beaker Icon Credit to by Joshua Wold (noun 19127) under Creative Commons
-  background-image: url('/assets/research.svg');
+  -webkit-mask-image: url(/assets/research.svg);
+  mask-image: url(/assets/research.svg);
 }
 
 .data_aggregation {
   // Data Extraction Credit to Kirill Ulitin (noun 86706) under Creative Commons
-  background-image: url('/assets/data_aggregation.svg')
+  -webkit-mask-image: url(/assets/data_aggregation.svg);
+  mask-image: url(/assets/data_aggregation.svg);
 }
 
 .full_data_access {
   // Data Responsibility Credit to Samuel Q. Green (noun 4083) under Creative Commons
-  background-image: url('/assets/data_download.svg')
+  -webkit-mask-image: url(/assets/data_download.svg);
+  mask-image: url(/assets/data_download.svg);
 }
 
 .single_state_hosted {
   // Single State Credit to Aha-Soft (noun 164387) under Creative Commons
-  background-image: url('/assets/single_state_hosted.svg')
+  -webkit-mask-image: url(/assets/single_state_hosted.svg);
+  mask-image: url(/assets/single_state_hosted.svg);
 }
 
 .multi_state_hosted {
   // Single State Credit to Aha-Soft (noun 164402) under Creative Commons
-  background-image: url('/assets/multi_state_hosted.svg')
+  -webkit-mask-image: url(/assets/multi_state_hosted.svg);
+  mask-image: url(/assets/multi_state_hosted.svg);
 }
 
 
@@ -39,11 +45,13 @@ $badge_background: $gray-lighter;
   }
 
   .body {
-    background: $badge_background;
+    background-color: $badge_background;
     width: 100%;
     height: 40px;
+
     .content {
-      background-size: 40px 40px;
+      -webkit-mask-size: 40px 40px;
+      background-color: $badge_color;
       width: 40px;
       height: 36px;
 
@@ -57,9 +65,13 @@ $badge_background: $gray-lighter;
 $badge_horz: 20px;
 $badge_vert: 10px;
 
-.lower_left {
+.triangle {
   width: 0px;
   height: 0px;
+}
+
+.lower_left {
+  @extend .triangle;
   border-left: $badge_horz solid $badge_background;
   border-bottom: $badge_vert solid $badge_background;
   border-right: $badge_horz solid transparent;
@@ -67,8 +79,7 @@ $badge_vert: 10px;
 }
 
 .lower_right {
-  width: 0px;
-  height: 0px;
+  @extend .triangle;
   border-right: $badge_horz solid $badge_background;
   border-bottom: $badge_vert solid $badge_background;
   border-left: $badge_horz solid transparent;
@@ -76,8 +87,7 @@ $badge_vert: 10px;
 }
 
 .upper_left {
-  width: 0px;
-  height: 0px;
+  @extend .triangle;
   border-left: $badge_horz solid $badge_background;
   border-top: $badge_vert solid $badge_background;
   border-right: $badge_horz solid transparent;
@@ -85,8 +95,7 @@ $badge_vert: 10px;
 }
 
 .upper_right {
-  width: 0px;
-  height: 0px;
+  @extend .triangle;
   border-right: $badge_horz solid $badge_background;
   border-top: $badge_vert solid $badge_background;
   border-left: $badge_horz solid transparent;

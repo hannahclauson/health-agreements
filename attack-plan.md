@@ -1,5 +1,6 @@
 - Get icon paths working on heroku
   - this is prob going to be annoying
+  - also adjust the icon styles -- would like to be white on dark blue
 - Add some tests!!!!
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
