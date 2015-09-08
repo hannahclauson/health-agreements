@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'yaml'
+require ::File.expand_path('../../config/environment', __FILE__)
 
 data = YAML.load(File.read('db/seeds.yaml'))
 
@@ -22,7 +23,6 @@ end
 
 data['companies'].each do |c|
 
-#  p = Practice.create( c['practices'] )
   new_c = Company.create(
                  name: c['name'],
                  url: c['url']
@@ -37,8 +37,6 @@ data['companies'].each do |c|
     this_p[:practiceable_id] = new_c.id
     puts "Creating practice from: #{this_p}"
     normalized_practices << this_p
-#    p = Practice.create(this_p)
-#    new_c.update({:practices => [p]})
   end
 
   new_c.update({:practices => Practice.create(normalized_practices)})
@@ -48,3 +46,37 @@ data['companies'].each do |c|
   puts new_c.errors.full_messages.join("\n")
 
 end
+
+
+
+data['archetypes'].each do |a|
+
+  new_a = Archetype.create(
+                 name: a['name'],
+                 description: a['description']
+                 )
+
+  normalized_practices = []
+  a['practices'].each do |p|
+    this_p = {}
+    p.each do |k,v|
+      this_p[k.to_sym] = v
+    end
+    this_p[:practiceable_id] = new_a.id
+    puts "Creating practice from: #{this_p}"
+    normalized_practices << this_p
+  end
+
+  new_a.update({:practices => Practice.create(normalized_practices)})
+
+  puts "Created archetype?"
+  puts new_a
+  puts new_a.errors.full_messages.join("\n")
+
+end
+
+
+
+
+ac = ApplicationController.new
+ac.reevaluate_badges
