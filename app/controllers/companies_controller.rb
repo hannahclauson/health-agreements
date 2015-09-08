@@ -33,6 +33,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @parent = @company # syntactic sugar so I can reuse the practices form partial
     @practice = Practice.new
   end
 
