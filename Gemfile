@@ -8,7 +8,7 @@ gem 'pg'
 # Use SCSS for stylesheets
 
 #gem 'sass-rails', '~> 5.0'
-gem 'sassc-rails'
+gem 'sassc-rails', path: 'vendor/ruby-libsass/'
 
 
 gem 'haml'
