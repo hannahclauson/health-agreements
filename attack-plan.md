@@ -90,10 +90,12 @@ Nice to Haves:
   - articles are a new model
   - would like to save name / journal / impact factor
   - provide weighted impact score for company
-- update index pages
-  - badges - sort by date
-  - updated agreements (new docs)
-- update credits page w example of icons -- need to abstract badge helper some more
+UX upgrade
+  - update index pages
+    - badges - sort by date
+    - updated agreements (new docs)
+  - update credits page w example of icons -- need to abstract badge helper some more
+  - make search by badge use badge icons?
 - Add user based submissions
   - is there a way to use linkedin to verify you're a lawyer?
   - or a public registry for identity / prove you passed the bar?
