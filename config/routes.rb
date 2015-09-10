@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :companies do
+    get :autocomplete_company_name, :on => :collection
     get :autocomplete_archetype_name, :on => :collection
+    get :autocomplete_guideline_name, :on => :collection
     resources :practices
   end
 

@@ -7,8 +7,15 @@
     .panel-heading
       %h2 Search
     .panel-body
-      = form_for @archetype do |form|
-        = form.autocomplete_field :name, autocomplete_archetype_name_companies_path
+      = form_tag do |form|
+        = label_tag("name", "Name")
+        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path)
+        = label_tag("archetype[name]", "Badge")
+        = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
+        = label_tag("guideline[name]", "Practice")
+        = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
+
+
 
 
   %ul.list-group

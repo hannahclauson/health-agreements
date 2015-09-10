@@ -1,7 +1,5 @@
 class GuidelinesController < ApplicationController
 
-  autocomplete :name
-
   def new
     @guideline = Guideline.new
   end
