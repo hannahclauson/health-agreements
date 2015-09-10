@@ -1,33 +1,38 @@
-- Create search methods
+- Create search methods (##est 1 day)
   - search by badge
   - search by practices (and value)
   - update company index
     - display badges in each row
-- Create users
+- Create users (##est 1 day)
   - use devise (seems standard)
   - editor-level
   - can add information / modify results
   - need to make sure edit history is logge
-- Add some tests!!!!
+- Add some tests!!!! (##est 1 day)
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
-- Update IA / copy
-  - Confusing for users difference btw archetype and badge
-  - Should probably just be displayed as 'badge' when creating new prototype
-- Data Entry Phase II
+- Data Entry Phase II (##est 1 day)
+  - will be added to seeds file
   - another few dozen companies
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
-- Update company schema / controllers:
+- Update IA / copy (## est 0.5 day)
+  - Confusing for users difference btw archetype and badge
+  - Should probably just be displayed as 'badge' when creating new prototype
+  - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
+    - Learn about guidelines / badges
+    - Highlight some common searches / most frequent searches?
+    - Showcase Good Citizens
+- Update company schema / controllers: (##est 0.5 day)
   - want to see edit times / etc
   - plus helpful as I build public facing functionality (search / etc)
   - may get all this for free already -- via active admin
   - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
-- Make production ready
+- Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
   - proper error handling
   - add mixpanel / GA
-- Setup polling data
+- Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
   - New model: Document
     - URL
@@ -39,45 +44,43 @@
     - comparison view to compare two versions (visualize diff)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
-- Data Entry Phase III
+- Data Entry Phase III (##est 2 days)
+  - will be added to prod DB
+  - do DB dump / restore (make sure works w minimally new data)
   - make sure all document links are specified
   - should have about a hundred companies
   - let run for a week or so to see how data performs
   - include test company (maybe this site itself) to validate change detection
   - paginate company index
-- Soft Launch Site
+- Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
   - estimate monthly costs
   - add to my contracting firm?
   - publish / make OSS?
-- Data Entry Phase IV
+- Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
   - upgrade search (to elastic search?) so that its good / fast
-- Request Addition / Modification
+- Request Addition / Modification (##est 1 day)
   - form to request a company added to list
   - form to request a modification
   - form for new badge type?
-- Update copy
-  - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
-    - Learn about guidelines / badges
-    - Highlight some common searches / most frequent searches?
-    - Showcase Good Citizens
-- Update UX
-  - on company show page, provide JS filters for each column (prob at least implements col)
-- Launch Site
+  - should notify editors via email when new submission in place
+- Add model / list of Articles/Journals where company research is published (##est 1 day)
+  - and add weighted impact scores to company
+  - maybe different badge for active / impactful research?
+- Pre-Launch (##est 1/2 day)
+  - audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
+  - make sure errors are handled properly
+- Launch Site (##est 1 day)
   - marketing time
-
-Pre-Launch
-
-- audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
-- make sure errors are handled properly
-- do a DB dump / restore
 
 
 Nice to Haves:
 
+- Update UX
+  - on company show page, provide JS filters for each column (prob at least implements col)
 - Add script to dump current DB to a seeds.rb file
   - a la : http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
   - will be handy as I go through iterations of populating the DB and revising the content

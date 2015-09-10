@@ -7,7 +7,7 @@
     .panel-heading
       %h2 Search
     .panel-body
-      = form_tag(companies_path(:method => "search"), :method => "get", id: "search")
+      = simple_form(companies_path(:method => "search"), :method => "get", id: "search")
 
 
 
