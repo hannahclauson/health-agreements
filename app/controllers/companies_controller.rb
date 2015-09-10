@@ -21,6 +21,10 @@ class CompaniesController < ApplicationController
     @companies = Company.all
   end
 
+  def search
+    
+  end
+
   def create
     @company = Company.new(company_params)
     if @company.save

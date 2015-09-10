@@ -1,6 +1,8 @@
 - Create search methods
   - search by badge
-  - search by rule values
+  - search by practices (and value)
+  - update company index
+    - display badges in each row
 - Create users
   - use devise (seems standard)
   - editor-level
@@ -9,6 +11,9 @@
 - Add some tests!!!!
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
+- Update IA / copy
+  - Confusing for users difference btw archetype and badge
+  - Should probably just be displayed as 'badge' when creating new prototype
 - Data Entry Phase II
   - another few dozen companies
   - refine existing data / review
@@ -19,12 +24,8 @@
   - may get all this for free already -- via active admin
   - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
 - Make production ready
-  - upgrade middleware (puma / unicorn)
-  - have mechanism for high fidelity DB backup / routinely do this
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-  - estimate monthly costs
-  - add to my contracting firm?
-  - add tests in place / proper error handling
+  - proper error handling
   - add mixpanel / GA
 - Setup polling data
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
@@ -45,7 +46,10 @@
   - include test company (maybe this site itself) to validate change detection
   - paginate company index
 - Soft Launch Site
-  - remove basic auth wall
+  - upgrade middleware (puma / unicorn)
+  - have mechanism for high fidelity DB backup / routinely do this
+  - estimate monthly costs
+  - add to my contracting firm?
   - publish / make OSS?
 - Data Entry Phase IV
   - big data push - hundreds of sites as goal
@@ -77,12 +81,13 @@ Nice to Haves:
 - Add script to dump current DB to a seeds.rb file
   - a la : http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
   - will be handy as I go through iterations of populating the DB and revising the content
-- Add some more details
-  - add t/f or n/a or ambiguous to acceptable values for a 'rule'
 - if they support public peer-reviewed research, links to relevant studies
   - articles are a new model
   - would like to save name / journal / impact factor
   - provide weighted impact score for company
+- update index pages
+  - badges - sort by date
+  - updated agreements (new docs)
 - update credits page w example of icons -- need to abstract badge helper some more
 - Add user based submissions
   - is there a way to use linkedin to verify you're a lawyer?
