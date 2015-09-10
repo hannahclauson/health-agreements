@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  autocomplete :archetype, :name
 
   def new
     @company = Company.new

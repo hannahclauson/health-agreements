@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :companies do
+    get :autocomplete_archetype_name, :on => :collection
     resources :practices
   end
 
   resources :guidelines
   resources :archetypes do
-    get :autocomplete_name, :on => :collection
     resources :practices
   end
 
