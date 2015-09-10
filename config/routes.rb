@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :guidelines
   resources :archetypes do
+    get :autocomplete_name, :on => :collection
     resources :practices
   end
 

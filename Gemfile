@@ -29,6 +29,9 @@ gem 'jquery-rails'
 # Enable form autocompletion
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
+## Use simple_form's
+gem 'simple_form'
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

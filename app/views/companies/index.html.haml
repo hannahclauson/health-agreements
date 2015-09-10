@@ -7,9 +7,8 @@
     .panel-heading
       %h2 Search
     .panel-body
-      = simple_form(companies_path(:method => "search"), :method => "get", id: "search")
-
-
+      = form_for @archetype do |form|
+        = form.autocomplete_field :name, autocomplete_name_archetypes_path
 
 
   %ul.list-group

@@ -20,6 +20,8 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    # Some blank objects for search helpers
+    @archetype = Archetype.new
   end
 
   def create
