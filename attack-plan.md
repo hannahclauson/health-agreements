@@ -20,6 +20,7 @@ X  - also adjust the icon styles -- would like to be white on dark blue
   - want to see edit times / etc
   - plus helpful as I build public facing functionality (search / etc)
   - may get all this for free already -- via active admin
+  - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
 - Make production ready
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
