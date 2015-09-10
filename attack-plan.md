@@ -1,6 +1,3 @@
-- Get icon paths working on heroku
-  - this is prob going to be annoying
-X  - also adjust the icon styles -- would like to be white on dark blue
 - Create search methods
   - search by badge
   - search by rule values

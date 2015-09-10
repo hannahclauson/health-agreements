@@ -99,3 +99,8 @@
     - i think this may have happened whn i introd polymorphism
   - update seeds.rb to populate archetypes
   - Make sure some companies implement none/one/some
+- Get icon paths working on heroku
+  - this is prob going to be annoying
+X  - also adjust the icon styles -- would like to be white on dark blue
+X - OMG this was so silly -- this helped me out (kinda) : https://github.com/rails/sass-rails/issues/86
+X - I spent sooo much time on this ... compared to everything else. Like ... 3+ hours
