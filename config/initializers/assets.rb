@@ -14,7 +14,7 @@ puts "APPLICATION CONFIG"
 puts Rails.application.config
 puts Rails.application.config.assets
 
-%w( archetypes companies documents guidelines practices welcome ).each do |controller|
+%w( application archetypes companies documents guidelines practices welcome ).each do |controller|
   value = ["#{controller}.js.coffee", "#{controller}.css"]
   puts "ADDING CONTROLLER ASSETS"
   puts value
