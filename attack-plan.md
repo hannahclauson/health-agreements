@@ -81,6 +81,8 @@ Nice to Haves:
 
 - Update UX
   - on company show page, provide JS filters for each column (prob at least implements col)
+  - maybe also provide option to see all guidelines (and whether they follow or now)
+  - company comparison view -- compare company's implementations of (all? -- at least union) or practices
 - Add script to dump current DB to a seeds.rb file
   - a la : http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
   - will be handy as I go through iterations of populating the DB and revising the content
