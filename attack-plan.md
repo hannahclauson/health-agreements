@@ -27,6 +27,7 @@
   - add tests in place / proper error handling
   - add mixpanel / GA
 - Setup polling data
+  - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
   - New model: Document
     - URL
     - poll date
@@ -79,7 +80,9 @@ Nice to Haves:
 - Add some more details
   - add t/f or n/a or ambiguous to acceptable values for a 'rule'
 - if they support public peer-reviewed research, links to relevant studies
-- crawl/save/hash all agreements so we can track changes + alert when info may be out of date
+  - articles are a new model
+  - would like to save name / journal / impact factor
+  - provide weighted impact score for company
 - update credits page w example of icons -- need to abstract badge helper some more
 - Add user based submissions
   - is there a way to use linkedin to verify you're a lawyer?
