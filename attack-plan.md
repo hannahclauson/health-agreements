@@ -1,10 +1,6 @@
 - Get icon paths working on heroku
   - this is prob going to be annoying
-  - also adjust the icon styles -- would like to be white on dark blue
-- Add some tests!!!!
-  - Esp around practice uniqueness
-  - And around badge eligibility / revoking
-- Add basic auth wall
+X  - also adjust the icon styles -- would like to be white on dark blue
 - Create search methods
   - search by badge
   - search by rule values
@@ -12,7 +8,10 @@
   - use devise (seems standard)
   - editor-level
   - can add information / modify results
-  - need to make sure edit history is logged
+  - need to make sure edit history is logge
+- Add some tests!!!!
+  - Esp around practice uniqueness
+  - And around badge eligibility / revoking
 - Data Entry Phase II
   - another few dozen companies
   - refine existing data / review
