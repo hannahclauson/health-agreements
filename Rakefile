@@ -10,11 +10,18 @@ namespace :estimate do
   task :launch => :environment do
     f = File.read("attack-plan.md")
     total = 0
-    f.gsub(/\(\##\s*est\s([\d\.]*?)\s/) do |match|
-      total += $1.to_i unless $1.nil?
+
+    items = []
+
+    f.gsub(/\-(.*?)\(\##\s*est\s([\d\.]*?)\s/) do |match|
+      unless $2.nil?
+        total += $2.to_i
+        items << "#{$2} : #{$1}"
+      end
     end
 
     puts "#{total} days left until launch"
+    puts " * " + items.join("\n * ")
   end
 
 
