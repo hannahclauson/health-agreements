@@ -1,0 +1,27 @@
+.panel.panel-default
+  .panel-heading
+    %h2 Search
+  .panel-body
+    = form_tag do |form|
+
+      .field.form-group
+        = label_tag("name", "Name", {class: 'col-sm-2 control-label'})
+        .col-sm-10.input_wrapper
+          = autocomplete_field(:company, :name, autocomplete_company_name_companies_path)
+
+      .field.form-group
+        = label_tag("archetype[name]", "Badge", {class: 'col-sm-2 control-label'})
+        .col-sm-10.input_wrapper
+          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
+
+      .field.form-group
+        = label_tag("guideline[name]", "Practice", {class: 'col-sm-2 control-label'})
+        .col-sm-10.input_wrapper
+          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
+
+      .field.form-group
+        = label_tag("submit", " ", {class: 'col-sm-2 control-label'})        
+        .col-sm-10.input_wrapper
+          = submit_tag("Search")
+
+

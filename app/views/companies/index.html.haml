@@ -3,20 +3,7 @@
     %h1 Companies
     %p Browse Companies for detailed health information
 
-  .panel.default
-    .panel-heading
-      %h2 Search
-    .panel-body
-      = form_tag do |form|
-        = label_tag("name", "Name")
-        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path)
-        = label_tag("archetype[name]", "Badge")
-        = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
-        = label_tag("guideline[name]", "Practice")
-        = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
-
-
-
+  = render 'search'
 
   %ul.list-group
     - @companies.each do |c|
