@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   def new
     @company = Company.new
   end
@@ -19,10 +20,6 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-  end
-
-  def search
-    
   end
 
   def create

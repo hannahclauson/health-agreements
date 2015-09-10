@@ -3,6 +3,15 @@
     %h1 Companies
     %p Browse Companies for detailed health information
 
+  .panel.default
+    .panel-heading
+      %h2 Search
+    .panel-body
+      = form_tag(companies_path(:method => "search"), :method => "get", id: "search")
+
+
+
+
   %ul.list-group
     - @companies.each do |c|
       %li.list-group-item

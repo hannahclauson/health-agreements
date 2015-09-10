@@ -1,4 +1,6 @@
 class ArchetypesController < ApplicationController
+  autocomplete :name
+
   def index
     @archetypes = Archetype.all
   end
