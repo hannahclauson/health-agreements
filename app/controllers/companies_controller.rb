@@ -23,8 +23,11 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    # Some blank objects for search helpers
-    @archetype = Archetype.new
+  end
+
+  def search
+    # Will search companies that match the criteria
+    # Search company name OR badge name OR guideline name
   end
 
   def create
