@@ -1,4 +1,4 @@
-= form_tag do |form|
+= form_tag( {:action => "index"}, {:class => 'form-horizontal'} ) do |form|
 
   .bar
     %span.bar.col-sm-10
@@ -10,29 +10,31 @@
       %span.btn.btn-primary.glyphicon.glyphicon-search
       %span.btn.btn-default.glyphicon.glyphicon-plus
 
-  .panel.panel-default.search-container          
+  .advanced-search
+    .panel.panel-default
+      .panel-heading
+        Advanced
+      .panel-body
 
-    .panel-body
+        %h3 Badge
 
-      %h3 Badge
-
-      .field.form-group
-        = label_tag("archetype[name]", "Name", {class: 'col-sm-2 control-label'})
-        .col-sm-10.input_wrapper
-          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
+        .field.form-group
+          = label_tag("archetype[name]", "Name", {class: 'col-sm-2 control-label'})
+          .col-sm-10.input_wrapper
+            = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
 
 
-      %h3 Practice
+        %h3 Practice
+  
+        .field.form-group
+          = label_tag("guideline[name]", "Practice Name", {class: 'col-sm-2 control-label'})
+          .col-sm-10.input_wrapper
+            = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
+          = label_tag("implementation[name]", "Implementation", {class: 'col-sm-2 control-label'})
+          .col-sm-10.input_wrapper
+            = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
 
-      .field.form-group
-        = label_tag("guideline[name]", "Name", {class: 'col-sm-2 control-label'})
-        .col-sm-10.input_wrapper
-          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
-        = label_tag("implementation[name]", "Implementation", {class: 'col-sm-2 control-label'})
-        .col-sm-10.input_wrapper
-          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
-
-      .field.form-group
-        = label_tag("submit", " ", {class: 'col-sm-2 control-label'})        
-        .col-sm-10.input_wrapper
-          = submit_tag("Search")
+        .field.form-group
+          = label_tag("submit", " ", {class: 'col-sm-2 control-label'})        
+          .col-sm-10.input_wrapper
+            = submit_tag("Search")

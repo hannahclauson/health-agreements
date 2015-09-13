@@ -81,6 +81,8 @@
 
 Nice to Haves:
 
+- Mobile version
+  - if im marketing ... its probably going to be seen first on mobile
 - Update UX
   - on company show page, provide JS filters for each column (prob at least implements col)
   - maybe also provide option to see all guidelines (and whether they follow or now)
