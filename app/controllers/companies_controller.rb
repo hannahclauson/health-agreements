@@ -1,7 +1,8 @@
 class CompaniesController < ApplicationController
-  autocomplete :archetype, :name
-  autocomplete :guideline, :name
+  autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
+
+  autocomplete :guideline, :name
   autocomplete :practice, :implementation, :display_value => :implementation_text
 
   def new
@@ -29,6 +30,7 @@ class CompaniesController < ApplicationController
     puts params
 
     c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
+
     c = c.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
 
     if params[:guideline_id].present? & params[:implementation].present?

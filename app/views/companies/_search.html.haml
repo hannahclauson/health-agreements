@@ -17,7 +17,8 @@
       %span.value
         .input-group
           = label_tag("archetype[name]", "Name", {class: 'input-group-addon'})
-          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, {class: 'form-control'})
+          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, :update_elements => {:id => '#archetype_id'}, :class => 'form-control')
+          %input#archetype_id{:name => 'archetype_id'}
 
     %span.advanced-option.practice-filter
       %h4 Practice
