@@ -23,13 +23,12 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-
     @companies = @companies.filter_name(params[:name]) if params[:name].present?
     @companies = @companies.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
 
-#    if params[:search]
-#      @companies = Company.search(params[:search]).order("created_at DESC")
-#    end
+    if params[:guideline_id].present? & params[:implementation].present?
+      @companies = @companies.filter_practices(params[:guideline_id], params[:implementation])
+    end
 
   end
 
