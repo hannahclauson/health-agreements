@@ -11,6 +11,8 @@
 - Add some tests!!!! (##est 1 day)
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
+  - Search
+    - params missing (esp practice name/impl)
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies
