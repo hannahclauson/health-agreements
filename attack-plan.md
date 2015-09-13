@@ -34,6 +34,8 @@
   - add mixpanel / GA
 - Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
+  - probably want to separate download of html from extracting corpus
+    - that way the content selector / normalization can always be updated independently
   - New model: Document
     - URL
     - poll date
@@ -83,6 +85,8 @@ Nice to Haves:
   - on company show page, provide JS filters for each column (prob at least implements col)
   - maybe also provide option to see all guidelines (and whether they follow or now)
   - company comparison view -- compare company's implementations of (all? -- at least union) or practices
+- Comparison Functionality
+  - compare companies (2+?)
 - Add script to dump current DB to a seeds.rb file
   - a la : http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
   - will be handy as I go through iterations of populating the DB and revising the content
