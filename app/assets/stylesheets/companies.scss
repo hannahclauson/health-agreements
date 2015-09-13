@@ -34,25 +34,14 @@
 // Search Form
 
 .bar {
-  height: 60px;
-  .col-sm-10 > *{
-    display:inline-block;	
-  }
-}
-
-.input-group.special {
-  border: 0px;
-}
-.search-button {
-  top: 0px !important;
-  color: white !important;
-  background-color: $brand-primary !important;
+  height: 40px;
 }
 
 .advanced-search {
-  padding: 0px 35px;
+  top: 60px;
+  padding-left: 40px;
   margin-right: 60px;  
-  height: 200px;
+  height: 60px;
 
   .advanced-option {
     &.badge-filter .input-group{
@@ -62,14 +51,30 @@
       width: 400px;
     }
 
-    .value {
-      top: 10px;
-      position: relative;
-    }
     > *{
       display: inline-block;
       margin-right: 20px;	
     }
+
+    .value {
+      top: 10px;
+      position: relative;
+    }
+
+    .guideline-name {
+      width: 200px;
+    }   
+	
+    .implementation-name {
+      width: 160px;
+    }
+
+    label[for='practice_implementation'] {
+      border-left: 0px;
+      border-right: 0px;
+    }   
+	
+
   }
 
 }
