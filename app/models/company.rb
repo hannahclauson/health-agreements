@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
 
 
   scope :filter_name, -> (name) {
-    where("name ILIKE ?", name)
+    where("name ILIKE ?", "%#{name}%")
   }
 
   scope :filter_badges, -> (archetype_id) {

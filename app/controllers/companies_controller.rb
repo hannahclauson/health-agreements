@@ -24,7 +24,11 @@ class CompaniesController < ApplicationController
 
   def index
     c = Company.all
-    c = c.filter_name(params[:name]) if params[:name].present?
+
+    puts "PARAMS!"
+    puts params
+
+    c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
     c = c.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
 
     if params[:guideline_id].present? & params[:implementation].present?
