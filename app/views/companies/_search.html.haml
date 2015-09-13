@@ -30,8 +30,8 @@
 
 
           = label_tag("practice[implementation]", "Implementation", {class: "input-group-addon"})
-          = autocomplete_field(:practice, :implementation, autocomplete_practice_implementation_companies_path, :update_elements => {:implementation => "#implementation"}, :class => "form-control implementation-name")
-          %input#implementation.hidden{:name => "implementation"}
+          = autocomplete_field(:practice, :implementation_xxx, autocomplete_implementations_path, :update_elements => {:id => "#implementation"})
+          %input#implementation{:name => "implementation"}
 
 
     .field.form-group.hidden

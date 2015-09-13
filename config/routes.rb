@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :practices
   end
 
+  get '/autocomplete/implementations', to: 'practices#autocomplete_implementations'
+
   resources :guidelines
   resources :archetypes do
     resources :practices

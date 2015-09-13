@@ -56,6 +56,20 @@ class PracticesController < ApplicationController
     redirect_to @parent
   end
 
+  def autocomplete_implementations
+    raw = view_context.enumerated_implementations
+    opts = raw.collect do |pair|
+      normalized_text = pair.first.to_s.split("_").join(" ").capitalize
+      {
+        :label => normalized_text,
+        :value => normalized_text,
+        :enumerated_value => pair.last,
+        :id => pair.last
+      }
+    end
+    render json: opts
+  end
+
   private
 
   def allowed_params
