@@ -37,7 +37,15 @@
   height: 40px;
 }
 
+form.search {
+  margin-bottom: 10px;
+}
+
 .advanced-search {
+  &.collapse-options {
+    display: none;
+  }
+
   top: 60px;
   padding-left: 40px;
   margin-right: 60px;  

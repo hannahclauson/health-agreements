@@ -1,4 +1,4 @@
-= form_tag( {:action => "index"}, {:class => 'form-horizontal'} ) do |form|
+= form_tag( {:action => "index"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
   .bar
     %span.col-sm-10
@@ -7,10 +7,10 @@
         = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name'})
 
     %span.options.col-sm-2
-      %span.btn.btn-primary.glyphicon.glyphicon-search
-      %span.btn.btn-default.glyphicon.glyphicon-plus{'data-toggle' => "collapse", 'data-target' => "#advanced"}
+      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+      %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
 
-  #advanced.advanced-search.collapse
+  .advanced-search.collapse-options
 
     %span.advanced-option.badge-filter
       %h4 Badge
