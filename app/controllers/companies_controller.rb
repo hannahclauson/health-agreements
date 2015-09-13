@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
   autocomplete :archetype, :name
   autocomplete :guideline, :name
   autocomplete :company, :name
+  autocomplete :practice, :implementation, :display_value => :implementation_text
 
   def new
     @company = Company.new

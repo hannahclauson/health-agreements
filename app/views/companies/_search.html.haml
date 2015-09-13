@@ -1,40 +1,37 @@
 = form_tag( {:action => "index"}, {:class => 'form-horizontal'} ) do |form|
 
   .bar
-    %span.bar.col-sm-10
+    %span.col-sm-9
       .input-group
         %span.input-group-addon
           Search
         = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name'})
+    %span.col-sm-1
+      .input-group
+        %span.input-group-addon.glyphicon.glyphicon-search.search-button
+
     %span.options.col-sm-2
-      %span.btn.btn-primary.glyphicon.glyphicon-search
       %span.btn.btn-default.glyphicon.glyphicon-plus
 
   .advanced-search
-    .panel.panel-default
-      .panel-heading
-        Advanced
-      .panel-body
 
-        %h3 Badge
+    %span.advanced-option.badge-filter
+      %h4 Badge
+      %span.value
+        .input-group
+          = label_tag("archetype[name]", "Name", {class: 'input-group-addon'})
+          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, {class: 'form-control'})
 
-        .field.form-group
-          = label_tag("archetype[name]", "Name", {class: 'col-sm-2 control-label'})
-          .col-sm-10.input_wrapper
-            = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
+    %span.advanced-option.practice-filter
+      %h4 Practice
+      %span.value
+        .input-group
+          = label_tag("guideline[name]", "Name", {class: 'input-group-addon'})
+          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, {class: 'form-control guideline_name'})
+          = label_tag("practice[implementation]", "Implementation", {class: 'input-group-addon'})
+          = autocomplete_field(:practice, :implementation, autocomplete_practice_implementation_companies_path, {class: 'form-control implementation_name'})
 
-
-        %h3 Practice
-  
-        .field.form-group
-          = label_tag("guideline[name]", "Practice Name", {class: 'col-sm-2 control-label'})
-          .col-sm-10.input_wrapper
-            = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
-          = label_tag("implementation[name]", "Implementation", {class: 'col-sm-2 control-label'})
-          .col-sm-10.input_wrapper
-            = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
-
-        .field.form-group
-          = label_tag("submit", " ", {class: 'col-sm-2 control-label'})        
-          .col-sm-10.input_wrapper
-            = submit_tag("Search")
+    .field.form-group
+      = label_tag("submit", " ", {class: 'col-sm-2 control-label'})        
+      .col-sm-10.input_wrapper
+        = submit_tag("Search")

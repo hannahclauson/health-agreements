@@ -35,9 +35,41 @@
 
 .bar {
   height: 60px;
+  .col-sm-10 > *{
+    display:inline-block;	
+  }
+}
+
+.input-group.special {
+  border: 0px;
+}
+.search-button {
+  top: 0px !important;
+  color: white !important;
+  background-color: $brand-primary !important;
 }
 
 .advanced-search {
   padding: 0px 35px;
   margin-right: 60px;  
+  height: 200px;
+
+  .advanced-option {
+    &.badge-filter .input-group{
+      width: 200px;
+    }
+    &.practice-filter .input-group{
+      width: 400px;
+    }
+
+    .value {
+      top: 10px;
+      position: relative;
+    }
+    > *{
+      display: inline-block;
+      margin-right: 20px;	
+    }
+  }
+
 }
