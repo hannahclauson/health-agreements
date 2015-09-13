@@ -22,14 +22,15 @@ class CompaniesController < ApplicationController
   end
 
   def index
-    @companies = Company.all
-    @companies = @companies.filter_name(params[:name]) if params[:name].present?
-    @companies = @companies.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
+    c = Company.all
+    c = c.filter_name(params[:name]) if params[:name].present?
+    c = c.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
 
     if params[:guideline_id].present? & params[:implementation].present?
-      @companies = @companies.filter_practices(params[:guideline_id], params[:implementation])
+      c = c.filter_practices(params[:guideline_id], params[:implementation])
     end
 
+    @companies = c
   end
 
 

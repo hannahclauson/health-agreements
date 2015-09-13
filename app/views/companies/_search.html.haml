@@ -1,21 +1,36 @@
-.panel.panel-default
-  .panel-heading
-    %h2 Search
-  .panel-body
-    = form_tag do |form|
+= form_tag do |form|
+
+  .bar
+    %span.bar.col-sm-10
+      .input-group
+        %span.input-group-addon
+          Search
+        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name'})
+    %span.options.col-sm-2
+      %span.btn.btn-sm.btn-primary.glyphicon.glyphicon-search
+      %span.btn.btn-sm.btn-default.glyphicon.glyphicon-plus
+  
+
+
+  .panel.panel-default.search-container          
+
+    .panel-body
+
+      %h3 Badge
 
       .field.form-group
-        = label_tag("name", "Name", {class: 'col-sm-2 control-label'})
-        .col-sm-10.input_wrapper
-          = autocomplete_field(:company, :name, autocomplete_company_name_companies_path)
-
-      .field.form-group
-        = label_tag("archetype[name]", "Badge", {class: 'col-sm-2 control-label'})
+        = label_tag("archetype[name]", "Name", {class: 'col-sm-2 control-label'})
         .col-sm-10.input_wrapper
           = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path)
 
+
+      %h3 Practice
+
       .field.form-group
-        = label_tag("guideline[name]", "Practice", {class: 'col-sm-2 control-label'})
+        = label_tag("guideline[name]", "Name", {class: 'col-sm-2 control-label'})
+        .col-sm-10.input_wrapper
+          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
+        = label_tag("implementation[name]", "Implementation", {class: 'col-sm-2 control-label'})
         .col-sm-10.input_wrapper
           = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path)
 
