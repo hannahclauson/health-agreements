@@ -18,7 +18,10 @@ X  - style signin/signup views
   - only admins can
     - delete anything
     - create new editors
-  - need to make sure edit history is logged
+  - make sure to seed DB w admin user
+  - and make sure the seed works for heroku
+  - AAand make sure the mailer is configured properly on heroku
+  - Restrict signup to only be done by admin
 - Update company schema / controllers: (##est 0.5 day)
   - want to see edit times / etc
   - plus helpful as I build public facing functionality (search / etc)
