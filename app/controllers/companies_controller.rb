@@ -44,8 +44,11 @@ class CompaniesController < ApplicationController
       }
     end
 
-    @companies = c
     @searched = params[:commit] == 'Search'
+
+    @companies = c
+
+    redirect_to @companies.first if @companies.size == 1
 
   end
 
