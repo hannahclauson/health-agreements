@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   # perhaps i couldnt read the extra value I was sending because it wasn't listed as
   # an extra data field? but I dont think the line below is connected to the autocomp
   # call im using now
-  autocomplete :practice, :implementation, :display_value => :implementation_text
+#  autocomplete :practice, :implementation, :display_value => :implementation_text
 
   def new
     @company = Company.new
