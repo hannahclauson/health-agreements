@@ -4,11 +4,14 @@
 .container
   .page-header
     %h1 List of Archetypes
-    %a=link_to("New", new_archetype_path, {class: 'btn btn-xs btn-info object_action'})
+    - if access_to_action(:new)
+      =link_to("New", new_archetype_path, {class: 'btn btn-xs btn-info object_action'})
 
   %ul.list-group
     - @archetypes.each do |a|
       %li.list-group-item
         %span= a.name
-        link_to "Edit", edit_archetype(a), {class: 'btn btn-xs btn-info'}
-        link_to "Delete", edit_archetype(a), class: 'btn btn-xs btn-info', method: :delete
+        - if access_to_action(:edit)
+          = link_to "Edit", edit_archetype_path(a), {class: 'btn btn-xs btn-info'}
+        - if access_to_action(:delete)
+          = link_to "Delete", archetype_path(a), class: 'btn btn-xs btn-info', method: :delete

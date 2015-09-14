@@ -17,7 +17,10 @@
         %td= p.implementation_text
         %td= p.notes
         %td.actions
-          = link_to('Show', polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'})
-          = link_to('Edit', edit_polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'}) 
-          = link_to('Delete', polymorphic_path([@parent,p]), class: 'btn btn-xs btn-danger', method: :delete) 
+          - if access_to_action(:show)
+            = link_to('Show', polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'})
+          - if access_to_action(:edit)
+            = link_to('Edit', edit_polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'}) 
+          - if access_to_action(:delete)
+            = link_to('Delete', polymorphic_path([@parent,p]), class: 'btn btn-xs btn-danger', method: :delete) 
 

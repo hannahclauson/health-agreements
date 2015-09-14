@@ -4,8 +4,10 @@
 .container
   .page-header
     %h1="Guideline for '#{@guideline.name}'"
-    =link_to("Delete", guideline_path(@guideline), class: 'btn btn-xs btn-danger object_action', method: :delete)
-    =link_to("Edit", edit_guideline_path(@guideline), class: 'btn btn-xs btn-info object_action')
+    - if access_to_action(:delete)
+      =link_to("Delete", guideline_path(@guideline), class: 'btn btn-xs btn-danger object_action', method: :delete)
+    - if access_to_action(:edit)
+      =link_to("Edit", edit_guideline_path(@guideline), class: 'btn btn-xs btn-info object_action')
 
 
 

@@ -1,3 +1,5 @@
+require 'access_levels'
+
 module ApplicationHelper
 
   def active_page
@@ -12,43 +14,26 @@ module ApplicationHelper
     !current_user.nil? && current_user.admin?
   end
 
+  # This method is only used in views (when to show action links)
+
   def access_to_action(action)
-    # Everyone can view
-
-    puts "Editor access level? #{editor_access_level?}"
-
-    if !editor_access_level?
-      case action
-      when :show
-        return true
-      when :index
-        return true
-      else
-        return false
-      end
-    end
+    access = false
 
     # Editors can :edit
+    puts "Editor access level? #{editor_access_level?}"
 
-    if editor_access_level?
-      case action
-      when :new
-        return true
-      when :edit
-        return true
-      else
-        return false
-      end
+    if editor_access_level? & (AccessLevels::EDITOR_ACTIONS.include? action)
+      access = true
     end
 
     # Admins can :delete
-
     puts "Admin access level? #{admin_access_level?}"
 
     if admin_access_level?
-      return true
+      access = true
     end
 
+    return access
   end
 
   def header_links
