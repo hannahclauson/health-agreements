@@ -1,6 +1,4 @@
 %header
-  %p.notice= notice
-  %p.alert= alert
 
   %nav.navbar.navbar-inverse.navbar-static-top
     .container-fluid
@@ -10,3 +8,20 @@
         - header_links.each do |name, info|
           - active_attribute = (name == active_page) ? "active" : ""
           %li{class: active_attribute}= link_to info.first, info.last
+
+      %ul.navbar-nav.nav.navbar-right
+        - if user_signed_in?
+          %li.user_session
+            =link_to "Sign Out", destroy_user_session_path, method: :delete
+        - else
+          %li.user_session
+            =link_to "Sign In", new_user_session_path
+
+
+  .flash
+    %p.notice{class: (notice.nil? ? "hidden" : "")}
+      %span.glyphicon.glyphicon-info-sign
+      = notice
+    %p.alert{class: (alert.nil? ? "hidden" : "")}
+      %span.glyphicon.glyphicon-warning-sign
+      = alert
