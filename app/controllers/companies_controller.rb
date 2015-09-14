@@ -1,12 +1,8 @@
 class CompaniesController < ApplicationController
   autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
-
   autocomplete :guideline, :name, :extra_data => [:id]
-  # perhaps i couldnt read the extra value I was sending because it wasn't listed as
-  # an extra data field? but I dont think the line below is connected to the autocomp
-  # call im using now
-#  autocomplete :practice, :implementation, :display_value => :implementation_text
+  # implementation autocomplete lives in practices_controller
 
   def new
     @company = Company.new
@@ -36,8 +32,8 @@ class CompaniesController < ApplicationController
 
     c = c.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
 
-    if params[:guideline_id].present? & params[:implementation].present?
-      c = c.filter_practices(params[:guideline_id], params[:implementation])
+    if params[:guideline_id].present? & params[:practice][:implementation].present?
+      c = c.filter_practices(params[:guideline_id], params[:practice][:implementation])
     end
 
     @companies = c
