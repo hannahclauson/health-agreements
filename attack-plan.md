@@ -1,6 +1,7 @@
 - Create users (##est 1 day)
-  - use devise (seems standard)
-  - editor-level and admin-level roles
+X  - use devise (seems standard)
+X  - editor-level and admin-level roles
+X  - style signin/signup views
   - non session users cannot:
     - edit/delete anything
   - only editors can
@@ -11,7 +12,7 @@
   - only admins can
     - delete anything
     - create new editors
-  - need to make sure edit history is logge
+  - need to make sure edit history is logged
 - Update company schema / controllers: (##est 0.5 day)
   - want to see edit times / etc
   - plus helpful as I build public facing functionality (search / etc)
