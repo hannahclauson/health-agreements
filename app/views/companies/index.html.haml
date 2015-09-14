@@ -9,6 +9,9 @@
     - @companies.each do |c|
       %li.list-group-item
         = link_to c.name, c
+        %span.badge-icons
+          - c.badges.each do |b|
+            = render partial: "badges/badge", object: b, locals: {size: 'small'}
         %span.actions.btn-group.btn-group-xs.btn-group-link
           =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
           =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})

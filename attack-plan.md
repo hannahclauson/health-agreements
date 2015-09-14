@@ -1,6 +1,6 @@
 - Create search methods (##est 1 day)
-  - search by badge
-  - search by practices (and value)
+X  - search by badge
+X  - search by practices (and value)
   - update company index
     - display badges in each row
 - Create users (##est 1 day)

@@ -25,9 +25,6 @@ class CompaniesController < ApplicationController
   def index
     c = Company.all
 
-    puts "PARAMS!"
-    puts params
-
     @errors = []
 
     c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
