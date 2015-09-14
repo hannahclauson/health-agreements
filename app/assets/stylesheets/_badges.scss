@@ -40,6 +40,17 @@ $badge_color:  white;
 
 .badge-icon {
 
+
+  &.small {
+    $badge-width: 16px;
+    $badge-height: 16px;
+    $badge-horz: 8px;
+    $badge-vert: 4px;
+
+    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
+  }
+
+
   // for content
   $badge-width: 40px;
   $badge-height: 40px;
@@ -47,15 +58,6 @@ $badge_color:  white;
   // for edges
   $badge_horz: 20px;
   $badge_vert: 10px;
-
-  &.small {
-    $badge-width: 32px;
-    $badge-height: 32px;
-    $badge-horz: 16px;
-    $badge-vert: 8px;
-
-    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
-  }
 
   @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
 }

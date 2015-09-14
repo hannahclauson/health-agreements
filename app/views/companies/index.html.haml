@@ -5,14 +5,22 @@
 
   = render 'search'
 
-  %ul.list-group
+  %table.table
+    %tr.info
+      %th Name
+      %th Badges
+      %th Actions
     - @companies.each do |c|
-      %li.list-group-item
-        = link_to c.name, c
-        %span.badge-icons
-          - c.badges.each do |b|
-            = render partial: "badges/badge", object: b, locals: {size: 'small'}
-        %span.actions.btn-group.btn-group-xs.btn-group-link
+      %tr
+        %td
+          = link_to c.name, c
+        %td.badges
+          %table
+            %tr
+              - c.badges.each do |b|
+                %td.badge-column
+                  = render partial: "badges/badge", object: b, locals: {size: 'small'}
+        %td.actions.btn-group.btn-group-xs.btn-group-link
           =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
           =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
 

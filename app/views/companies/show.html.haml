@@ -17,7 +17,7 @@
     - @company.badges.each do |b|
       %li.list-group-item
         %a.badge-row{:href => archetype_path(b.archetype)}
-          = render partial: "badges/badge", object: b
+          = render partial: "badges/badge", object: b, locals: {size: ''}
           %span.name
             %h4= b.archetype.name.split("_").collect {|w| w.capitalize}.join(" ")
 
