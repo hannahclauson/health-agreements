@@ -109,3 +109,7 @@ UX upgrade
   - or a public registry for identity / prove you passed the bar?
   - would be nice to be able to have lawyers volunteer their time in some capacity
 - Add developer API for access to the information programmatically
+- Other info / models
+  - Studies (esp open enrollment / results / etc)
+    - e.g. amiigo's project pulse / other med studies / FDA studies?
+  - private research results? blog posts?

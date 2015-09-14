@@ -28,15 +28,25 @@ class CompaniesController < ApplicationController
     puts "PARAMS!"
     puts params
 
+    @errors = []
+
     c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
 
-    c = c.filter_badges(params[:archetype_id]) if params[:archetype_id].present?
+    c = c.filter_badges(params[:archetype][:id]) if params[:archetype][:id].present?
 
-    if params[:guideline_id].present? & params[:practice][:implementation].present?
-      c = c.filter_practices(params[:guideline_id], params[:practice][:implementation])
+    if params[:guideline][:id].present? & params[:practice][:implementation].present?
+      c = c.filter_practices(params[:guideline][:id], params[:practice][:implementation])
+    end
+
+    if params[:guideline][:id].present? ^ params[:practice][:implementation].present?
+      @errors << {
+        :message => "Must specify both guideline and implementation."
+      }
     end
 
     @companies = c
+    @searched = params[:commit] == 'Search'
+
   end
 
 

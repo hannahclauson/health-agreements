@@ -4,36 +4,43 @@
     %span.col-sm-10
       .input-group
         %span.input-group-addon Search
-        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name'})
+        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name', value: (@searched ? params[:company][:name] : "")})
 
     %span.options.col-sm-2
       %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
       %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
 
-  .advanced-search.collapse-options
+  .advanced-search{:class => (@searched ? "" : "collapse-options") }
 
     %span.advanced-option.badge-filter
       %h4 Badge
       %span.value
         .input-group
           = label_tag("archetype[name]", "Name", {class: 'input-group-addon'})
-          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, :update_elements => {:id => "#archetype_id"}, :class => "form-control")
-          %input#archetype_id.hidden{:name => "archetype_id"}
+          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, :update_elements => {:id => "#archetype_id"}, :class => "form-control", :value => (@searched ? params[:archetype][:name] : "") )
+          %input#archetype_id.hidden{:name => "archetype[id]", :value => (@searched ? params[:archetype][:id] : "")}
 
     %span.advanced-option.practice-filter
       %h4 Practice
       %span.value
         .input-group
           = label_tag("guideline[name]", "Name", {class: "input-group-addon"})
-          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, :update_elements => {:id => "#guideline_id"}, :class => "form-control guideline-name")
-          %input#guideline_id.hidden{:name => "guideline_id"}
+          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, :update_elements => {:id => "#guideline_id"}, :class => "form-control guideline-name", :value => (@searched ? params[:guideline][:name] : "") )
+          %input#guideline_id.hidden{:name => "guideline[id]", :value => (@searched ? params[:guideline][:id] : "") }
 
           = label_tag("practice[implementation]", "Implementation", {class: "input-group-addon"})
-          = autocomplete_field(:practice, :implementation_text, autocomplete_implementations_path, :update_elements => {:enumerated_value => "#implementation"}, :class => "form-control implementation-name")
-          %input#implementation.hidden{:name => "practice[implementation]"}
+          = autocomplete_field(:practice, :implementation_text, autocomplete_implementations_path, :update_elements => {:enumerated_value => "#implementation"}, :class => "form-control implementation-name", :value => (@searched ? params[:practice][:implementation_text] : ""))
+          %input#implementation.hidden{:name => "practice[implementation]", :value => (@searched ? params[:practice][:implementation] : "") }
 
 
     .field.form-group.hidden
       = label_tag("submit", " ", {class: "col-sm-2 control-label"})        
       .col-sm-10.input_wrapper
         = submit_tag("Search")
+
+.search-errors
+
+  - @errors.each do |e|
+    .error
+      %span Error:
+      %span= e[:message]
