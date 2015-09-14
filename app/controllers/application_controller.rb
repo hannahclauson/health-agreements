@@ -7,6 +7,18 @@ class ApplicationController < ActionController::Base
     self.class.name.pluralize
   end
 
+  def editor_only
+    if current_user.nil? || !( current_user.editor? || current_user.admin? )
+      redirect_to :back, :alert => "Access Denied"
+    end
+  end
+
+  def admin_only
+    if current_user.nil? || !current_user.admin?
+      redirect_to :back, :alert => "Access Denied"
+    end
+  end
+
   def reevaluate_badges
 
     # collect the ids / implementation as arrays for queries later

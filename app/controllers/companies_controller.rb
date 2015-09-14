@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
   autocomplete :guideline, :name, :extra_data => [:id]
   # implementation autocomplete lives in practices_controller
 
+  before_action :editor_only, :except => [
+    :show,
+    :index
+  ]
+
   def new
     @company = Company.new
   end
