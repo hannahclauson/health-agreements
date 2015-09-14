@@ -1,8 +1,22 @@
 - Create users (##est 1 day)
   - use devise (seems standard)
-  - editor-level
-  - can add information / modify results
+  - editor-level and admin-level roles
+  - non session users cannot:
+    - edit/delete anything
+  - only editors can
+    edit/create:
+    - companies (& therefore practices / badges)
+    - archetypes? not sure about this one ... I guess for now
+    - guideline    
+  - only admins can
+    - delete anything
+    - create new editors
   - need to make sure edit history is logge
+- Update company schema / controllers: (##est 0.5 day)
+  - want to see edit times / etc
+  - plus helpful as I build public facing functionality (search / etc)
+  - may get all this for free already -- via active admin
+  - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
 - Add some tests!!!! (##est 1 day)
   - Esp around practice uniqueness
   - And around badge eligibility / revoking
@@ -20,11 +34,6 @@
     - Learn about guidelines / badges
     - Highlight some common searches / most frequent searches?
     - Showcase Good Citizens
-- Update company schema / controllers: (##est 0.5 day)
-  - want to see edit times / etc
-  - plus helpful as I build public facing functionality (search / etc)
-  - may get all this for free already -- via active admin
-  - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
   - proper error handling
