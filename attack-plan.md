@@ -1,8 +1,3 @@
-- Create search methods (##est 1 day)
-X  - search by badge
-X  - search by practices (and value)
-  - update company index
-    - display badges in each row
 - Create users (##est 1 day)
   - use devise (seems standard)
   - editor-level

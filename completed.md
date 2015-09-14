@@ -104,3 +104,9 @@
 X  - also adjust the icon styles -- would like to be white on dark blue
 X - OMG this was so silly -- this helped me out (kinda) : https://github.com/rails/sass-rails/issues/86
 X - I spent sooo much time on this ... compared to everything else. Like ... 3+ hours
+
+X- Create search methods (##est 1 day)
+X  - search by badge
+X  - search by practices (and value)
+X  - update company index
+X    - display badges in each row
