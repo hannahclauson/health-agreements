@@ -32,6 +32,8 @@ X  - style signin/signup views
   - And around badge eligibility / revoking
   - Search
     - params missing (esp practice name/impl)
+  - User access to all models
+    - anon / editor / admin
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies
