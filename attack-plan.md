@@ -66,6 +66,8 @@
   - estimate monthly costs
   - add to my contracting firm?
   - publish / make OSS?
+  - bugs
+    - vertical style gaps on homepage
 - Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
