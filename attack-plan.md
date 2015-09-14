@@ -2,23 +2,22 @@
 X  - use devise (seems standard)
 X  - editor-level and admin-level roles
 X  - style signin/signup views
-  - views / access to update:
-    - companies
-    - guidelines
-    - practices
-    - archetypes
-    - badges (no one should be able to edit - these are automatic)
-  - non session users cannot:
-    - edit/delete anything
-  - only editors can
-    edit/create:
-    - companies (& therefore practices / badges)
-    - archetypes? not sure about this one ... I guess for now
-    - guideline    
-  - only admins can
-    - delete anything
-    - create new editors
-  - make sure to seed DB w admin user
+X  - views / access to update:
+X    - companies
+X    - guidelines
+X    - practices
+X    - archetypes
+X  - non session users cannot:
+X    - edit/delete anything
+X  - only editors can
+X    edit/create:
+X    - companies (& therefore practices / badges)
+X    - archetypes? not sure about this one ... I guess for now
+X    - guideline    
+X  - only admins can
+X    - delete anything
+X    - create new editors
+X  - make sure to seed DB w admin user
   - and make sure the seed works for heroku
   - AAand make sure the mailer is configured properly on heroku
   - Restrict signup to only be done by admin
@@ -34,6 +33,7 @@ X  - style signin/signup views
     - params missing (esp practice name/impl)
   - User access to all models
     - anon / editor / admin
+    - admin creation not allowed (at least on prod)
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies

@@ -11,7 +11,8 @@
     %tr.info
       %th Name
       %th Badges
-      %th Actions
+      - if access_to_action(:edit) || access_to_action(:delete)
+        %th Actions
     - @companies.each do |c|
       %tr
         %td
