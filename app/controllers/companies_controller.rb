@@ -1,4 +1,6 @@
-class CompaniesController < ApplicationController
+require 'protected_controller'
+
+class CompaniesController < ProtectedController
   autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
   autocomplete :guideline, :name, :extra_data => [:id]

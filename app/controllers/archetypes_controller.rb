@@ -1,4 +1,6 @@
-class ArchetypesController < ApplicationController
+require 'protected_controller'
+
+class ArchetypesController < ProtectedController
 
   def index
     @archetypes = Archetype.all

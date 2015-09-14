@@ -1,4 +1,6 @@
-class PracticesController < ApplicationController
+require 'protected_controller'
+
+class PracticesController < ProtectedController
 
   def index
     @company = Company.find(params[:company_id])

@@ -253,3 +253,20 @@ SimpleForm 3 supports Bootstrap and Zurb Foundation 5. If you want a configurati
       create  config/locales/simple_form.en.yml
       create  lib/templates/erb/scaffold/_form.html.erb
 
+# Setup config vars for users / mailer for heroku:
+
+$ heroku config:add ADMIN_NAME="Sean Jezewski"
+Setting config vars and restarting evening-badlands-7297... done, v15
+ADMIN_NAME: Sean Jezewski
+seans-MacBook-Air:health-agreements sjezewski$ heroku config:add ADMIN_EMAIL="seanwjezewski+healthadmin@gmail.com" ADMIN_PASSWORD="REDACTED!"
+Setting config vars and restarting evening-badlands-7297... done, v16
+ADMIN_EMAIL:    seanwjezewski+healthadmin@gmail.com
+ADMIN_PASSWORD: davichangz
+seans-MacBook-Air:health-agreements sjezewski$ heroku config:add GMAIL_USERNAME="seanwjezewski@gmail.com" GMAIL_PASSWORD="xxxnotredactedjustdidntsetup"
+Setting config vars and restarting evening-badlands-7297... done, v17
+GMAIL_PASSWORD: xxx
+GMAIL_USERNAME: seanwjezewski@gmail.com
+seans-MacBook-Air:health-agreements sjezewski$ heroku config:add DOMAIN_NAME="evening-badlands-7297.herokuapp.com"
+Setting config vars and restarting evening-badlands-7297... done, v18
+DOMAIN_NAME: evening-badlands-7297.herokuapp.com
+

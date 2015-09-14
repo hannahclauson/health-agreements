@@ -1,4 +1,6 @@
-class GuidelinesController < ApplicationController
+require 'protected_controller'
+
+class GuidelinesController < ProtectedController
 
   def new
     @guideline = Guideline.new

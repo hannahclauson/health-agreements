@@ -1,5 +1,3 @@
-require 'access_levels'
-
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -7,21 +5,6 @@ class ApplicationController < ActionController::Base
 
   def page_type
     self.class.name.pluralize
-  end
-
-  before_action :editor_only, :except => AccessLevels::GLOBAL_ACTIONS
-  before_action :admin_only, :except => [AccessLevels::GLOBAL_ACTIONS, AccessLevels::EDITOR_ACTIONS].flatten
-
-  def editor_only
-    if !self.view_context.editor_access_level?
-      redirect_to :back, :alert => "Access Denied"
-    end
-  end
-
-  def admin_only
-    if !self.view_context.admin_access_level?
-      redirect_to :back, :alert => "Access Denied"
-    end
   end
 
   def reevaluate_badges

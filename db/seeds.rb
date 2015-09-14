@@ -75,8 +75,18 @@ data['archetypes'].each do |a|
 
 end
 
-
-
+# Calculate Badges
 
 ac = ApplicationController.new
 ac.reevaluate_badges
+
+# Create Admin
+
+admin = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|
+  user.password = Rails.application.secrets.admin_password
+  user.password_confirmation = Rails.application.secrets.admin_password
+  user.admin!
+end
+
+puts "Created admin : #{admin.email}"
+
