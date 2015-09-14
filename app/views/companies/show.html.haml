@@ -5,7 +5,8 @@
   .page-header
     %h1= "Companies >> #{@company.name}"
     %a{:href => @company.url, :target => "_blank"} Visit Website
-    %a=link_to("Edit", edit_company_path(@company), {class: 'btn btn-xs btn-info page_edit'})
+    - if access_to_action(:edit)
+      %a=link_to("Edit", edit_company_path(@company), {class: 'btn btn-xs btn-info page_edit'})
 
   .panel.panel-default
     .panel-heading Description
@@ -20,8 +21,6 @@
           = render partial: "badges/badge", object: b, locals: {size: ''}
           %span.name
             %h4= b.archetype.name.split("_").collect {|w| w.capitalize}.join(" ")
-
-
 
   = render 'practices/panel_list'
 

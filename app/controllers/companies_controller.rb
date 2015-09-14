@@ -4,10 +4,20 @@ class CompaniesController < ApplicationController
   autocomplete :guideline, :name, :extra_data => [:id]
   # implementation autocomplete lives in practices_controller
 
-  before_action :editor_only, :except => [
+  editor_actions = [
     :show,
     :index
   ]
+
+  admin_actions = [
+    :edit,
+    :update,
+    :new,
+    :create
+  ]
+
+  before_action :editor_only, :except => editor_actions
+  before_action :admin_only, :except => [editor_actions, admin_actions].flatten
 
   def new
     @company = Company.new

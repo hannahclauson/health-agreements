@@ -2,6 +2,12 @@
 X  - use devise (seems standard)
 X  - editor-level and admin-level roles
 X  - style signin/signup views
+  - views / access to update:
+    - companies
+    - guidelines
+    - practices
+    - archetypes
+    - badges (no one should be able to edit - these are automatic)
   - non session users cannot:
     - edit/delete anything
   - only editors can

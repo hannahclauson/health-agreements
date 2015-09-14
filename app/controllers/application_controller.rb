@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def editor_only
-    if current_user.nil? || !( current_user.editor? || current_user.admin? )
+    if !self.view_context.editor_access_level?
       redirect_to :back, :alert => "Access Denied"
     end
   end
 
   def admin_only
-    if current_user.nil? || !current_user.admin?
+    if !self.view_context.admin_access_level?
       redirect_to :back, :alert => "Access Denied"
     end
   end
