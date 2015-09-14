@@ -205,4 +205,18 @@ $ rails generate devise User role:integer
 
 
 
+$ rake db:migrate
+[Simple Form] Simple Form is not configured in the application and will use the default values. Use `rails generate simple_form:install` to generate the Simple Form configuration.
+== 20150914181918 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -> 0.0750s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0048s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0034s
+== 20150914181918 DeviseCreateUsers: migrated (0.0835s) =======================
+
+
+
+
 
