@@ -18,8 +18,8 @@ X  - only admins can
 X    - delete anything
 X    - create new editors
 X  - make sure to seed DB w admin user
-  - and make sure the seed works for heroku
-  - AAand make sure the mailer is configured properly on heroku
+X  - and make sure the seed works for heroku
+X  - AAand make sure the mailer is configured properly on heroku
   - Restrict signup to only be done by admin
 - Update company schema / controllers: (##est 0.5 day)
   - want to see edit times / etc

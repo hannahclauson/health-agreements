@@ -1,0 +1,21 @@
+.container
+  .page-header
+    %h2 Create Editor
+  .page-body
+    .col-sm-12
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+ 
+        .form-inputs
+          = f.input :email, required: true, autofocus: true
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          = f.input :password_confirmation, required: true
+
+        .form-actions.col-sm-12
+          %span.col-sm-10
+          = f.button :submit, "Sign up", {class: "col-sm-2"}
+
+    %hr
+    .col-sm-12.links
+      = render "devise/shared/links"
+    
