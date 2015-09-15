@@ -270,3 +270,9 @@ seans-MacBook-Air:health-agreements sjezewski$ heroku config:add DOMAIN_NAME="ev
 Setting config vars and restarting evening-badlands-7297... done, v18
 DOMAIN_NAME: evening-badlands-7297.herokuapp.com
 
+seans-MacBook-Air:health-agreements sjezewski$ heroku config:add SENDGRID_USERNAME="sjezewski"
+Setting config vars and restarting evening-badlands-7297... done, v23
+SENDGRID_USERNAME: sjezewski
+seans-MacBook-Air:health-agreements sjezewski$ heroku config:add SENDGRID_PASSWORD="502gogogo"
+Setting config vars and restarting evening-badlands-7297... done, v24
+SENDGRID_PASSWORD: REDACTED!!
