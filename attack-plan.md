@@ -80,6 +80,8 @@ X  - make sure to seed DB w admin user
   - publish / make OSS?
   - bugs
     - vertical style gaps on homepage
+  - update mailer
+    - setup company name / etc
 - Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
