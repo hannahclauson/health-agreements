@@ -110,3 +110,27 @@ X  - search by badge
 X  - search by practices (and value)
 X  - update company index
 X    - display badges in each row
+
+- Create users (##est 1 day)
+X  - use devise (seems standard)
+X  - editor-level and admin-level roles
+X  - style signin/signup views
+X  - views / access to update:
+X    - companies
+X    - guidelines
+X    - practices
+X    - archetypes
+X  - non session users cannot:
+X    - edit/delete anything
+X  - only editors can
+X    edit/create:
+X    - companies (& therefore practices / badges)
+X    - archetypes? not sure about this one ... I guess for now
+X    - guideline    
+X  - only admins can
+X    - delete anything
+X    - create new editors
+X  - make sure to seed DB w admin user
+X  - and make sure the seed works for heroku
+X  - AAand make sure the mailer is configured properly on heroku
+X  - Restrict signup to only be done by admin
