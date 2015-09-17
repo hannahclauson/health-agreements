@@ -3,7 +3,7 @@
     %h2 Create Editor
   .page-body
     .col-sm-12
-      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = simple_form_for(resource, as: resource_name, url: users_registrations_create_editor_path(resource_name)) do |f|
         = f.error_notification
  
         .form-inputs

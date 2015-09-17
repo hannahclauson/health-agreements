@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # Dont like that this is replicated here and ProtectedController ... but don't see an easy way to include it in both places
   def admin_only
-    puts self.view_context.admin_access_level?
+    puts "ARE YOU AN ADMIN? #{self.view_context.admin_access_level?}"
     if !self.view_context.admin_access_level?
       redirect_to :back, :alert => "Access Denied"
     end
@@ -16,10 +16,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   alias_method :parent_new, :new
 
   def new_editor
-    puts "XX IN NEW EDITOR"
-#    super.new
-#    render 'new_editor'#, super.new
     parent_new
+  end
+
+  def create_editor
+    puts "CREATING EDITOR REGISTRATION!"
+    #@r = Devise::Registration.new(allowed_registration_params)
+    build_resource(sign_up_params)
+    resource.editor!
+    resource_saved = resource.save
+    puts "RESOURCE SAVED? #{resource_saved}"
+    puts resource
+
+    if resource_saved
+      puts "SAVED!"
+      redirect_to root_path
+    else
+      puts "DIDNT SAVE"
+      redirect_to users_registrations_new_editor_path(@r)
+    end
   end
 
   # GET /resource/sign_up
@@ -57,7 +72,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  # protected
+  protected
+
+#  def allowed_registration_params
+  def sign_up_params
+    params.require(:user).permit(
+                                    :email,
+                                    :password,
+                                    :password_confirmation
+                                    )
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
