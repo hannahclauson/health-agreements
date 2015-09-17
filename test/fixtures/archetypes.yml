@@ -3,9 +3,4 @@
 research:
   name: MyString
   description: MyText
-  practice: 
 
-two:
-  name: MyString
-  description: MyText
-  practice: MyString

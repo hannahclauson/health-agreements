@@ -3,25 +3,31 @@
 one:
   notes: Does the thing
   implementation: 1
-  company: 23andme
+  practiceable: 23andme
   guideline: optin
 
 two:
   notes: MyText
   implementation: 2
-  company: ubiome 
+  practiceable: ubiome 
   guideline: optin 
 
 three:
   notes: MyText
   implementation: 1
-  company: ubiome 
+  practiceable: ubiome 
   guideline: single_state
 
 # For archetypes:
 
-good_optin:
+research_a:
   notes: does it
   implementation: 1
-  archetype: research
+  practiceable: research
   guideline: optin
+
+research_b:
+  notes: does it
+  implementation: 1
+  practiceable: research
+  guideline: optout
