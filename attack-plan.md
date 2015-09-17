@@ -1,8 +1,3 @@
-- Update company schema / controllers: (##est 0.5 day)
-  - want to see edit times / etc
-  - plus helpful as I build public facing functionality (search / etc)
-  - may get all this for free already -- via active admin
-  - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
 - Add some tests!!!! (##est 1 day)
   - Esp around practice uniqueness
   - And around badge eligibility / revoking

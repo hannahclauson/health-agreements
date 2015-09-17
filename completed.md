@@ -134,3 +134,9 @@ X  - make sure to seed DB w admin user
 X  - and make sure the seed works for heroku
 X  - AAand make sure the mailer is configured properly on heroku
 X  - Restrict signup to only be done by admin
+
+- Update company schema / controllers: (##est 0.5 day)
+  - want to see edit times / etc
+  - plus helpful as I build public facing functionality (search / etc)
+  - may get all this for free already -- via active admin
+  - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
