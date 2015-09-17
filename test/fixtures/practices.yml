@@ -37,3 +37,8 @@ research_b:
   implementation: 1
   practiceable: research (Archetype)
   guideline: optout
+data_agg:
+  notes: mmhmm
+  implementation: 1
+  practiceable: data_aggregation (Archetype)
+  guideline: data_aggregation

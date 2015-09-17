@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  company_id: 
-  archetype_id: 
+  company: 23andme
+  archetype: research
 
 two:
-  name: MyString
-  description: MyText
-  company_id: 
-  archetype_id: 
+  company: 23andme
+  archetype: data_aggregation
+
+three:
+  company: ubiome
+  archetype: research

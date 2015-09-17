@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 20150917183836) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
     t.integer  "company_id"
     t.integer  "archetype_id"
     t.datetime "created_at",   null: false

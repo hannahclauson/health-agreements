@@ -2,17 +2,19 @@
   - Model tests: For company/guideline/practice/archetype
     X - creation / empty
     X - each validator
-    - Deletion special cases
-      - any dependent destroys
+X    - Deletion special cases
+X      - any dependent destroys
 X        - guideline -> practices
-        - archetype
-          - badges
+X        - archetype
+X          - badges
 X          - practices
-        - company
+X        - company
 X          - practices
-          - badges
-  - Remove badge name/desc from migration and rerun
-    - I'm using the archetype fields anyway
+X          - badges
+X  - Remove badge name/desc from migration and rerun
+X    - I'm using the archetype fields anyway
+  - What if there is an archetype with no practices?
+  - Need to update (or fix) archetype creation UI - need to assoc practice w archetype
   - Controller tests:
     - For company: nested practice creation
     - For arch: nested practice creation

@@ -10,8 +10,9 @@
   %ul.list-group
     - @archetypes.each do |a|
       %li.list-group-item
-        %span= a.name
-        - if access_to_action(:edit)
-          = link_to "Edit", edit_archetype_path(a), {class: 'btn btn-xs btn-info'}
-        - if access_to_action(:delete)
-          = link_to "Delete", archetype_path(a), class: 'btn btn-xs btn-info', method: :delete
+        = link_to a.name, a
+          %span.actions.btn-group.btn-group-xs.btn-group-link
+            - if access_to_action(:edit)
+              = link_to("Edit", edit_archetype_path(a), {class: 'btn btn-xs btn-info'})
+            - if access_to_action(:delete)
+

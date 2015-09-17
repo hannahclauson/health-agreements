@@ -17,3 +17,9 @@ single_state:
   description: Data only in a single state
   true_description: Not shared across borders
   false_description: May be shared across borders
+
+data_aggregation:
+  name: Data Aggregation
+  description: Only requires ToS before sharing your data as part of an aggregate
+  true_description: mhmm
+  false_description: nuhuh

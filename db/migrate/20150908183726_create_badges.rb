@@ -1,8 +1,6 @@
 class CreateBadges < ActiveRecord::Migration
   def change
     create_table :badges do |t|
-      t.string :name
-      t.text :description
       t.belongs_to :company, index: true, foreign_key: true
       t.belongs_to :archetype, index: true, foreign_key: true
 

@@ -3,4 +3,6 @@
 research:
   name: MyString
   description: MyText
-
+data_aggregation:
+  name: Data Aggregation
+  description: MyText

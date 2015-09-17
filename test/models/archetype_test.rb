@@ -4,4 +4,8 @@ class ArchetypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  test "presence of practices" do
+    
+
+  end
 end
