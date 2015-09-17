@@ -1,11 +1,20 @@
 - Add some tests!!!! (##est 1 day)
-  - Esp around practice uniqueness
-  - And around badge eligibility / revoking
-  - Search
-    - params missing (esp practice name/impl)
-  - User access to all models
-    - anon / editor / admin
-    - admin creation not allowed (at least on prod)
+  - Model tests: For company/guideline/practice/archetype
+    - creation / empty
+    - each validator
+    - Deletion special cases
+      - any dependent destroys (company->practices, archetype->practices, company->badges, archetype->badges)
+  - Controller tests:
+    - For company: nested practice creation
+    - For arch: nested practice creation
+    - For badge
+      - new eligilibity / count
+      - remove eiligilibity / count
+    - Search
+      - params missing (esp practice name/impl)
+    - User access to all models
+      - anon / editor / admin
+      - admin creation not allowed (at least on prod)
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies
@@ -14,6 +23,7 @@
 - Update IA / copy (## est 0.5 day)
   - Confusing for users difference btw archetype and badge
   - Should probably just be displayed as 'badge' when creating new prototype
+  - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
     - Learn about guidelines / badges
     - Highlight some common searches / most frequent searches?
