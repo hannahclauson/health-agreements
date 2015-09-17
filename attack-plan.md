@@ -1,9 +1,16 @@
 - Add some tests!!!! (##est 1 day)
   - Model tests: For company/guideline/practice/archetype
-    - creation / empty
-    - each validator
+    X - creation / empty
+    X - each validator
     - Deletion special cases
-      - any dependent destroys (company->practices, archetype->practices, company->badges, archetype->badges)
+      - any dependent destroys
+X        - guideline -> practices
+        - archetype
+          - badges
+          - practices
+        - company
+          - practices
+          - badges
   - Controller tests:
     - For company: nested practice creation
     - For arch: nested practice creation
