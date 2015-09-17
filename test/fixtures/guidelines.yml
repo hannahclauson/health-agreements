@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  true_description: MyText
-  false_description: MyText
+optin:
+  name: Optin Research
+  description: Opt in for data use in research
+  true_description: Needs optin mechanism
+  false_description: No optin mechanism
 
-two:
-  name: MyString
-  description: MyText
-  true_description: MyText
-  false_description: MyText
+single_state:
+  name: Single State Hosting
+  description: Data only in a single state
+  true_description: Not shared across borders
+  false_description: May be shared across borders

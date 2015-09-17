@@ -1,13 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  notes: MyText
+  notes: Does the thing
   implementation: 1
-  company_id: 
-  guideline_id: 
+  company: 23andme
+  guideline: optin
 
 two:
   notes: MyText
+  implementation: 2
+  company: ubiome 
+  guideline: optin 
+
+three:
+  notes: MyText
   implementation: 1
-  company_id: 
-  guideline_id: 
+  company: ubiome 
+  guideline: single_state
+
+# For archetypes:
+
+good_optin:
+  notes: does it
+  implementation: 1
+  archetype: research
+  guideline: optin

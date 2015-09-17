@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20150917183836) do
 
   add_foreign_key "badges", "archetypes"
   add_foreign_key "badges", "companies"
+  add_foreign_key "practices", "archetypes"
   add_foreign_key "practices", "companies"
   add_foreign_key "practices", "guidelines"
 end

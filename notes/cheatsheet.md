@@ -1,3 +1,11 @@
+# debug database setup
+
+$ psql health_agreements_dev
+
+# describe a table:
+
+health_agreements_dev=# \d+ Companies
+
 # New model
 
 - rails generate model lowercasepluralname

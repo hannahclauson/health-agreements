@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  url: MyString
+23andme:
+  name: 23andme
+  description: Sequences your genome
+  url: http://www.23andme.com
 
-two:
-  name: MyString
-  description: MyText
-  url: MyString
+ubiome:
+  name: ubiome
+  description: Sequences flora
+  url: http://www.ubiome.com
