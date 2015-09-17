@@ -20,19 +20,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_editor
-    puts "CREATING EDITOR REGISTRATION!"
-    #@r = Devise::Registration.new(allowed_registration_params)
-    build_resource(sign_up_params)
-    resource.editor!
-    resource_saved = resource.save
-    puts "RESOURCE SAVED? #{resource_saved}"
-    puts resource
+    @user = User.new(sign_up_params)
+    @user.editor!
 
-    if resource_saved
-      puts "SAVED!"
+    if @user.save
       redirect_to root_path
     else
-      puts "DIDNT SAVE"
       redirect_to users_registrations_new_editor_path(@r)
     end
   end
