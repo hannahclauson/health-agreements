@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   }
 #  get 'users/registrations/new_editor', to: 'devise/registrations#new_editor'
   devise_scope :user do
-    get "users/registrations/new_editor", to: "devise/registrations#new_editor"
+#    get "users/registrations/new_editor", to: "devise/registrations#new_editor"
+    get "users/registrations/new_editor", to: "users/registrations#new_editor"
   end
 
 

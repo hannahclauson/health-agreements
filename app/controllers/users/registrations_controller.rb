@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   alias_method :parent_new, :new
 
   def new_editor
+    puts "XX IN NEW EDITOR"
 #    super.new
 #    render 'new_editor'#, super.new
     parent_new
@@ -23,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    puts "XX IN CUSTOM NEW"
     super
   end
 
