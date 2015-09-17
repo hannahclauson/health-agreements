@@ -302,3 +302,29 @@ Some setup you must do manually if you haven't yet:
 
 ===============================================================================
 
+# Integrate active admin
+
+$ rails g active_admin:install --skip-users
+      create  config/initializers/active_admin.rb
+      create  app/admin
+      create  app/admin/dashboard.rb
+       route  ActiveAdmin.routes(self)
+    generate  active_admin:assets
+OMG ACCESS LEVELS
+      create  app/assets/javascripts/active_admin.js.coffee
+      create  app/assets/stylesheets/active_admin.scss
+      create  db/migrate/20150917183836_create_active_admin_comments.rb
+
+$ rake db:migrate
+OMG ACCESS LEVELS
+== 20150917183836 CreateActiveAdminComments: migrating ========================
+-- create_table(:active_admin_comments)
+   -> 0.0201s
+-- add_index(:active_admin_comments, [:namespace])
+   -> 0.0071s
+-- add_index(:active_admin_comments, [:author_type, :author_id])
+   -> 0.0036s
+-- add_index(:active_admin_comments, [:resource_type, :resource_id])
+   -> 0.0028s
+== 20150917183836 CreateActiveAdminComments: migrated (0.0340s) ===============
+

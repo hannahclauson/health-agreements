@@ -8,6 +8,8 @@
         - header_links.each do |name, info|
           - active_attribute = (name == active_page) ? "active" : ""
           %li{class: active_attribute}= link_to info.first, info.last
+        - if current_user.admin?
+          = link_to 'Admin', admin_dashboard_path
 
       %ul.navbar-nav.nav.navbar-right
         - if user_signed_in?
