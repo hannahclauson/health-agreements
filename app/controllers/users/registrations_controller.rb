@@ -16,17 +16,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   alias_method :parent_new, :new
 
   def new_editor
+    @user = User.new
     parent_new
   end
 
   def create_editor
     @user = User.new(sign_up_params)
-    @user.editor!
 
     if @user.save
-      redirect_to root_path
+      @user.editor!
+      redirect_to root_path, notice: "Successfully created editor: #{params[:user][:email]}. Confirmation email sent"
     else
-      redirect_to users_registrations_new_editor_path(@r)
+      puts "Validation failed!!!"
+      puts @user.errors.inspect
+      render 'new_editor'
     end
   end
 

@@ -62,7 +62,6 @@ class CompaniesController < ProtectedController
     @company = Company.new(company_params)
     if @company.save
       redirect_to @company
-
     else
       render 'new'
     end
