@@ -328,3 +328,21 @@ OMG ACCESS LEVELS
    -> 0.0028s
 == 20150917183836 CreateActiveAdminComments: migrated (0.0340s) ===============
 
+$ rails g active_admin:resource User
+OMG ACCESS LEVELS
+      create  app/admin/user.rb
+seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Company
+OMG ACCESS LEVELS
+      create  app/admin/company.rb
+seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Guideline
+OMG ACCESS LEVELS
+      create  app/admin/guideline.rb
+seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Archetype
+OMG ACCESS LEVELS
+      create  app/admin/archetype.rb
+seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Badge
+OMG ACCESS LEVELS
+      create  app/admin/badge.rb
+seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Practice
+OMG ACCESS LEVELS
+      create  app/admin/practice.rb
