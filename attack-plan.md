@@ -7,10 +7,12 @@
 X        - guideline -> practices
         - archetype
           - badges
-          - practices
+X          - practices
         - company
-          - practices
+X          - practices
           - badges
+  - Remove badge name/desc from migration and rerun
+    - I'm using the archetype fields anyway
   - Controller tests:
     - For company: nested practice creation
     - For arch: nested practice creation
