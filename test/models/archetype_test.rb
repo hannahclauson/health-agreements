@@ -5,7 +5,8 @@ class ArchetypeTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "presence of practices" do
-    
+    a = Archetype.new({:name => "Test", :description => "Foo"})
 
+    assert_not a.save
   end
 end
