@@ -17,10 +17,34 @@ X    - I'm using the archetype fields anyway
 #     - for since only editors can create, will make do
   - Controller tests:
     - company
+      - index
+      - new
+      - create
+      - show
+      - edit
+      - update
+      - destroy
     - guideline
+      - index
+      - new
+      - create
+      - show
+      - edit
+      - update
+      - destroy      
     - practice
+      - create
+      - edit
+      - show
+      - update
+      - destroy      
     - archetype
-    - badge
+      - index
+      - show
+      - edit
+      - update
+      - destroy
+    - badge (has no controllers)
     - For company: nested practice creation
     - For arch: nested practice creation
     - For badge
