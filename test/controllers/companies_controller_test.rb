@@ -6,8 +6,9 @@ class CompaniesControllerTest < ActionController::TestCase
   setup do
     @company = companies('23andme')
     @editor = users(:emily_editor)
-    @editor.confirm!
+    @editor.confirm
     @admin = users(:amon_admin)
+    @admin.confirm
   end
 
   test "should get index" do
@@ -17,14 +18,8 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in @editor
     get :edit, id: @company.id
-    puts "request"
-    puts @request.inspect
-    puts "response"
-    puts @response.inspect
-
     assert_response :success
   end
 

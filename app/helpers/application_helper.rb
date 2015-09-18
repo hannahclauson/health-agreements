@@ -20,14 +20,12 @@ module ApplicationHelper
     access = false
 
     # Editors can :edit
-    puts "Editor access level? #{editor_access_level?}"
 
     if editor_access_level? & (AccessLevels::EDITOR_ACTIONS.include? action)
       access = true
     end
 
     # Admins can :delete
-    puts "Admin access level? #{admin_access_level?}"
 
     if admin_access_level?
       access = true

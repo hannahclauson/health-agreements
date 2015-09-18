@@ -2,8 +2,6 @@
 # - in application_controller to control access via before filters
 # - in application_helper in view helpers when presenting links to actions
 
-puts "OMG ACCESS LEVELS"
-
 module AccessLevels
 
   GLOBAL_ACTIONS = [
