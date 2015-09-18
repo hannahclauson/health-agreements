@@ -15,7 +15,7 @@ X  - Remove badge name/desc from migration and rerun
 X    - I'm using the archetype fields anyway
 #  - What if there is an archetype with no practices?
 #     - for since only editors can create, will make do
-  - Controller tests:
+  - Controller tests (including access levels):
     - company
       - index
       - new
@@ -45,19 +45,15 @@ X    - I'm using the archetype fields anyway
       - update
       - destroy
     - badge (has no controllers)
+    - Search
+      - params missing (esp practice name/impl)
     - For company: nested practice creation
     - For arch: nested practice creation
     - For badge
       - new eligilibity / count
       - remove eiligilibity / count
-    - Search
-      - params missing (esp practice name/impl)
-    - User access to all models
-      - anon / editor / admin
-      - admin creation not allowed (at least on prod)
-    - View button testing
-      - use view tests to validate action buttons
-      - are present only as appropriate (see http://guides.rubyonrails.org/testing.html section 4.8)
+      - via archetype updates
+      - via company updates
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies
@@ -170,3 +166,7 @@ UX upgrade
   - Studies (esp open enrollment / results / etc)
     - e.g. amiigo's project pulse / other med studies / FDA studies?
   - private research results? blog posts?
+- Testing update
+    - View button testing
+      - use view tests to validate action buttons
+      - are present only as appropriate (see http://guides.rubyonrails.org/testing.html section 4.8)
