@@ -11,18 +11,12 @@ class CompaniesControllerTest < ActionController::TestCase
     @admin.confirm
   end
 
-  # Public Access Tests
+  # Actions that are publicly accessible
 
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:companies)
-  end
-
-  test "should not create" do
-    request.env["HTTP_REFERER"] = companies_path
-    post :create, company: {name: 'acme', url: 'http://acme.com', description: 'sells everything'}
-    assert_redirected_to companies_path
   end
 
   test "should show" do
@@ -31,7 +25,14 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:company)
   end
 
-  # Editor Tests
+  # Actions for Editors
+
+  # Helper for simulating anon request
+  def anon_access
+    request.env["HTTP_REFERER"] = companies_path
+    yield
+    assert_redirected_to companies_path
+  end
 
   test "should get new" do
     sign_in @editor
@@ -39,11 +40,22 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not get new" do
+    anon_access do
+      get :new
+    end
+  end
+
   test "should create" do
     sign_in @editor
     post :create, company: {name: 'acme', url: 'http://acme.com', description: 'sells everything'}
-    assert_not_nil @response.headers['Location']
     assert_redirected_to company_path(assigns[:company].id)
+  end
+
+  test "should not create" do
+    anon_access do
+      post :create, company: {name: 'acme', url: 'http://acme.com', description: 'sells everything'}
+    end
   end
 
   test "should get edit" do
@@ -52,8 +64,25 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not get edit" do
+    anon_access do
+      get :edit, id: @company.id
+    end
+  end
 
+  test "should update" do
+    sign_in @editor
+    post :update, id: @company.id, company: {name: 'acmezzzz'}
+    assert_redirected_to company_path(assigns[:company].id)
+    assert_equal "acmezzzz", assigns(:company).name
+    assert_equal "http://www.23andme.com", assigns(:company).url
+  end
 
+  test "should not update" do
+    anon_access do
+      post :update, id: @company.id, company: {name: 'acmezzzz'}
+    end
+  end
 
 
 end
