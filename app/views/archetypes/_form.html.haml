@@ -18,6 +18,9 @@
     .col-sm-10.input-wrapper
       = f.text_field :description
 
+  - form_for [@archetype, @practice], html: {class: 'form-horizontal'} do |pf|
+    = render :partial => 'practices/form_contents', :practice => @practice, :locals => {:f => pf}
+
   .field.form-group
     %label.col-sm-2.control-label
     .col-sm-10.input-wrapper

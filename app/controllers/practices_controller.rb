@@ -2,11 +2,6 @@ require 'protected_controller'
 
 class PracticesController < ProtectedController
 
-  def index
-    @company = Company.find(params[:company_id])
-    @practices = @company.practices
-  end
-
   def create
     @parent = polymorphic_parent
     @practice = @parent.practices.create(allowed_params)

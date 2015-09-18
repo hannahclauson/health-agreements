@@ -13,9 +13,14 @@ X          - practices
 X          - badges
 X  - Remove badge name/desc from migration and rerun
 X    - I'm using the archetype fields anyway
-  - What if there is an archetype with no practices?
-  - Need to update (or fix) archetype creation UI - need to assoc practice w archetype
+#  - What if there is an archetype with no practices?
+#     - for since only editors can create, will make do
   - Controller tests:
+    - company
+    - guideline
+    - practice
+    - archetype
+    - badge
     - For company: nested practice creation
     - For arch: nested practice creation
     - For badge

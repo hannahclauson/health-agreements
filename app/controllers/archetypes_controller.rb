@@ -8,6 +8,7 @@ class ArchetypesController < ProtectedController
 
   def new
     @archetype = Archetype.new
+    @practice = Practice.new
   end
 
   def edit
