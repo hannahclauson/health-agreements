@@ -1,0 +1,5 @@
+- Talk about this / collab w Nate Silver
+  - I make similar conclusions to him but he's doing it before I reach them
+- Work w the EFF on making guidelines
+- Do a talk about this (once I have somethign interesting to say)
+- Do a meta study
