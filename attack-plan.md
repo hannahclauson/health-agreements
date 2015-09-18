@@ -55,6 +55,9 @@ X    - I'm using the archetype fields anyway
     - User access to all models
       - anon / editor / admin
       - admin creation not allowed (at least on prod)
+    - View button testing
+      - use view tests to validate action buttons
+      - are present only as appropriate (see http://guides.rubyonrails.org/testing.html section 4.8)
 - Data Entry Phase II (##est 1 day)
   - will be added to seeds file
   - another few dozen companies
@@ -125,6 +128,18 @@ X    - I'm using the archetype fields anyway
 
 Nice to Haves:
 
+- Performance upgrade
+  - access helpers
+    - all my access_to_action() helper calls add up .. esp on index pages
+    - can really cache the result of these calls / add to the user model so that they aren't made a ton
+    - but bench first I guess
+  - badge assignment
+    - that ones pretty gnarly
+    - start w benchmarks
+    - then make a bunch of dummy companies (~1k / 10k) and see how it performs
+    - optimize what I can
+    - open to refactoring schema
+    - or doing batch / background job
 - Mobile version
   - if im marketing ... its probably going to be seen first on mobile
 - Update UX
