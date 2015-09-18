@@ -9,3 +9,12 @@
 #
 #two: {}
 #  column: value
+emily_editor:
+  email: 'emily@company.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  role: editor
+amon_admin:
+  email: 'theadmin@company.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  role: admin
+  
