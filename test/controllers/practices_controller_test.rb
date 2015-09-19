@@ -50,10 +50,7 @@ class PracticesControllerTest < ActionController::TestCase
 
   test "should get new" do
     sign_in @editor
-#    get @practice.parent, {:method => :new}
-    puts "practiceable id #{@practice.practiceable.id}"
-    get new_company_practice(@practice.practiceable)
-#    get :new, { :company_id => @practice.practiceable.id }
+    get :new, company_id: @practice.practiceable
     assert_response :success
   end
 
