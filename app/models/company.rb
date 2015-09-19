@@ -7,6 +7,7 @@ class Company < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
   validates :url, format: {with: URI.regexp }, if: Proc.new {|a| a.url.present?}
 
+#  validates :practices, :practices_unique_on_guideline => true
 
   scope :filter_name, -> (name) {
     where("name ILIKE ?", "%#{name}%")

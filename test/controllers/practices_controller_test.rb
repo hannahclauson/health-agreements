@@ -68,6 +68,8 @@ class PracticesControllerTest < ActionController::TestCase
   test "should not create via company with redundant practice name" do
     sign_in @editor
 
+    count = @practice.practiceable.practices.size
+
     post :create, company_id: @practice.practiceable, practice: {
       :notes => 'for realsies',
       :implementation => 1,
@@ -75,8 +77,12 @@ class PracticesControllerTest < ActionController::TestCase
       :company => @practice.practiceable
     }
 
+    puts "ASSIGNMENT ERRORS:"
+    puts assigns[:practice].errors.size
+
+    assert_equal count, @practice.practiceable.practices.size
     assert_equal 1, assigns[:practice].errors.size
-    assert_redirected_to parent_path(@practice)
+    assert_response :success
   end
 
   test "should not create via company" do

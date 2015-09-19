@@ -9,6 +9,8 @@ class Practice < ActiveRecord::Base
   validates :guideline, presence: true
   validates :practiceable, presence: true
 
+  validates_uniqueness_of :guideline_id, :scope => [:practiceable_id, :practiceable_type]
+
   IMPLEMENTATION_MAP = {
     1 => :follows,
     2 => :does_not_follow,
