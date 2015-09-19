@@ -77,9 +77,6 @@ class PracticesControllerTest < ActionController::TestCase
       :company => @practice.practiceable
     }
 
-    puts "ASSIGNMENT ERRORS:"
-    puts assigns[:practice].errors.size
-
     assert_equal count, @practice.practiceable.practices.size
     assert_equal 1, assigns[:practice].errors.size
     assert_response :success
