@@ -8,6 +8,10 @@ class PracticesControllerTest < ActionController::TestCase
 
   setup do
     @practice = practices(:one)
+
+    @guideline = guidelines(:single_state)
+    @guideline.save!
+
     @editor = users(:emily_editor)
     @editor.confirm
     @admin = users(:amon_admin)
@@ -47,30 +51,20 @@ class PracticesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-
-  test "should get new" do
-    sign_in @editor
-    get :new, company_id: @practice.practiceable
-    assert_response :success
-  end
-
-  test "should not get new" do
-    access_denied(@practice) do
-      get :new
-    end
-  end
-
   test "should create" do
     sign_in @editor
-    post :create, practice: {
+    puts "assigning w guidelien"
+    puts @guideline.inspect
+    post :create, company_id: @practice.practiceable, practice: {
       :notes => 'for realsies',
       :implementation => 1,
-      :guideline => guidelines(:single_state),
-      :practiceable => companies('23andme')
+      :guideline_id => @guideline.id,
+      :company => @practice.practiceable
     }
 
+    puts assigns[:practice].errors.inspect
     assert_equal 0, assigns[:practice].errors.size
-    assert_redirected_to practice_path(assigns[:practice].id)
+    assert_redirected_to company_path(@practice.practiceable)
   end
 
   test "should not allow non unique practice on company" do
