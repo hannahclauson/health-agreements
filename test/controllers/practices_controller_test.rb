@@ -37,7 +37,7 @@ class PracticesControllerTest < ActionController::TestCase
   def access_denied(p)
     request.env["HTTP_REFERER"] = parent_path(p)
     yield
-    assert_redirected_to parent_path
+    assert_redirected_to parent_path(p)
     assert_equal "Access Denied", flash[:alert]
   end
 
@@ -51,10 +51,9 @@ class PracticesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create" do
+  test "should create via company" do
     sign_in @editor
-    puts "assigning w guidelien"
-    puts @guideline.inspect
+
     post :create, company_id: @practice.practiceable, practice: {
       :notes => 'for realsies',
       :implementation => 1,
@@ -62,10 +61,21 @@ class PracticesControllerTest < ActionController::TestCase
       :company => @practice.practiceable
     }
 
-    puts assigns[:practice].errors.inspect
     assert_equal 0, assigns[:practice].errors.size
-    assert_redirected_to company_path(@practice.practiceable)
+    assert_redirected_to parent_path(@practice)
   end
+
+  test "should not create via company" do
+    access_denied(@practice) do
+      post :create, company_id: @practice.practiceable, practice: {
+        :notes => 'for realsies',
+        :implementation => 1,
+        :guideline_id => @guideline.id,
+        :company => @practice.practiceable
+      }
+    end
+  end
+
 
   test "should not allow non unique practice on company" do
 
