@@ -65,6 +65,20 @@ class PracticesControllerTest < ActionController::TestCase
     assert_redirected_to parent_path(@practice)
   end
 
+  test "should not create via company with redundant practice name" do
+    sign_in @editor
+
+    post :create, company_id: @practice.practiceable, practice: {
+      :notes => 'for realsies',
+      :implementation => 1,
+      :guideline_id => guidelines(:optin),
+      :company => @practice.practiceable
+    }
+
+    assert_equal 1, assigns[:practice].errors.size
+    assert_redirected_to parent_path(@practice)
+  end
+
   test "should not create via company" do
     access_denied(@practice) do
       post :create, company_id: @practice.practiceable, practice: {
@@ -74,11 +88,6 @@ class PracticesControllerTest < ActionController::TestCase
         :company => @practice.practiceable
       }
     end
-  end
-
-
-  test "should not allow non unique practice on company" do
-
   end
 
   test "should not create" do
