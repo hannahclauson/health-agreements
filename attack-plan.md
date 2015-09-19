@@ -115,6 +115,11 @@ X    - I'm using the archetype fields anyway
 - Add model / list of Articles/Journals where company research is published (##est 1 day)
   - and add weighted impact scores to company
   - maybe different badge for active / impactful research?
+- Data Entry Phase V - Articles (##est 1 day)
+  - Review any articles for at least a dozen companies
+  - Some have many (23andme / etc)
+  - Probably enter ~ a few hundred articles
+  - Update homepage callout for companies w articles / articles index page
 - Pre-Launch (##est 1/2 day)
   - audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
   - make sure errors are handled properly

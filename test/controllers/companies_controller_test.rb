@@ -8,6 +8,7 @@ class CompaniesControllerTest < ActionController::TestCase
     @editor = users(:emily_editor)
     @editor.confirm
     @admin = users(:amon_admin)
+    @admin.admin!
     @admin.confirm
   end
 
@@ -27,11 +28,12 @@ class CompaniesControllerTest < ActionController::TestCase
 
   # Actions for Editors
 
-  # Helper for simulating anon request
-  def anon_access
+  # Helper for testing access_denied
+  def access_denied
     request.env["HTTP_REFERER"] = companies_path
     yield
     assert_redirected_to companies_path
+    assert_equal "Access Denied", flash[:alert]
   end
 
   test "should get new" do
@@ -41,7 +43,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not get new" do
-    anon_access do
+    access_denied do
       get :new
     end
   end
@@ -53,7 +55,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not create" do
-    anon_access do
+    access_denied do
       post :create, company: {name: 'acme', url: 'http://acme.com', description: 'sells everything'}
     end
   end
@@ -65,7 +67,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not get edit" do
-    anon_access do
+    access_denied do
       get :edit, id: @company.id
     end
   end
@@ -79,10 +81,60 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not update" do
-    anon_access do
+    access_denied do
       post :update, id: @company.id, company: {name: 'acmezzzz'}
     end
   end
 
+  # Admin only actions
+
+  test "should not delete (anon user)" do
+    count = Company.all.size
+
+    access_denied do
+      delete :destroy, id: companies(:fodder_a).id
+    end
+
+    assert_equal count, Company.all.size
+  end
+
+  test "should not delete (editor user)" do
+    sign_in @editor
+    count = Company.all.size
+
+    access_denied do
+      delete :destroy, id: companies(:fodder_a).id
+    end
+
+    assert_equal count, Company.all.size
+  end
+
+  test "should delete (admin user)" do
+    sign_in @admin
+    count = Company.all.size
+    request.env["HTTP_REFERER"] = companies_path
+
+    delete :destroy, id: companies(:fodder_a).id
+
+    assert_equal true, @admin.admin?
+    assert_equal nil, flash[:alert]
+
+    assert_redirected_to companies_path
+    assert_equal count-1, Company.all.size
+  end
+
+
+  # Controls for roles
+
+  test "should be admin" do
+    assert_equal true, @admin.admin?
+    assert_equal false, @admin.editor?
+
+  end
+
+  test "should be editor" do
+    assert_equal false, @editor.admin?
+    assert_equal true, @editor.editor?
+  end
 
 end

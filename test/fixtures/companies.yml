@@ -9,3 +9,18 @@ ubiome:
   name: ubiome
   description: Sequences flora
   url: http://www.ubiome.com
+
+fodder_a:
+  name: fodder_a
+  description: mhmmm
+  url: http://www.ubiome.com
+
+fodder_b:
+  name: fodder_b
+  description: Sequences flora
+  url: http://www.ubiome.com
+
+fodder_c:
+  name: fodder_c
+  description: Szzequences flora
+  url: http://www.ubiome.com
