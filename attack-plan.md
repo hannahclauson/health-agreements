@@ -33,22 +33,29 @@ X      - edit
 X      - update
 X      - destroy      
     - practice
-      - create
-      - edit
-      - show
-      - update
-      - destroy      
+X      - create (via comp)
+      - create (via arch)
+      - edit (via comp)
+      - edit (via arch)
+X      - show (via comp)
+      - show (via arch)
+      - update (via comp)
+      - update (via arch)
+      - destroy (via comp)
+      - destroy (via arch)
     - archetype
       - index
       - show (incl practices)
       - edit
       - update
       - destroy
-    - badge (has no controllers)
+    - badge (has no controllers), so no access to:
+      - show
+      - index
+      - edit
+      - delete
     - Search
       - params missing (esp practice name/impl)
-    - For company: nested practice creation
-    - For arch: nested practice creation
     - For badge
       - new eligilibity / count
       - remove eiligilibity / count
