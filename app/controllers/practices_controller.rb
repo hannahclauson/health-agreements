@@ -67,13 +67,6 @@ class PracticesController < ProtectedController
     render json: opts
   end
 
-  private
-
-  def allowed_params
-    # need to whitelist foreign_id for guideline? and owner company?
-    params.require(:practice).permit(:implementation, :notes, :guideline_id)
-  end
-
   def polymorphic_parent
     request.path_parameters.each do |k, v|
       if k =~ /_id\z/
@@ -82,5 +75,13 @@ class PracticesController < ProtectedController
       end
     end
   end
+
+  private
+
+  def allowed_params
+    # need to whitelist foreign_id for guideline? and owner company?
+    params.require(:practice).permit(:implementation, :notes, :guideline_id)
+  end
+
 
 end

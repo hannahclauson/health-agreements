@@ -20,18 +20,18 @@ X    - company
 X      - index
 X      - new
 X      - create
-X      - show
+X      - show (incl practices)
 X      - edit
 X      - update
 X      - destroy
-    - guideline
-      - index
-      - new
-      - create
-      - show
-      - edit
-      - update
-      - destroy      
+X    - guideline
+X      - index
+X      - new
+X      - create
+X      - show
+X      - edit
+X      - update
+X      - destroy      
     - practice
       - create
       - edit
@@ -40,7 +40,7 @@ X      - destroy
       - destroy      
     - archetype
       - index
-      - show
+      - show (incl practices)
       - edit
       - update
       - destroy
