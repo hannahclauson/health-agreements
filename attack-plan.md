@@ -16,14 +16,14 @@ X    - I'm using the archetype fields anyway
 #  - What if there is an archetype with no practices?
 #     - for since only editors can create, will make do
   - Controller tests (including access levels):
-    - company
-      - index
-      - new
-      - create
-      - show
-      - edit
-      - update
-      - destroy
+X    - company
+X      - index
+X      - new
+X      - create
+X      - show
+X      - edit
+X      - update
+X      - destroy
     - guideline
       - index
       - new
