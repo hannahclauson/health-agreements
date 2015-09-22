@@ -2,6 +2,10 @@
 
 $ psql health_agreements_dev
 
+# start DB
+
+postgres -D /usr/local/var/postgres/
+
 # describe a table:
 
 health_agreements_dev=# \d+ Companies
