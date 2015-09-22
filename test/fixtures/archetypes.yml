@@ -1,8 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-research:
-  name: MyString
-  description: MyText
-data_aggregation:
-  name: Data Aggregation
-  description: MyText

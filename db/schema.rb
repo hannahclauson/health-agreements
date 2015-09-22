@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917183836) do
+ActiveRecord::Schema.define(version: 20150902223734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,30 +31,43 @@ ActiveRecord::Schema.define(version: 20150917183836) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "archetypes", force: :cascade do |t|
+  create_table "badge_awards", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "badge_awards", ["badge_id"], name: "index_badge_awards_on_badge_id", using: :btree
+  add_index "badge_awards", ["company_id"], name: "index_badge_awards_on_company_id", using: :btree
+
+  create_table "badge_practices", force: :cascade do |t|
+    t.integer "guideline_id"
+    t.integer "badge_id"
+    t.integer "implementation"
+  end
+
+  add_index "badge_practices", ["badge_id"], name: "index_badge_practices_on_badge_id", using: :btree
+  add_index "badge_practices", ["guideline_id"], name: "index_badge_practices_on_guideline_id", using: :btree
+
+  create_table "badges", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "badges", force: :cascade do |t|
-    t.integer  "company_id"
-    t.integer  "archetype_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "badges", ["archetype_id"], name: "index_badges_on_archetype_id", using: :btree
-  add_index "badges", ["company_id"], name: "index_badges_on_company_id", using: :btree
-
   create_table "companies", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.text     "description"
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
+  add_index "companies", ["slug"], name: "index_companies_on_slug", using: :btree
 
   create_table "guidelines", force: :cascade do |t|
     t.string   "name"
@@ -70,17 +83,12 @@ ActiveRecord::Schema.define(version: 20150917183836) do
     t.integer  "implementation"
     t.integer  "company_id"
     t.integer  "guideline_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "archetype_id"
-    t.integer  "practiceable_id"
-    t.string   "practiceable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "practices", ["archetype_id"], name: "index_practices_on_archetype_id", using: :btree
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
-  add_index "practices", ["practiceable_type", "practiceable_id"], name: "index_practices_on_practiceable_type_and_practiceable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -105,9 +113,4 @@ ActiveRecord::Schema.define(version: 20150917183836) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "badges", "archetypes"
-  add_foreign_key "badges", "companies"
-  add_foreign_key "practices", "archetypes"
-  add_foreign_key "practices", "companies"
-  add_foreign_key "practices", "guidelines"
 end

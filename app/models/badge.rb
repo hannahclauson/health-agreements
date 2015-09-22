@@ -1,4 +1,9 @@
+# BADGE ARCHITECT
 class Badge < ActiveRecord::Base
-  belongs_to :company
-  belongs_to :archetype
+  has_many :badge_practices
+  has_many :badge_awards, dependent: :destroy
+  accepts_nested_attributes_for :badge_practices
+
+  validates :name, presence: true, uniqueness: true
+  validates :description, presence: true
 end
