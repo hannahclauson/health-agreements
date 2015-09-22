@@ -4,11 +4,9 @@ class CompaniesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @company = companies('23andme')
-    @editor = users(:emily_editor)
-    @editor.confirm
-    @admin = users(:amon_admin)
-    @admin.confirm
+    @company = create(:company)
+    @editor = create(:user)
+    @admin = create(:user, :admin)
   end
 
   # Actions that are publicly accessible
@@ -75,7 +73,7 @@ class CompaniesControllerTest < ActionController::TestCase
     post :update, id: @company.id, company: {name: 'acmezzzz'}
     assert_redirected_to company_path(assigns[:company].id)
     assert_equal "acmezzzz", assigns(:company).name
-    assert_equal "http://www.23andme.com", assigns(:company).url
+    assert_equal @company.url, assigns(:company).url
   end
 
   test "should not update" do

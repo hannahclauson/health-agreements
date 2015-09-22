@@ -1,18 +1,17 @@
 = content_for :head do
-  %title List of Archetypes
+  %title List of Badges
 
 .container
   .page-header
-    %h1 List of Archetypes
+    %h1 List of Badges
     - if access_to_action(:new)
-      =link_to("New", new_archetype_path, {class: 'btn btn-xs btn-info object_action'})
+      =link_to("New", new_badge_path, {class: 'btn btn-xs btn-info object_action'})
 
   %ul.list-group
-    - @archetypes.each do |a|
+    - @badges.each do |a|
       %li.list-group-item
         = link_to a.name, a
           %span.actions.btn-group.btn-group-xs.btn-group-link
             - if access_to_action(:edit)
-              = link_to("Edit", edit_archetype_path(a), {class: 'btn btn-xs btn-info'})
+              = link_to("Edit", edit_badge_path(a), {class: 'btn btn-xs btn-info'})
             - if access_to_action(:delete)
-

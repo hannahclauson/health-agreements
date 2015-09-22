@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   get '/autocomplete/implementations', to: 'practices#autocomplete_implementations'
 
   resources :guidelines
-  resources :archetypes do
-    resources :practices
+  resources :badges do
+    resources :badge_practices
   end
 
   get 'documents/terms_of_service'
