@@ -6,6 +6,10 @@ $ psql health_agreements_dev
 
 postgres -D /usr/local/var/postgres/
 
+or
+
+pg_ctl -D /usr/local/var/postgres start
+
 # describe a table:
 
 health_agreements_dev=# \d+ Companies
