@@ -1,3 +1,4 @@
+# BADGE ARCHITECT
 class Archetype < ActiveRecord::Base
   has_many :practices, as: :practiceable, dependent: :destroy
   has_many :badges, dependent: :destroy
