@@ -17,15 +17,15 @@ class GuidelinesController < ProtectedController
   end
 
   def show
-    @guideline = Guideline.find(params[:id])
+    current_guideline
   end
 
   def edit
-    @guideline = Guideline.find(params[:id])
+    current_guideline
   end
 
   def update
-    @guideline = Guideline.find(params[:id])
+    current_guideline
 
     if @guideline.update(guideline_params)
       redirect_to @guideline
@@ -39,13 +39,18 @@ class GuidelinesController < ProtectedController
   end
 
   def destroy
-    @guideline = Guideline.find(params[:id])
+    current_guideline
     @guideline.destroy
 
     redirect_to guidelines_path
   end
 
   private
+
+  def current_guideline
+    @guideline ||= Guideline.find(params[:id])
+  end
+  helper_method :current_guideline
 
   def guideline_params
     params.require(:guideline).permit(:name, :description, :true_description, :false_description)
