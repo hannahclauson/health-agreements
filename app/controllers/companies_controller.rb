@@ -11,11 +11,11 @@ class CompaniesController < ProtectedController
   end
 
   def edit
-    @company = Company.find(params[:id])
+    current_company
   end
 
   def update
-    @company = Company.find(params[:id])
+    current_company
 
     if @company.update(company_params)
       redirect_to @company
@@ -59,7 +59,7 @@ class CompaniesController < ProtectedController
 
 
   def create
-    @company = Company.new(company_params)
+    current_company
     if @company.save
       redirect_to @company
     else
@@ -68,20 +68,24 @@ class CompaniesController < ProtectedController
   end
 
   def show
-    @company = Company.find(params[:id])
+    current_company
     @parent = @company # syntactic sugar so I can reuse the practices form partial
     @practice = Practice.new
   end
 
   def destroy
-    @company = Company.find(params[:id])
+    current_company
     @company.destroy
 
     redirect_to companies_path
- 
+
  end
 
   private
+
+  def current_company
+    @company ||= Company.where(slug: params[:id]).first
+  end
 
   def company_params
     params.require(:company).permit(

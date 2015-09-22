@@ -303,7 +303,7 @@ companies:
         notes: Aside from order history / usage info
 badges:
   -
-    name: "research"
+    name: Research
     description: "Follows best practices for using your data for research"
     badge_practices_attributes:
       -
@@ -316,7 +316,7 @@ badges:
         guideline_id: 4
         implementation: 0
   -
-    name: "data_aggregation"
+    name: Data Aggregation
     description: "Shares your aggregated data using only ToS as consent"
     badge_practices_attributes:
       -
@@ -326,7 +326,7 @@ badges:
         guideline_id: 6
         implementation: 0
   -
-    name: "full_data_access"
+    name: Full Data Access
     description: "To you have full access to your PHI?"
     badge_practices_attributes:
       -
@@ -336,14 +336,14 @@ badges:
         guideline_id: 10
         implementation: 0
   -
-    name: "single_state_hosted"
+    name: "Single State Hosted"
     description: "Is your data protected within a single state?"
     badge_practices_attributes:
       -
         guideline_id: 8
         implementation: 0
   -
-    name: "multi_state_hosted"
+    name: Multi-state Hosted
     description: "Is your data protected within a single state?"
     badge_practices_attributes:
       -

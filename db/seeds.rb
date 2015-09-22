@@ -20,13 +20,12 @@ data['guidelines'].each do |g|
                    )
 end
 
+data['badges'].each do |a|
+  Badge.create(a).save!
+end
 
 data['companies'].each do |c|
   Company.create(c).save!
-end
-
-data['badges'].each do |a|
-  Badge.create(a).save!
 end
 
 # Calculate Badges
