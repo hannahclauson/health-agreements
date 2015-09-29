@@ -59,7 +59,8 @@ class CompaniesController < ProtectedController
 
 
   def create
-    current_company
+    @company = Company.create(company_params)
+
     if @company.save
       redirect_to @company
     else
