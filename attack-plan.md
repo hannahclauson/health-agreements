@@ -1,3 +1,4 @@
+- Merge in refactor
 - Add some tests!!!! (##est 1 day)
   - Model tests: For company/guideline/practice/archetype
     X - creation / empty
@@ -82,6 +83,8 @@ X      - show (via comp)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
   - probably want to separate download of html from extracting corpus
     - that way the content selector / normalization can always be updated independently
+    - can even get super OCD w the practices per comp and require that they list a 'line number' or range from their parent document where they are defined
+    - then when diffing, I should be able to tell exactly which practices are affected
   - New model: Document
     - URL
     - poll date
@@ -113,7 +116,6 @@ X      - show (via comp)
 - Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
-  - upgrade search (to elastic search?) so that its good / fast
 - Request Addition / Modification (##est 1 day)
   - form to request a company added to list
   - form to request a modification
@@ -122,6 +124,9 @@ X      - show (via comp)
 - Add model / list of Articles/Journals where company research is published (##est 1 day)
   - and add weighted impact scores to company
   - maybe different badge for active / impactful research?
+  - probably want to automate this if at all possible
+  - maybe not a bad idea to have list of links for each company where they list their articles
+  - and detect if/when those pages change / have content added
 - Data Entry Phase V - Articles (##est 1 day)
   - Review any articles for at least a dozen companies
   - Some have many (23andme / etc)
