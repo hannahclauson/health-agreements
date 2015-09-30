@@ -1,5 +1,5 @@
 - Merge in refactor
-- Add some tests!!!! (##est 1 day)
+- Fix all tests / Add some tests!!!! (##est 1 day)
   - Model tests: For company/guideline/practice/archetype
     X - creation / empty
     X - each validator
