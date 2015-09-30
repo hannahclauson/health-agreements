@@ -25,7 +25,6 @@ X      - show (incl practices)
 X      - edit
 X      - update
 X      - destroy
-     - badge_award changes (on update)
 X    - guideline
 X      - index
 X      - new
@@ -39,7 +38,9 @@ X      - create (via comp)
       - edit (via comp)
 X      - show (via comp)
       - update (via comp)
+        - w failing badge update
       - destroy (via comp)
+        - w badge update test
     - badge
       - index
       - show (incl practices)
