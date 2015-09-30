@@ -33,7 +33,10 @@ X      - show
 X      - edit
 X      - update
 X      - destroy      
+    - fix guideline / practices controller tests
     - practice
+      - I HAVE A after_create filter
+      - need to add approps for update / destroy
 X      - create (via comp)
       - edit (via comp)
 X      - show (via comp)
