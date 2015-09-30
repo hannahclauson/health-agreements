@@ -66,7 +66,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not get edit" do
-    anon_access do
+    access_denied do
       get :edit, id: @company.slug
     end
   end
