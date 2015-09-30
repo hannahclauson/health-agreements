@@ -44,7 +44,7 @@ class BadgesController < ProtectedController
   def destroy
     @badge = Badge.find(params[:id])
     @badge.destroy
-    redirect_to archetypes_path
+    redirect_to badges_path
   end
 
   private

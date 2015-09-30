@@ -18,6 +18,8 @@ class CompaniesController < ProtectedController
     current_company
 
     if @company.update(company_params)
+      puts "CHECKING AWARDS AGAIN"
+      Badge.check_this_company_and_award_all_badges(@company)
       redirect_to @company
     else
       render 'edit'
@@ -70,7 +72,6 @@ class CompaniesController < ProtectedController
 
   def show
     current_company
-    @parent = @company # syntactic sugar so I can reuse the practices form partial
     @practice = Practice.new
   end
 

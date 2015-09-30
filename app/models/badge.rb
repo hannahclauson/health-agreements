@@ -18,10 +18,18 @@ class Badge < ActiveRecord::Base
 
   def check_and_award(company)
     if check(company)
+      puts "FOUND A MATCH, AWARDING #{self.name}"
       badge_awards.create(company: company)
     end
   end
 
+  def self.check_this_company_and_award_all_badges(company)
+    company.badge_awards.destroy_all
+    puts "DESTROYED ALL BADGES"
+    Badge.all.each {|b| b.check_and_award(company) }
+  end
+
+  # When this badge changes, check against all companies
   def rebuild_awards!
     badge_awards.destroy_all
     Company.all.each do |company|
@@ -29,6 +37,8 @@ class Badge < ActiveRecord::Base
     end
   end
 
+  # This should only be used when seeding
+  # - rechecks all badges / all companies
   def self.rebuild_awards!
     Badge.all.each &:rebuild_awards!
   end

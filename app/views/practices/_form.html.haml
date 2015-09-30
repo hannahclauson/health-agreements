@@ -1,4 +1,4 @@
-= form_for [@parent, @practice], html: {class: 'form-horizontal'} do |f|
+= form_for [@company, @practice], html: {class: 'form-horizontal'} do |f|
   = if @practice.errors.any?
     #error_explanation
       %h2= "#{pluralize(@practice.errors.count, "Error")} prohibited this practice from being saved"

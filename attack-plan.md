@@ -25,6 +25,7 @@ X      - show (incl practices)
 X      - edit
 X      - update
 X      - destroy
+     - badge_award changes (on update)
 X    - guideline
 X      - index
 X      - new
@@ -35,33 +36,24 @@ X      - update
 X      - destroy      
     - practice
 X      - create (via comp)
-      - create (via arch)
       - edit (via comp)
-      - edit (via arch)
 X      - show (via comp)
-      - show (via arch)
       - update (via comp)
-      - update (via arch)
       - destroy (via comp)
-      - destroy (via arch)
-    - archetype
+    - badge
       - index
       - show (incl practices)
       - edit
       - update
+        - self
+        - need to add failing tests here, then add another column for rebuilt status / and button on show to rebuild this badge
+        - badge_practices
+        - badge_award changes
       - destroy
-    - badge (has no controllers), so no access to:
-      - show
-      - index
-      - edit
-      - delete
+        - badge_practices
+        - badge_award changes (on badge del or bp del)
     - Search
       - params missing (esp practice name/impl)
-    - For badge
-      - new eligilibity / count
-      - remove eiligilibity / count
-      - via archetype updates
-      - via company updates
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
   - proper error handling
