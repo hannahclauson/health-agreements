@@ -6,16 +6,19 @@ digraph obj{
 	nodesep=0.6;
 	node [fontsize=11];
 	
-	company [label = "{<f0> Company|<f1> has_many: practices\n|<f2> has_many: badges}"];
+	company [label = "{<f0> Company|<f1> has_many: practices\n|<f2> has_many: badge_awards}"];
 	guideline [label = "{<f0> Guideline|<f1> has_many: practices}"];
-	practice [label = "{<f0> Practice|<f1> belongs_to: :practiceable\n|<f2> belongs_to: guideline}"];
-	archetype [label = "{<f0> Archetype|<f1> has_many: practices\n|<f2> has_many: badges}"];
-	badge [label = "{<f0> Badge|<f1> belongs_to: company\n|<f2> belongs_to: archetype}"];
+	practice [label = "{<f0> Practice|<f1> belongs_to: Company \n|<f2> belongs_to: Guideline}"];
+	badge [label = "{<f0> Badge |<f1> has_many: badge_awards\n|<f2> has_many: badge_practices}"];
+	badge_award [label = "{<f0> Badge Award|<f1> belongs_to: company\n|<f2> belongs_to: badge}"];
+	badge_practice [label = "{<f0> Badge Practice|<f1> belongs_to: guideline\n|<f2> belongs_to: badge}"];
 
-	company->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
-	company->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
-	guideline->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
-	archetype->practice [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
-	archetype->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="*",taillabel="1"];
+
+	practice->company [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
+	badge_award->company [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
+	badge_award->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
+	practice->guideline [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
+	badge_practice->guideline [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
+	badge_practice->badge [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="*"];
 
 }

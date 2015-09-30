@@ -78,10 +78,4 @@ class GuidelineTest < ActiveSupport::TestCase
     assert g.save
   end
 
-  test "dependent practice destroy" do
-    assert_equal Guideline.count, 3
-    guidelines(:optin).destroy
-    assert_equal Guideline.count, 2
-  end
-
 end

@@ -1,0 +1,17 @@
+
+= if f.object.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(badge_practice.errors.count, "Error")} prohibited this practice from being saved"
+    %ul
+      - f.object.errors.full_messages.each do |msg|
+        %li= msg
+
+.field.form-group
+  = f.label :guideline_id, class: 'col-sm-2 control-label'
+  .col-sm-10.input_wrapper
+    = f.select('guideline_id', options_for_select(enumerated_guidelines, :selected => f.object.guideline_id), :include_blank => true)
+
+.field.form-group
+  = f.label :implementation, class: 'col-sm-2 control-label'
+  .col-sm-10.input_wrapper
+    = f.select('implementation', options_for_select(enumerated_implementations, :selected => f.object.implementation), :include_blank => true)

@@ -1,0 +1,43 @@
+= content_for :head do
+  %title= "Badge >> #{@badge.name}"
+
+.container
+  .page-header
+    %h1="Badge >> #{@badge.name}"
+    - if access_to_action(:delete)
+      =link_to("Delete", badge_path(@badge), class: 'btn btn-xs btn-danger object_action', method: :delete)
+    - if access_to_action(:edit)
+      =link_to("Edit", edit_badge_path(@badge), class: 'btn btn-xs btn-info object_action')
+
+  .page-body
+    %p= @badge.description
+
+    .panel.panel-primary
+      .panel-heading
+        %h2 Practices
+      .panel-body
+        %p
+          The following is a list of practices that #{@parent.name} follows. Click on a practice to understand what it means to follow that practice.
+
+      %table.table
+        %tr.info
+          %th Name
+          %th Implementation
+          %th Notes
+          %th Actions
+        - @badge.badge_practices.each do |p|
+          %tr
+            %td= p.guideline.name
+            %td= p.implementation_text
+            %td.actions
+              - if access_to_action(:delete)
+                = link_to('Delete', polymorphic_path([@badge,p]), class: 'btn btn-xs btn-danger', method: :delete)
+
+
+  .panel.panel-default
+    .panel-heading
+      %h2 Add a Practice
+    .panel-body
+      = form_for [@badge, @badge.badge_practices.build] do |f|
+        = render partial: 'badges/badge_practice_form', locals: {f: f}
+        %button Add

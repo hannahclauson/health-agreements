@@ -6,7 +6,8 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test "count" do
-    assert_equal Company.count, 2
+    create_list(:company, 2)
+    assert_equal 2, Company.count
   end
 
   test "cannot save without name" do

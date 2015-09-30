@@ -11,13 +11,15 @@ class CompaniesController < ProtectedController
   end
 
   def edit
-    @company = Company.find(params[:id])
+    current_company
   end
 
   def update
-    @company = Company.find(params[:id])
+    current_company
 
     if @company.update(company_params)
+      puts "CHECKING AWARDS AGAIN"
+      Badge.check_this_company_and_award_all_badges(@company)
       redirect_to @company
     else
       render 'edit'
@@ -59,7 +61,8 @@ class CompaniesController < ProtectedController
 
 
   def create
-    @company = Company.new(company_params)
+    @company = Company.create(company_params)
+
     if @company.save
       redirect_to @company
     else
@@ -68,20 +71,23 @@ class CompaniesController < ProtectedController
   end
 
   def show
-    @company = Company.find(params[:id])
-    @parent = @company # syntactic sugar so I can reuse the practices form partial
+    current_company
     @practice = Practice.new
   end
 
   def destroy
-    @company = Company.find(params[:id])
+    current_company
     @company.destroy
 
     redirect_to companies_path
- 
+
  end
 
   private
+
+  def current_company
+    @company ||= Company.where(slug: params[:id]).first
+  end
 
   def company_params
     params.require(:company).permit(

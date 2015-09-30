@@ -3,22 +3,20 @@ require 'protected_controller'
 class PracticesController < ProtectedController
 
   def create
-    @parent = polymorphic_parent
-    @practice = @parent.practices.create(allowed_params)
+    current_company
+    @practice = @company.practices.create(allowed_params)
 
     if @practice.save
       reevaluate_badges
-      redirect_to polymorphic_path(@parent)
+      redirect_to company_path(@company)
     else
       render 'edit'
     end
   end
 
   def show
+    current_company
     @practice = Practice.find(params[:id])
-
-    # for individual practice show
-    @parent = polymorphic_parent
 
     # syntactic sugar to reuse table partial (on company/arch show pages)
     @guideline = @practice.guideline 
@@ -26,31 +24,32 @@ class PracticesController < ProtectedController
   end
 
   def edit
+    current_company
     @practice = Practice.find(params[:id])
-    @parent = @practice.practiceable
   end
 
   def update
+    current_company
     @practice = Practice.find(params[:id])
-    @parent = @practice.practiceable
 
     if @practice.update(allowed_params)
       reevaluate_badges
-      redirect_to @parent
+      redirect_to @company
     else
-      @company = @parent
       render 'edit'
     end
   end
 
   def destroy
+    current_company
+
     @practice = Practice.find(params[:id])
-    @parent = polymorphic_parent
     @practice.destroy
 
-    reevaluate_badges
+    puts "PRACTICE DELETED ... REEVAL BDAGES"
+    Badge.check_this_company_and_award_all_badges(@company)
 
-    redirect_to @parent
+    redirect_to @company
   end
 
   def autocomplete_implementations
@@ -67,15 +66,6 @@ class PracticesController < ProtectedController
     render json: opts
   end
 
-  def polymorphic_parent
-    request.path_parameters.each do |k, v|
-      if k =~ /_id\z/
-        parent_name = k.to_s.gsub(/_id\z/, "")
-        return parent_name.classify.constantize.find(v)
-      end
-    end
-  end
-
   private
 
   def allowed_params
@@ -83,5 +73,8 @@ class PracticesController < ProtectedController
     params.require(:practice).permit(:implementation, :notes, :guideline_id)
   end
 
+  def current_company
+    @company ||= Company.where(slug: params[:company_id]).first
+  end
 
 end
