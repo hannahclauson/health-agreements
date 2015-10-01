@@ -18,7 +18,6 @@ class CompaniesController < ProtectedController
     current_company
 
     if @company.update(company_params)
-      puts "CHECKING AWARDS AGAIN"
       Badge.check_this_company_and_award_all_badges(@company)
       redirect_to @company
     else

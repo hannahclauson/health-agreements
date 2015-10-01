@@ -44,7 +44,6 @@ class PracticesController < ProtectedController
     @practice = Practice.find(params[:id])
     @practice.destroy
 
-    puts "PRACTICE DELETED ... REEVAL BDAGES"
     Badge.check_this_company_and_award_all_badges(@company)
 
     redirect_to @company

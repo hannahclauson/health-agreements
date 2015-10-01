@@ -22,7 +22,6 @@ class PracticesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    puts "company id #{@practice.company.id}"
     get :show, company_id: @practice.company, id: @practice
     assert_response :success
   end
