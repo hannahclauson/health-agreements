@@ -47,7 +47,9 @@ class BadgeAwardTest < ActiveSupport::TestCase
     p = create(:practice, guideline: g, company: c, implementation: 2)
     assert_equal 1,c.badge_awards.count
 
-    p.destroy!
+    puts "about to destroy"
+    p.destroy
+    puts "done destroying"
     assert_equal 0,c.badge_awards.count
   end
 

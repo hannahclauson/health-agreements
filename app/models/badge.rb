@@ -17,6 +17,11 @@ class Badge < ActiveRecord::Base
   end
 
   def check_and_award(company)
+    # Remove the badge award
+    award = company.badge_awards.where(:badge_id => self.id).first
+    award.destroy unless award.nil?
+
+    # Add badge award if company still adheres to the practices
     if check(company)
       badge_awards.create(company: company)
     end
