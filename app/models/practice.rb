@@ -4,7 +4,9 @@ class Practice < ActiveRecord::Base
   belongs_to :guideline
   belongs_to :company
 
-  after_create :check_badge_eligibility
+#  after_create :check_badge_eligibility
+#  after_update :check_badge_eligibility
+#  after_destroy :check_badge_eligibility
 
   # should also validate its in the expected range
   # and should really not expose the integers to the user for now but have a select input instead

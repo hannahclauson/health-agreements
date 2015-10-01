@@ -22,11 +22,6 @@ class Badge < ActiveRecord::Base
     end
   end
 
-  def self.check_this_company_and_award_all_badges(company)
-    company.badge_awards.destroy_all
-    Badge.all.each {|b| b.check_and_award(company) }
-  end
-
   # When this badge changes, check against all companies
   def rebuild_awards!
     badge_awards.destroy_all
