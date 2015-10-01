@@ -7,7 +7,6 @@ class PracticesController < ProtectedController
     @practice = @company.practices.create(allowed_params)
 
     if @practice.save
-      reevaluate_badges
       redirect_to company_path(@company)
     else
       render 'edit'
@@ -19,8 +18,8 @@ class PracticesController < ProtectedController
     @practice = Practice.find(params[:id])
 
     # syntactic sugar to reuse table partial (on company/arch show pages)
-    @guideline = @practice.guideline 
-    @description = @practice.implementation_description
+    @guideline = @practice.guideline
+    @description = @practice.notes
   end
 
   def edit
@@ -33,7 +32,6 @@ class PracticesController < ProtectedController
     @practice = Practice.find(params[:id])
 
     if @practice.update(allowed_params)
-      reevaluate_badges
       redirect_to @company
     else
       render 'edit'

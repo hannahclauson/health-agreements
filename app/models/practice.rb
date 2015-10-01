@@ -10,6 +10,7 @@ class Practice < ActiveRecord::Base
   # and should really not expose the integers to the user for now but have a select input instead
 
   validates :guideline, presence: true
+  validates_uniqueness_of :guideline_id, :scope => [:company_id, :company]
 
   def check_badge_eligibility
     guideline.badges.map do |badge|
