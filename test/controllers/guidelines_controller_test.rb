@@ -4,12 +4,9 @@ class GuidelinesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @guideline = guidelines(:optin)
-    @editor = users(:emily_editor)
-    @editor.confirm
-    @admin = users(:amon_admin)
-    @admin.admin!
-    @admin.confirm
+    @guideline = create(:guideline)
+    @editor = create(:user)
+    @admin = create(:user, :admin)
   end
 
   # Actions that are publicly accessible
@@ -86,10 +83,17 @@ class GuidelinesControllerTest < ActionController::TestCase
 
   test "should update" do
     sign_in @editor
-    post :update, id: @guideline.id, guideline: {name: 'zzz'}
+    g = create(
+               :guideline,
+               name: "thing",
+               description: "something something",
+               true_description: "mhmm okay then",
+               false_description: "mmmm nope not ok"
+               )
+    post :update, id: g.id, guideline: {name: 'zzz'}
     assert_redirected_to guideline_path(assigns[:guideline].id)
     assert_equal "zzz", assigns(:guideline).name
-    assert_equal "Opt in for data use in research", assigns(:guideline).description
+    assert_equal "something something", assigns(:guideline).description
   end
 
   test "should not update" do
