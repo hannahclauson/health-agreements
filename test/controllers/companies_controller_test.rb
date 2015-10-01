@@ -91,7 +91,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
 
     access_denied do
-      delete :destroy, id: companies(:fodder_a).id
+      delete :destroy, id: @company.id
     end
 
     assert_equal count, Company.all.size
@@ -102,7 +102,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
 
     access_denied do
-      delete :destroy, id: companies(:fodder_a).id
+      delete :destroy, id: @company.id
     end
 
     assert_equal count, Company.all.size
@@ -113,7 +113,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
     request.env["HTTP_REFERER"] = companies_path
 
-    delete :destroy, id: companies(:fodder_a).id
+    delete :destroy, id: @other_company
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
