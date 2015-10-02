@@ -33,6 +33,13 @@ class Badge < ActiveRecord::Base
   def rebuild_awards!
     badge_awards.destroy_all
 
+    if badge_practices.count == 0
+      # If this was the last bagde_practice, its expected that all badge_awards will be removed
+      self.needs_to_rebuild = false
+      self.save!
+      return []
+    end
+
     cs = Company.all.collect do |company|
       check_and_award(company)
     end

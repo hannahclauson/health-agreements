@@ -42,10 +42,15 @@ class BadgesController < ProtectedController
 
   def rebuild
     current_badge
-    @companies = @badge.rebuild_awards!
-    @companies.delete(nil)
+    begin
+      @companies = @badge.rebuild_awards!
+      @companies.delete(nil)
+      render 'rebuilt'
+    rescue Badge::EmptyBadge
+      flash[:alert] = "Cannot rebuild an empty badge"
+      render 'show'
+    end
 
-    render 'rebuilt'
   end
 
   def destroy
