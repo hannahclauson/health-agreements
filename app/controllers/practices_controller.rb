@@ -44,8 +44,6 @@ class PracticesController < ProtectedController
     @practice = Practice.find(params[:id])
     @practice.destroy
 
-    Badge.check_this_company_and_award_all_badges(@company)
-
     redirect_to @company
   end
 

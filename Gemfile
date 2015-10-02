@@ -34,6 +34,7 @@ gem 'rails4-autocomplete'
 gem 'simple_form'
 
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

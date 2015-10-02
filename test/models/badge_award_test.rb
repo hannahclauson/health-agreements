@@ -29,8 +29,8 @@ class BadgeAwardTest < ActiveSupport::TestCase
     c = create(:company)
     assert_equal 0,c.badge_awards.count
 
-    bp = create(:badge_practice, guideline: g, implementation: 2)
-    b = create(:badge, badge_practices: [bp])
+    b = create(:badge)
+    bp = create(:badge_practice, guideline: g, implementation: 2, badge: b)
 
     p = create(:practice, guideline: g, company: c, implementation: 2)
     assert_equal 1,c.badge_awards.count
@@ -41,8 +41,8 @@ class BadgeAwardTest < ActiveSupport::TestCase
     c = create(:company)
     assert_equal 0,c.badge_awards.count
 
-    bp = create(:badge_practice, guideline: g, implementation: 2)
-    b = create(:badge, badge_practices: [bp])
+    b = create(:badge)
+    bp = create(:badge_practice, guideline: g, implementation: 2, badge: b)
 
     p = create(:practice, guideline: g, company: c, implementation: 2)
     assert_equal 1,c.badge_awards.count
@@ -56,8 +56,8 @@ class BadgeAwardTest < ActiveSupport::TestCase
     c = create(:company)
     assert_equal 0,c.badge_awards.count
 
-    bp = create(:badge_practice, guideline: g, implementation: 3)
-    b = create(:badge, badge_practices: [bp])
+    b = create(:badge)
+    bp = create(:badge_practice, guideline: g, implementation: 3, badge: b)
 
     p = create(:practice, guideline: g, company: c, implementation: 3)
     assert_equal 1,c.badge_awards.count
@@ -71,8 +71,8 @@ class BadgeAwardTest < ActiveSupport::TestCase
     c = create(:company)
     assert_equal 0,c.badge_awards.count
 
-    bp = create(:badge_practice, guideline: g, implementation: 2)
-    b = create(:badge, badge_practices: [bp])
+    b = create(:badge)
+    bp = create(:badge_practice, guideline: g, implementation: 2, badge: b)
     assert_equal 0,c.badge_awards.count
 
     p = create(:practice, guideline: g, company: c, implementation: 3)
