@@ -15,8 +15,9 @@
     .panel.panel-primary
       .panel-heading
         %h2 Practices
-        %button.btn.btn-warning.btn-lg.rebuild
-          =link_to 'Rebuild', rebuild_badge_path(@badge)
+        - if @badge.needs_to_rebuild
+          %button.btn.btn-warning.btn-lg.rebuild
+            =link_to 'Rebuild', rebuild_badge_path(@badge)
       .panel-body
         %p
           The following is a list of practices that are required to be awarded this badge.

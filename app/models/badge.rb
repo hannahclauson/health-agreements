@@ -5,9 +5,16 @@ class Badge < ActiveRecord::Base
   accepts_nested_attributes_for :badge_practices
 
   before_save :generate_slug
+  after_create :set_rebuild_flag
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
+
+  def set_rebuild_flag
+    puts "AFTER creation ... setting rebuild flag to false"
+#    self.needs_to_rebuild = false
+    true
+  end
 
   def check(company)
     badge_practices.all? do |badge_practice|
@@ -31,9 +38,14 @@ class Badge < ActiveRecord::Base
   # When this badge changes, check against all companies
   def rebuild_awards!
     badge_awards.destroy_all
-    Company.all.collect do |company|
+
+    cs = Company.all.collect do |company|
       check_and_award(company)
     end
+
+    self.needs_to_rebuild = false
+    self.save!
+    cs
   end
 
   # Rechecks all badges / all companies

@@ -17,7 +17,7 @@ class BadgesController < ProtectedController
 
   def show
     current_badge
-    @parent = @badge # syntactic sugar so I can reuse the practices form partial
+    puts "Needs to be rebuilt? #{@badge.needs_to_rebuild}"
     @practice = Practice.new
   end
 

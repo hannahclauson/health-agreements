@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.string   "name"
     t.text     "description"
     t.string   "slug"
+    t.boolean  "needs_to_rebuild", default: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

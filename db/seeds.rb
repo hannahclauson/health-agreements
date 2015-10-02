@@ -21,8 +21,30 @@ data['guidelines'].each do |g|
 end
 
 data['badges'].each do |a|
-  Badge.create(a).save!
+  puts "---"*8
+  b = Badge.create(a)
+  puts "created badge"
+  puts "created, badge state: #{b.inspect}"
+#  b.save!
+  puts "setting flag manually"
+#  b.needs_to_rebuild = false
+  b.save!
+  puts "saved again, badge state: #{b.inspect}"
+  b.needs_to_rebuild = false
+  b.save!
 end
+
+puts "Well ... whats the final state?"
+puts Badge.all.first.inspect
+
+Badge.all.each do |b|
+  b.needs_to_rebuild = false
+  b.save!
+end
+
+puts "For realsies? ... whats the final state?"
+puts Badge.all.first.inspect
+
 
 data['companies'].each do |c|
   Company.create(c).save!
