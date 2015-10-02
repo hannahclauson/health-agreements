@@ -6,7 +6,7 @@ class Practice < ActiveRecord::Base
 
   after_create :check_badge_eligibility
   after_update :check_badge_eligibility
-  after_destroy :check_badge_eligibility
+  after_destroy :remove_related_awards
 
   # should also validate its in the expected range
   # and should really not expose the integers to the user for now but have a select input instead
@@ -14,10 +14,14 @@ class Practice < ActiveRecord::Base
   validates :guideline, presence: true
   validates_uniqueness_of :guideline_id, :scope => [:company_id, :company]
 
+  def remove_related_awards
+    related_badges = guideline.badge_practices.where(:guideline_id => guideline.id).pluck(:badge_id)
+    company.badge_awards.where(:badge_id => related_badges).destroy_all
+  end
+
+
   def check_badge_eligibility
-    puts "checking badge eligibility"
     guideline.badges.map do |badge|
-      puts "walking over badges related via this practices guideline"
       remaining_guidelines = badge.badge_practices.pluck(:guideline_id) - company.practices.pluck(:guideline_id)
       if remaining_guidelines.none?
         badge.check_and_award(company)
