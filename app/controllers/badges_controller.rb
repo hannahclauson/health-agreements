@@ -43,10 +43,10 @@ class BadgesController < ProtectedController
 
   def rebuild
     current_badge
-    @companies = @badge.rebuild_awards!.delete(nil)
-    @companies = [] if @companies.nil?
+    @companies = @badge.rebuild_awards!
+    @companies.delete(nil)
 
-    render 'rebuilt', notice: "Successfully Rebuilt Badge"
+    render 'rebuilt'
   end
 
   def destroy

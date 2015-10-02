@@ -24,7 +24,7 @@ class Badge < ActiveRecord::Base
     # Add badge award if company still adheres to the practices
     if check(company)
       badge_awards.create(company: company)
-      return company.slug #collect the names of companies w newly awarded badges
+      return company
     end
   end
 
