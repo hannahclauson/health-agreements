@@ -49,14 +49,6 @@ class Badge < ActiveRecord::Base
     Badge.all.each &:rebuild_awards!
   end
 
-  # When a practice is 
-#  def self.check_this_company_and_award_all_badges(company)
-#    Badge.all.each do |badge|
-#      badge.badge_awards.destroy_all
-#      check_and_award(company)
-#    end
- # end
-
   def generate_slug
     self.slug = name.to_slug.normalize.to_s
   end
