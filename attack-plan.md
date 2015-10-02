@@ -45,6 +45,8 @@
 - Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
+  - decide on a name
+  - buy domain / setup DNS
   - estimate monthly costs
   - add to my contracting firm?
   - publish / make OSS?
