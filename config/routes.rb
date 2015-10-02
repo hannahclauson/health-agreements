@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :badges do
     resources :badge_practices
   end
+  get 'badges/:id/rebuild' => 'badges#rebuild', as: :rebuild_badge
 
   get 'documents/terms_of_service'
   get 'documents/glossary'

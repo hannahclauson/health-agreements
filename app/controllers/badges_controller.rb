@@ -12,11 +12,11 @@ class BadgesController < ProtectedController
   end
 
   def edit
-    @badge = Badge.find(params[:id])
+    current_badge
   end
 
   def show
-    @badge = Badge.find(params[:id])
+    current_badge
     @parent = @badge # syntactic sugar so I can reuse the practices form partial
     @practice = Practice.new
   end
@@ -32,7 +32,7 @@ class BadgesController < ProtectedController
   end
 
   def update
-    @badge = Badge.find(params[:id])
+    current_badge
 
     if @badge.update(allowed_params)
       redirect_to @badge
@@ -41,13 +41,24 @@ class BadgesController < ProtectedController
     end
   end
 
+  def rebuild
+    current_badge
+    @companies = @badge.rebuild_awards!.delete(nil)
+    @companies = [] if @companies.nil?
+
+    render 'rebuilt', notice: "Successfully Rebuilt Badge"
+  end
+
   def destroy
-    @badge = Badge.find(params[:id])
     @badge.destroy
     redirect_to badges_path
   end
 
   private
+
+  def current_badge
+    @badge ||= Badge.find(params[:id])
+  end
 
   def allowed_params
     params.require(:badge).permit(:name, :description, :badge_practices_attributes => [:implementation, :guideline_id])

@@ -1,0 +1,19 @@
+.container
+  .page-header
+    %h1 Badge Rebuilt
+    %p Below are the companies that now have this badge awarded
+
+  %table.table
+    %tr.info
+      %th Name
+      %th Badges
+    - @companies.each do |c|
+      %tr
+        %td
+          = link_to c.name, c
+        %td.badges
+          %table
+            %tr
+              - c.badges.each do |b|
+                %td.badge-column
+                  = render partial: "shared/badge", object: b, locals: {size: 'small'}

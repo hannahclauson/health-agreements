@@ -15,15 +15,16 @@
     .panel.panel-primary
       .panel-heading
         %h2 Practices
+        %button.btn.btn-warning.btn-lg.rebuild
+          =link_to 'Rebuild', rebuild_badge_path(@badge)
       .panel-body
         %p
-          The following is a list of practices that #{@company.name} follows. Click on a practice to understand what it means to follow that practice.
+          The following is a list of practices that are required to be awarded this badge.
 
       %table.table
         %tr.info
           %th Name
           %th Implementation
-          %th Notes
           %th Actions
         - @badge.badge_practices.each do |p|
           %tr
@@ -40,4 +41,7 @@
     .panel-body
       = form_for [@badge, @badge.badge_practices.build] do |f|
         = render partial: 'badges/badge_practice_form', locals: {f: f}
-        %button Add
+        .field.form-group
+          %label.col-sm-2.control-label
+          .col-sm-10.input_wrapper
+            %button Add

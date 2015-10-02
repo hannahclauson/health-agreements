@@ -24,13 +24,14 @@ class Badge < ActiveRecord::Base
     # Add badge award if company still adheres to the practices
     if check(company)
       badge_awards.create(company: company)
+      return company.slug #collect the names of companies w newly awarded badges
     end
   end
 
   # When this badge changes, check against all companies
   def rebuild_awards!
     badge_awards.destroy_all
-    Company.all.each do |company|
+    Company.all.collect do |company|
       check_and_award(company)
     end
   end
