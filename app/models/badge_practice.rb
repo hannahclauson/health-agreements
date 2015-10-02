@@ -7,7 +7,6 @@ class BadgePractice < ActiveRecord::Base
   after_destroy :mark_rebuild_needed
 
   def mark_rebuild_needed
-    puts "BAdge needs to be rebuilt"
     badge.needs_to_rebuild = true
     badge.save!
   end

@@ -18,9 +18,6 @@
     .col-sm-10.input-wrapper
       = f.text_field :description
 
-  = f.fields_for :badge_practices do |pf|
-    = render :partial => 'badges/badge_practice_form', :locals => {:f => pf}
-
   .field.form-group
     %label.col-sm-2.control-label
     .col-sm-10.input-wrapper

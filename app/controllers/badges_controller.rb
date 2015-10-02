@@ -17,7 +17,6 @@ class BadgesController < ProtectedController
 
   def show
     current_badge
-    puts "Needs to be rebuilt? #{@badge.needs_to_rebuild}"
     @practice = Practice.new
   end
 

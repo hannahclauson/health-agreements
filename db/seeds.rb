@@ -21,30 +21,14 @@ data['guidelines'].each do |g|
 end
 
 data['badges'].each do |a|
-  puts "---"*8
-  b = Badge.create(a)
-  puts "created badge"
-  puts "created, badge state: #{b.inspect}"
-#  b.save!
-  puts "setting flag manually"
-#  b.needs_to_rebuild = false
-  b.save!
-  puts "saved again, badge state: #{b.inspect}"
-  b.needs_to_rebuild = false
-  b.save!
+  b = Badge.create(a).save!
 end
 
-puts "Well ... whats the final state?"
-puts Badge.all.first.inspect
-
+# Need to get instance from DB ... setting in loop above doesn't seem to make changes even after saving
 Badge.all.each do |b|
   b.needs_to_rebuild = false
   b.save!
 end
-
-puts "For realsies? ... whats the final state?"
-puts Badge.all.first.inspect
-
 
 data['companies'].each do |c|
   Company.create(c).save!

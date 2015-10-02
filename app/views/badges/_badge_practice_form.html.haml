@@ -1,4 +1,11 @@
 
+= if f.object.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@badge.badge_practices.first.errors.count, "Error")} prohibited this practice from being saved"
+    %ul
+      - f.object.errors.full_messages.each do |msg|
+        %li= msg
+
 .field.form-group
   = f.label :guideline_id, class: 'col-sm-2 control-label'
   .col-sm-10.input_wrapper
