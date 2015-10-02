@@ -28,11 +28,6 @@ data['companies'].each do |c|
   Company.create(c).save!
 end
 
-# Calculate Badges
-
-# ac = ApplicationController.new
-# ac.reevaluate_badges
-
 # Create Admin
 
 admin = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|

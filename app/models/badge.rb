@@ -36,8 +36,9 @@ class Badge < ActiveRecord::Base
     end
   end
 
-  # This should only be used when seeding
-  # - rechecks all badges / all companies
+  # Rechecks all badges / all companies
+  # This is a giant red button and should never really be used
+  # Probably will only put it on the admin panel
   def self.rebuild_awards!
     Badge.all.each &:rebuild_awards!
   end
