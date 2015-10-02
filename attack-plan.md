@@ -1,8 +1,9 @@
 - Update badge / rebuild function (##est 1 day)
 X  - should have state / only be usable when modifications in place
+X  - add tests for badge_practice creation / badge rebuilding
+
   - add cancan here and refactor users / tests
   - badge_practices should be removable by editor
-  - add tests for badge_practice creation / badge rebuilding
 - Add search tests (##est 0.5 day)
   - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)

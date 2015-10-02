@@ -1,6 +1,9 @@
 require 'protected_controller'
 
-class CompaniesController < ProtectedController
+class CompaniesController < ApplicationController
+
+  load_and_authorize_resource
+
   autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
   autocomplete :guideline, :name, :extra_data => [:id]
