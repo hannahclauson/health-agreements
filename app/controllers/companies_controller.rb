@@ -2,14 +2,13 @@ require 'protected_controller'
 
 class CompaniesController < ApplicationController
 
-  load_and_authorize_resource
-
   autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
   autocomplete :guideline, :name, :extra_data => [:id]
   # implementation autocomplete lives in practices_controller
 
   def new
+    authorize! :new, Company
     @company = Company.new
   end
 
@@ -62,6 +61,7 @@ class CompaniesController < ApplicationController
 
 
   def create
+    authorize! :create, Company
     @company = Company.create(company_params)
 
     if @company.save
@@ -88,6 +88,7 @@ class CompaniesController < ApplicationController
 
   def current_company
     @company ||= Company.where(slug: params[:id]).first
+    authorize! action_name.to_sym, @company
   end
 
   def company_params

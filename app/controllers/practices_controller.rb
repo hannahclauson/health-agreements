@@ -1,6 +1,6 @@
 require 'protected_controller'
 
-class PracticesController < ProtectedController
+class PracticesController < ApplicationController
 
   def create
     current_company
@@ -70,6 +70,7 @@ class PracticesController < ProtectedController
 
   def current_company
     @company ||= Company.where(slug: params[:company_id]).first
+    authorize! action_name, @company
   end
 
 end
