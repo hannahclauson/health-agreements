@@ -3,12 +3,17 @@ X  - should have state / only be usable when modifications in place
 X  - add tests for badge_practice creation / badge rebuilding
 
   - add cancan here and refactor users / tests
-  - badge_practices should be removable by editor
+    - company access
+    - practice access
+    - guideline access
+    - badge access
+    - badge practice access
+      - badge_practices should be removable by editor
 - Add search tests (##est 0.5 day)
   - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-  - proper error handling
+   - proper error handling
   - add mixpanel / GA
 - Data Entry Phase II (##est 1 day)
   - another few dozen companies
