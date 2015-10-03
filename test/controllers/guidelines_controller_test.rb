@@ -29,8 +29,8 @@ class GuidelinesControllerTest < ActionController::TestCase
   def access_denied
     request.env["HTTP_REFERER"] = guidelines_path
     yield
-    assert_redirected_to guidelines_path
-    assert_equal "Access Denied", flash[:alert]
+    assert_redirected_to root_path
+    assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
   test "should get new" do
