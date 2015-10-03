@@ -4,8 +4,8 @@ X  - add tests for badge_practice creation / badge rebuilding
 
   - add cancan here and refactor users / tests
 X    - company access
-    - practice access
-    - guideline access
+X    - practice access
+X    - guideline access
     - badge access
     - badge practice access
       - badge_practices should be removable by editor
