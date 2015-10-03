@@ -1,12 +1,14 @@
 require 'protected_controller'
 
-class BadgesController < ProtectedController
+class BadgesController < ApplicationController
 
   def index
+    authorize! :index, Badge
     @badges = Badge.all
   end
 
   def new
+    authorize! :new, Badge
     @badge = Badge.new
     @badge.badge_practices.build
   end
@@ -21,6 +23,7 @@ class BadgesController < ProtectedController
   end
 
   def create
+    authorize! :create, Badge
     @badge = Badge.new(allowed_params)
 
     if @badge.save
@@ -62,6 +65,7 @@ class BadgesController < ProtectedController
 
   def current_badge
     @badge ||= Badge.find(params[:id])
+    authorize! action_name.to_sym, @badge
   end
 
   def allowed_params

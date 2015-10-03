@@ -9,6 +9,8 @@ X    - guideline access
     - badge access
     - badge practice access
       - badge_practices should be removable by editor
+  - remove manual access helpers
+  - update all views to use cancancan
 - Add search tests (##est 0.5 day)
   - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)
