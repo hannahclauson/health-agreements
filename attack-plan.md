@@ -3,7 +3,7 @@ X  - should have state / only be usable when modifications in place
 X  - add tests for badge_practice creation / badge rebuilding
 
   - add cancan here and refactor users / tests
-    - company access
+X    - company access
     - practice access
     - guideline access
     - badge access

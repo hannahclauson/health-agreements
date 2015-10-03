@@ -70,7 +70,7 @@ class PracticesController < ApplicationController
 
   def current_company
     @company ||= Company.where(slug: params[:company_id]).first
-    authorize! action_name, @company
+    authorize! action_name.to_sym, @company
   end
 
 end

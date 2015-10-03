@@ -1,6 +1,6 @@
 require 'protected_controller'
 
-class GuidelinesController < ProtectedController
+class GuidelinesController < ApplicationController
 
   def new
     @guideline = Guideline.new

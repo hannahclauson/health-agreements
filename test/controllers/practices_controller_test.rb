@@ -17,8 +17,8 @@ class PracticesControllerTest < ActionController::TestCase
   def access_denied(p)
     request.env["HTTP_REFERER"] = company_path(p)
     yield
-    assert_redirected_to company_path(p)
-    assert_equal "Access Denied", flash[:alert]
+    assert_redirected_to root_path
+    assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
   test "should get show" do
