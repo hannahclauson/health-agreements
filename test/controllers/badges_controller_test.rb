@@ -86,11 +86,9 @@ class BadgesControllerTest < ActionController::TestCase
                :badge,
                name: "thing",
                description: "something something",
-               true_description: "mhmm okay then",
-               false_description: "mmmm nope not ok"
                )
     post :update, id: g.id, badge: {name: 'zzz'}
-    assert_redirected_to badge_path(assigns[:badge].id)
+    assert_redirected_to badge_path(assigns[:badge].slug)
     assert_equal "zzz", assigns(:badge).name
     assert_equal "something something", assigns(:badge).description
   end
@@ -129,6 +127,7 @@ class BadgesControllerTest < ActionController::TestCase
     count = Badge.all.size
     request.env["HTTP_REFERER"] = badges_path
 
+    puts "Gonna destryo: #{@badge.id}"
     delete :destroy, id: @badge.id
 
     assert_equal true, @admin.admin?

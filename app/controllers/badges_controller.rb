@@ -58,6 +58,7 @@ class BadgesController < ApplicationController
   end
 
   def destroy
+    current_badge
     @badge.destroy
     redirect_to badges_path
   end
@@ -65,7 +66,7 @@ class BadgesController < ApplicationController
   private
 
   def current_badge
-    @badge ||= Badge.find(params[:id])
+    @badge ||= Badge.where(slug: params[:id]).first
     authorize! action_name.to_sym, @badge
   end
 
