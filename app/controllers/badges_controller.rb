@@ -45,13 +45,14 @@ class BadgesController < ApplicationController
 
   def rebuild
     current_badge
-    begin
-      @companies = @badge.rebuild_awards!
-      @companies.delete(nil)
-      render 'rebuilt'
-    rescue Badge::EmptyBadge
+    @companies = @badge.rebuild_awards!
+    @companies.delete(nil)
+
+    if @companies.size == 0
       flash[:alert] = "Cannot rebuild an empty badge"
       render 'show'
+    else
+      render 'rebuilt'
     end
 
   end

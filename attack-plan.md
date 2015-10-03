@@ -11,6 +11,8 @@ X    - guideline access
       - badge_practices should be removable by editor
   - remove manual access helpers
   - update all views to use cancancan
+  - more rebuild tests
+    - should not show (and shoult set rebuild_needed) when there are no more BPs
 - Add search tests (##est 0.5 day)
   - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)
