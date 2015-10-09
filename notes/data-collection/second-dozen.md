@@ -341,6 +341,54 @@ sharing
 - may share agg w 3rd parties including advertisers
 
 
+(nant health)
+
+genome sequencing
+
+(tos)
+
+- consent = use site
+- copyright/trademark
+- info is gen purp
+- not medical advice**
+- info for pers use
+- std disc
+
+- user submission - user has rights/liability (no copyright content / legal stuff only etc)
+- provision for DMCA stuff
+- you have ownership, but
+- license NH to use /post on site
+- disclaim content of other user posts (accuracy/etc)
+- disclaim 3rd party
+- std security - dont abuse
+- std disclaim/LL/indem
+
+(pp)
+
+std 'pers info' - name/email/pwd/phone
+- wont sell, except outlined reasons
+- law enf
+- may disc pers info obtained from other sources? wtf, weird provision
+
+- std use of info for services / 3rd parties for services / to jointly market to you
+- optout - of marketing for NH. doesnt apply to 3rd parties (thats shitty)
+- std security - disclaim accidents happen **
+
+- std service data - IP/cookies 
+
+- PHI - pers health info
+- dont email it
+- they protect it (std?)
+- woah - if you email - consent to releasing use/disclosure of your PHI *
+
+- minors - not < 13
+- biz trans clause
+
+- pp change any time
+
+
+
+
 
 
 
