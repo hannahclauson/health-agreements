@@ -386,6 +386,68 @@ std 'pers info' - name/email/pwd/phone
 
 - pp change any time
 
+(prolacta)
+
+(tos)
+
+- consent = use of site
+- change any time
+- std disc / LL
+- NOT medical advice *
+- not liable for viruses from any content downloads - weird provision
+
+acceptable use
+- you're >= 18 yo
+
+IP - copyright/trademark/etc
+
+comm to site - NOT confidential **
+- C owns copyright of comm / developments
+
+C will not share pers info (name/phone/address) - except as in PP
+
+jurisdiction - Monrovia CA
+
+indem
+
+(pp)
+
+splits info into 'personally ID info' and 'non personally ID info' ---- very similar wording to one of the above (forget which one)
+
+- pers ID info (PII) -
+  - name
+  - email 
+  - address
+  - phone
+- nonPII (nPII)
+  - IP
+  - UA
+  - cookies? (they dont list this)
+
+- opt out email campaigns
+- may keep record of comm
+
+- std cookies/IP log / etc stuff
+
+sharing info
+
+- PII - 3rd party for services
+- PII for law enf
+- agg nPII 3rd party for services / ads
+- company sell / may include PII
+- no minors - childrens online prv protection act (knew there must be a law)
+- dont allow udner 18
+- weird provision for guardians to remove child info (that was wrongfully added) - does that mean w consent they can have an account?
+- std sec methods
+- change any time
+- dont sell/etc info except as above
+
+---
+
+'ad retargeting only on non health data' -- column
+- need to discuss ... bcz unless thats said explicitly, unsure
+
+
 
 
 
