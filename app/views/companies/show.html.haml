@@ -10,17 +10,17 @@
 
   .panel.panel-default
     .panel-heading Description
-    .panel-body     
+    .panel-body
       %p= @company.description
 
   %h3 Badges:
   %ul.list-group
     - @company.badges.each do |b|
       %li.list-group-item
-        %a.badge-row{:href => archetype_path(b.archetype)}
-          = render partial: "badges/badge", object: b, locals: {size: ''}
+        %a.badge-row{:href => badge_path(b)}
+          = render partial: "shared/badge", object: b, locals: {size: ''}
           %span.name
-            %h4= b.archetype.name.split("_").collect {|w| w.capitalize}.join(" ")
+            %h4= b.name.split("_").collect {|w| w.capitalize}.join(" ")
 
   = render 'practices/panel_list'
 
@@ -29,4 +29,3 @@
       %h2 Add a Practice
     .panel-body
       = render 'practices/form'
-  

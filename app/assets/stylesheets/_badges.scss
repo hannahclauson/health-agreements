@@ -12,25 +12,25 @@ $badge_color:  white;
   mask-image: image-url('research.svg');
 }
 
-.data_aggregation {
+.data-aggregation {
   // Data Extraction Credit to Kirill Ulitin (noun 86706) under Creative Commons
   -webkit-mask-image: image-url('data_aggregation.svg');
   mask-image: image-url('data_aggregation.svg');
 }
 
-.full_data_access {
+.full-data-access {
   // Data Responsibility Credit to Samuel Q. Green (noun 4083) under Creative Commons
   -webkit-mask-image: image-url('data_download.svg');
   mask-image: image-url('data_download.svg');
 }
 
-.single_state_hosted {
+.single-state-hosted {
   // Single State Credit to Aha-Soft (noun 164387) under Creative Commons
   -webkit-mask-image: image-url('single_state_hosted.svg');
   mask-image: image-url('single_state_hosted.svg');
 }
 
-.multi_state_hosted {
+.multi-state-hosted {
   // Single State Credit to Aha-Soft (noun 164402) under Creative Commons
   -webkit-mask-image: image-url('multi_state_hosted.svg');
   mask-image: image-url('multi_state_hosted.svg');
@@ -61,4 +61,3 @@ $badge_color:  white;
 
   @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
 }
-

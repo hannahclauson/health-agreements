@@ -22,10 +22,9 @@
             %tr
               - c.badges.each do |b|
                 %td.badge-column
-                  = render partial: "badges/badge", object: b, locals: {size: 'small'}
+                  = render partial: "shared/badge", object: b, locals: {size: 'small'}
         %td.actions.btn-group.btn-group-xs.btn-group-link
           - if access_to_action(:edit)
             =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
           - if access_to_action(:delete)
             =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
-

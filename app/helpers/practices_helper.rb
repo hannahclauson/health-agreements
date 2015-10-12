@@ -11,8 +11,8 @@ module PracticesHelper
   end
 
   def enumerated_implementations
-    Practice::IMPLEMENTATION_MAP.collect do |int_value, name|
-      [name, int_value]
+    Practice.implementations.collect.with_index do |name, index|
+      [name, index]
     end
   end
 

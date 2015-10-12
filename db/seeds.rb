@@ -20,65 +20,18 @@ data['guidelines'].each do |g|
                    )
 end
 
-
-data['companies'].each do |c|
-
-  new_c = Company.create(
-                 name: c['name'],
-                 url: c['url']
-                 )
-
-  normalized_practices = []
-  c['practices'].each do |p|
-    this_p = {}
-    p.each do |k,v|
-      this_p[k.to_sym] = v
-    end
-    this_p[:practiceable_id] = new_c.id
-    puts "Creating practice from: #{this_p}"
-    normalized_practices << this_p
-  end
-
-  new_c.update({:practices => Practice.create(normalized_practices)})
-
-  puts "Created company?"
-  puts new_c
-  puts new_c.errors.full_messages.join("\n")
-
+data['badges'].each do |a|
+  Badge.create(a).save!
 end
 
-
-
-data['archetypes'].each do |a|
-
-  new_a = Archetype.create(
-                 name: a['name'],
-                 description: a['description']
-                 )
-
-  normalized_practices = []
-  a['practices'].each do |p|
-    this_p = {}
-    p.each do |k,v|
-      this_p[k.to_sym] = v
-    end
-    this_p[:practiceable_id] = new_a.id
-    puts "Creating practice from: #{this_p}"
-    normalized_practices << this_p
-  end
-
-  new_a.update({:practices => Practice.create(normalized_practices)})
-
-  puts "Created archetype?"
-  puts new_a
-  puts new_a.errors.full_messages.join("\n")
-
+data['companies'].each do |c|
+  Company.create(c).save!
 end
 
 # Calculate Badges
 
-ac = ApplicationController.new
-ac.reevaluate_badges
+# ac = ApplicationController.new
+# ac.reevaluate_badges
 
 # Create Admin
 
@@ -90,4 +43,3 @@ admin = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do
 end
 
 puts "Created admin : #{admin.email}"
-

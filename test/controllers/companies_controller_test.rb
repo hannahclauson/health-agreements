@@ -4,24 +4,23 @@ class CompaniesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @company = companies('23andme')
-    @editor = users(:emily_editor)
-    @editor.confirm
-    @admin = users(:amon_admin)
-    @admin.admin!
-    @admin.confirm
+    @company = create(:company)
+    @other_company = create(:company)
+    @editor = create(:user)
+    @admin = create(:user, :admin)
   end
 
   # Actions that are publicly accessible
 
   test "should get index" do
     get :index
+
     assert_response :success
     assert_not_nil assigns(:companies)
   end
 
   test "should show" do
-    get :show, :id => @company.id
+    get :show, :id => @company.slug
     assert_response :success
     assert_not_nil assigns(:company)
   end
@@ -51,7 +50,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should create" do
     sign_in @editor
     post :create, company: {name: 'acme', url: 'http://acme.com', description: 'sells everything'}
-    assert_redirected_to company_path(assigns[:company].id)
+    assert_redirected_to company_path(assigns[:company].slug)
   end
 
   test "should not create" do
@@ -62,22 +61,22 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "should get edit" do
     sign_in @editor
-    get :edit, id: @company.id
+    get :edit, id: @company.slug
     assert_response :success
   end
 
   test "should not get edit" do
     access_denied do
-      get :edit, id: @company.id
+      get :edit, id: @company.slug
     end
   end
 
   test "should update" do
     sign_in @editor
-    post :update, id: @company.id, company: {name: 'acmezzzz'}
-    assert_redirected_to company_path(assigns[:company].id)
+    post :update, id: @company.slug, company: {name: 'acmezzzz'}
+    assert_redirected_to company_path(assigns[:company].slug)
     assert_equal "acmezzzz", assigns(:company).name
-    assert_equal "http://www.23andme.com", assigns(:company).url
+    assert_equal @company.url, assigns(:company).url
   end
 
   test "should not update" do

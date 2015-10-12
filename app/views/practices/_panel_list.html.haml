@@ -3,7 +3,7 @@
     %h2 Practices
   .panel-body
     %p
-      The following is a list of practices that #{@parent.name} follows. Click on a practice to understand what it means to follow that practice.
+      The following is a list of practices that #{@company.name} follows. Click on a practice to understand what it means to follow that practice.
 
   %table.table
     %tr.info
@@ -11,16 +11,15 @@
       %th Implementation
       %th Notes
       %th Actions
-    - @parent.practices.each do |p|
+    - @company.practices.each do |p|
       %tr
         %td= p.guideline.name
         %td= p.implementation_text
         %td= p.notes
         %td.actions
           - if access_to_action(:show)
-            = link_to('Show', polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'})
+            = link_to('Show', polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
           - if access_to_action(:edit)
-            = link_to('Edit', edit_polymorphic_path([@parent,p]), {class: 'btn btn-xs btn-info'}) 
+            = link_to('Edit', edit_polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
           - if access_to_action(:delete)
-            = link_to('Delete', polymorphic_path([@parent,p]), class: 'btn btn-xs btn-danger', method: :delete) 
-
+            = link_to('Delete', polymorphic_path([@company,p]), class: 'btn btn-xs btn-danger', method: :delete)

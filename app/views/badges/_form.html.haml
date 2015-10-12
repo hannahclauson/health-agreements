@@ -1,0 +1,27 @@
+= form_for @badge, html: {class: 'form-horizontal'} do |f|
+
+  = if @badge.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@badge.errors.count, 'Error')} prohibited this practice from being saved"
+      %ul
+        - @badge.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .field.form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10.input-wrapper
+      = f.text_field :name
+
+  .field.form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10.input-wrapper
+      = f.text_field :description
+
+  = f.fields_for :badge_practices do |pf|
+    = render :partial => 'badges/badge_practice_form', :locals => {:f => pf}
+
+  .field.form-group
+    %label.col-sm-2.control-label
+    .col-sm-10.input-wrapper
+      = f.submit

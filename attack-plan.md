@@ -1,5 +1,5 @@
 - Merge in refactor
-- Add some tests!!!! (##est 1 day)
+- Fix all tests / Add some tests!!!! (##est 1 day)
   - Model tests: For company/guideline/practice/archetype
     X - creation / empty
     X - each validator
@@ -33,38 +33,39 @@ X      - show
 X      - edit
 X      - update
 X      - destroy      
+    - fix guideline / practices controller tests
     - practice
+      - I HAVE A after_create filter
+      - need to add approps for update / destroy
 X      - create (via comp)
-      - create (via arch)
       - edit (via comp)
-      - edit (via arch)
 X      - show (via comp)
-      - show (via arch)
       - update (via comp)
-      - update (via arch)
+        - w failing badge update
       - destroy (via comp)
-      - destroy (via arch)
-    - archetype
+        - w badge update test
+    - badge
       - index
       - show (incl practices)
       - edit
       - update
+        - self
+        - need to add failing tests here, then add another column for rebuilt status / and button on show to rebuild this badge
+        - badge_practices
+        - badge_award changes
       - destroy
-    - badge (has no controllers), so no access to:
-      - show
-      - index
-      - edit
-      - delete
+        - badge_practices
+        - badge_award changes (on badge del or bp del)
     - Search
       - params missing (esp practice name/impl)
-    - For badge
-      - new eligilibity / count
-      - remove eiligilibity / count
-      - via archetype updates
-      - via company updates
+- Make production ready (##est 1 day)
+  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
+  - proper error handling
+  - add mixpanel / GA
 - Data Entry Phase II (##est 1 day)
-  - will be added to seeds file
   - another few dozen companies
+  - will be added to prod DB
+  - do DB dump / restore (make sure works w minimally new data)
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
 - Update IA / copy (## est 0.5 day)
@@ -75,10 +76,6 @@ X      - show (via comp)
     - Learn about guidelines / badges
     - Highlight some common searches / most frequent searches?
     - Showcase Good Citizens
-- Make production ready (##est 1 day)
-  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-  - proper error handling
-  - add mixpanel / GA
 - Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
   - probably want to separate download of html from extracting corpus
@@ -96,8 +93,6 @@ X      - show (via comp)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
 - Data Entry Phase III (##est 2 days)
-  - will be added to prod DB
-  - do DB dump / restore (make sure works w minimally new data)
   - make sure all document links are specified
   - should have about a hundred companies
   - let run for a week or so to see how data performs
