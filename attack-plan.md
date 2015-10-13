@@ -139,3 +139,6 @@ UX upgrade
     - View button testing
       - use view tests to validate action buttons
       - are present only as appropriate (see http://guides.rubyonrails.org/testing.html section 4.8)
+- Subscribe to a company
+  - email notification if terms change
+  - so that you're proactively aware of the changes
