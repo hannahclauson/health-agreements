@@ -346,3 +346,8 @@ OMG ACCESS LEVELS
 seans-MacBook-Air:health-agreements sjezewski$ rails g active_admin:resource Practice
 OMG ACCESS LEVELS
       create  app/admin/practice.rb
+
+
+
+Sean-Jezewskis-Mac-mini:health-agreements jezewski$ rails g cancan:ability
+      create  app/models/ability.rb

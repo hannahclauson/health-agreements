@@ -1,27 +1,29 @@
 require 'protected_controller'
 
-class BadgesController < ProtectedController
+class BadgesController < ApplicationController
 
   def index
+    authorize! :index, Badge
     @badges = Badge.all
   end
 
   def new
+    authorize! :new, Badge
     @badge = Badge.new
     @badge.badge_practices.build
   end
 
   def edit
-    @badge = Badge.find(params[:id])
+    current_badge
   end
 
   def show
-    @badge = Badge.find(params[:id])
-    @parent = @badge # syntactic sugar so I can reuse the practices form partial
+    current_badge
     @practice = Practice.new
   end
 
   def create
+    authorize! :create, Badge
     @badge = Badge.new(allowed_params)
 
     if @badge.save
@@ -32,7 +34,7 @@ class BadgesController < ProtectedController
   end
 
   def update
-    @badge = Badge.find(params[:id])
+    current_badge
 
     if @badge.update(allowed_params)
       redirect_to @badge
@@ -41,13 +43,32 @@ class BadgesController < ProtectedController
     end
   end
 
+  def rebuild
+    current_badge
+    @companies = @badge.rebuild_awards!
+    @companies.delete(nil)
+
+    if @companies.size == 0
+      flash[:alert] = "Cannot rebuild an empty badge"
+      render 'show'
+    else
+      render 'rebuilt'
+    end
+
+  end
+
   def destroy
-    @badge = Badge.find(params[:id])
+    current_badge
     @badge.destroy
     redirect_to badges_path
   end
 
   private
+
+  def current_badge
+    @badge ||= Badge.where(slug: params[:id]).first
+    authorize! action_name.to_sym, @badge
+  end
 
   def allowed_params
     params.require(:badge).permit(:name, :description, :badge_practices_attributes => [:implementation, :guideline_id])

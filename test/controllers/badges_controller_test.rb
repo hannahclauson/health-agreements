@@ -1,10 +1,13 @@
 require 'test_helper'
 
-class GuidelinesControllerTest < ActionController::TestCase
+class BadgesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
     @guideline = create(:guideline)
+    @badge = create(:badge)
+    @badge_practice = create(:badge_practice, guideline: @guideline, implementation: 1, badge: @badge)
+
     @editor = create(:user)
     @admin = create(:user, :admin)
   end
@@ -14,20 +17,20 @@ class GuidelinesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:guidelines)
+    assert_not_nil assigns(:badges)
   end
 
   test "should show" do
-    get :show, :id => @guideline.id
+    get :show, :id => @badge.slug
     assert_response :success
-    assert_not_nil assigns(:guideline)
+    assert_not_nil assigns(:badge)
   end
 
   # Actions for Editors
 
   # Helper for testing access_denied
   def access_denied
-    request.env["HTTP_REFERER"] = guidelines_path
+    request.env["HTTP_REFERER"] = badges_path
     yield
     assert_redirected_to root_path
     assert_equal "You are not authorized to access this page.", flash[:alert]
@@ -47,96 +50,91 @@ class GuidelinesControllerTest < ActionController::TestCase
 
   test "should create" do
     sign_in @editor
-    post :create, guideline: {
+    post :create, badge: {
       :name => 'free_service',
-      :description => 'sells everything',
-      :true_description => 'does it asdklfjhasldkgjhsdfg',
-      :false_description => 'doesnt do it asdfkljhsdflgkjhg'
+      :description => 'sells everything'
     }
 
-    assert_equal 0, assigns[:guideline].errors.size
-    assert_redirected_to guideline_path(assigns[:guideline].id)
+    assert_equal 0, assigns[:badge].errors.size
+    assert_redirected_to badge_path(assigns[:badge].id)
   end
 
   test "should not create" do
     access_denied do
-    post :create, guideline: {
+    post :create, badge: {
       name: 'free_service',
-      description: 'sells everything',
-      true_description: 'does it askjhfslkdfjghsdfg',
-      false_description: 'doesnt do it asdfjhsdflkgjh'
+      description: 'sells everything'
     }
     end
   end
 
   test "should get edit" do
     sign_in @editor
-    get :edit, id: @guideline.id
+    get :edit, id: @badge.id
     assert_response :success
   end
 
   test "should not get edit" do
     access_denied do
-      get :edit, id: @guideline.id
+      get :edit, id: @badge.id
     end
   end
 
   test "should update" do
     sign_in @editor
     g = create(
-               :guideline,
+               :badge,
                name: "thing",
                description: "something something",
-               true_description: "mhmm okay then",
-               false_description: "mmmm nope not ok"
                )
-    post :update, id: g.id, guideline: {name: 'zzz'}
-    assert_redirected_to guideline_path(assigns[:guideline].id)
-    assert_equal "zzz", assigns(:guideline).name
-    assert_equal "something something", assigns(:guideline).description
+    post :update, id: g.id, badge: {name: 'zzz'}
+    assert_redirected_to badge_path(assigns[:badge].slug)
+    assert_equal "zzz", assigns(:badge).name
+    assert_equal "something something", assigns(:badge).description
   end
 
   test "should not update" do
     access_denied do
-      post :update, id: @guideline.id, guideline: {name: 'zzz'}
+      post :update, id: @badge.id, badge: {name: 'zzz'}
     end
   end
 
   # Admin only actions
 
   test "should not delete (anon user)" do
-    count = Guideline.all.size
+    count = Badge.all.size
 
     access_denied do
-      delete :destroy, id: @guideline.id
+      delete :destroy, id: @badge.id
     end
 
-    assert_equal count, Guideline.all.size
+    assert_equal count, Badge.all.size
   end
 
   test "should not delete (editor user)" do
     sign_in @editor
-    count = Guideline.all.size
+    count = Badge.all.size
 
     access_denied do
-      delete :destroy, id: @guideline.id
+      delete :destroy, id: @badge.id
     end
 
-    assert_equal count, Guideline.all.size
+    assert_equal count, Badge.all.size
   end
 
   test "should delete (admin user)" do
     sign_in @admin
-    count = Guideline.all.size
-    request.env["HTTP_REFERER"] = guidelines_path
+    count = Badge.all.size
+    request.env["HTTP_REFERER"] = badges_path
 
-    delete :destroy, id: @guideline.id
+    puts "Gonna destryo: #{@badge.id}"
+    delete :destroy, id: @badge.id
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
 
-    assert_redirected_to guidelines_path
-    assert_equal count-1, Guideline.all.size
+    assert_redirected_to badges_path
+    assert_equal count-1, Badge.all.size
   end
 
 

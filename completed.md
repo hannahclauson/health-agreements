@@ -140,3 +140,62 @@ X  - Restrict signup to only be done by admin
   - plus helpful as I build public facing functionality (search / etc)
   - may get all this for free already -- via active admin
   - active admin / libsass -- http://stackoverflow.com/questions/26688631/using-libsass-with-rails-asset-pipeline
+
+- Merge in refactor
+- Fix all tests / Add some tests!!!! (##est 1 day)
+  - Model tests: For company/guideline/practice/archetype
+    X - creation / empty
+    X - each validator
+X    - Deletion special cases
+X      - any dependent destroys
+X        - guideline -> practices
+X        - archetype
+X          - badges
+X          - practices
+X        - company
+X          - practices
+X          - badges
+X  - Remove badge name/desc from migration and rerun
+X    - I'm using the archetype fields anyway
+#  - What if there is an archetype with no practices?
+#     - for since only editors can create, will make do
+  - Controller tests (including access levels):
+X    - company
+X      - index
+X      - new
+X      - create
+X      - show (incl practices)
+X      - edit
+X      - update
+X      - destroy
+X    - guideline
+X      - index
+X      - new
+X      - create
+X      - show
+X      - edit
+X      - update
+X      - destroy      
+    - fix guideline / practices controller tests
+    - practice
+      - I HAVE A after_create filter
+      - need to add approps for update / destroy
+X      - create (via comp)
+      - edit (via comp)
+X      - show (via comp)
+      - update (via comp)
+        - w failing badge update
+      - destroy (via comp)
+        - w badge update test
+    - badge
+      - index
+      - show (incl practices)
+      - edit
+      - update
+        - self
+        - need to add failing tests here, then add another column for rebuilt status / and button on show to rebuild this badge
+        - badge_practices
+        - badge_award changes
+      - destroy
+        - badge_practices
+        - badge_award changes (on badge del or bp del)

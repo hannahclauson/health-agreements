@@ -1,66 +1,23 @@
-- Merge in refactor
-- Fix all tests / Add some tests!!!! (##est 1 day)
-  - Model tests: For company/guideline/practice/archetype
-    X - creation / empty
-    X - each validator
-X    - Deletion special cases
-X      - any dependent destroys
-X        - guideline -> practices
-X        - archetype
-X          - badges
-X          - practices
-X        - company
-X          - practices
-X          - badges
-X  - Remove badge name/desc from migration and rerun
-X    - I'm using the archetype fields anyway
-#  - What if there is an archetype with no practices?
-#     - for since only editors can create, will make do
-  - Controller tests (including access levels):
-X    - company
-X      - index
-X      - new
-X      - create
-X      - show (incl practices)
-X      - edit
-X      - update
-X      - destroy
-X    - guideline
-X      - index
-X      - new
-X      - create
-X      - show
-X      - edit
-X      - update
-X      - destroy      
-    - fix guideline / practices controller tests
-    - practice
-      - I HAVE A after_create filter
-      - need to add approps for update / destroy
-X      - create (via comp)
-      - edit (via comp)
-X      - show (via comp)
-      - update (via comp)
-        - w failing badge update
-      - destroy (via comp)
-        - w badge update test
-    - badge
-      - index
-      - show (incl practices)
-      - edit
-      - update
-        - self
-        - need to add failing tests here, then add another column for rebuilt status / and button on show to rebuild this badge
-        - badge_practices
-        - badge_award changes
-      - destroy
-        - badge_practices
-        - badge_award changes (on badge del or bp del)
-    - Search
-      - params missing (esp practice name/impl)
+- Update badge / rebuild function (##est 1 day)
+X  - should have state / only be usable when modifications in place
+X  - add tests for badge_practice creation / badge rebuilding
+
+  - add cancan here and refactor users / tests
+X    - company access
+X    - practice access
+X    - guideline access
+    - badge access
+    - badge practice access
+      - badge_practices should be removable by editor
+  - remove manual access helpers
+  - update all views to use cancancan
+  - more rebuild tests
+    - should not show (and shoult set rebuild_needed) when there are no more BPs
+- Add search tests (##est 0.5 day)
+  - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-  - proper error handling
+   - proper error handling
   - add mixpanel / GA
 - Data Entry Phase II (##est 1 day)
   - another few dozen companies
@@ -69,8 +26,6 @@ X      - show (via comp)
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
 - Update IA / copy (## est 0.5 day)
-  - Confusing for users difference btw archetype and badge
-  - Should probably just be displayed as 'badge' when creating new prototype
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
     - Learn about guidelines / badges
@@ -101,6 +56,8 @@ X      - show (via comp)
 - Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
+  - decide on a name
+  - buy domain / setup DNS
   - estimate monthly costs
   - add to my contracting firm?
   - publish / make OSS?

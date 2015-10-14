@@ -1,12 +1,14 @@
 require 'protected_controller'
 
-class CompaniesController < ProtectedController
+class CompaniesController < ApplicationController
+
   autocomplete :archetype, :name, :extra_data => [:id]
   autocomplete :company, :name
   autocomplete :guideline, :name, :extra_data => [:id]
   # implementation autocomplete lives in practices_controller
 
   def new
+    authorize! :new, Company
     @company = Company.new
   end
 
@@ -18,8 +20,6 @@ class CompaniesController < ProtectedController
     current_company
 
     if @company.update(company_params)
-      puts "CHECKING AWARDS AGAIN"
-      Badge.check_this_company_and_award_all_badges(@company)
       redirect_to @company
     else
       render 'edit'
@@ -61,6 +61,7 @@ class CompaniesController < ProtectedController
 
 
   def create
+    authorize! :create, Company
     @company = Company.create(company_params)
 
     if @company.save
@@ -87,6 +88,7 @@ class CompaniesController < ProtectedController
 
   def current_company
     @company ||= Company.where(slug: params[:id]).first
+    authorize! action_name.to_sym, @company
   end
 
   def company_params

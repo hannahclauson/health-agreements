@@ -9,6 +9,7 @@ class Badge < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 
+
   def check(company)
     badge_practices.all? do |badge_practice|
       company.practices.where(:guideline_id => badge_practice.guideline_id,
@@ -17,28 +18,40 @@ class Badge < ActiveRecord::Base
   end
 
   def check_and_award(company)
-    if check(company)
-      puts "FOUND A MATCH, AWARDING #{self.name}"
-      badge_awards.create(company: company)
-    end
-  end
+    # Remove the badge award
+    award = company.badge_awards.where(:badge_id => self.id).first
+    award.destroy unless award.nil?
 
-  def self.check_this_company_and_award_all_badges(company)
-    company.badge_awards.destroy_all
-    puts "DESTROYED ALL BADGES"
-    Badge.all.each {|b| b.check_and_award(company) }
+    # Add badge award if company still adheres to the practices
+    if check(company)
+      badge_awards.create(company: company)
+      return company
+    end
   end
 
   # When this badge changes, check against all companies
   def rebuild_awards!
     badge_awards.destroy_all
-    Company.all.each do |company|
+
+    if badge_practices.count == 0
+      # If this was the last bagde_practice, its expected that all badge_awards will be removed
+      self.needs_to_rebuild = false
+      self.save!
+      return []
+    end
+
+    cs = Company.all.collect do |company|
       check_and_award(company)
     end
+
+    self.needs_to_rebuild = false
+    self.save!
+    cs
   end
 
-  # This should only be used when seeding
-  # - rechecks all badges / all companies
+  # Rechecks all badges / all companies
+  # This is a giant red button and should never really be used
+  # Probably will only put it on the admin panel
   def self.rebuild_awards!
     Badge.all.each &:rebuild_awards!
   end

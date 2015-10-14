@@ -3,7 +3,11 @@ require 'test_helper'
 class PracticeTest < ActiveSupport::TestCase
   test "dependent destroy via guideline" do
     g = create(:guideline)
-    ps = create_list(:practice, 4, guideline: g)
+
+    4.times do
+      c = create(:company)
+      create(:practice, guideline: g, company: c)
+    end
 
     count = Practice.count
     g.destroy
@@ -12,9 +16,12 @@ class PracticeTest < ActiveSupport::TestCase
   end
 
   test "dependent destroy via company" do
-    g = create(:guideline)
     c = create(:company)
-    ps = create_list(:practice, 2, guideline: g, company: c)
+
+    2.times do
+      g = create(:guideline)
+      create(:practice, guideline: g, company: c)
+    end
 
     count = Practice.count
     c.destroy

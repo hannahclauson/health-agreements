@@ -3,130 +3,108 @@ require 'test_helper'
 class PracticesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
-  include ActionDispatch::Routing::PolymorphicRoutes
-  include Rails.application.routes.url_helpers
-
   setup do
-    @practice = practices(:one)
+    @company = create(:company)
+    @guideline = create(:guideline, name: 'single_state')
+    @practice = create(:practice, guideline: @guideline, company: @company)
 
-    @guideline = guidelines(:single_state)
-    @guideline.save!
-
-    @editor = users(:emily_editor)
-    @editor.confirm
-    @admin = users(:amon_admin)
-    @admin.admin!
-    @admin.confirm
-  end
-
-  # Actions that are publicly accessible
-
-  test "should not get index" do
-    get :index
-    assert_response :failure
+    @editor = create(:user)
+    @admin = create(:user, :admin)
   end
 
   # Actions for Editors
 
-  # Helper for testing access_denied
-
-  def parent_path(p)
-    polymorphic_path(p.practiceable)
-  end
-
   def access_denied(p)
-    request.env["HTTP_REFERER"] = parent_path(p)
+    request.env["HTTP_REFERER"] = company_path(p)
     yield
-    assert_redirected_to parent_path(p)
-    assert_equal "Access Denied", flash[:alert]
-  end
-
-  def parent_class(p)
-    p.practiceable.class
+    assert_redirected_to root_path
+    assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
   test "should get show" do
-    puts "practiceable id #{@practice.practiceable.id}"
-    get :show, company_id: @practice.practiceable, id: @practice
+    get :show, company_id: @practice.company, id: @practice
     assert_response :success
   end
 
   test "should create via company" do
     sign_in @editor
 
-    post :create, company_id: @practice.practiceable, practice: {
+    g = create(:guideline)
+    post :create, company_id: @practice.company, practice: {
       :notes => 'for realsies',
       :implementation => 1,
-      :guideline_id => @guideline.id,
-      :company => @practice.practiceable
+      :guideline_id => g.id,
+      :company => @practice.company
     }
 
     assert_equal 0, assigns[:practice].errors.size
-    assert_redirected_to parent_path(@practice)
+    assert_redirected_to company_path(@company)
   end
 
-  test "should not create via company with redundant practice name" do
+  test "should not create via company with redundant guideline" do
     sign_in @editor
 
-    count = @practice.practiceable.practices.size
+    count = @practice.company.practices.size
 
-    post :create, company_id: @practice.practiceable, practice: {
+    post :create, company_id: @practice.company, practice: {
       :notes => 'for realsies',
       :implementation => 1,
-      :guideline_id => guidelines(:optin),
-      :company => @practice.practiceable
+      :guideline_id => @guideline,
+      :company => @practice.company
     }
 
-    assert_equal count, @practice.practiceable.practices.size
+    assert_equal count, @practice.company.practices.size
     assert_equal 1, assigns[:practice].errors.size
     assert_response :success
   end
 
   test "should not create via company" do
     access_denied(@practice) do
-      post :create, company_id: @practice.practiceable, practice: {
+      post :create, company_id: @practice.company, practice: {
         :notes => 'for realsies',
         :implementation => 1,
         :guideline_id => @guideline.id,
-        :company => @practice.practiceable
+        :company => @practice.company
       }
     end
   end
 
   test "should not create" do
     access_denied(@practice) do
-    post :create, practice: {
+    post :create, company_id: @company, practice: {
       :notes => 'for realsies',
       :implementation => 1,
-      :guideline => guidelines(:single_state),
-      :practiceable => companies('23andme')
+      :guideline => @guideline,
+      :company => @company
     }
     end
   end
 
   test "should get edit" do
     sign_in @editor
-    get :edit, id: @practice.id
+    get :edit, company_id: @company, id: @practice
     assert_response :success
   end
 
   test "should not get edit" do
     access_denied(@practice) do
-      get :edit, id: @practice.id
+      get :edit, company_id: @company, id: @practice
     end
   end
 
   test "should update" do
     sign_in @editor
-    post :update, id: @practice.id, practice: {name: 'zzz'}
-    assert_redirected_to practice_path(assigns[:practice].id)
-    assert_equal "zzz", assigns(:practice).name
-    assert_equal "Opt in for data use in research", assigns(:practice).description
+    g = create(:guideline)
+    p = create(:practice, implementation: 1, notes: 'zzz', guideline: g, company: @company)
+    post :update, company_id: @company, id: p, practice: {implementation: 2}
+    assert_redirected_to company_path( assigns[:practice].company )
+    assert_equal 2, assigns(:practice).implementation
+    assert_equal 'zzz', assigns(:practice).notes
   end
 
   test "should not update" do
     access_denied(@practice) do
-      post :update, id: @practice.id, practice: {name: 'zzz'}
+      post :update, company_id: @company, id: @practice, practice: {name: 'zzz'}
     end
   end
 
@@ -136,7 +114,7 @@ class PracticesControllerTest < ActionController::TestCase
     count = Practice.all.size
 
     access_denied(@practice) do
-      delete :destroy, id: @practice.id
+      delete :destroy, company_id: @company, id: @practice
     end
 
     assert_equal count, Practice.all.size
@@ -147,7 +125,7 @@ class PracticesControllerTest < ActionController::TestCase
     count = Practice.all.size
 
     access_denied(@practice) do
-      delete :destroy, id: @practice.id
+      delete :destroy, company_id: @company, id: @practice
     end
 
     assert_equal count, Practice.all.size
@@ -156,14 +134,14 @@ class PracticesControllerTest < ActionController::TestCase
   test "should delete (admin user)" do
     sign_in @admin
     count = Practice.all.size
-    request.env["HTTP_REFERER"] = parent_path
+    request.env["HTTP_REFERER"] = company_path(@company)
 
-    delete :destroy, id: @practice.id
+    delete :destroy, company_id: @company, id: @practice
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
 
-    assert_redirected_to parent_path
+    assert_redirected_to company_path(@company)
     assert_equal count-1, Practice.all.size
   end
 

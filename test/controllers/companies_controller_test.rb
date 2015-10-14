@@ -31,8 +31,8 @@ class CompaniesControllerTest < ActionController::TestCase
   def access_denied
     request.env["HTTP_REFERER"] = companies_path
     yield
-    assert_redirected_to companies_path
-    assert_equal "Access Denied", flash[:alert]
+    assert_redirected_to root_path
+    assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
   test "should get new" do
@@ -42,6 +42,7 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not get new" do
+    puts "\nshould not get new"
     access_denied do
       get :new
     end
@@ -91,7 +92,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
 
     access_denied do
-      delete :destroy, id: companies(:fodder_a).id
+      delete :destroy, id: @company.id
     end
 
     assert_equal count, Company.all.size
@@ -102,7 +103,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
 
     access_denied do
-      delete :destroy, id: companies(:fodder_a).id
+      delete :destroy, id: @company.id
     end
 
     assert_equal count, Company.all.size
@@ -113,7 +114,7 @@ class CompaniesControllerTest < ActionController::TestCase
     count = Company.all.size
     request.env["HTTP_REFERER"] = companies_path
 
-    delete :destroy, id: companies(:fodder_a).id
+    delete :destroy, id: @other_company
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]

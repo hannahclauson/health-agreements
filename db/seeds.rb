@@ -21,17 +21,18 @@ data['guidelines'].each do |g|
 end
 
 data['badges'].each do |a|
-  Badge.create(a).save!
+  b = Badge.create(a).save!
+end
+
+# Need to get instance from DB ... setting in loop above doesn't seem to make changes even after saving
+Badge.all.each do |b|
+  b.needs_to_rebuild = false
+  b.save!
 end
 
 data['companies'].each do |c|
   Company.create(c).save!
 end
-
-# Calculate Badges
-
-# ac = ApplicationController.new
-# ac.reevaluate_badges
 
 # Create Admin
 

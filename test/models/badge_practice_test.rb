@@ -4,7 +4,8 @@ class BadgePracticeTest < ActiveSupport::TestCase
 
   test "dependent destroy via guideline" do
     g = create(:guideline)
-    ps = create_list(:badge_practice, 4, guideline: g)
+    b = create(:badge)
+    ps = create_list(:badge_practice, 4, guideline: g, badge: b)
 
     count = BadgePractice.count
     g.destroy
