@@ -6,7 +6,7 @@ X  - add tests for badge_practice creation / badge rebuilding
 X    - company access
 X    - practice access
 X    - guideline access
-    - badge access
+X    - badge access
     - badge practice access
       - badge_practices should be removable by editor
   - remove manual access helpers
