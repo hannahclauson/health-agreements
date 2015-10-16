@@ -42,7 +42,6 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not get new" do
-    puts "\nshould not get new"
     access_denied do
       get :new
     end

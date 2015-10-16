@@ -127,7 +127,6 @@ class BadgesControllerTest < ActionController::TestCase
     count = Badge.all.size
     request.env["HTTP_REFERER"] = badges_path
 
-    puts "Gonna destryo: #{@badge.id}"
     delete :destroy, id: @badge
 
     assert_equal true, @admin.admin?
