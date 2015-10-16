@@ -22,6 +22,7 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should create via badge" do
+    puts "TEST:: should create via badge"
     sign_in @editor
 
     g = create(:guideline)
@@ -36,6 +37,7 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should not create via badge with redundant guideline" do
+    puts "TEST:: should not create via badge with redundant guideline"
     sign_in @editor
 
     count = @badge_practice.badge.badge_practices.size
@@ -52,23 +54,14 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should not create via badge" do
+    puts "TEST:: SHOULD NOT CREATE VIA BADGE"
     access_denied(@badge_practice) do
       g2 = create(:guideline)
-      post :create, badge_id: @badge_practice.badge.slug, badge_practice: {
+      post :create, badge_id: @badge_practice.badge, badge_practice: {
         :implementation => 1,
-        :guideline_id => g2.id,
+        :guideline => g2,
         :badge => @badge_practice.badge
       }
-    end
-  end
-
-  test "should not create" do
-    access_denied(@badge_practice) do
-    post :create, badge_id: @badge.slug, badge_practice: {
-      :implementation => 1,
-      :guideline => @guideline,
-      :badge => @badge
-    }
     end
   end
 

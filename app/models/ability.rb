@@ -2,11 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    puts "User - nil" if user.nil?
     user ||= User.new
 
-    puts "User - editor" if user.editor?
-    puts "User - admin" if user.admin?
+    type = "anon"
+    type = "editor" if user.editor?
+    type = "admin" if user.admin?
+    puts "User - #{type}"
 
     # If the user exists, they're an editor
     # Anon users (nil user) is general public
@@ -21,7 +22,8 @@ class Ability
       Company,
       Practice,
       Guideline,
-      Badge
+      Badge,
+      BadgePractice
     ]
 
     can :view, site_objects

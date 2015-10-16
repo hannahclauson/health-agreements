@@ -1,6 +1,6 @@
 require 'protected_controller'
 
-class BadgesController < ApplicationController
+class ABadgesController < ApplicationController
 
   def index
     authorize! :index, Badge
@@ -23,6 +23,7 @@ class BadgesController < ApplicationController
   end
 
   def create
+    puts "IN BADGE CREATION"
     authorize! :create, Badge
     @badge = Badge.new(allowed_params)
 
@@ -34,6 +35,7 @@ class BadgesController < ApplicationController
   end
 
   def update
+    puts "IN BADGE UPDATE"
     current_badge
 
     if @badge.update(allowed_params)
