@@ -5,10 +5,8 @@ class BadgePracticesController < ApplicationController
     authorize! :create, BadgePractice
     @badge_practice = @badge.badge_practices.create(badge_practice_params)
     if @badge_practice.save
-      puts "REDIRECTING TO BADGE"
       redirect_to badge_path(@badge)
     else
-      puts "ERROR SAVING, WILL RENDER BADGES/SHOW"
       render 'badges/show'
     end
   end

@@ -21,6 +21,20 @@ class BadgePracticesControllerTest < ActionController::TestCase
     assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
+  test "should delete (editor user)" do
+    sign_in @editor
+    count = BadgePractice.all.size
+    request.env["HTTP_REFERER"] = badge_path(@badge)
+
+    delete :destroy, badge_id: @badge.slug, id: @badge_practice
+
+    assert_equal true, @editor.editor?
+    assert_equal nil, flash[:alert]
+
+    assert_redirected_to badge_path(@badge)
+    assert_equal count-1, BadgePractice.all.size
+  end
+
   test "should create via badge" do
     puts "TEST:: should create via badge"
     sign_in @editor
