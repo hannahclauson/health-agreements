@@ -1,4 +1,4 @@
-class BadgePracticesController < ProtectedController
+class BadgePracticesController < ApplicationController
 
   def create
     Rails.logger.info "OMG PRINT THIS"
