@@ -1,22 +1,31 @@
 class BadgePracticesController < ProtectedController
 
   def create
-    current_badge.badge_practices.create(badge_practice_params)
-    redirect_to badge_path(current_badge)
+    current_badge
+    @badge_practice = @badge.badge_practices.create(badge_practice_params)
+    redirect_to badge_path(@badge)
   end
 
   def destroy
-    current_badge_practice.destroy
-    redirect_to badge_path(current_badge)
+    current_badge
+    current_badge_practice
+
+    @badge_practice.destroy
+    redirect_to badge_path(@badge)
   end
 
  private
+
   def current_badge
-    @badge ||= Badge.find(params[:badge_id])
+    puts "can? #{action_name.to_sym} -> #{can? action_name.to_sym, @badge_practice}"
+    @badge ||= Badge.where( slug: params[:badge_id] ).first
+    authorize! action_name.to_sym, @badge
   end
 
   def current_badge_practice
-    @badge_practice ||= current_badge.badge_practices.find(params[:id])
+    puts "can? #{action_name.to_sym} -> #{can? action_name.to_sym, @badge_practice}"
+    @badge_practice ||= @badge.badge_practices.find(params[:id])
+    authorize! action_name.to_sym, @badge_practice
   end
 
   def badge_practice_params

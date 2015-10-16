@@ -7,10 +7,17 @@ X    - company access
 X    - practice access
 X    - guideline access
 X    - badge access
+    - practice - fold all @practice finds into current_** helepr method and do access control
     - badge practice access
       - badge_practices should be removable by editor
   - remove manual access helpers
   - update all views to use cancancan
+    - badge 
+      - show -> BP add
+      - index - new/edit/delete
+    - company
+      - show -> P add
+      - index -> new/edit/delete
   - more rebuild tests
     - should not show (and shoult set rebuild_needed) when there are no more BPs
 - Add search tests (##est 0.5 day)
