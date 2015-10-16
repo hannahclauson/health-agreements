@@ -19,11 +19,10 @@ class BadgesController < ApplicationController
 
   def show
     current_badge
-    @practice = Practice.new
+    @badge_practice = BadgePractice.new
   end
 
   def create
-    Rails.logger.info "IN BADGE CREATION"
     authorize! :create, Badge
     @badge = Badge.new(allowed_params)
 
@@ -35,7 +34,6 @@ class BadgesController < ApplicationController
   end
 
   def update
-    puts "IN BADGE UPDATE"
     current_badge
 
     if @badge.update(allowed_params)

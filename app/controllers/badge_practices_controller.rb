@@ -1,17 +1,16 @@
 class BadgePracticesController < ApplicationController
 
   def create
-    Rails.logger.info "OMG PRINT THIS"
-    puts "Creating BP"
-    puts "checking current badge /auth"
     current_badge
-    puts "done"
-    puts "checking current badge practice /auth"
     authorize! :create, BadgePractice
-    puts "done"
     @badge_practice = @badge.badge_practices.create(badge_practice_params)
-#    redirect_to badge_path(@badge)
-    render "FUCK"
+    if @badge_practice.save
+      puts "REDIRECTING TO BADGE"
+      redirect_to badge_path(@badge)
+    else
+      puts "ERROR SAVING, WILL RENDER BADGES/SHOW"
+      render 'badges/show'
+    end
   end
 
   def destroy

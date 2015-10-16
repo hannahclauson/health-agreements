@@ -15,7 +15,7 @@ class BadgePracticesControllerTest < ActionController::TestCase
   # Actions for Editors
 
   def access_denied(p)
-    request.env["HTTP_REFERER"] = "FOO" #badge_path(p)
+    request.env["HTTP_REFERER"] = badge_path(p)
     yield
     assert_redirected_to root_path
     assert_equal "You are not authorized to access this page.", flash[:alert]
