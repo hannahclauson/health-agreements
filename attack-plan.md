@@ -25,14 +25,14 @@ X  - add mixpanel / GA
   - do DB dump / restore (make sure works w minimally new data)
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
-- Add model / list of Articles/Journals where company research is published (##est 1 day)
+- Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - and add weighted impact scores to company
   - maybe different badge for active / impactful research?
+  - Sort search by impact factor
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
 - Company comparison view (##est 0.5 days)
-- Sort search by impact factor (##est 0.5 days)
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page

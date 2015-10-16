@@ -56,7 +56,7 @@ class BadgesControllerTest < ActionController::TestCase
     }
 
     assert_equal 0, assigns[:badge].errors.size
-    assert_redirected_to badge_path(assigns[:badge].id)
+    assert_redirected_to badge_path(assigns[:badge].slug)
   end
 
   test "should not create" do
@@ -70,7 +70,7 @@ class BadgesControllerTest < ActionController::TestCase
 
   test "should get edit" do
     sign_in @editor
-    get :edit, id: @badge.id
+    get :edit, id: @badge.slug
     assert_response :success
   end
 
@@ -87,7 +87,7 @@ class BadgesControllerTest < ActionController::TestCase
                name: "thing",
                description: "something something",
                )
-    post :update, id: g.id, badge: {name: 'zzz'}
+    post :update, id: g.slug, badge: {name: 'zzz'}
     assert_redirected_to badge_path(assigns[:badge].slug)
     assert_equal "zzz", assigns(:badge).name
     assert_equal "something something", assigns(:badge).description
@@ -128,7 +128,7 @@ class BadgesControllerTest < ActionController::TestCase
     request.env["HTTP_REFERER"] = badges_path
 
     puts "Gonna destryo: #{@badge.id}"
-    delete :destroy, id: @badge.id
+    delete :destroy, id: @badge
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
