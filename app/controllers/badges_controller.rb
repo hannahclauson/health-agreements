@@ -67,6 +67,8 @@ class BadgesController < ApplicationController
 
   def current_badge
     @badge ||= Badge.where(slug: params[:id]).first
+    puts "Trying to authorize #{action_name.to_sym}"
+    puts "authorized? #{can? action_name.to_sym, @badge}"
     authorize! action_name.to_sym, @badge
   end
 

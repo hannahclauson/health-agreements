@@ -59,4 +59,9 @@ class Badge < ActiveRecord::Base
   def generate_slug
     self.slug = name.to_slug.normalize.to_s
   end
+
+  def to_param
+    slug
+  end
+
 end

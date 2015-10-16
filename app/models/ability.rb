@@ -21,7 +21,7 @@ class Ability
       Practice,
       Guideline,
       Badge,
-      BadgePractice
+      BadgeAward
     ]
 
     can :view, site_objects
