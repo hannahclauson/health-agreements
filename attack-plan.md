@@ -31,8 +31,8 @@ X  - add mixpanel / GA
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
-- Company comparison view
-- Sort search by impact factor
+- Company comparison view (##est 0.5 days)
+- Sort search by impact factor (##est 0.5 days)
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
