@@ -18,19 +18,51 @@ X    - guideline access
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
    - proper error handling
-  - add mixpanel / GA
+X  - add mixpanel / GA
 - Data Entry Phase II (##est 1 day)
   - another few dozen companies
   - will be added to prod DB
   - do DB dump / restore (make sure works w minimally new data)
   - refine existing data / review
   - refine badges (definitions / new ones / etc)
-- Update IA / copy (## est 0.5 day)
+- Add model / list of Articles/Journals where company research is published (##est 1 day)
+  - and add weighted impact scores to company
+  - maybe different badge for active / impactful research?
+- Make mobile version (##est 2 days)
+  - webkit
+  - no IE
+- Company comparison view
+- Sort search by impact factor
+- Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
     - Learn about guidelines / badges
-    - Highlight some common searches / most frequent searches?
     - Showcase Good Citizens
+    - content to explain how data extracted / badges awarded
+    - companies w the highest impact factor
+    - Highlight some common searches / most frequent searches?
+- Setup WP blog / subdomain (##est 3 days)
+  - prioritize BP buffer
+  - publish 1-3 articles
+- Data Entry Phase III (##est 2 days)
+  - make sure all document links are specified
+  - should have about a hundred companies
+  - let run for a week or so to see how data performs
+  - include test company (maybe this site itself) to validate change detection
+  - paginate company index
+  - include public sector data sources? data.gov
+- Soft Launch Site (##est 1 day)
+  - upgrade middleware (puma / unicorn)
+  - have mechanism for high fidelity DB backup / routinely do this
+x  - decide on a name
+x  - buy domain / setup DNS
+  - estimate monthly costs
+  - add to my contracting firm?
+  - bugs
+    - vertical style gaps on homepage
+  - update mailer
+    - setup company name / etc
+== Milestone: Soft Launch (v 1.0)
 - Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
   - probably want to separate download of html from extracting corpus
@@ -47,38 +79,19 @@ X    - guideline access
     - comparison view to compare two versions (visualize diff)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
-- Data Entry Phase III (##est 2 days)
-  - make sure all document links are specified
-  - should have about a hundred companies
-  - let run for a week or so to see how data performs
-  - include test company (maybe this site itself) to validate change detection
-  - paginate company index
-- Soft Launch Site (##est 1 day)
-  - upgrade middleware (puma / unicorn)
-  - have mechanism for high fidelity DB backup / routinely do this
-  - decide on a name
-  - buy domain / setup DNS
-  - estimate monthly costs
-  - add to my contracting firm?
-  - publish / make OSS?
-  - bugs
-    - vertical style gaps on homepage
-  - update mailer
-    - setup company name / etc
-- Data Entry Phase IV (##est 3 days)
-  - big data push - hundreds of sites as goal
-  - ideally 1k companies
-- Request Addition / Modification (##est 1 day)
-  - form to request a company added to list
-  - form to request a modification
-  - form for new badge type?
-  - should notify editors via email when new submission in place
-- Add model / list of Articles/Journals where company research is published (##est 1 day)
-  - and add weighted impact scores to company
-  - maybe different badge for active / impactful research?
+- Automate articles (##est 3 days)
   - probably want to automate this if at all possible
   - maybe not a bad idea to have list of links for each company where they list their articles
   - and detect if/when those pages change / have content added
+- Setup Notifiers (##est 1 day)
+  - for company updates
+  - for new articles
+- Crawler to generate company list (##est 1 day)
+- Data Entry Phase IV (##est 3 days)
+  - big data push - hundreds of sites as goal
+  - ideally 1k companies
+- Work w EFF / restructure badges (##est 5 days)
+  - rework badges / migrate / etc
 - Data Entry Phase V - Articles (##est 1 day)
   - Review any articles for at least a dozen companies
   - Some have many (23andme / etc)
@@ -89,6 +102,13 @@ X    - guideline access
   - make sure errors are handled properly
 - Launch Site (##est 1 day)
   - marketing time
+=== Milestone: Launch (v 1.1)
+
+- Request Addition / Modification (##est 1 day)
+  - form to request a company added to list
+  - form to request a modification
+  - form for new badge type?
+  - should notify editors via email when new submission in place
 
 
 Nice to Haves:
@@ -105,8 +125,6 @@ Nice to Haves:
     - optimize what I can
     - open to refactoring schema
     - or doing batch / background job
-- Mobile version
-  - if im marketing ... its probably going to be seen first on mobile
 - Update UX
   - on company show page, provide JS filters for each column (prob at least implements col)
   - maybe also provide option to see all guidelines (and whether they follow or now)
