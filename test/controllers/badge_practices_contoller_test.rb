@@ -56,12 +56,15 @@ class BadgePracticesControllerTest < ActionController::TestCase
   test "should not create via badge" do
     puts "TEST:: SHOULD NOT CREATE VIA BADGE"
     access_denied(@badge_practice) do
+      puts "creating guideline"
       g2 = create(:guideline)
+      puts "submitting create post"
       post :create, badge_id: @badge_practice.badge, badge_practice: {
         :implementation => 1,
         :guideline => g2,
         :badge => @badge_practice.badge
       }
+      puts "done submitting create post"
     end
   end
 

@@ -23,7 +23,7 @@ class ABadgesController < ApplicationController
   end
 
   def create
-    puts "IN BADGE CREATION"
+    Rails.logger.info "IN BADGE CREATION"
     authorize! :create, Badge
     @badge = Badge.new(allowed_params)
 

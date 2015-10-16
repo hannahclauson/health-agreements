@@ -1,15 +1,16 @@
 class BadgePracticesController < ProtectedController
 
   def create
-#    puts "Creating BP"
-#    puts "checking current badge /auth"
-#    current_badge
-#    puts "done"
-#    puts "checking current badge practice /auth"
-#    authorize! :create, BadgePractice
-#    puts "done"
-#    @badge_practice = @badge.badge_practices.create(badge_practice_params)
-#    redirect_to badge_path(@badge)
+    Rails.logger.info "OMG PRINT THIS"
+    puts "Creating BP"
+    puts "checking current badge /auth"
+    current_badge
+    puts "done"
+    puts "checking current badge practice /auth"
+    authorize! :create, BadgePractice
+    puts "done"
+    @badge_practice = @badge.badge_practices.create(badge_practice_params)
+    redirect_to badge_path(@badge)
   end
 
   def destroy

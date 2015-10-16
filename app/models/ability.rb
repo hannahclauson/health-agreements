@@ -26,12 +26,12 @@ class Ability
       BadgePractice
     ]
 
-    can :view, site_objects
+#    can :view, site_objects
 
     if user.admin?
-      can :manage, :all
+#      can :manage, :all
     elsif user.editor?
-      can :mutate, site_objects
+#      can :mutate, site_objects
 #      can :mutate, BadgePractice
 #      can :delete, BadgePractice
     end
