@@ -1,6 +1,6 @@
 require 'protected_controller'
 
-class ABadgesController < ApplicationController
+class BadgesController < ApplicationController
 
   def index
     authorize! :index, Badge

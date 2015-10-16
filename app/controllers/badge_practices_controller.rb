@@ -10,7 +10,8 @@ class BadgePracticesController < ProtectedController
     authorize! :create, BadgePractice
     puts "done"
     @badge_practice = @badge.badge_practices.create(badge_practice_params)
-    redirect_to badge_path(@badge)
+#    redirect_to badge_path(@badge)
+    render "FUCK"
   end
 
   def destroy
