@@ -22,7 +22,6 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should delete (editor user)" do
-    puts "TEST - SHOULD DELETE BY EDITOR"
     sign_in @editor
     count = BadgePractice.all.size
     request.env["HTTP_REFERER"] = badge_path(@badge)
@@ -37,7 +36,6 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should create via badge" do
-    puts "TEST:: should create via badge"
     sign_in @editor
 
     g = create(:guideline)
@@ -52,7 +50,6 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should not create via badge with redundant guideline" do
-    puts "TEST:: should not create via badge with redundant guideline"
     sign_in @editor
 
     count = @badge_practice.badge.badge_practices.size
@@ -69,17 +66,13 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should not create via badge" do
-    puts "TEST:: SHOULD NOT CREATE VIA BADGE"
     access_denied(@badge_practice) do
-      puts "creating guideline"
       g2 = create(:guideline)
-      puts "submitting create post"
       post :create, badge_id: @badge_practice.badge, badge_practice: {
         :implementation => 1,
         :guideline => g2,
         :badge => @badge_practice.badge
       }
-      puts "done submitting create post"
     end
   end
 

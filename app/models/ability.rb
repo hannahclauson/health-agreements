@@ -4,11 +4,6 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    type = "anon"
-    type = "editor" if user.editor?
-    type = "admin" if user.admin?
-    puts "User - #{type}"
-
     # If the user exists, they're an editor
     # Anon users (nil user) is general public
 

@@ -24,13 +24,11 @@ class BadgePracticesController < ApplicationController
  private
 
   def current_badge
-    puts "can? #{action_name.to_sym} -> #{can? action_name.to_sym, @badge} (on BP)"
     @badge ||= Badge.where( slug: params[:badge_id] ).first
     authorize! action_name.to_sym, @badge
   end
 
   def current_badge_practice
-    puts "can? #{action_name.to_sym} -> #{can? action_name.to_sym, @badge_practice} (on BP)"
     @badge_practice ||= @badge.badge_practices.find(params[:id])
     authorize! action_name.to_sym, @badge_practice
   end

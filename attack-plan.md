@@ -13,6 +13,7 @@ X    - badge access
     - badge practice access
       - badge_practices should be removable by editor
   - remove manual access helpers
+    - no more inheriting from ProtectedController
   - update all views to use cancancan
     - badge 
       - show -> BP add
