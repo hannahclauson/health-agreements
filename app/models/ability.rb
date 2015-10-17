@@ -32,10 +32,8 @@ class Ability
       can :manage, :all
     elsif user.editor?
       can :mutate, site_objects
-      can :mutate, BadgePractice
-#      can :delete, BadgePractice
+      can :manage, BadgePractice
     end
-
 
   end
 end

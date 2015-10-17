@@ -22,6 +22,7 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
   test "should delete (editor user)" do
+    puts "TEST - SHOULD DELETE BY EDITOR"
     sign_in @editor
     count = BadgePractice.all.size
     request.env["HTTP_REFERER"] = badge_path(@badge)
@@ -90,17 +91,6 @@ class BadgePracticesControllerTest < ActionController::TestCase
 
     access_denied(@badge_practice) do
       delete :destroy, badge_id: @badge.slug, id: @badge_practice.id
-    end
-
-    assert_equal count, BadgePractice.all.size
-  end
-
-  test "should not delete (editor user)" do
-    sign_in @editor
-    count = BadgePractice.all.size
-
-    access_denied(@badge_practice) do
-      delete :destroy, badge_id: @badge.slug, id: @badge_practice
     end
 
     assert_equal count, BadgePractice.all.size
