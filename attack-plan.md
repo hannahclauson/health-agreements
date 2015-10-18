@@ -10,8 +10,8 @@ X    - badge access
     - practice - fold all @practice finds into current_** helepr method and do access control
       - practices - validate uniqueness on guidelines - why are these commented out in practices model?
       - looks like moved from comp to practice model - just double check tests are there for this
-    - badge practice access
-      - badge_practices should be removable by editor
+X    - badge practice access
+X      - badge_practices should be removable by editor
   - remove manual access helpers
     - no more inheriting from ProtectedController
   - update all views to use cancancan
