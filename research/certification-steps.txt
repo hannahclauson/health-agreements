@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+	<head>
+		<meta name="description" content="" />
+		<meta name="google-site-verification" content="KIO5H8Bg3i0oAEAzTEMK5qIlYJLbd2zogLs_-im4rI0" />
+		<meta name="msvalidate.01" content="E37AC1589F823723B64275D4BC890B1A" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 10]>
+	    	<div class="alert alert-warning" role="alert"> 
+	    		<a class="alert-link" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+				You are using an outdated browser. For a faster, safer browsing experience, click here to upgrade today.</a>
+			</div>
+ 		<![endif]-->
+	    <!--[if lt IE 9]>
+	      <script src="bootstrap-3.0/assets/js/html5shiv.js"></script>
+	      <script src="bootstrap-3.0/assets/js/respond.min.js"></script>
+	    <![endif]-->		
+
+		<!-- 
+		Adding the following meta tag should tell the crawler to try to crawl the ugly version of *this* URL.
+		-->
+		<meta name="fragment" content="!" />
+		<meta http-equiv="x-dns-prefetch-control" content="off" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+		<!-- meta to instruct browser not to cache portal.html -->
+		<!-- http://stackoverflow.com/questions/1341089/using-meta-tags-to-turn-off-caching-in-all-browsers -->
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<!-- end cache control -->
+		
+		<link rel="shortcut icon" href="favicon.ico?v=2" />
+		<link href="/opensearch.xml" rel="search" title="Synapse" type="application/opensearchdescription+xml" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="Portal.css" />
+				
+		<!-- head.js -->
+		<script src="js/head.load.min.js"></script>
+		<script>
+	            head
+		        .js("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+		        .js("//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js")
+ 		        .js("js/slides.min.jquery.js")
+		        .js("js/spark-md5.min.js")
+		        .js("js/swfobject/swfobject.js")
+		        .js("js/jquery.tablesorter.min.js")
+		        .js("js/jquery.tablesorter.scinot.js")
+		        .js("js/highlight.pack.js")
+		        .js("js/jsPlumb/jquery.jsPlumb-1.6.2-min.js")
+		        .js("js/init-nchart.js");
+	   	</script>    
+	
+		<title>Sage Synapse : Contribute to the Cure</title>
+		
+		<!--                                           -->
+		<!-- This script loads your compiled module.   -->
+		<!-- If you add any GWT meta tags, they must   -->
+		<!-- be added before this line.                -->
+		<!--                                           -->
+		<script type="text/javascript" language="javascript" src="js/compiled-closure-lib.js"></script>
+		<script type="text/javascript" language="javascript" src="Portal/Portal.nocache.js"></script>
+			
+		<!-- Search autocomplete script. Temporary -->
+	
+		<!-- put this last -->
+		<script type="text/javascript">
+		
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-29804340-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>
+	</head>
+	<body class="overflow-y-auto">
+		<div>
+			<!-- GWT history support -->
+			<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+	
+			<noscript>
+				<div
+					style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+					Your web browser must have JavaScript enabled in order for this
+					application to display correctly.<br /> If you are an automated web
+					crawler from a search engine, follow this <a
+						href="https://synapse.prod.sagebase.org/Portal.html#!Home:0">AJAX
+						application crawl link</a>
+				</div>
+			</noscript>
+            
+            <div style="display:none;">
+              <form id="login_form" method="post" target='hiddeniframe'>
+                <input id="synapse_username" name="username"/>
+                <input id="synapse_password" name="password" type="password"/>
+                <input id="synapse_signin_btn" name="signInBtn" type="submit" />
+                <iframe name='hiddeniframe'></iframe>
+              </form>
+            </div>
+            
+            <!-- This is the GWT-generated body -->
+			<div id="alertWrapper">
+				<div id="alertContainer"></div>
+			</div>
+			<div id="rootPanel"></div>
+	
+		</div>
+		<div class="clear"></div>
+	</body>
+</html>
