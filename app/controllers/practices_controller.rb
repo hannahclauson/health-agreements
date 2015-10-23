@@ -2,6 +2,7 @@ class PracticesController < ApplicationController
 
   def create
     current_company
+    authorize! :create, Practice
     @practice = @company.practices.create(allowed_params)
 
     if @practice.save
@@ -13,7 +14,7 @@ class PracticesController < ApplicationController
 
   def show
     current_company
-    @practice = Practice.find(params[:id])
+    current_practice
 
     # syntactic sugar to reuse table partial (on company/arch show pages)
     @guideline = @practice.guideline
@@ -22,12 +23,12 @@ class PracticesController < ApplicationController
 
   def edit
     current_company
-    @practice = Practice.find(params[:id])
+    current_practice
   end
 
   def update
     current_company
-    @practice = Practice.find(params[:id])
+    current_practice
 
     if @practice.update(allowed_params)
       redirect_to @company
@@ -39,7 +40,7 @@ class PracticesController < ApplicationController
   def destroy
     current_company
 
-    @practice = Practice.find(params[:id])
+    current_practice
     @practice.destroy
 
     redirect_to @company
@@ -70,5 +71,11 @@ class PracticesController < ApplicationController
     @company ||= Company.where(slug: params[:company_id]).first
     authorize! action_name.to_sym, @company
   end
+
+  def current_practice
+    @practice ||= @company.practices.find(params[:id])
+    authorize! action_name.to_sym, @practice
+  end
+
 
 end

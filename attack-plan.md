@@ -1,8 +1,8 @@
-- Update badge / rebuild function (##est 1 day)
+X- Update badge / rebuild function (##est 1 day)
 X  - should have state / only be usable when modifications in place
 X  - add tests for badge_practice creation / badge rebuilding
 
-  - add cancan here and refactor users / tests
+X  - add cancan here and refactor users / tests
 X    - company access
 X    - practice access
 X    - guideline access
@@ -14,13 +14,13 @@ X    - badge practice access
 X      - badge_practices should be removable by editor
 X  - remove manual access helpers
 X    - no more inheriting from ProtectedController
-  - update all views to use cancancan
-    - badge 
+x  - update all views to use cancancan
+x    - badge 
 x      - show -> BP add
-      - index - new/edit/delete
-    - company
-      - show -> P add
-      - index -> new/edit/delete
+x      - index - new/edit/delete
+x    - company
+x      - show -> P add
+x      - index -> new/edit/delete
   - more rebuild tests
     - should not show (and shoult set rebuild_needed) when there are no more BPs
 - Add search tests (##est 0.5 day)
