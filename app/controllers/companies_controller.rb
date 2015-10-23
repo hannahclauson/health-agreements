@@ -1,5 +1,3 @@
-require 'protected_controller'
-
 class CompaniesController < ApplicationController
 
   autocomplete :archetype, :name, :extra_data => [:id]

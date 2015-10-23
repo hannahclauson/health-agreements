@@ -1,5 +1,3 @@
-require 'protected_controller'
-
 class BadgesController < ApplicationController
 
   def index

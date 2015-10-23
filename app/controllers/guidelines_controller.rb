@@ -1,5 +1,3 @@
-require 'protected_controller'
-
 class GuidelinesController < ApplicationController
 
   def new
