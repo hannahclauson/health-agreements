@@ -16,7 +16,7 @@ X  - remove manual access helpers
 X    - no more inheriting from ProtectedController
   - update all views to use cancancan
     - badge 
-      - show -> BP add
+x      - show -> BP add
       - index - new/edit/delete
     - company
       - show -> P add
