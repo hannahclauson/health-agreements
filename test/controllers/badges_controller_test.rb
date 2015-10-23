@@ -80,6 +80,19 @@ class BadgesControllerTest < ActionController::TestCase
     end
   end
 
+  test "should not rebuild" do
+    access_denied do
+      get :rebuild, id: @badge.id
+    end
+  end
+
+  test "should rebuild" do
+    sign_in @editor
+    access_denied do
+      get :rebuild, id: @badge.id
+    end
+  end
+
   test "should update" do
     sign_in @editor
     g = create(

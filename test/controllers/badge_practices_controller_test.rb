@@ -77,6 +77,36 @@ class BadgePracticesControllerTest < ActionController::TestCase
   end
 
 
+  test "badge should need rebuild after create" do
+    sign_in @editor
+
+    g = create(:guideline)
+    post :create, badge_id: @badge_practice.badge, badge_practice: {
+      :implementation => 1,
+      :guideline_id => g.id,
+      :badge => @badge_practice.badge
+    }
+
+    assert_equal 0, assigns[:badge_practice].errors.size
+    assert_redirected_to badge_path(@badge)
+    assert_equal true, @badge.needs_to_rebuild
+  end
+
+  test "badge should need rebuild after delete" do
+    sign_in @editor
+    count = BadgePractice.all.size
+    request.env["HTTP_REFERER"] = badge_path(@badge)
+
+    delete :destroy, badge_id: @badge.slug, id: @badge_practice
+
+    assert_equal true, @editor.editor?
+    assert_equal nil, flash[:alert]
+
+    assert_redirected_to badge_path(@badge)
+    assert_equal count-1, BadgePractice.all.size
+    assert_equal true, @badge.needs_to_rebuild
+  end
+
   # Admin only actions
 
   test "should not delete (anon user)" do

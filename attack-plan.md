@@ -6,7 +6,8 @@
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
    - proper error handling
-X  - add mixpanel / GA
+X - add GA
+  - add mixpanel
   - do DB dump / restore (make sure works w minimally new data)
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - and add weighted impact scores to company
