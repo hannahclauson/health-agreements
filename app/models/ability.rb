@@ -8,7 +8,7 @@ class Ability
     # Anon users (nil user) is general public
 
     alias_action :show, :index, :to => :view
-    alias_action :new, :create, :edit, :update, :to => :mutatez
+    alias_action :new, :create, :edit, :update, :to => :mutate
 
     # Omits users / registrations / etc
     # Also shouldn't have direct access to badge_awards

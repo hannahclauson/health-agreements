@@ -6,8 +6,9 @@
     - @guidelines.each do |g|
       %li.list-group-item
         = link_to(g.name, guideline_path(g))
-        %span.actions.btn-group.btn-group-xs.btn-group-link
-          - if access_to_action(:edit)
-            = link_to("Edit", edit_guideline_path(g), {class: "btn btn-xs btn-info"})
-          - if access_to_action(:delete)
-            = link_to("Delete", guideline_path(g), class: "btn btn-xs btn-danger", method: :delete)
+        - if (can? :edit, Guideline) || (can? :delete, Guideline)
+          %span.actions.btn-group.btn-group-xs.btn-group-link
+            - if can? :edit, Guideline
+              = link_to("Edit", edit_guideline_path(g), {class: "btn btn-xs btn-info"})
+            - if can? :delete, Guideline
+              = link_to("Delete", guideline_path(g), class: "btn btn-xs btn-danger", method: :delete)

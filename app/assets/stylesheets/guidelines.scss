@@ -4,3 +4,11 @@
 
 @import "variables";
 @import "index";
+
+.guidelines_index {
+
+  .actions a {
+    top: -20px; // dont like that this is a one-off
+  }
+
+}
