@@ -12,8 +12,8 @@ X      - practices - validate uniqueness on guidelines - why are these commented
 X      - looks like moved from comp to practice model - just double check tests are there for this
 X    - badge practice access
 X      - badge_practices should be removable by editor
-  - remove manual access helpers
-    - no more inheriting from ProtectedController
+X  - remove manual access helpers
+X    - no more inheriting from ProtectedController
   - update all views to use cancancan
     - badge 
       - show -> BP add
@@ -24,25 +24,26 @@ X      - badge_practices should be removable by editor
   - more rebuild tests
     - should not show (and shoult set rebuild_needed) when there are no more BPs
 - Add search tests (##est 0.5 day)
+  - fix bug w UI
   - params missing (esp practice name/impl)
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
    - proper error handling
 X  - add mixpanel / GA
-- Data Entry Phase II (##est 1 day)
-  - another few dozen companies
-  - will be added to prod DB
   - do DB dump / restore (make sure works w minimally new data)
-  - refine existing data / review
-  - refine badges (definitions / new ones / etc)
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - and add weighted impact scores to company
   - maybe different badge for active / impactful research?
   - Sort search by impact factor
+- Company comparison view (##est 0.5 days)
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
-- Company comparison view (##est 0.5 days)
+X- Data Entry Phase II (##est 1 day)
+X  - another few dozen companies
+X  - refine existing data / review
+X  - refine badges (definitions / new ones / etc)
+ - enter on prod DB / site
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page

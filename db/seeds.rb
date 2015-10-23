@@ -44,3 +44,10 @@ admin = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do
 end
 
 puts "Created admin : #{admin.email}"
+
+editor = User.find_or_create_by!(email: "emilytheeditor@healthagreements.com") do |user|
+  user.password = "gogogo"
+  user.password_confirmation = "gogogo"
+  user.editor!
+  user.confirm!
+end

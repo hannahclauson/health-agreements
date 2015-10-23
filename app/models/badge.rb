@@ -2,7 +2,7 @@
 class Badge < ActiveRecord::Base
   has_many :badge_practices, dependent: :destroy
   has_many :badge_awards, dependent: :destroy
-#  accepts_nested_attributes_for :badge_practices
+  accepts_nested_attributes_for :badge_practices
 
   before_save :generate_slug
 
