@@ -25,6 +25,49 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:company)
   end
 
+  # Search tests
+
+  test "should report error when search is empty" do
+    # test presence of ids -- since autocomplete should be populating those /
+    # and those are what are actually used for searching
+    get :index,
+    "company" => {"name" => ""},
+    "archetype" => {"id" => ""},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_equal 1, assigns[:errors].size
+    assert_equal "Empty search. Please provide a search term", assigns[:errors][0][:message]
+  end
+
+  test "should search by name" do
+  end
+
+  test "should autocomplete by name" do
+  end
+
+  test "should search by practice" do
+  end
+
+  test "should err when missing practice implementation" do
+  end
+
+  test "should err when missing practice name" do
+  end
+
+  test "should autocomplete by practice name" do
+  end
+
+  test "should autocomplete by practice value" do
+  end
+
+  test "should search by badge" do
+  end
+
+  test "should autocomplete by badge" do
+  end
+
   # Actions for Editors
 
   # Helper for testing access_denied

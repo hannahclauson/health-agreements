@@ -24,6 +24,23 @@ class CompaniesController < ApplicationController
     end
   end
 
+
+  def empty_params?
+    # return true if all params are empty
+
+    [[:company,:name], [:archetype, :id], [:guideline,:id], [:practice,:implementation]].each do |pair|
+      next if params[pair.first].nil?
+
+      param = params[pair.first][pair.last]
+      if param.present? && param.size > 0
+        return false
+      end
+
+    end
+
+    true
+  end
+
   def index
     c = Company.all
 
@@ -50,6 +67,12 @@ class CompaniesController < ApplicationController
     end
 
     @searched = (params[:commit] == 'Search')
+
+    if @searched && empty_params?
+      @errors << {
+        :message => "Empty search. Please provide a search term"
+      }
+    end
 
     @companies = c
 
