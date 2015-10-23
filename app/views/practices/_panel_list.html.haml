@@ -4,22 +4,22 @@
   .panel-body
     %p
       The following is a list of practices that #{@company.name} follows. Click on a practice to understand what it means to follow that practice.
-
   %table.table
     %tr.info
       %th Name
       %th Implementation
       %th Notes
-      %th Actions
+      - if (can? :show, Practice) || (can? :edit, Practice) || (can? :delete, Practice)
+        %th Actions
     - @company.practices.each do |p|
       %tr
         %td= p.guideline.name
         %td= p.implementation_text
         %td= p.notes
         %td.actions
-          - if access_to_action(:show)
+          - if can? :show, Practice
             = link_to('Show', polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
-          - if access_to_action(:edit)
+          - if can? :edit, Practice
             = link_to('Edit', edit_polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
-          - if access_to_action(:delete)
+          - if can? :delete, Practice
             = link_to('Delete', polymorphic_path([@company,p]), class: 'btn btn-xs btn-danger', method: :delete)

@@ -24,7 +24,7 @@
 
   = render 'practices/panel_list'
 
-  = if can? :mutate, @company
+  - if can? :mutate, @company
     .panel.panel-default
       .panel-heading
         %h2 Add a Practice

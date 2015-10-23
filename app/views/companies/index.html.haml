@@ -11,7 +11,7 @@
     %tr.info
       %th Name
       %th Badges
-      - if access_to_action(:edit) || access_to_action(:delete)
+      - if (can? :edit, Company) || (can? :delete, Company)
         %th Actions
     - @companies.each do |c|
       %tr
@@ -23,8 +23,9 @@
               - c.badges.each do |b|
                 %td.badge-column
                   = render partial: "shared/badge", object: b, locals: {size: 'small'}
-        %td.actions.btn-group.btn-group-xs.btn-group-link
-          - if access_to_action(:edit)
-            =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
-          - if access_to_action(:delete)
-            =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
+        - if (can? :edit, Company) || (can? :delete, Company)
+          %td.actions.btn-group.btn-group-xs.btn-group-link
+            - if can? :edit, Company
+              =link_to("Edit", edit_company_path(c), {class: "btn btn-xs btn-info"})
+            - if can? :delete, Company
+              =link_to("Delete", company_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
