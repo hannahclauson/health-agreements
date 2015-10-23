@@ -199,3 +199,25 @@ X      - show (via comp)
       - destroy
         - badge_practices
         - badge_award changes (on badge del or bp del)
+X- Update badge / rebuild function (##est 1 day)
+X  - should have state / only be usable when modifications in place
+X  - add tests for badge_practice creation / badge rebuilding
+X  - add cancan here and refactor users / tests
+X    - company access
+X    - practice access
+X    - guideline access
+X    - badge access
+X    - practice - fold all @practice finds into current_** helepr method and do access control
+X      - practices - validate uniqueness on guidelines - why are these commented out in practices model?
+X      - looks like moved from comp to practice model - just double check tests are there for this
+X    - badge practice access
+X      - badge_practices should be removable by editor
+X  - remove manual access helpers
+X    - no more inheriting from ProtectedController
+x  - update all views to use cancancan
+x    - badge 
+x      - show -> BP add
+x      - index - new/edit/delete
+x    - company
+x      - show -> P add
+x      - index -> new/edit/delete
