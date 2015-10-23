@@ -46,8 +46,8 @@ end
 puts "Created admin : #{admin.email}"
 
 editor = User.find_or_create_by!(email: "emilytheeditor@healthagreements.com") do |user|
-  user.password = "gogogo"
-  user.password_confirmation = "gogogo"
+  user.password = "gogogogo"
+  user.password_confirmation = "gogogogo"
   user.editor!
   user.confirm!
 end
