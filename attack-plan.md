@@ -1,14 +1,14 @@
 x  - more rebuild tests
 x    - should not show (and shoult set rebuild_needed) when there are no more BPs
-- Add search tests (##est 0.5 day)
+x- Add search tests (##est 0.5 day)
 x  - fix bug w UI
-  - params missing (esp practice name/impl)
+x  - params missing (esp practice name/impl)
 x   - redirect on one result
 x   - comp name
 x   - practice name
-   - practice name & impl
-   - practice impl neg
-   - badge name
+x   - practice name & impl
+x   - practice impl neg
+x   - badge name
 - Make production ready (##est 1 day)
   - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
    - proper error handling

@@ -221,3 +221,14 @@ x      - index - new/edit/delete
 x    - company
 x      - show -> P add
 x      - index -> new/edit/delete
+x  - more rebuild tests
+x    - should not show (and shoult set rebuild_needed) when there are no more BPs
+x- Add search tests (##est 0.5 day)
+x  - fix bug w UI
+x  - params missing (esp practice name/impl)
+x   - redirect on one result
+x   - comp name
+x   - practice name
+x   - practice name & impl
+x   - practice impl neg
+x   - badge name
