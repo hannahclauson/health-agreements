@@ -5,6 +5,15 @@ class CompaniesControllerTest < ActionController::TestCase
 
   setup do
     @company = create(:company)
+    @unique_company = create(:company)
+
+    # so that most of the search tests dont return a single result and redirect
+    @very_similar_company = create(:company)
+    @very_similar_company.name = @company.name + "xx"
+    @very_similar_company.practices = @company.practices
+    @very_similar_company.badges = @company.badges
+    @very_similar_company.save!
+
     @other_company = create(:company)
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -41,7 +50,29 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal "Empty search. Please provide a search term", assigns[:errors][0][:message]
   end
 
+  test "should redirect w only one result" do
+    get :index,
+    "company" => {"name" => @company.name},
+    "archetype" => {"id" => ""},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_redirected_to @company
+  end
+
   test "should search by name" do
+    get :index,
+    "company" => {"name" => @company.name},
+    "archetype" => {"id" => ""},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_response :success
+
+    assert_equal 2, assigns[:companies].size
+    assert_equal 0, assigns[:errors].size
   end
 
   test "should autocomplete by name" do
