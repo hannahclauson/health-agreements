@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  autocomplete :archetype, :name, :extra_data => [:id]
+  autocomplete :badge, :name, :extra_data => [:id]
   autocomplete :company, :name
   autocomplete :guideline, :name, :extra_data => [:id]
   # implementation autocomplete lives in practices_controller

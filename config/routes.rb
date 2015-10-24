@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     get :autocomplete_company_name, :on => :collection
-    get :autocomplete_archetype_name, :on => :collection
+    get :autocomplete_badge_name, :on => :collection
     get :autocomplete_guideline_name, :on => :collection
     get :autocomplete_practice_implementation, :on => :collection
     resources :practices

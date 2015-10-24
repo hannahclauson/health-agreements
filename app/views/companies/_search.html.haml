@@ -16,9 +16,9 @@
       %h4 Badge
       %span.value
         .input-group
-          = label_tag("archetype[name]", "Name", {class: 'input-group-addon'})
-          = autocomplete_field(:archetype, :name, autocomplete_archetype_name_companies_path, :update_elements => {:id => "#archetype_id"}, :class => "form-control", :value => (@searched ? params[:archetype][:name] : "") )
-          %input#archetype_id.hidden{:name => "archetype[id]", :value => (@searched ? params[:archetype][:id] : "")}
+          = label_tag("badge[name]", "Name", {class: 'input-group-addon'})
+          = autocomplete_field(:badge, :name, autocomplete_badge_name_companies_path, :update_elements => {:id => "#badge_id"}, :class => "form-control", :value => (@searched ? params[:badge][:name] : "") )
+          %input#badge_id.hidden{:name => "badge[id]", :value => (@searched ? params[:badge][:id] : "")}
 
     %span.advanced-option.practice-filter
       %h4 Practice
