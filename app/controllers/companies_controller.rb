@@ -55,13 +55,17 @@ class CompaniesController < ApplicationController
     end
 
     if params[:guideline].present?
-      if params[:guideline][:id].present? & params[:practice][:implementation].present?
-        c = c.filter_practices(params[:guideline][:id], params[:practice][:implementation])
+      if params[:guideline][:id].present?
+        if params[:practice][:implementation].present?
+          c = c.filter_practices_by_name_and_impl(params[:guideline][:id], params[:practice][:implementation])
+        else
+          c = c.filter_practices_by_name(params[:guideline][:id])
+        end
       end
 
-      if params[:guideline][:id].present? ^ params[:practice][:implementation].present?
+      if params[:practice][:implementation].present? && !params[:guideline][:id].present?
         @errors << {
-          :message => "Must specify both guideline and implementation."
+          :message => "If you specify implementation, you must specify a practice name."
         }
       end
     end

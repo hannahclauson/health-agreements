@@ -20,9 +20,14 @@ class Company < ActiveRecord::Base
     includes(:badge_awards).where("badge_awards.badge_id = ?", badge_id).references(:badge_awards)
   }
 
-  scope :filter_practices, -> (guideline_id, implementation) {
+  scope :filter_practices_by_name, -> (guideline_id) {
+    includes(:practices).where("practices.guideline_id = ?", guideline_id).references(:practices)
+  }
+
+  scope :filter_practices_by_name_and_impl, -> (guideline_id, implementation) {
     includes(:practices).where("practices.guideline_id = ?", guideline_id).where("practices.implementation = ?", implementation).references(:practices)
   }
+
 
   def generate_slug
     self.slug = name.to_slug.normalize.to_s

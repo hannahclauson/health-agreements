@@ -14,7 +14,7 @@ class CompaniesControllerTest < ActionController::TestCase
     # so that most of the search tests dont return a single result and redirect
     p2 = create(:practice, guideline: @guideline)
 
-    @very_similar_company = create(:company, practices: [p2], badges: @company.badges)
+    @very_similar_company = create(:company, practices: [p2])
     @very_similar_company.name = @company.name + "xx"
     @very_similar_company.save!
 
