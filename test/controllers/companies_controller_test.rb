@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'json'
 
 class CompaniesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
@@ -81,6 +82,11 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should autocomplete by name" do
+    get :autocomplete_company_name, "term" => @company.name[0..4]
+
+    assert_response :success
+    r = JSON.parse(response.body)
+    assert_equal 2, r.size
   end
 
   test "should search by practice name" do
@@ -104,15 +110,33 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should autocomplete by practice name" do
+    get :autocomplete_guideline_name, "term" => @guideline.name[0..4]
+
+    assert_response :success
+    r = JSON.parse(response.body)
+    assert_equal 1, r.size
   end
 
   test "should autocomplete by practice value" do
+    get :autocomplete_practice_implementation, "term" => "fo"
+    # For now expect all results no matter what search term since there are so few
+
+    assert_response :success
+    r = JSON.parse(response.body)
+    assert_equal 5, r.size
   end
 
   test "should search by badge" do
+
   end
 
   test "should autocomplete by badge" do
+    get :autocomplete_badge_name, "term" => "re"
+
+    assert_response :success
+    r = JSON.parse(response.body)
+    puts r
+    assert_equal 0, r.size
   end
 
   # Actions for Editors
