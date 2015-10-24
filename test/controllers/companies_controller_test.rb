@@ -5,6 +5,9 @@ class CompaniesControllerTest < ActionController::TestCase
 
   setup do
     @company = create(:company)
+    @guideline = create(:guideline)
+
+
     @unique_company = create(:company)
 
     # so that most of the search tests dont return a single result and redirect
@@ -17,6 +20,7 @@ class CompaniesControllerTest < ActionController::TestCase
     @other_company = create(:company)
     @editor = create(:user)
     @admin = create(:user, :admin)
+
   end
 
   # Actions that are publicly accessible
@@ -52,13 +56,13 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "should redirect w only one result" do
     get :index,
-    "company" => {"name" => @company.name},
+    "company" => {"name" => @unique_company.name},
     "archetype" => {"id" => ""},
     "guideline" => {"id" => ""},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
 
-    assert_redirected_to @company
+    assert_redirected_to @unique_company
   end
 
   test "should search by name" do
@@ -79,7 +83,20 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should search by practice" do
+    get :index,
+    "company" => {"name" => ""},
+    "archetype" => {"id" => ""},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_response :success
+
+    assert_equal 2, assigns[:companies].size
+    assert_equal 0, assigns[:errors].size
   end
+
+
 
   test "should err when missing practice implementation" do
   end
