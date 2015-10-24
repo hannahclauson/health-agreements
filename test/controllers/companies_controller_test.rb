@@ -97,8 +97,6 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal 0, assigns[:errors].size
   end
 
-
-
   test "should err when missing practice implementation" do
   end
 
