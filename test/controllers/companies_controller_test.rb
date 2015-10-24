@@ -117,14 +117,6 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal 1, r.size
   end
 
-  test "should autocomplete by practice value" do
-    get :autocomplete_practice_implementation, "term" => "fo"
-    # For now expect all results no matter what search term since there are so few
-
-    assert_response :success
-    r = JSON.parse(response.body)
-    assert_equal 5, r.size
-  end
 
   test "should search by badge" do
 
