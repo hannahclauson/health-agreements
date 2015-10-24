@@ -19,6 +19,12 @@ class CompaniesControllerTest < ActionController::TestCase
     @very_similar_company.name = @company.name + "xx"
     @very_similar_company.save!
 
+    # For searching by badge
+    @badge = create(:badge, name: "Mad Science")
+    ba1 = create(:badge_award, badge: @badge, company: @company)
+    ba2 = create(:badge_award, badge: @badge, company: @very_similar_company)
+
+
     @other_company = create(:company)
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -47,7 +53,7 @@ class CompaniesControllerTest < ActionController::TestCase
     # and those are what are actually used for searching
     get :index,
     "company" => {"name" => ""},
-    "archetype" => {"id" => ""},
+    "badge" => {"id" => ""},
     "guideline" => {"id" => ""},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
@@ -59,7 +65,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should redirect w only one result" do
     get :index,
     "company" => {"name" => @unique_company.name},
-    "archetype" => {"id" => ""},
+    "badge" => {"id" => ""},
     "guideline" => {"id" => ""},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
@@ -70,7 +76,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should search by name" do
     get :index,
     "company" => {"name" => @company.name},
-    "archetype" => {"id" => ""},
+    "badge" => {"id" => ""},
     "guideline" => {"id" => ""},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
@@ -92,7 +98,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should search by practice name" do
     get :index,
     "company" => {"name" => ""},
-    "archetype" => {"id" => ""},
+    "badge" => {"id" => ""},
     "guideline" => {"id" => @guideline.id},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
@@ -103,10 +109,29 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal 0, assigns[:errors].size
   end
 
-  test "should err when missing practice implementation" do
+  test "should not err when missing practice implementation" do
+    get :index,
+    "company" => {"name" => ""},
+    "badge" => {"id" => ""},
+    "guideline" => {"id" => @guideline.id},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_response :success
+    assert_equal 0, assigns[:errors].size
   end
 
   test "should err when missing practice name" do
+    get :index,
+    "company" => {"name" => ""},
+    "badge" => {"id" => ""},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => @practice.implementation},
+    "commit" => "Search"
+
+    assert_response :success
+    assert_equal 1, assigns[:errors].size
+    assert_equal "If you specify implementation, you must specify a practice name.", assigns[:errors][0][:message]
   end
 
   test "should autocomplete by practice name" do
@@ -117,9 +142,20 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal 1, r.size
   end
 
+  # test for autocomplete practice implementation names lives in practices_controller_test
 
   test "should search by badge" do
+    get :index,
+    "company" => {"name" => ""},
+    "badge" => {"id" => @badge.id},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
 
+    assert_response :success
+
+    assert_equal 2, assigns[:companies].size
+    assert_equal 0, assigns[:errors].size
   end
 
   test "should autocomplete by badge" do

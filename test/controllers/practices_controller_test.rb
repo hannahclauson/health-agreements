@@ -147,7 +147,6 @@ class PracticesControllerTest < ActionController::TestCase
 
   test "should autocomplete by practice value" do
     get 'autocomplete_implementations', "term" => "fo"
-#    get :autocomplete_practice_implementation, "term" => "fo"
     # For now expect all results no matter what search term since there are so few
 
     assert_response :success
