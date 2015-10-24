@@ -4,17 +4,18 @@ class CompaniesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @company = create(:company)
-    @guideline = create(:guideline)
 
+    @guideline = create(:guideline, name: 'zappa')
+    @practice = create(:practice, guideline: @guideline)
+    @company = create(:company, practices: [@practice])
 
     @unique_company = create(:company)
 
     # so that most of the search tests dont return a single result and redirect
-    @very_similar_company = create(:company)
+    p2 = create(:practice, guideline: @guideline)
+
+    @very_similar_company = create(:company, practices: [p2], badges: @company.badges)
     @very_similar_company.name = @company.name + "xx"
-    @very_similar_company.practices = @company.practices
-    @very_similar_company.badges = @company.badges
     @very_similar_company.save!
 
     @other_company = create(:company)
@@ -82,11 +83,11 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should autocomplete by name" do
   end
 
-  test "should search by practice" do
+  test "should search by practice name" do
     get :index,
     "company" => {"name" => ""},
     "archetype" => {"id" => ""},
-    "guideline" => {"id" => ""},
+    "guideline" => {"id" => @guideline.id},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
 

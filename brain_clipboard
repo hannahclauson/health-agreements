@@ -1,0 +1,3 @@
+# Last CMD
+rake test test/controllers/companies_controller_test.rb - test_should_search_by_practice_name
+# working on validating search by guideline - getting to many results
