@@ -1,17 +1,6 @@
-x  - more rebuild tests
-x    - should not show (and shoult set rebuild_needed) when there are no more BPs
-x- Add search tests (##est 0.5 day)
-x  - fix bug w UI
-x  - params missing (esp practice name/impl)
-x   - redirect on one result
-x   - comp name
-x   - practice name
-x   - practice name & impl
-x   - practice impl neg
-x   - badge name
 - Make production ready (##est 1 day)
-  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-   - proper error handling
+X  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
+   - proper error handling --- new relic
 X - add GA
   - add mixpanel
   - do DB dump / restore (make sure works w minimally new data)
