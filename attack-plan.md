@@ -1,30 +1,51 @@
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
-  - add journal views/actions:
+x  - add journal views/actions:
 x    - index
 x    - show
+x    - edit / update
+x    - new / create
+x    - destroy
+x    - tests for these + permissions
+x    - add basic seeds
+  - add article views/actions:
+    - index
+    - show
     - edit / update
     - new / create
     - destroy
     - tests for these + permissions
 x    - add basic seeds
-  - update company view
-    - add article form
-    - support:
-      - edit / update
-      - create
-      - destroy
-x    - update permissions
-    - add tests
-      - for permissions
-x    - add basic seeds
+
   - update company model -- articles / impact factor
   - Sort search by impact factor, test:
       - for impact factor
       - for impact factor recalc edge cases
 - Company comparison view (##est 0.5 days)
+  - add action
+  - add view
+  - add test
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
+  - dont support editors on mobile (modifying objs)
+  - pages types:
+    - menu UI
+    - home
+      - with callouts looking good
+    - blog (prob just a setting)
+    - show:
+      - company
+      - journal
+      - badge
+      - guideline
+      - practice
+      - article
+    - search / companies !
+    - index
+      - companies
+      - journals
+      - guidelines
+    - doc (tos/etc)
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
