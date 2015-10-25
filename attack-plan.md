@@ -1,7 +1,7 @@
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - add journal views/actions:
-    - index
-    - show
+x    - index
+x    - show
     - edit / update
     - new / create
     - destroy
