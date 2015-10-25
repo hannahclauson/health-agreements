@@ -1,0 +1,28 @@
+= form_for @journal, html: {class: 'form-horizontal'} do |f|
+
+  = if @journal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@journal.errors.count, "Error")} prohibited this journal from being saved"
+      %ul
+        - @journal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field.form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :name
+
+  .field.form-group
+    = f.label :url, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :url
+
+  .field.form-group
+    = f.label :impact_factor, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :impact_factor
+
+  .field.form-group
+    %label.col-sm-2.control-label
+    .col-sm-10.input_wrapper
+      = f.submit

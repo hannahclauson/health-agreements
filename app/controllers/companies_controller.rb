@@ -107,7 +107,7 @@ class CompaniesController < ApplicationController
 
     redirect_to companies_path
 
- end
+  end
 
   private
 

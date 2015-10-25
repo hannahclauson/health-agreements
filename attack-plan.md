@@ -6,7 +6,7 @@ x    - show
     - new / create
     - destroy
     - tests for these + permissions
-    - add basic seeds
+x    - add basic seeds
   - update company view
     - add article form
     - support:
@@ -16,7 +16,7 @@ x    - show
     - update permissions
     - add tests
       - for permissions
-    - add basic seeds
+x    - add basic seeds
   - update company model -- articles / impact factor
   - Sort search by impact factor, test:
       - for impact factor

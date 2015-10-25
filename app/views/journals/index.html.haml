@@ -20,6 +20,6 @@
         - if (can? :edit, Journal) || (can? :delete, Journal)
           %td.actions.btn-group.btn-group-xs.btn-group-link
             - if can? :edit, Journal
-              =link_to("Edit", edit_journal_path(c), {class: "btn btn-xs btn-info"})
+              =link_to("Edit", edit_journal_path(j), {class: "btn btn-xs btn-info"})
             - if can? :delete, Journal
-              =link_to("Delete", journal_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
+              =link_to("Delete", journal_path(j), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})
