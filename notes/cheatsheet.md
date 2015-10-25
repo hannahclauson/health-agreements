@@ -10,6 +10,36 @@ or
 
 pg_ctl -D /usr/local/var/postgres start
 
+# manual DB backup
+
+heroku pg:backups capture --app evening-badlands-7297
+
+# manual DB backup download
+
+heroku pg:backups public-url b001 --app evening-badlands-7297
+# where b001 is backup ID
+
+or one liner
+
+$ curl -o latest.dump `heroku pg:backups public-url`
+
+# schedule DB backup
+
+$ heroku pg:backups schedule DATABASE_URL --at '02:00 America/Los_Angeles' --app evening-badlands-7297
+
+# view DB backup schedule
+
+$ heroku pg:backups schedules --app evening-badlands-7297
+
+# locally use backup to restore
+
+# see https://devcenter.heroku.com/articles/heroku-postgres-import-export
+
+# use backup file to manually restore on prod
+
+$heroku pg:backups restore b101 DATABASE_URL --app sushi
+
+
 # describe a table:
 
 health_agreements_dev=# \d+ Companies

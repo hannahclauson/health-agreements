@@ -1,8 +1,7 @@
-- Make production ready (##est 1 day)
+X- Make production ready (##est 1 day)
 X  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-   - proper error handling --- new relic
+X   - proper error handling --- new relic
 X - add GA
-  - add mixpanel
   - do DB dump / restore (make sure works w minimally new data)
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - and add weighted impact scores to company
@@ -63,13 +62,18 @@ x  - buy domain / setup DNS
     - comparison view to compare two versions (visualize diff)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
+- Setup Notifiers (##est 1 day)
+  - for company updates
+  - for new articles
+- Track users (##est 1 day)
+  - add mixpanel
+    - interesting / can track sep actions
+    - will be good once we have users
+    - will save for v1.0
 - Automate articles (##est 3 days)
   - probably want to automate this if at all possible
   - maybe not a bad idea to have list of links for each company where they list their articles
   - and detect if/when those pages change / have content added
-- Setup Notifiers (##est 1 day)
-  - for company updates
-  - for new articles
 - Crawler to generate company list (##est 1 day)
 - Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
