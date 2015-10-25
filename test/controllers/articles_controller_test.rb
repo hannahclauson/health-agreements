@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class JournalsControllerTest < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @journal = create(:journal)
-    other_journal = create(:journal)
+    @article = create(:article)
+    other_article = create(:article)
 
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -13,26 +13,19 @@ class JournalsControllerTest < ActionController::TestCase
 
   # Helper for testing access_denied
   def access_denied
-    request.env["HTTP_REFERER"] = journals_path
+    request.env["HTTP_REFERER"] = articles_path
     yield
     assert_redirected_to root_path
     assert_equal "You are not authorized to access this page.", flash[:alert]
   end
 
-  test "should get index" do
-    get "index"
-    assert_response :success
-    assert_equal 2, assigns(:journals).size
-  end
-
   test "should get show" do
-    get "show", :id => @journal.slug
+    get "show", :id => @article
     assert_response :success
-    assert_not_nil assigns(:journal)
+    assert_not_nil assigns(:article)
   end
 
   # Test editor access actions w neg controls
-
 
 
   test "should not get edit" do
