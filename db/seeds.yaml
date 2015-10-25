@@ -301,6 +301,41 @@ companies:
         guideline_id: 10 # full PHI deletion
         implementation: 0
         notes: Aside from order history / usage info
+articles:
+  -
+    title: Global non-linear effect of temperature on economic production
+    journal_id: 0
+    company_id: 1
+    summary_url: http://www.nature.com/nature/journal/vaop/ncurrent/full/nature15725.html
+  -
+    title: A Creatine-Driven Substrate Cycle Enhances Energy Expenditure and Thermogenesis in Beige Fat
+    journal_id: 2
+    company_id: 1
+    summary_url: http://www.cell.com/cell/abstract/S0092-8674(15)01197-6
+    download_url: http://www.cell.com/cell/pdf/S0092-8674(15)01197-6.pdf
+  -
+    title: Peer-Review Fraud — Hacking the Scientific Publication Process
+    journal_id: 1
+    company_id: 2
+    summary_url: http://www.nejm.org/doi/full/10.1056/NEJMp1512330
+    download_url: http://www.nejm.org/doi/pdf/10.1056/NEJMp1512330
+journals:
+  - 
+    name: nature
+    url: http://www.nature.com/
+    impact_factor: 42.35
+  - 
+    name: new england journal of medicine
+    url: http://www.nejm.org/
+    impact_factor: 54.42
+  - 
+    name: cell
+    url: http://www.cell.com/
+    impact_factor: 33.116
+  - 
+    name: science
+    url: http://www.sciencemag.org/
+    impact_factor: 31.47
 badges:
   -
     name: Research

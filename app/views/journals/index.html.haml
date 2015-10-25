@@ -1,0 +1,25 @@
+.container
+  .page-header
+    %h1 Journals
+    %p Browse Journals
+    - if can? :create, Journal
+      =link_to("New", new_journal_path, {class: 'btn btn-xs btn-info object_action'})
+
+  %table.table
+    %tr.info
+      %th Name
+      %th Impact Factor
+      - if (can? :edit, Journal) || (can? :delete, Journal)
+        %th Actions
+    - @journals.each do |j|
+      %tr
+        %td
+          = link_to j.name, j
+        %td
+          = j.impact_factor
+        - if (can? :edit, Journal) || (can? :delete, Journal)
+          %td.actions.btn-group.btn-group-xs.btn-group-link
+            - if can? :edit, Journal
+              =link_to("Edit", edit_journal_path(c), {class: "btn btn-xs btn-info"})
+            - if can? :delete, Journal
+              =link_to("Delete", journal_path(c), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: 'Are you sure?'})

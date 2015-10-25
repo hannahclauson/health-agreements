@@ -18,7 +18,9 @@ class Ability
       Practice,
       Guideline,
       Badge,
-      BadgePractice
+      BadgePractice,
+      Journal,
+      Article
     ]
 
     can :view, site_objects

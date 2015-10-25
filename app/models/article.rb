@@ -8,5 +8,4 @@ class Article < ActiveRecord::Base
 
   validates :download_url, format: {with: URI.regexp }, if: Proc.new {|a| a.download_url.present?}
 
-  validates :impact_factor, presence: true
 end

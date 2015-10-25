@@ -34,6 +34,14 @@ data['companies'].each do |c|
   Company.create(c).save!
 end
 
+data['journals'].each do |j|
+  Journal.create(j).save!
+end
+
+data['articles'].each do |a|
+  Article.create(a).save!
+end
+
 # Create Admin
 
 admin = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|

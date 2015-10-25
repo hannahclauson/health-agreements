@@ -1,0 +1,22 @@
+= content_for :head do
+  %title= "Journal >> #{@journal.name}"
+
+.container
+  .page-header
+    %h1="Journal >> #{@journal.name}"
+    - if can? :delete, Journal
+      =link_to("Delete", journal_path(@journal), class: 'btn btn-xs btn-danger object_action', method: :delete)
+    - if can? :edit, Journal
+      =link_to("Edit", edit_journal_path(@journal), class: 'btn btn-xs btn-info object_action')
+
+  .page-body
+    %a{href: @journal.url} Link to Website
+
+    .panel.panel-primary
+      .panel-heading
+        %h2 Articles
+      .panel-body
+        %p
+          The following is a list of articles under this publication using your health data.
+
+      = render 'articles/panel_list'
