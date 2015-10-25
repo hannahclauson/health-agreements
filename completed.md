@@ -232,3 +232,8 @@ x   - practice name
 x   - practice name & impl
 x   - practice impl neg
 x   - badge name
+X- Make production ready (##est 1 day)
+X  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
+X   - proper error handling --- new relic
+X - add GA
+X  - do DB dump / restore (make sure works w minimally new data)

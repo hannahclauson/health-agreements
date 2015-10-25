@@ -1,8 +1,3 @@
-X- Make production ready (##est 1 day)
-X  - add ToS - IANAL / etc - for information purposes ONLY / starting point not legal advice
-X   - proper error handling --- new relic
-X - add GA
-  - do DB dump / restore (make sure works w minimally new data)
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
   - and add weighted impact scores to company
   - maybe different badge for active / impactful research?
