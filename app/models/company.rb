@@ -1,8 +1,12 @@
 class Company < ActiveRecord::Base
   has_many :practices, dependent: :destroy
   accepts_nested_attributes_for :practices
+
   has_many :badge_awards, dependent: :destroy
   has_many :badges, through: :badge_awards
+
+  has_many :articles, dependent: :destroy
+  accepts_nested_attributes_for :articles
 
   before_save :generate_slug
 

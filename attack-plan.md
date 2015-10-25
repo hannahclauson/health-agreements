@@ -1,16 +1,17 @@
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
-  - and add weighted impact scores to company
-  - maybe different badge for active / impactful research?
+  - update company model -- articles / impact factor
+  - update company view
+    - add article form
+    - update permissions
+    - add tests
+      - for permissions
+      - for impact factor
+      - for impact factor recalc edge cases
   - Sort search by impact factor
 - Company comparison view (##est 0.5 days)
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
-X- Data Entry Phase II (##est 1 day)
-X  - another few dozen companies
-X  - refine existing data / review
-X  - refine badges (definitions / new ones / etc)
- - enter on prod DB / site
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
@@ -29,6 +30,7 @@ X  - refine badges (definitions / new ones / etc)
   - include test company (maybe this site itself) to validate change detection
   - paginate company index
   - include public sector data sources? data.gov
+  - enter on prod DB / site
 - Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
   - have mechanism for high fidelity DB backup / routinely do this
@@ -80,6 +82,7 @@ x  - buy domain / setup DNS
   - Some have many (23andme / etc)
   - Probably enter ~ a few hundred articles
   - Update homepage callout for companies w articles / articles index page
+  - maybe different badge for active / impactful research?
 - Pre-Launch (##est 1/2 day)
   - audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
   - make sure errors are handled properly

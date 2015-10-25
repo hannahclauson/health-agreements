@@ -237,3 +237,7 @@ X  - add ToS - IANAL / etc - for information purposes ONLY / starting point not 
 X   - proper error handling --- new relic
 X - add GA
 X  - do DB dump / restore (make sure works w minimally new data)
+X- Data Entry Phase II (##est 1 day)
+X  - another few dozen companies
+X  - refine existing data / review
+X  - refine badges (definitions / new ones / etc)

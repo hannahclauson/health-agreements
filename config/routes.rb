@@ -23,7 +23,10 @@ Rails.application.routes.draw do
     get :autocomplete_guideline_name, :on => :collection
     get :autocomplete_practice_implementation, :on => :collection
     resources :practices
+    resources :articles
   end
+
+  resources :journals
 
   get '/autocomplete/implementations', to: 'practices#autocomplete_implementations'
 

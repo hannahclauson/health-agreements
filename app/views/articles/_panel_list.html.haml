@@ -1,0 +1,32 @@
+.panel.panel-primary
+  .panel-heading
+    %h2 Articles
+  .panel-body
+    %p
+      The following is a list of articles published using data from #{@company.name}. Click on an article to learn more.
+  %table.table
+    %tr.info
+      %th Journal
+      %th Title
+      %th View
+      %th Download
+      - if (can? :show, Article) || (can? :edit, Article) || (can? :delete, Article)
+        %th Actions
+    - @company.articles.each do |a|
+      %tr
+        %td= a.journal.name
+        %td= a.title
+        %td
+          %a{href: a.summary_url}="View on #{a.journal.name}"
+        %td
+          - if a.download_url.nil?
+            "Not Available"
+          - else
+            %a{href: a.download_url}="Download"
+        %td.actions
+          - if can? :show, Article
+            = link_to('Show', polymorphic_path([@company,a]), {class: 'btn btn-xs btn-info'})
+          - if can? :edit, Article
+            = link_to('Edit', edit_polymorphic_path([@company,a]), {class: 'btn btn-xs btn-info'})
+          - if can? :delete, Article
+            = link_to('Delete', polymorphic_path([@company,a]), class: 'btn btn-xs btn-danger', method: :delete)
