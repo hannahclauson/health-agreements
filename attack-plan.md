@@ -1,13 +1,26 @@
 - Add model / list of Articles/Journals where company research is published (##est 1.5 days)
-  - update company model -- articles / impact factor
+  - add journal views/actions:
+    - index
+    - show
+    - edit / update
+    - new / create
+    - destroy
+    - tests for these + permissions
+    - add basic seeds
   - update company view
     - add article form
+    - support:
+      - edit / update
+      - create
+      - destroy
     - update permissions
     - add tests
       - for permissions
+    - add basic seeds
+  - update company model -- articles / impact factor
+  - Sort search by impact factor, test:
       - for impact factor
       - for impact factor recalc edge cases
-  - Sort search by impact factor
 - Company comparison view (##est 0.5 days)
 - Make mobile version (##est 2 days)
   - webkit
@@ -33,15 +46,13 @@
   - enter on prod DB / site
 - Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
-  - have mechanism for high fidelity DB backup / routinely do this
+x  - have mechanism for high fidelity DB backup / routinely do this
 x  - decide on a name
 x  - buy domain / setup DNS
   - estimate monthly costs
   - add to my contracting firm?
   - bugs
     - vertical style gaps on homepage
-  - update mailer
-    - setup company name / etc
 == Milestone: Soft Launch (v 1.0)
 - Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
@@ -62,6 +73,8 @@ x  - buy domain / setup DNS
 - Setup Notifiers (##est 1 day)
   - for company updates
   - for new articles
+  - update mailer
+    - setup company name / etc
 - Track users (##est 1 day)
   - add mixpanel
     - interesting / can track sep actions
