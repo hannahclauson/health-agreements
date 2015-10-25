@@ -13,7 +13,7 @@ x    - add basic seeds
       - edit / update
       - create
       - destroy
-    - update permissions
+x    - update permissions
     - add tests
       - for permissions
 x    - add basic seeds
@@ -88,6 +88,7 @@ x  - buy domain / setup DNS
 - Data Entry Phase IV (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
+  - paginate company index
 - Work w EFF / restructure badges (##est 5 days)
   - rework badges / migrate / etc
 - Data Entry Phase V - Articles (##est 1 day)
@@ -96,6 +97,7 @@ x  - buy domain / setup DNS
   - Probably enter ~ a few hundred articles
   - Update homepage callout for companies w articles / articles index page
   - maybe different badge for active / impactful research?
+  - paginate journals / articles as needed (prob need to make articles index subview of comp)
 - Pre-Launch (##est 1/2 day)
   - audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
   - make sure errors are handled properly
