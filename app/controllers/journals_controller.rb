@@ -24,6 +24,20 @@ class JournalsController < ApplicationController
     end
   end
 
+  def edit
+    current_journal
+  end
+
+  def update
+    current_journal
+
+    if @journal.update(journal_params)
+      redirect_to @journal
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     current_journal
     @journal.destroy
