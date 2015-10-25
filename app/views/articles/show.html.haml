@@ -1,0 +1,18 @@
+= content_for :head do
+  %title= "Article >> #{@article.title}"
+
+.container
+  .page-header
+    %h1="Article >> #{@article.title}"
+    - if can? :delete, Article
+      =link_to("Delete", article_path(@article), class: 'btn btn-xs btn-danger object_action', method: :delete)
+    - if can? :edit, Article
+      =link_to("Edit", edit_article_path(@article), class: 'btn btn-xs btn-info object_action')
+
+  .page-body
+    %p
+      Publication: #{@article.journal.name}
+    %div
+      %a{href: @article.summary_url} Summary
+    %div
+      %a{href: @article.download_url} Download

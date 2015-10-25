@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     resources :articles
   end
 
-  resources :journals
+  resources :journals do
+    resources :articles
+  end
 
   get '/autocomplete/implementations', to: 'practices#autocomplete_implementations'
 
