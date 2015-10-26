@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :journal
+  belongs_to :company
 
   validates :title, presence: true, length: {minimum: 10}, uniqueness: true
 
