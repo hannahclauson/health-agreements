@@ -7,13 +7,13 @@ x    - new / create
 x    - destroy
 x    - tests for these + permissions
 x    - add basic seeds
-  - add article views/actions:
-    - index
-    - show
-    - edit / update
-    - new / create
-    - destroy
-    - tests for these + permissions
+x  - add article views/actions:
+x    - index
+x    - show
+x    - edit / update
+x    - new / create
+x    - destroy
+x    - tests for these + permissions
 x    - add basic seeds
 
   - update company model -- articles / impact factor

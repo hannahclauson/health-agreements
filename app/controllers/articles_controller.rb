@@ -10,23 +10,21 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def new
-    authorize! :new, Article
-    @article = Article.new
-  end
-
   def create
+    current_company
+
     authorize! :create, Article
-    @article = Article.create(article_params)
+    @article = @company.articles.create(article_params)
 
     if @article.save
-      redirect_to company_article_path(@article.company, @article)
+      redirect_to company_path(@article.company)
     else
-      render 'new'
+      render 'edit'
     end
   end
 
   def edit
+    current_company
     current_article
   end
 
@@ -41,10 +39,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    current_company
     current_article
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to company_path(@company)
   end
 
 
@@ -52,9 +51,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(
-                                    :name,
-                                    :impact_factor,
-                                    :url
+                                    :title,
+                                    :summary_url,
+                                    :download_url
                                     )
   end
 

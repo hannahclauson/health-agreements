@@ -5,8 +5,9 @@ class ArticlesControllerTest < ActionController::TestCase
 
   setup do
     @company = create(:company)
-    @article = create(:article, company: @company)
-    @other_article = create(:article)
+    @journal = create(:journal)
+    @article = create(:article, company: @company, journal: @journal)
+    @other_article = create(:article, company: @company, journal: @journal)
 
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -55,27 +56,16 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should update" do
     sign_in @editor
-    post :update, company_id: @article.company, id: @article, article: {title: 'acmezzzz'}
-    assert_redirected_to article_path(assigns[:article])
-    assert_equal "acmezzzz", assigns(:article).title
-    assert_equal @article.url, assigns(:article).url
-  end
-
-  test "should not get new" do
-    access_denied do
-      get :new
-    end
-  end
-
-  test "should get new" do
-    sign_in @editor
-    get :new
-    assert_response :success
+    new_title = 'acmezzzz kljhsgkjhdsfgkljhdfgkjhdfkdfgldsfglkhdfgkjdsfg'
+    post :update, company_id: @article.company, id: @article, article: {title: new_title}
+    assert_redirected_to company_article_path(@article.company, assigns[:article])
+    assert_equal new_title, assigns(:article).title
+    assert_equal @article.summary_url, assigns(:article).summary_url
   end
 
   test "should not create" do
     access_denied do
-      post :create, article: {
+      post :create, company_id: @company, article: {
         title: 'acme corporation LLC',
         summary_url: 'http://acme.com',
         download_url: 'http://acme.com/papers/1.pdf'
@@ -85,8 +75,13 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should create" do
     sign_in @editor
-    post :create, article: {title: 'acme corporation LLC', summary_url: 'http://acme.com'}
-    assert_redirected_to article_path(assigns[:article])
+    post :create, company_id: @company, article: {
+      title: 'acme corporation LLC',
+      summary_url: 'http://acme.com',
+      journal: @journal,
+      company: @company
+    }
+    assert_redirected_to company_path(@company)
   end
 
   test "should not delete (anon user)" do
@@ -113,14 +108,14 @@ class ArticlesControllerTest < ActionController::TestCase
   test "should delete" do
     sign_in @admin
     count = Article.all.size
-    request.env["HTTP_REFERER"] = articles_path
+    request.env["HTTP_REFERER"] = company_path(@company)
 
     delete :destroy, company_id: @article.company, id: @other_article
 
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
 
-    assert_redirected_to articles_path
+    assert_redirected_to company_path(@company)
     assert_equal count-1, Article.all.size
   end
 
