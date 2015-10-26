@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
 
   def show
+    current_company
     current_article
   end
 
   def index
+    current_company
     @articles = Article.all
   end
 
@@ -54,6 +56,11 @@ class ArticlesController < ApplicationController
                                     :impact_factor,
                                     :url
                                     )
+  end
+
+  def current_company
+    @company ||= Company.where(slug: params[:company_id]).first
+    authorize! action_name.to_sym, @company
   end
 
   def current_article
