@@ -16,7 +16,7 @@ x    - destroy
 x    - tests for these + permissions
 x    - add basic seeds
 x     - model tests
-  - update company model -- articles / impact factor
+x  - update company model -- articles / impact factor
   - Sort search by impact factor, test:
       - for impact factor
       - for impact factor recalc edge cases

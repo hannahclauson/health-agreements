@@ -11,6 +11,7 @@
     %tr.info
       %th Name
       %th Badges
+      %th Impact Factor
       - if (can? :edit, Company) || (can? :delete, Company)
         %th Actions
     - @companies.each do |c|
@@ -23,6 +24,7 @@
               - c.badges.each do |b|
                 %td.badge-column
                   = render partial: "shared/badge", object: b, locals: {size: 'small'}
+        %td= c.impact_factor
         - if (can? :edit, Company) || (can? :delete, Company)
           %td.actions.btn-group.btn-group-xs.btn-group-link
             - if can? :edit, Company
