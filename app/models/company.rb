@@ -8,6 +8,8 @@ class Company < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   accepts_nested_attributes_for :articles
 
+  has_many :journals, through: :articles
+
   before_save :generate_slug
 
   validates :name, presence: true, length: {minimum: 3}, uniqueness: true
@@ -33,7 +35,7 @@ class Company < ActiveRecord::Base
   }
 
   def update_impact_factor
-    impact_factors = Article.where(company_id: self.id).pluck(:impact_factor)
+    impact_factors = self.journals.pluck(:impact_factor)
 
     if impact_factors.size == 0
       self.impact_factor = nil
