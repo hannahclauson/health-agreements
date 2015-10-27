@@ -13,6 +13,8 @@
     .panel-body
       %p= @company.description
 
+  %h3="Impact Factor: #{@company.impact_factor.nil? ? 'n/a' : @company.impact_factor}"
+
   %h3 Badges:
   %ul.list-group
     - @company.badges.each do |b|

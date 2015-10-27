@@ -9,7 +9,6 @@ class Badge < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 
-
   def check(company)
     badge_practices.all? do |badge_practice|
       company.practices.where(:guideline_id => badge_practice.guideline_id,

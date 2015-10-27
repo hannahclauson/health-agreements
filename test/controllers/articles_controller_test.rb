@@ -8,7 +8,7 @@ class ArticlesControllerTest < ActionController::TestCase
     @journal = create(:journal, impact_factor: 10)
     @other_journal = create(:journal, impact_factor: 20)
     @article = create(:article, company: @company, journal: @journal)
-    @other_article = create(:article, company: @company, journal: @journal)
+    @other_article = create(:article, company: @company, journal: @other_journal)
 
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -68,11 +68,13 @@ class ArticlesControllerTest < ActionController::TestCase
     sign_in @editor
 
     # should be updated in case the journal changes
-    assert_equal 10, @company.impact_factor
 
-    post :update, company_id: @article.company, id: @article, article: { journal: @other_journal}
+    assert_equal 15, @company.impact_factor
+    post :update, company_id: @article.company, id: @article, article: { journal_id: @other_journal.id}
+
     assert_redirected_to company_article_path(@article.company, assigns[:article])
-    assert_equal 20, @company.impact_factor
+    c = Company.find(@company.id)
+    assert_equal 20, c.impact_factor
   end
 
   test "should not create" do
@@ -149,17 +151,16 @@ class ArticlesControllerTest < ActionController::TestCase
     count = Article.all.size
     request.env["HTTP_REFERER"] = company_path(@company)
 
-    assert_equal 10, @company.impact_factor
-
-    delete :destroy, company_id: @article.company, id: @other_article
-
+    assert_equal 15, @company.impact_factor
+    delete :destroy, company_id: @company, id: @other_article
     assert_equal true, @admin.admin?
     assert_equal nil, flash[:alert]
 
     assert_redirected_to company_path(@company)
     assert_equal count-1, Article.all.size
 
-    assert_equal nil, @company.impact_factor
+    c = Company.find(@company.id)
+    assert_equal 10, c.impact_factor
   end
 
 

@@ -9,4 +9,12 @@ class Article < ActiveRecord::Base
 
   validates :download_url, format: {with: URI.regexp }, if: Proc.new {|a| a.download_url.present?}
 
+  after_create :update_company_impact_factor
+  after_update :update_company_impact_factor
+  after_destroy :update_company_impact_factor
+
+  def update_company_impact_factor
+    self.company.update_impact_factor
+  end
+
 end

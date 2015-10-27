@@ -10,8 +10,8 @@
       =link_to("Edit", edit_article_path(@article), class: 'btn btn-xs btn-info object_action')
 
   .page-body
-    %p
-      Publication: #{@article.journal.name}
+    %a
+      =link_to "Publication: #{@article.journal.name}", @article.journal
     %div
       %a{href: @article.summary_url} Summary
     %div

@@ -9,6 +9,15 @@ class Journal < ActiveRecord::Base
   validates :url, format: {with: URI.regexp }, if: Proc.new {|a| a.url.present?}
   validates :impact_factor, presence: true
 
+  after_update :update_company_impact_factor
+  after_destroy :update_company_impact_factor
+
+  def update_company_impact_factor
+    self.companies.each do |c|
+      c.update_impact_factor
+    end
+  end
+
   def generate_slug
     self.slug = name.to_slug.normalize.to_s
   end

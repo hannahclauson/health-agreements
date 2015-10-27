@@ -9,6 +9,8 @@
     - if can? :edit, Journal
       =link_to("Edit", edit_journal_path(@journal), class: 'btn btn-xs btn-info object_action')
 
+  %h3="Impact Factor: #{@journal.impact_factor.nil? ? 'n/a' : @journal.impact_factor}"
+
   .page-body
     %a{href: @journal.url} Link to Website
 

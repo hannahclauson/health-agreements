@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
     @article = @company.articles.create(article_params)
 
     if @article.save
-      @company.update_impact_factor
       redirect_to company_path(@article.company)
     else
       render 'edit'
@@ -34,7 +33,6 @@ class ArticlesController < ApplicationController
     current_article
 
     if @article.update(article_params)
-      @company.update_impact_factor
       redirect_to company_article_path(@article.company, @article)
     else
       render 'edit'
@@ -45,7 +43,6 @@ class ArticlesController < ApplicationController
     current_company
     current_article
     @article.destroy
-    @company.update_impact_factor
     redirect_to company_path(@company)
   end
 
@@ -56,7 +53,8 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
                                     :title,
                                     :summary_url,
-                                    :download_url
+                                    :download_url,
+                                    :journal_id
                                     )
   end
 

@@ -39,14 +39,13 @@ class Company < ActiveRecord::Base
 
     if impact_factors.size == 0
       self.impact_factor = nil
+      return
     end
-
-    puts "Impact factors:"
-    puts impact_factors
 
     sum = 0
     impact_factors.each {|a| sum += a}
     self.impact_factor = sum / impact_factors.size
+    self.save!
   end
 
   def generate_slug
