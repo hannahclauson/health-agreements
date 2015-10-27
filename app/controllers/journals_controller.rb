@@ -32,6 +32,7 @@ class JournalsController < ApplicationController
     current_journal
 
     if @journal.update(journal_params)
+      @journal.companies.each do {|c| c.update_impact_factor}
       redirect_to @journal
     else
       render 'edit'
@@ -40,8 +41,9 @@ class JournalsController < ApplicationController
 
   def destroy
     current_journal
+    companies = @journal.companies
     @journal.destroy
-
+    companies.each do {|c| c.update_impact_factor}
     redirect_to journals_path
   end
 

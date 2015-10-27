@@ -5,7 +5,8 @@ class ArticlesControllerTest < ActionController::TestCase
 
   setup do
     @company = create(:company)
-    @journal = create(:journal)
+    @journal = create(:journal, impact_factor: 10)
+    @other_journal = create(:journal, impact_factor: 20)
     @article = create(:article, company: @company, journal: @journal)
     @other_article = create(:article, company: @company, journal: @journal)
 
@@ -63,6 +64,17 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_equal @article.summary_url, assigns(:article).summary_url
   end
 
+  test "should company impact factor updated on article update" do
+    sign_in @editor
+
+    # should be updated in case the journal changes
+    assert_equal 10, @company.impact_factor
+
+    post :update, company_id: @article.company, id: @article, article: { journal: @other_journal}
+    assert_redirected_to company_article_path(@article.company, assigns[:article])
+    assert_equal 20, @company.impact_factor
+  end
+
   test "should not create" do
     access_denied do
       post :create, company_id: @company, article: {
@@ -82,6 +94,19 @@ class ArticlesControllerTest < ActionController::TestCase
       company: @company
     }
     assert_redirected_to company_path(@company)
+  end
+
+  test "should company impact factor updated on article create" do
+    sign_in @editor
+    ifactor = @company.impact_factor
+    post :create, company_id: @company, article: {
+      title: 'acme corporation LLC',
+      summary_url: 'http://acme.com',
+      journal: @other_journal,
+      company: @company
+    }
+    assert_redirected_to company_path(@company)
+    assert_equal 15, @company.impact_factor
   end
 
   test "should not delete (anon user)" do
@@ -117,6 +142,24 @@ class ArticlesControllerTest < ActionController::TestCase
 
     assert_redirected_to company_path(@company)
     assert_equal count-1, Article.all.size
+  end
+
+  test "should company impact factor updated on article delete" do
+    sign_in @admin
+    count = Article.all.size
+    request.env["HTTP_REFERER"] = company_path(@company)
+
+    assert_equal 10, @company.impact_factor
+
+    delete :destroy, company_id: @article.company, id: @other_article
+
+    assert_equal true, @admin.admin?
+    assert_equal nil, flash[:alert]
+
+    assert_redirected_to company_path(@company)
+    assert_equal count-1, Article.all.size
+
+    assert_equal nil, @company.impact_factor
   end
 
 

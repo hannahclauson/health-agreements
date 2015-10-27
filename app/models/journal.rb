@@ -1,5 +1,6 @@
 class Journal < ActiveRecord::Base
   has_many :articles, dependent: :destroy
+  has_many :companies, through: :articles
 
   before_save :generate_slug
 

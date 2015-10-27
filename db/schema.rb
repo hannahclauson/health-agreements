@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.string   "slug"
     t.text     "description"
     t.string   "url"
+    t.float    "impact_factor"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

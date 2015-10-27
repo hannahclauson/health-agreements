@@ -32,6 +32,20 @@ class Company < ActiveRecord::Base
     includes(:practices).where("practices.guideline_id = ?", guideline_id).where("practices.implementation = ?", implementation).references(:practices)
   }
 
+  def update_impact_factor
+    impact_factors = Article.where(company_id: self.id).pluck(:impact_factor)
+
+    if impact_factors.size == 0
+      self.impact_factor = nil
+    end
+
+    puts "Impact factors:"
+    puts impact_factors
+
+    sum = 0
+    impact_factors.each {|a| sum += a}
+    self.impact_factor = sum / impact_factors.size
+  end
 
   def generate_slug
     self.slug = name.to_slug.normalize.to_s

@@ -5,7 +5,10 @@ class JournalsControllerTest < ActionController::TestCase
 
   setup do
     @journal = create(:journal)
-    @other_journal = create(:journal)
+    @other_journal = create(:journal, impact_factor: 7)
+
+    @company = create(:company)
+    a = create(:article, company: @company, journal: @other_journal)
 
     @editor = create(:user)
     @admin = create(:user, :admin)
@@ -60,6 +63,14 @@ class JournalsControllerTest < ActionController::TestCase
     assert_redirected_to journal_path(assigns[:journal])
     assert_equal "acmezzzz", assigns(:journal).name
     assert_equal @journal.url, assigns(:journal).url
+  end
+
+  test "should company impact factor updated on journal  update" do
+    sign_in @editor
+    assert_equal 10, @company.impact_factor
+    post :update, id: @journal, journal: {impact_factor: 25}
+    assert_redirected_to journal_path(assigns[:journal])
+    assert_equal 25, @company.impact_factor
   end
 
   test "should not get new" do
@@ -119,6 +130,24 @@ class JournalsControllerTest < ActionController::TestCase
 
     assert_redirected_to journals_path
     assert_equal count-1, Journal.all.size
+  end
+
+  test "should company impact factor updated on journal delete" do
+    sign_in @admin
+    count = Journal.all.size
+    request.env["HTTP_REFERER"] = journals_path
+
+    assert_equal 7, @company.impact_factor
+
+    delete :destroy, id: @other_journal
+
+    assert_equal true, @admin.admin?
+    assert_equal nil, flash[:alert]
+
+    assert_redirected_to journals_path
+    assert_equal count-1, Journal.all.size
+
+    assert_equal nil, @company.impact_factor
   end
 
 end

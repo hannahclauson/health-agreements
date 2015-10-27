@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     @article = @company.articles.create(article_params)
 
     if @article.save
+      @company.update_impact_factor
       redirect_to company_path(@article.company)
     else
       render 'edit'
@@ -29,9 +30,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    current_company
     current_article
 
     if @article.update(article_params)
+      @company.update_impact_factor
       redirect_to company_article_path(@article.company, @article)
     else
       render 'edit'
@@ -42,7 +45,7 @@ class ArticlesController < ApplicationController
     current_company
     current_article
     @article.destroy
-
+    @company.update_impact_factor
     redirect_to company_path(@company)
   end
 
