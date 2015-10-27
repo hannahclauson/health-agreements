@@ -39,6 +39,7 @@ class Company < ActiveRecord::Base
 
     if impact_factors.size == 0
       self.impact_factor = nil
+      self.save!
       return
     end
 

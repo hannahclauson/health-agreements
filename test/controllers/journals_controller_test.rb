@@ -4,7 +4,7 @@ class JournalsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @journal = create(:journal)
+    @journal = create(:journal, impact_factor: 3)
     @other_journal = create(:journal, impact_factor: 7)
 
     @company = create(:company)
@@ -67,10 +67,11 @@ class JournalsControllerTest < ActionController::TestCase
 
   test "should company impact factor updated on journal  update" do
     sign_in @editor
-    assert_equal 10, @company.impact_factor
-    post :update, id: @journal, journal: {impact_factor: 25}
+    assert_equal 7, @company.impact_factor
+    post :update, id: @other_journal, journal: {impact_factor: 25}
     assert_redirected_to journal_path(assigns[:journal])
-    assert_equal 25, @company.impact_factor
+    c = Company.find(@company.id)
+    assert_equal 25, c.impact_factor
   end
 
   test "should not get new" do
@@ -147,7 +148,8 @@ class JournalsControllerTest < ActionController::TestCase
     assert_redirected_to journals_path
     assert_equal count-1, Journal.all.size
 
-    assert_equal nil, @company.impact_factor
+    c = Company.find(@company.id)
+    assert_equal nil, c.impact_factor
   end
 
 end
