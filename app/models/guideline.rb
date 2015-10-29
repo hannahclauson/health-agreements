@@ -7,4 +7,8 @@ class Guideline < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 10}
   validates :true_description, presence: true, length: {minimum: 10}
   validates :false_description, presence: true, length: {minimum: 10}
+
+  def normalized_name
+    self.name.split(" ").collect {|w| w.capitalize}.join(" ")
+  end
 end

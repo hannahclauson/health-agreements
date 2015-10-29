@@ -1,6 +1,9 @@
 body.phone {
 
-  .menu.button {
+
+  // Header
+
+  header .menu.button {
     color: white;
     border: 1px solid white;
     border-radius: 2px;
@@ -10,7 +13,18 @@ body.phone {
     float: right;
     right: 10px;
   }
-  
 
+  // General Layout Overrides
+
+  .container {
+    position: relative;
+    top: -40px;
+  }
+  
+  h1 {
+    font-size: 16pt;
+  }
+
+  // would be nice to get rid of padding on L/R on mobile -- inner container padding
         
 }

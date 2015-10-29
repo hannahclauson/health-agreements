@@ -1,9 +1,9 @@
 = content_for :head do
-  %title="Guideline for '#{@guideline.name}'"
+  %title="#{@guideline.normalized_name} Guideline"
 
 .container
   .page-header
-    %h1="Guideline for '#{@guideline.name}'"
+    %h1="#{@guideline.normalized_name} Guideline"
     - if access_to_action(:delete)
       =link_to("Delete", guideline_path(@guideline), class: 'btn btn-xs btn-danger object_action', method: :delete)
     - if access_to_action(:edit)
@@ -11,7 +11,12 @@
 
 
 
-  %p= @guideline.description
+  .panel.panel-default
+    .panel-heading Description
+    .panel-body
+      = @guideline.description
+
+  %p The following is a list of ways to implement this guideline.
   
   =render 'table'
   

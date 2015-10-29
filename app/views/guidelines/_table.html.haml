@@ -1,10 +1,19 @@
 %table.table
   %tr.info
+    %th Implementation
     %th Criteria
-    %th Result
   %tr
+    %td In order to 'follow' ... 
     %td= @guideline.true_description
-    %td ... in order to 'follow' this guideline
   %tr
+    %td In order to 'not follow' ...
     %td= @guideline.false_description
-    %td ... in order to 'not follow' this guideline
+  %tr
+    %td In order to have an 'n/a' implementation ...
+    %td This guideline MUST NOT apply to the company's service.
+  %tr
+    %td In order to have an 'ambiguous' implementation ...
+    %td The company MUST provide SOME TERMS regarding this guideline, but those TERMS MUST be ambiguous or incomplete
+  %tr
+    %td In order to have an 'unknown' implementation ...
+    %td The company MUST NOT list ANY TERMS regarding this practice in their agreements
