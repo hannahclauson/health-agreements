@@ -310,6 +310,16 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal count-1, Company.all.size
   end
 
+  # Test for comparison view
+
+  test "should not compare to self" do
+    get :compare, :a => @company.slug, :b => @company.slug
+    assert_redirected_to @company
+    assert_equal "Cannot compare to self", flash[:alert]
+  end
+
+  test "should see comparison" do
+  end
 
   # Controls for roles
 
