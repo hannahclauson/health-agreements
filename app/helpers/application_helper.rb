@@ -2,6 +2,10 @@ require 'access_levels'
 
 module ApplicationHelper
 
+  def variant
+    request.variant
+  end
+
   def active_page
     self.page_class.split(" ").join("_").to_sym
   end
