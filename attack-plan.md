@@ -20,10 +20,10 @@ x  - update company model -- articles / impact factor
 x  - Sort search by impact factor, test:
 x      - for impact factor
 x      - for impact factor recalc edge cases
-- Company comparison view (##est 0.5 days)
-  - add action
-  - add view
-  - add test
+x- Company comparison view (##est 0.5 days)
+x  - add action
+x  - add view
+x  - add test
 - Make mobile version (##est 2 days)
   - webkit
   - no IE
