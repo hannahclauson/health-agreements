@@ -8,7 +8,7 @@
 
   %h3="Impact Factor: #{@a.impact_factor.nil? ? 'n/a' : @a.impact_factor}"
   %table
-    %tr
+    %tr.info
       %th= @a.name
       %th= @b.name
     %tr
@@ -17,25 +17,26 @@
 
   %h3 Badges:
   %table
-    %tr
-      %th= "#{@a.name} Badges"
-      %th= "#{@b.name} Badges"
+    %tr.info
+      %th Badge
+      %th= @a.name
+      %th= @b.name
     - @all_badge_names.each do |name|
+      - b = @a_badges[name].nil? ? @b_badges[name] : @a_badges[name]
       %tr
+        %td          
+          %a.badge-row{:href => badge_path(b)}
+            = render partial: "shared/badge", object: b, locals: {size: ''}
+            %span.name
+              %h4= name
         %td
           - if @a_badges[name].nil?
-            "-n/a-"
+            %span.glyphicon.glyphicon-remove
           - else
-            %a.badge-row{:href => badge_path(@a_badges[name])}
-              = render partial: "shared/badge", object: @a_badges[name], locals: {size: ''}
-              %span.name
-                %h4= name
+            %span.glyphicon.glyphicon-ok
         %td
           - if @b_badges[name].nil?
-            "-n/a-"
+            %span.glyphicon.glyphicon-remove
           - else
-            %a.badge-row{:href => badge_path(@b_badges[name])}
-              = render partial: "shared/badge", object: @b_badges[name], locals: {size: ''}
-              %span.name
-                %h4= name
+            %span.glyphicon.glyphicon-ok
 
