@@ -25,8 +25,8 @@ x  - add action
 x  - add view
 x  - add test
 - Make mobile version (##est 2 days)
-  - webkit
-  - no IE
+x  - detect mobile (webkit / and / win)
+x  - add viewport
   - dont support editors on mobile (modifying objs)
   - pages types:
     - menu UI

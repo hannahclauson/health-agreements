@@ -6,6 +6,18 @@ module ApplicationHelper
     request.variant
   end
 
+  def mobile?
+    variant.include? :phone
+  end
+
+  def only_mobile
+    mobile? ? "" : "hidden"
+  end
+
+  def not_mobile
+    mobile? ? "hidden" : ""
+  end
+
   def active_page
     self.page_class.split(" ").join("_").to_sym
   end

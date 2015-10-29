@@ -4,12 +4,13 @@
     .container-fluid
       .navbar-header
         %a.navbar-brand{href: "/"} Health Agreements
-      %ul.navbar-nav.nav
+        %span.menu.button.glyphicon.glyphicon-plus
+      %ul.navbar-nav.nav{class: not_mobile}
         - header_links.each do |name, info|
           - active_attribute = (name == active_page) ? "active" : ""
           %li{class: active_attribute}= link_to info.first, info.last
 
-      %ul.navbar-nav.nav.navbar-right
+      %ul.navbar-nav.nav.navbar-right{class: not_mobile}
         - if !current_user.nil?
           - if current_user.admin?
             %li
