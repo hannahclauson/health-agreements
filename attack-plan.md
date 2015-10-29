@@ -17,9 +17,9 @@ x    - tests for these + permissions
 x    - add basic seeds
 x     - model tests
 x  - update company model -- articles / impact factor
-  - Sort search by impact factor, test:
-      - for impact factor
-      - for impact factor recalc edge cases
+x  - Sort search by impact factor, test:
+x      - for impact factor
+x      - for impact factor recalc edge cases
 - Company comparison view (##est 0.5 days)
   - add action
   - add view
