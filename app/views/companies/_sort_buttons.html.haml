@@ -1,0 +1,3 @@
+.sort_controls{class: (filter.nil? ? "inactive" : filter), name: name}
+  %span.asc{class: filter.nil? ? "" : ((filter == :asc) ? "inactive" : "")}
+  %span.desc{class: filter.nil? ? "" : ((filter == :desc) ? "inactive" : "")}

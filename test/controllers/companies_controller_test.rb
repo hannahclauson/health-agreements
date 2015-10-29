@@ -5,12 +5,18 @@ class CompaniesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
+    @good_journal = create(:journal, impact_factor: 1000)
+    @bad_journal = create(:journal, impact_factor: 1)
 
     @guideline = create(:guideline, name: 'zappa')
     @practice = create(:practice, guideline: @guideline)
-    @company = create(:company, practices: [@practice])
+    @company = create(:company, practices: [@practice], name: "AAAaaaaaa")
 
-    @unique_company = create(:company)
+    @unique_company = create(:company, name: "ZZZZZZZZZZ")
+
+    # For sorting tests
+    @good_article = create(:article, company: @company, journal: @good_journal)
+    @bad_article = create(:article, company: @unique_company, journal: @bad_journal)
 
     # so that most of the search tests dont return a single result and redirect
     p2 = create(:practice, guideline: @guideline)
@@ -38,6 +44,46 @@ class CompaniesControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_not_nil assigns(:companies)
+  end
+
+  test "should get index sorted by impact_factor asc" do
+    get :index, impact_factor_sort: "asc"
+
+    assert_response :success
+    assert_not_nil assigns(:companies)
+
+    # Bcz companies w/o impact factors are appended, I verify by checking the opposite case
+    # in this case -- that the first company is the one w the low impact factor
+    assert_equal @unique_company.impact_factor, assigns[:companies].first.impact_factor
+  end
+
+  test "should get index sorted by impact_factor desc" do
+    get :index, impact_factor_sort: "desc"
+
+    assert_response :success
+    assert_not_nil assigns(:companies)
+
+    # Bcz companies w/o impact factors are appended, I verify by checking the opposite case
+    # in this case -- that the first company is the one w the high impact factor
+    assert_equal @company.impact_factor, assigns[:companies].first.impact_factor
+  end
+
+  test "should get index sorted by name asc" do
+    get :index, name_sort: "asc"
+
+    assert_response :success
+    assert_not_nil assigns(:companies)
+
+    assert_equal @company.name, assigns[:companies].first.name
+  end
+
+  test "should get index sorted by name desc" do
+    get :index, name_sort: "desc"
+
+    assert_response :success
+    assert_not_nil assigns(:companies)
+
+    assert_equal @unique_company.name, assigns[:companies].first.name
   end
 
   test "should show" do
