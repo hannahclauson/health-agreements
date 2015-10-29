@@ -11,7 +11,9 @@
     %tr.info
       %th Name
       %th Badges
-      %th Impact Factor
+      %th 
+        Impact Factor
+        = render "sort_buttons"
       - if (can? :edit, Company) || (can? :delete, Company)
         %th Actions
     - @companies.each do |c|

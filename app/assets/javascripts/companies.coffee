@@ -9,3 +9,10 @@ $ ->
   $(".submit-search").on 'click', (ev) ->
     console.log("clicked submit")
     $("form.search input[type='submit']").click()
+
+  $(".sort_controls > span").on 'click', (ev) ->
+    if $(this).hasClass("inactive")
+      return
+
+    action = $(this).attr("class")
+    window.location = window.location + "&impact_factor_sort=" + action

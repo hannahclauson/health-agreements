@@ -106,3 +106,37 @@ form.search {
   color: red;
   font-weight: bold;
 }
+
+
+// Sort by column (impact factor)
+
+
+$icon-font-path: 'bootstrap/'; // Seems like you need to 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.sort_controls {
+  display: inline-block;
+  margin-left: 10px;
+
+ > span {
+   display: inline-block;
+   height: 20px;
+   width: 20px;
+ }
+
+ .inactive {
+   opacity: 0.5;
+ }
+
+ .asc {
+    @extend .glyphicon;
+    @extend .glyphicon-chevron-up;
+ }
+ .desc {
+   @extend .glyphicon;
+   @extend .glyphicon-chevron-down;
+ }
+
+}
