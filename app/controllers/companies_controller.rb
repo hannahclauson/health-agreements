@@ -58,15 +58,20 @@ class CompaniesController < ApplicationController
       @b_badges[b.name] = b
     end
 
-    puts "a badges:"
-    puts @a_badges
-    puts "b badges:"
-    puts @b_badges
-
     @all_badge_names = [@a_badges.keys, @b_badges.keys].flatten(1).uniq.sort
 
-    puts "all badges:"
-    puts @all_badge_names
+
+    @all_guideline_ids = [@a.guidelines.pluck(:id, :name), @b.guidelines.pluck(:id, :name)].flatten(1).uniq
+
+    @a_practices = {}
+    @a.practices.each do |p|
+      @a_practices[p.guideline.id] = p.implementation_text
+    end
+
+    @b_practices = {}
+    @b.practices.each do |p|
+      @b_practices[p.guideline.id] = p.implementation_text
+    end
 
   end
 

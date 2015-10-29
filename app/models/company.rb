@@ -9,6 +9,7 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :articles
 
   has_many :journals, through: :articles
+  has_many :guidelines, through: :practices
 
   before_save :generate_slug
 

@@ -40,3 +40,14 @@
           - else
             %span.glyphicon.glyphicon-ok
 
+  %h3 Practices:
+  %table
+    %tr.info
+      %th Guideline
+      %th= "#{@a.name} Practice"
+      %th= "#{@b.name} Practice"
+    - @all_guideline_ids.each do |g_id, g_name|
+      %tr
+        %td= g_name
+        %td= @a_practices[g_id].nil? ? "?" : @a_practices[g_id]
+        %td= @b_practices[g_id].nil? ? "?" : @b_practices[g_id]
