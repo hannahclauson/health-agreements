@@ -5,7 +5,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
-    - if request.variant.include? :phone
+    - if variant.include? :phone
       %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %title HealthAgreements
 
