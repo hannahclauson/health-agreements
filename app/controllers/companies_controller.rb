@@ -44,13 +44,17 @@ class CompaniesController < ApplicationController
   def index
     @impact_factor_sort = :desc
 
+    c = []
+
     if params[:impact_factor_sort].present?
       @impact_factor_sort = (params[:impact_factor_sort] == "desc") ? :desc : :asc
+      puts "sort #{@impact_factor_sort}"
+      a = Company.where("impact_factor is not null").order(impact_factor: @impact_factor_sort)
+      b = Company.where("impact_factor is null")
+      c = a + b
+    else
+      c = Company.all.order(:name)
     end
-
-    puts "sort #{@impact_factor_sort}"
-
-    c = Company.all.order(:name, impact_factor: @impact_factor_sort)
 
     @errors = []
 
