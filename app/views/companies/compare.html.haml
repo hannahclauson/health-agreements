@@ -6,48 +6,56 @@
     %h1= "Compare #{@a.name} :: #{@b.name} Practices"
 
 
-  %h3="Impact Factor: #{@a.impact_factor.nil? ? 'n/a' : @a.impact_factor}"
-  %table
-    %tr.info
-      %th= @a.name
-      %th= @b.name
-    %tr
-      %td= @a.impact_factor
-      %td= @b.impact_factor
-
-  %h3 Badges:
-  %table
-    %tr.info
-      %th Badge
-      %th= @a.name
-      %th= @b.name
-    - @all_badge_names.each do |name|
-      - b = @a_badges[name].nil? ? @b_badges[name] : @a_badges[name]
+  .panel.panel-primary
+    .panel-heading
+      %h2 Impact Factor
+    .panel-body        
+    %table.table
+      %tr.info
+        %th= @a.name
+        %th= @b.name
       %tr
-        %td          
-          %a.badge-row{:href => badge_path(b)}
-            = render partial: "shared/badge", object: b, locals: {size: ''}
-            %span.name
-              %h4= name
-        %td
-          - if @a_badges[name].nil?
-            %span.glyphicon.glyphicon-remove
-          - else
-            %span.glyphicon.glyphicon-ok
-        %td
-          - if @b_badges[name].nil?
-            %span.glyphicon.glyphicon-remove
-          - else
-            %span.glyphicon.glyphicon-ok
+        %td= @a.impact_factor
+        %td= @b.impact_factor
 
-  %h3 Practices:
-  %table
-    %tr.info
-      %th Guideline
-      %th= "#{@a.name} Practice"
-      %th= "#{@b.name} Practice"
-    - @all_guideline_ids.each do |g_id, g_name|
-      %tr
-        %td= g_name
-        %td= @a_practices[g_id].nil? ? "?" : @a_practices[g_id]
-        %td= @b_practices[g_id].nil? ? "?" : @b_practices[g_id]
+  .panel.panel-primary
+    .panel-heading
+      %h2 Badges
+    .panel-body
+    %table.table
+      %tr.info
+        %th 
+        %th= @a.name
+        %th= @b.name
+      - @all_badge_names.each do |name|
+        - b = @a_badges[name].nil? ? @b_badges[name] : @a_badges[name]
+        %tr
+          %td          
+            %a.badge-row{:href => badge_path(b)}
+              = render partial: "shared/badge", object: b, locals: {size: ''}
+              %span.name
+                %h4= name
+          %td
+            - if @a_badges[name].nil?
+              %span.glyphicon.glyphicon-remove
+            - else
+              %span.glyphicon.glyphicon-ok
+          %td
+            - if @b_badges[name].nil?
+              %span.glyphicon.glyphicon-remove
+            - else
+              %span.glyphicon.glyphicon-ok
+  .panel.panel-primary
+    .panel-heading
+      %h2 Practices
+    .panel-body
+    %table.table
+      %tr.info
+        %th Guideline
+        %th= "#{@a.name} Practice"
+        %th= "#{@b.name} Practice"
+      - @all_guideline_ids.each do |g_id, g_name|
+        %tr
+          %td= g_name
+          %td= @a_practices[g_id].nil? ? "?" : @a_practices[g_id]
+          %td= @b_practices[g_id].nil? ? "?" : @b_practices[g_id]
