@@ -43,6 +43,7 @@ class CompaniesController < ApplicationController
 
   def index
     @impact_factor_sort = nil
+    @name_sort = nil
 
     c = []
 
@@ -51,6 +52,9 @@ class CompaniesController < ApplicationController
       a = Company.where("impact_factor is not null").order(impact_factor: @impact_factor_sort)
       b = Company.where("impact_factor is null")
       c = a + b
+    elsif params[:name_sort].present?
+      @name_sort = params[:name_sort] == "desc" ? :desc : :asc
+      c = Company.all.order(name: @name_sort)
     else
       c = Company.all.order(:name)
     end

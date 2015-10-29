@@ -7,12 +7,13 @@ $ ->
     $(this).toggleClass("glyphicon-plus").toggleClass("glyphicon-minus")
     $(".advanced-search").toggleClass("collapse-options")
   $(".submit-search").on 'click', (ev) ->
-    console.log("clicked submit")
     $("form.search input[type='submit']").click()
 
   $(".sort_controls > span").on 'click', (ev) ->
     if $(this).hasClass("inactive")
       return
-
+    name = $(this).parent().attr("name")
     action = $(this).attr("class")
-    window.location = window.location + "&impact_factor_sort=" + action
+    p = {}
+    p[name] =  action
+    window.location.search = jQuery.param(p)

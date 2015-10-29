@@ -9,11 +9,13 @@
 
   %table.table
     %tr.info
-      %th Name
+      %th
+        Name
+        = render partial: "sort_buttons", locals: {filter: @name_sort, name: "name_sort"}
       %th Badges
       %th 
         Impact Factor
-        = render "sort_buttons"
+        = render partial: "sort_buttons", locals: {filter: @impact_factor_sort, name: "impact_factor_sort"}
       - if (can? :edit, Company) || (can? :delete, Company)
         %th Actions
     - @companies.each do |c|
