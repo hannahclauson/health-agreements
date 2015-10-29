@@ -48,6 +48,18 @@ class CompaniesController < ApplicationController
     @a = Company.where(slug: params[:a]).first
     @b = Company.where(slug: params[:b]).first
 
+    if @a.nil? || @b.nil?
+      flash[:alert] = "Missing company to compare"
+      redirect_to :back
+      return
+    end
+
+    if @a == @b
+      flash[:alert] = "Cannot compare to self"
+      redirect_to @a
+      return
+    end
+
     @a_badges = {}
     @a.badges.each do |b|
       @a_badges[b.name] = b

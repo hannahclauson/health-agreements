@@ -12,11 +12,19 @@ class CompaniesControllerTest < ActionController::TestCase
     @practice = create(:practice, guideline: @guideline)
     @company = create(:company, practices: [@practice], name: "AAAaaaaaa")
 
-    @unique_company = create(:company, name: "ZZZZZZZZZZ")
+    # For comparison tests
+    @g = create(:guideline, name: 'superfragilisticexpealadocious')
+    @p = create(:practice, guideline: @g)
+
+    @unique_company = create(:company, name: "ZZZZZZZZZZ", practices: [@p])
+    @b = create(:badge)
+    ba1 = create(:badge_award, badge: @b, company: @unique_company)
 
     # For sorting tests
     @good_article = create(:article, company: @company, journal: @good_journal)
     @bad_article = create(:article, company: @unique_company, journal: @bad_journal)
+
+
 
     # so that most of the search tests dont return a single result and redirect
     p2 = create(:practice, guideline: @guideline)
@@ -318,7 +326,38 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal "Cannot compare to self", flash[:alert]
   end
 
+  test "should not compare when missing a" do
+    request.env["HTTP_REFERER"] = companies_path
+
+    get :compare, :b => @company.slug
+    assert_redirected_to companies_path
+
+    assert_equal "Missing company to compare", flash[:alert]
+  end
+
+  test "should not compare when missing b" do
+    request.env["HTTP_REFERER"] = companies_path
+
+    get :compare, :a => @company.slug
+    assert_redirected_to companies_path
+
+    assert_equal "Missing company to compare", flash[:alert]
+  end
+
+
   test "should see comparison" do
+    get :compare, :a => @company.slug, :b => @unique_company.slug
+    assert_response :success
+
+    assert_not_nil assigns[:a]
+    assert_not_nil assigns[:b]
+
+    assert_equal 2, assigns[:all_badge_names].size
+    assert_equal [@b.name, @badge.name].sort, assigns[:all_badge_names].sort
+
+    assert_equal 2, assigns[:all_guideline_ids].size
+    assert_equal [[@guideline.id, @guideline.name],[@g.id,@g.name]], assigns[:all_guideline_ids]
+
   end
 
   # Controls for roles
