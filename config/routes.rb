@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get '/companies/compare', to: 'companies#compare'
+
   resources :companies do
     get :autocomplete_company_name, :on => :collection
     get :autocomplete_badge_name, :on => :collection

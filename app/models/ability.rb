@@ -7,7 +7,7 @@ class Ability
     # If the user exists, they're an editor
     # Anon users (nil user) is general public
 
-    alias_action :show, :index, :to => :view
+    alias_action :show, :index, :compare, :to => :view
     alias_action :new, :create, :edit, :update, :to => :mutate
 
     # Omits users / registrations / etc

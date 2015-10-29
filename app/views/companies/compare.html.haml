@@ -1,0 +1,41 @@
+.container
+  = content_for :head do
+    %title= "Compare #{@a.name} :: #{@b.name} Practices"
+
+  .page-header
+    %h1= "Compare #{@a.name} :: #{@b.name} Practices"
+
+
+  %h3="Impact Factor: #{@a.impact_factor.nil? ? 'n/a' : @a.impact_factor}"
+  %table
+    %tr
+      %th= @a.name
+      %th= @b.name
+    %tr
+      %td= @a.impact_factor
+      %td= @b.impact_factor
+
+  %h3 Badges:
+  %table
+    %tr
+      %th= "#{@a.name} Badges"
+      %th= "#{@b.name} Badges"
+    - @all_badge_names.each do |name|
+      %tr
+        %td
+          - if @a_badges[name].nil?
+            "-n/a-"
+          - else
+            %a.badge-row{:href => badge_path(@a_badges[name])}
+              = render partial: "shared/badge", object: @a_badges[name], locals: {size: ''}
+              %span.name
+                %h4= name
+        %td
+          - if @b_badges[name].nil?
+            "-n/a-"
+          - else
+            %a.badge-row{:href => badge_path(@b_badges[name])}
+              = render partial: "shared/badge", object: @b_badges[name], locals: {size: ''}
+              %span.name
+                %h4= name
+

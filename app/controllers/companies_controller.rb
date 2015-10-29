@@ -41,6 +41,35 @@ class CompaniesController < ApplicationController
     true
   end
 
+  def compare
+
+    authorize! :compare, Company
+
+    @a = Company.where(slug: params[:a]).first
+    @b = Company.where(slug: params[:b]).first
+
+    @a_badges = {}
+    @a.badges.each do |b|
+      @a_badges[b.name] = b
+    end
+
+    @b_badges = {}
+    @b.badges.each do |b|
+      @b_badges[b.name] = b
+    end
+
+    puts "a badges:"
+    puts @a_badges
+    puts "b badges:"
+    puts @b_badges
+
+    @all_badge_names = [@a_badges.keys, @b_badges.keys].flatten(1).uniq.sort
+
+    puts "all badges:"
+    puts @all_badge_names
+
+  end
+
   def index
     @impact_factor_sort = nil
     @name_sort = nil
