@@ -18,6 +18,10 @@ class Journal < ActiveRecord::Base
     end
   end
 
+  def normalized_name
+    self.name.split(" ").collect {|w| w.capitalize}.join(" ")
+  end
+
   def generate_slug
     self.slug = name.to_slug.normalize.to_s
   end

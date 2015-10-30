@@ -31,7 +31,6 @@ body.phone {
     .page-header {
       margin: 0px 15px;
     }
-//    > .panel,  // dont want margins on company#show
     > p, > .field {
       margin: 0px 15px;
     }
@@ -68,5 +67,8 @@ body.phone {
     font-size: 12pt;
   }
 
+  .page-header > a {
+    float: right; // e.g. journal -- website link/button
+  }
         
 }

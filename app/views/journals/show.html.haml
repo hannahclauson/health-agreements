@@ -1,9 +1,12 @@
 = content_for :head do
-  %title= "Journal >> #{@journal.name}"
+  %title= "Journal >> #{@journal.normalized_name}"
 
 .container
   .page-header
-    %h1="Journal >> #{@journal.name}"
+    %h1= @journal.normalized_name
+
+    %a.btn.btn-default.site{href: @journal.url} Visit Journal's Website
+
     - if can? :delete, Journal
       =link_to("Delete", journal_path(@journal), class: 'btn btn-xs btn-danger object_action', method: :delete)
     - if can? :edit, Journal
@@ -12,7 +15,6 @@
   %h3="Impact Factor: #{@journal.impact_factor.nil? ? 'n/a' : @journal.impact_factor}"
 
   .page-body
-    %a{href: @journal.url} Link to Website
 
     .panel.panel-primary
       .panel-heading
