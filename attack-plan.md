@@ -28,14 +28,11 @@ x  - add test
 x  - detect mobile (webkit / and / win)
 x  - add viewport
   - dont support editors on mobile (modifying objs)
-  - bugs
-    - turbolinks fucks w nav menu / listeners - need to rebind
   - pages types:
 x    - menu UI
     - home
       - with callouts looking good
-    - blog (prob just a setting)
-    - show:
+x    - show:
 x      - company
 x      - journal
 x      - badge
@@ -49,8 +46,11 @@ x      - guidelines
 x    - doc (tos/etc)
     - compare companies?
 - Bugs
+  - turbolinks fucks w nav menu / listeners - need to rebind
   - fix articles show
   - decide if ill expose it / kill it
+  - auto scroll on mobile
+  - that damn gap by the footer
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
