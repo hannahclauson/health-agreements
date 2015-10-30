@@ -4,7 +4,8 @@
     .container-fluid
       .navbar-header
         %a.navbar-brand{href: "/"} Health Agreements
-        %span.menu.button.glyphicon.glyphicon-plus
+        - if mobile?
+          %span.menu.button.glyphicon.glyphicon-plus
       %ul.navbar-nav.nav{class: not_mobile}
         - header_links.each do |name, info|
           - active_attribute = (name == active_page) ? "active" : ""

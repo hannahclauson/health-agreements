@@ -37,7 +37,7 @@ x    - menu UI
     - blog (prob just a setting)
     - show:
 x      - company
-TODO      - journal --- make website a button like on comp page
+x      - journal
       - badge
 x      - guideline
       - practice
