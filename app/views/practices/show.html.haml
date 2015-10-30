@@ -1,28 +1,29 @@
 = content_for :head do
-  %title= "#{@company.name}'s practices regarding #{@practice.guideline.name}"
+  %title= @practice.guideline.normalized_name
 
 .container
   .page-header
-    %h1
-      ="#{@company.name}'s practices"
-      %small=@practice.guideline.name
+    %h1= @practice.guideline.normalized_name
 
-  %h2 Implementation
-  .panel.panel-default
-    .panel-body
-      %span="Does #{@company.name} follow the '#{@practice.guideline.name}' guideline?"      
-      %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
-
-
-  %h2 Guideline
-
-  .panel.panel-default
+  .panel.panel-primary
     .panel-heading
-      %h3.panel-title=@practice.guideline.name
+      %h3 Implementation
+      - if mobile?
+        %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
     .panel-body
-      %p= @practice.guideline.description
-      =render 'guidelines/table'
       %p
+        %span="How #{@company.name} implements the '#{@practice.guideline.name}' guideline"
+        - if !mobile?
+          %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
+
+  .panel.panel-primary
+    .panel-heading
+      %h3= @practice.guideline.normalized_name
+    .panel-body
+      %p
+        The following is a list of requirements for each implementation of this guideline. 
         For more details,
         =link_to "read about this guideline.", @practice.guideline
+
+      =render 'guidelines/table'
 

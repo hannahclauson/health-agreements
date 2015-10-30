@@ -41,7 +41,10 @@ body.phone {
       padding: 0px 15px;
       margin: 20px 0px;
     }
-
+    .panel-heading h2, .panel-heading h3 {
+      margin: 10px 0px;
+    }
+        
     // Top level Panel UI
 
     > .panel {
@@ -49,9 +52,11 @@ body.phone {
       .panel-heading {
         border-radius: 0px;
       }
-
     }
 
+    > .page-header {
+      border-bottom: 0px;
+    }
 
   }
 

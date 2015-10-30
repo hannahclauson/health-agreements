@@ -14,9 +14,12 @@
   .panel.panel-default
     .panel-heading Description
     .panel-body
-      = @guideline.description
+      %p= @guideline.description
 
-  %p The following is a list of ways to implement this guideline.
-  
-  =render 'table'
+  .panel.panel-primary
+    .panel-heading
+      %h2 Requirements
+    .panel-body
+      %p The following is a list of requirements for each implementation of this guideline
+      =render 'table'
   

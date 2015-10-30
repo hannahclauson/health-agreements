@@ -10,10 +10,36 @@ $icon-font-path: 'bootstrap/'; // Seems like you need to
 
 .implementation_status {
   margin-left: 20px;
+  @extend .glyphicon;
+
   &.follows {
-    @extend .glyphicon;
-    @extend .glyphicon-ok;
+    @extend .glyphicon-plus;
     @extend .btn-success;
   }
 
+  &.does_not_follow {
+    @extend .glyphicon-minus;
+    @extend .btn-danger;
+  }
+  &.na {
+    @extend .glyphicon-ban-circle;
+    @extend .btn-info;
+  }
+  &.ambiguous {
+    @extend .glyphicon-warning-sign;
+    @extend .btn-warning;
+  }
+  &.unknown {
+    @extend .glyphicon-question-sign;
+    @extend .btn-warning;
+  }
+
+}
+
+body.phone {
+  .implementation_status {
+    position: relative;
+    top: -35px;
+    float: right;
+  }
 }

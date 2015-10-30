@@ -38,9 +38,9 @@ x    - menu UI
     - show:
 x      - company
 x      - journal
-      - badge
+x      - badge
 x      - guideline
-      - practice
+x      - practice
     - search / companies !
 x    - index
 x      - companies
@@ -106,6 +106,9 @@ x  - buy domain / setup DNS
     - interesting / can track sep actions
     - will be good once we have users
     - will save for v1.0
+- UI tweaks
+  - breadcrumbs? - esp for spec company practice
+  - mobile nav menu coloring
 - Automate articles (##est 3 days)
   - probably want to automate this if at all possible
   - maybe not a bad idea to have list of links for each company where they list their articles

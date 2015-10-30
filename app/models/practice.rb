@@ -31,4 +31,8 @@ class Practice < ActiveRecord::Base
     end
   end
 
+  def normalized_name
+    self.name.split(" ").collect {|w| w.capitalize}.join(" ")
+  end
+
 end

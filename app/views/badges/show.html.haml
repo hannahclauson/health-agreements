@@ -3,50 +3,50 @@
 
 .container
   .page-header
-    %h1="Badge >> #{@badge.name}"
+    %h1= @badge.name
     - if access_to_action(:delete)
       =link_to("Delete", badge_path(@badge), class: 'btn btn-xs btn-danger object_action', method: :delete)
     - if access_to_action(:edit)
       =link_to("Edit", edit_badge_path(@badge), class: 'btn btn-xs btn-info object_action')
 
-  .page-body
-    %p= @badge.description
+  %p= @badge.description
 
-    .panel.panel-primary
-      .panel-heading
-        %h2 Practices
-        - if !current_user.nil? && (current_user.editor? || current_user.admin?)
-          - if @badge.needs_to_rebuild
-            %button.btn.btn-warning.btn-lg.rebuild
-              =link_to 'Rebuild', rebuild_badge_path(@badge)
-      .panel-body
-        %p
-          The following is a list of practices that are required to be awarded this badge.
+  .panel.panel-primary
+    .panel-heading
+      %h2 Practices
+      - if !current_user.nil? && (current_user.editor? || current_user.admin?)
+        - if @badge.needs_to_rebuild
+          %button.btn.btn-warning.btn-lg.rebuild
+            =link_to 'Rebuild', rebuild_badge_path(@badge)
+    .panel-body
+      %p
+        The following is a list of practices that are required to be awarded this badge.
 
-      %table.table
-        %tr.info
-          %th Name
-          %th Implementation
+    %table.table
+      %tr.info
+        %th Guideline Name
+        %th Implementation
+        - if can? :delete, BadgePractice
+          %th Actions
+      - @badge.badge_practices.each do |p|
+        %tr
+          %td
+            =link_to p.guideline.name, guideline_path(p.guideline)
+          %td= p.implementation_text
           - if can? :delete, BadgePractice
-            %th Actions
-        - @badge.badge_practices.each do |p|
-          %tr
-            %td= p.guideline.name
-            %td= p.implementation_text
-            - if can? :delete, BadgePractice
-              %td.actions
-                = link_to('Delete', polymorphic_path([@badge,p]), class: 'btn btn-xs btn-danger', method: :delete)
+            %td.actions
+              = link_to('Delete', polymorphic_path([@badge,p]), class: 'btn btn-xs btn-danger', method: :delete)
 
 
-  - if can? :mutate, BadgePractice
-    .panel.panel-default
-      .panel-heading
-        %h2 Add a Practice
-      .panel-body
-        = form_for [@badge, @badge.badge_practices.build] do |f|
-          = render partial: 'badges/badge_practice_form', locals: {f: f}
-          .field.form-group
-            %label.col-sm-2.control-label
-            .col-sm-10.input_wrapper
-              %button Add
+- if can? :mutate, BadgePractice
+  .panel.panel-default
+    .panel-heading
+      %h2 Add a Practice
+    .panel-body
+      = form_for [@badge, @badge.badge_practices.build] do |f|
+        = render partial: 'badges/badge_practice_form', locals: {f: f}
+        .field.form-group
+          %label.col-sm-2.control-label
+          .col-sm-10.input_wrapper
+            %button Add
   
