@@ -23,10 +23,6 @@
   }
 }
 
-.compare_helper {
-  padding: 0px 10px;
-}
-
 // Company Index
 
 td.badges td.badge-column {
@@ -151,6 +147,9 @@ $icon-font-path: 'bootstrap/'; // Seems like you need to
 
 }
 
+.panel.compare_helper .panel-body {
+  padding-top: 10px;
+}
 
 // Mobile Styles
 
@@ -168,5 +167,9 @@ body.phone {
   }
   .panel.compare_helper {
     margin-bottom: 10px !important;
+    padding: 0px;
+    .panel-body {
+      padding: 0px 10px;
+    }
   }
 }

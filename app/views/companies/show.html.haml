@@ -17,7 +17,7 @@
         %input#this_company.hidden{:type=>"text",:value=>@company.slug}     
 
         .bar
-          %span{class: mobile? ? "" : ".col-sm-10"}
+          %span{class: mobile? ? "" : "col-sm-10"}
             .input-group
               %span.input-group-addon Search
               = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name', value: (@searched ? params[:company][:name] : "")})
