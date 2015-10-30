@@ -16,6 +16,17 @@
   padding: 5px 15px
 }
 
+.badges-panel {
+  td.name {
+    vertical-align: middle;
+    font-size: 16pt;
+  }
+}
+
+.compare_helper {
+  padding: 0px 10px;
+}
+
 // Company Index
 
 td.badges td.badge-column {

@@ -31,7 +31,8 @@ body.phone {
     .page-header {
       margin: 0px 15px;
     }
-    > .panel, > p, > .field {
+//    > .panel,  // dont want margins on company#show
+    > p, > .field {
       margin: 0px 15px;
     }
     > p {
@@ -42,8 +43,28 @@ body.phone {
       margin: 20px 0px;
     }
 
+    // Top level Panel UI
+
+    > .panel {
+      border-radius: 0px;
+      .panel-heading {
+        border-radius: 0px;
+      }
+      .panel-body {
+        padding: 0px;
+        > p {
+          padding: 10px;
+        }
+        > table {
+          margin-bottom: 0px !important;
+        }
+      }
+    }
+
 
   }
+
+
   
   h1 {
     font-size: 16pt;
@@ -54,5 +75,6 @@ body.phone {
   h3 {
     font-size: 12pt;
   }
+
         
 }

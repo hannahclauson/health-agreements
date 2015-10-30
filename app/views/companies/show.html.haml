@@ -33,16 +33,21 @@
 
   %h3="Impact Factor: #{@company.impact_factor.nil? ? 'n/a' : @company.impact_factor}"
 
-  .panel.panel-default
-    .panel-heading Badges:
+  .panel.panel-primary.badges-panel
+    .panel-heading 
+      %h2 Awarded Badges
     .panel-body
-      %ul.list-group
+      %table.table
+        %tr.info
+          %th Badge
+          %th Name
         - @company.badges.each do |b|
-          %li.list-group-item
-            %a.badge-row{:href => badge_path(b)}
-              = render partial: "shared/badge", object: b, locals: {size: ''}
-              %span.name
-                %h4= b.name.split("_").collect {|w| w.capitalize}.join(" ")
+          %tr
+            %td
+              %a.badge-row{:href => badge_path(b)}
+                = render partial: "shared/badge", object: b, locals: {size: ''}
+            %td.name
+              =link_to b.name.split("_").collect {|w| w.capitalize}.join(" "), badge_path(b)
 
   = render 'practices/panel_list'
 
