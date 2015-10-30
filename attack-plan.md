@@ -36,16 +36,16 @@ x    - menu UI
       - with callouts looking good
     - blog (prob just a setting)
     - show:
-      - company
-      - journal
+x      - company
+TODO      - journal --- make website a button like on comp page
       - badge
 x      - guideline
       - practice
     - search / companies !
-    - index
-      - companies
-      - journals
-      - guidelines
+x    - index
+x      - companies
+x      - journals
+x      - guidelines
 x    - doc (tos/etc)
     - compare companies?
 - Bugs
