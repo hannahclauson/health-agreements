@@ -139,3 +139,23 @@ $icon-font-path: 'bootstrap/'; // Seems like you need to
  }
 
 }
+
+
+// Mobile Styles
+
+body.phone {
+  .bar {
+    height: auto;
+  }
+  button.compare {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  form.search {
+    margin-bottom: 0px;
+  }
+  .panel.compare_helper {
+    margin-bottom: 10px !important;
+  }
+}

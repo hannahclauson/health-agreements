@@ -19,12 +19,40 @@ body.phone {
   .container {
     position: relative;
     top: -40px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    // Now add margins on those UI elements that need it
+    
+    // Validate(d) on pages:
+    // guideline#show
+    // document#show
+
+    .page-header {
+      margin: 0px 15px;
+    }
+    > .panel, > p, > .field {
+      margin: 0px 15px;
+    }
+    > p {
+      margin: 15px;
+    }
+    > h1, > h2, > h3 {
+      padding: 0px 15px;
+      margin: 20px 0px;
+    }
+
+
   }
   
   h1 {
     font-size: 16pt;
   }
-
-  // would be nice to get rid of padding on L/R on mobile -- inner container padding
+  h2 {
+    font-size: 14pt;
+  }
+  h3 {
+    font-size: 12pt;
+  }
         
 }

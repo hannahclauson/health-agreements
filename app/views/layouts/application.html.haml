@@ -9,7 +9,7 @@
       %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %title HealthAgreements
 
-%body{class: active_page, class: variant}
+%body{class: "#{active_page} #{variant_class}"}
   = render 'shared/navigation'
   = yield
 

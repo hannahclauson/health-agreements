@@ -6,6 +6,10 @@ module ApplicationHelper
     request.variant
   end
 
+  def variant_class
+    variant.collect {|v| v.to_s}.join(" ")
+  end
+
   def mobile?
     variant.include? :phone
   end
