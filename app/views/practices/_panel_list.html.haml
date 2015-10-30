@@ -8,14 +8,16 @@
     %tr.info
       %th Name
       %th Implementation
-      %th Notes
+      - if !mobile?
+        %th Notes
       - if (can? :show, Practice) || (can? :edit, Practice) || (can? :delete, Practice)
         %th Actions
     - @company.practices.each do |p|
       %tr
         %td= p.guideline.name
         %td= p.implementation_text
-        %td= p.notes
+        - if !mobile?
+          %td= p.notes
         %td.actions
           - if can? :show, Practice
             = link_to('Show', polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})

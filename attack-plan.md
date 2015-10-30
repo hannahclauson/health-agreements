@@ -41,7 +41,6 @@ x    - menu UI
       - badge
 x      - guideline
       - practice
-      - article
     - search / companies !
     - index
       - companies
@@ -49,6 +48,9 @@ x      - guideline
       - guidelines
 x    - doc (tos/etc)
     - compare companies?
+- Bugs
+  - fix articles show
+  - decide if ill expose it / kill it
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
   - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
