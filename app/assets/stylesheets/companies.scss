@@ -164,6 +164,41 @@ body.phone {
 
   form.search {
     margin-bottom: 0px;
+    padding: 0px 10px;
+
+    .search-errors {
+      top: 10px;
+      position: relative;
+    }
+
+    .input-group-addon {
+      display: none;
+    }
+
+    #company_name {
+      width: 200px;
+    }
+    span.submit-search, span.toggle-options {
+      margin-left: 10px;
+    }   
+      
+    .advanced-search {
+      height: auto;
+      .advanced-option > h4 {
+        display: none;
+      }
+    }
+  
+    #badge_name, #guideline_id, #practice_implementation_text {
+      display: block;
+      padding: 10px;
+    }
+
+    #practice_implementation_text {
+      top: 10px;
+      width: 200px;
+    }
+
   }
   .panel.compare_helper {
     margin-bottom: 10px !important;

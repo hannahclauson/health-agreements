@@ -1,14 +1,19 @@
 = form_tag( {:action => "index"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
   .bar
-    %span.col-sm-10
+    %span{class: mobile? ? "" : ".col-sm-10"}
       .input-group
         %span.input-group-addon Search
-        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: '... by name', value: (@searched ? params[:company][:name] : "")})
+        - placeholder = mobile? ? 'Search by Name' : '... by name'
+        = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: placeholder, value: (@searched ? params[:company][:name] : "")})
+        - if mobile?
+          %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+          %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
 
-    %span.options.col-sm-2
-      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
-      %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
+    - if !mobile?
+      %span.options.col-sm-2
+        %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+        %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
 
   .advanced-search{:class => (@searched ? "" : "collapse-options") }
 
@@ -16,21 +21,26 @@
       %h4 Badge
       %span.value
         .input-group
+          - placeholder = mobile? ? "... by Badge" : ""
           = label_tag("badge[name]", "Name", {class: 'input-group-addon'})
-          = autocomplete_field(:badge, :name, autocomplete_badge_name_companies_path, :update_elements => {:id => "#badge_id"}, :class => "form-control", :value => (@searched ? params[:badge][:name] : "") )
+          = autocomplete_field(:badge, :name, autocomplete_badge_name_companies_path, :update_elements => {:id => "#badge_id"}, :class => "form-control", :value => (@searched ? params[:badge][:name] : ""), :placeholder => placeholder )
           %input#badge_id.hidden{:name => "badge[id]", :value => (@searched ? params[:badge][:id] : "")}
 
     %span.advanced-option.practice-filter
       %h4 Practice
       %span.value
         .input-group
+          - placeholder = mobile? ? "... by Practice" : ""
           = label_tag("guideline[name]", "Name", {class: "input-group-addon"})
-          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, :update_elements => {:id => "#guideline_id"}, :class => "form-control guideline-name", :value => (@searched ? params[:guideline][:name] : "") )
+          = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, :update_elements => {:id => "#guideline_id"}, :class => "form-control guideline-name", :value => (@searched ? params[:guideline][:name] : ""), :placeholder => placeholder )
           %input#guideline_id.hidden{:name => "guideline[id]", :value => (@searched ? params[:guideline][:id] : "") }
 
-          = label_tag("practice[implementation]", "Implementation", {class: "input-group-addon"})
-          = autocomplete_field(:practice, :implementation_text, autocomplete_implementations_path, :update_elements => {:enumerated_value => "#implementation"}, :class => "form-control implementation-name", :value => (@searched ? params[:practice][:implementation_text] : ""))
-          %input#implementation.hidden{:name => "practice[implementation]", :value => (@searched ? params[:practice][:implementation] : "") }
+      - if mobile?
+        %span
+          .input-group
+            = render 'search_implementation'
+      - else
+        = render 'search_implementation'
 
 
     .field.form-group.hidden

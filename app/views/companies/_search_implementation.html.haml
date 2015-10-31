@@ -1,0 +1,4 @@
+- placeholder = mobile? ? "... by Implementation" : ""
+= label_tag("practice[implementation]", "Implementation", {class: "input-group-addon"})
+= autocomplete_field(:practice, :implementation_text, autocomplete_implementations_path, :update_elements => {:enumerated_value => "#implementation"}, :class => "form-control implementation-name", :value => (@searched ? params[:practice][:implementation_text] : ""), :placeholder => placeholder)
+%input#implementation.hidden{:name => "practice[implementation]", :value => (@searched ? params[:practice][:implementation] : "") }
