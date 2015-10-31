@@ -151,6 +151,12 @@ $icon-font-path: 'bootstrap/'; // Seems like you need to
   padding-top: 10px;
 }
 
+.companies_compare table.badges td.state {
+  text-align: center;
+  vertical-align: middle;
+} 
+
+
 // Mobile Styles
 
 body.phone {
@@ -208,3 +214,4 @@ body.phone {
     }
   }
 }
+

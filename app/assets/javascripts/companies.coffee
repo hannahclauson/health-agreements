@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
+ready = () ->
   $(".toggle-options").on 'click', (ev) -> 
     $(this).toggleClass("glyphicon-plus").toggleClass("glyphicon-minus")
     $(".advanced-search").toggleClass("collapse-options")
@@ -40,3 +40,5 @@ $ ->
     ev.stopPropagation()
     false
 
+$(document).ready ready
+$(document).on 'page:load', ready

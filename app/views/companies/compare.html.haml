@@ -22,9 +22,11 @@
     .panel-heading
       %h2 Badges
     .panel-body
-    %table.table
+    %table.table.badges
       %tr.info
         %th 
+        - if !mobile?
+          %th
         %th= @a.name
         %th= @b.name
       - @all_badge_names.each do |name|
@@ -32,15 +34,19 @@
         %tr
           %td          
             %a.badge-row{:href => badge_path(b)}
-              = render partial: "shared/badge", object: b, locals: {size: ''}
-              %span.name
-                %h4= name
-          %td
+              - badge_size = mobile? ? "small" : ""
+              = render partial: "shared/badge", object: b, locals: {size: badge_size}
+          - if !mobile?
+            %td          
+              %a.badge-row{:href => badge_path(b)}
+                %span.name
+                  %h4= name
+          %td.state
             - if @a_badges[name].nil?
               %span.glyphicon.glyphicon-remove
             - else
               %span.glyphicon.glyphicon-ok
-          %td
+          %td.state
             - if @b_badges[name].nil?
               %span.glyphicon.glyphicon-remove
             - else
