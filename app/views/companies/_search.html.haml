@@ -1,7 +1,7 @@
 = form_tag( {:action => "index"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
   .bar
-    %span{class: mobile? ? "" : ".col-sm-10"}
+    %span{class: mobile? ? "" : "col-sm-10"}
       .input-group
         %span.input-group-addon Search
         - placeholder = mobile? ? 'Search by Name' : '... by name'

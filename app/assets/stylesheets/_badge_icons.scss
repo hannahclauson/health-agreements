@@ -42,6 +42,15 @@ $badge_color:  white;
 
 
   &.small {
+    $badge-width: 16px;
+    $badge-height: 16px;
+    $badge-horz: 8px;
+    $badge-vert: 4px;
+
+    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
+  }
+
+  &.medium {
     $badge-width: 32px;
     $badge-height: 32px;
     $badge-horz: 16px;
