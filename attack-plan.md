@@ -50,7 +50,7 @@ x      - badge icon / text styles
   - auto scroll on mobile
   - that damn gap by the footer
   - style for adv search on desktop
-  - search by badge not autocomplete - false error
+x  - search by badge not autocomplete - false error
 - Home page copy
   - styles
   - mobile version
