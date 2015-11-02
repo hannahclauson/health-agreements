@@ -49,6 +49,8 @@ x      - badge icon / text styles
   - decide if ill expose it / kill it
   - auto scroll on mobile
   - that damn gap by the footer
+  - style for adv search on desktop
+  - search by badge not autocomplete - false error
 - Home page copy
   - styles
   - mobile version

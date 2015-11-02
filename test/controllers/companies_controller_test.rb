@@ -127,6 +127,18 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_redirected_to @unique_company
   end
 
+  test "should not report error when only badge is specified" do
+    get :index,
+    "company" => {"name" => ""},
+    "badge" => {"name" => "Re"},
+    "guideline" => {"id" => ""},
+    "practice" => {"implementation" => ""},
+    "commit" => "Search"
+
+    assert_response :success
+    assert_equal 0, assigns[:errors].size
+  end
+
   test "should search by name" do
     get :index,
     "company" => {"name" => @company.name},
