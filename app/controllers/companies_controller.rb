@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
   def empty_params?
     # return true if all params are empty
 
-    [[:company,:name], [:badge, :id], [:guideline,:id], [:practice,:implementation]].each do |pair|
+    [[:company,:name], [:badge, :id], [:badge, :name], [:guideline,:id], [:practice,:implementation]].each do |pair|
       next if params[pair.first].nil?
 
       param = params[pair.first][pair.last]
@@ -115,7 +115,7 @@ class CompaniesController < ApplicationController
       if params[:badge][:id].present?
         c = c.filter_badges(params[:badge][:id])
       else
-        c = c.filter_badges(params[:badge][:name]) if params[:badge][:name].present?
+        c = c.filter_badges_by_name(params[:badge][:name]) if params[:badge][:name].present?
       end
     end
 

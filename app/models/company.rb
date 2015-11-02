@@ -27,6 +27,11 @@ class Company < ActiveRecord::Base
     includes(:badge_awards).where("badge_awards.badge_id = ?", badge_id).references(:badge_awards)
   }
 
+  scope :filter_badges_by_name, -> (badge_name) {
+    badge_ids = Badge.where("name ILIKE ?", "%#{badge_name}%").pluck(:id)
+    includes(:badge_awards).where("badge_awards.badge_id IN (?)", badge_ids).references(:badge_awards)
+  }
+
   scope :filter_practices_by_name, -> (guideline_id) {
     includes(:practices).where("practices.guideline_id = ?", guideline_id).references(:practices)
   }
