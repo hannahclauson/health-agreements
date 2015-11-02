@@ -112,7 +112,11 @@ class CompaniesController < ApplicationController
     end
 
     if params[:badge].present?
-      c = c.filter_badges(params[:badge][:id]) if params[:badge][:id].present?
+      if params[:badge][:id].present?
+        c = c.filter_badges(params[:badge][:id])
+      else
+        c = c.filter_badges(params[:badge][:name]) if params[:badge][:name].present?
+      end
     end
 
     if params[:guideline].present?
