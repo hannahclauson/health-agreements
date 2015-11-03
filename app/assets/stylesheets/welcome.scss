@@ -57,4 +57,13 @@ section {
   }
 
 
+  .compare {
+    .img {
+      height: 200px;
+      -webkit-mask-image: image-url('compare.svg');
+      mask-image: image-url('compare.svg');
+    }
+
+  }
+
 }
