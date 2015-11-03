@@ -15,4 +15,4 @@
           - if can? :edit, Badge
             = link_to("Edit", edit_badge_path(a), {class: 'btn btn-xs btn-info'})
           - if can? :delete, Badge
-            = link_to("Delete", delete_badge_path(a), {class: 'btn btn-xs btn-danger'})
+            = link_to("Delete", badge_path(a), {method: :delete, class: 'btn btn-xs btn-danger'})
