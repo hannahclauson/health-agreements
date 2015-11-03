@@ -22,10 +22,39 @@ section {
 
   .copy {
     padding: 20px;
+    padding-right: 80px;
     font-size: 16pt;
+    p {
+      margin-bottom: 40px;
+    }
   }
 
   .badge-icon {
     width: 95px;
   }
+  .icon {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .icons {
+    > div:nth-child(even) {
+      position: relative;
+      left: -80px;
+    }
+
+    .bullets {
+      padding-top: 20px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      font-size: 13pt;
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+
 }

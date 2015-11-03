@@ -1,4 +1,45 @@
-@mixin badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert) {
+@mixin badge_small($badge_background, $badge_color) {
+    $badge-width: 16px;
+    $badge-height: 16px;
+    $badge-horz: 8px;
+    $badge-vert: 4px;
+
+    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color);  
+}
+
+@mixin badge_medium($badge_background, $badge_color) {
+    $badge-width: 32px;
+    $badge-height: 32px;
+    $badge-horz: 16px;
+    $badge-vert: 8px;
+
+    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color);  
+}
+
+@mixin badge_large($badge_background, $badge_color) {
+  // for content
+  $badge-width: 40px;
+  $badge-height: 40px;
+
+  // for edges
+  $badge_horz: 20px;
+  $badge_vert: 10px;
+
+  @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color);  
+}
+
+@mixin badge_extra_large($badge_background, $badge_color) {
+  $badge-width: 80px;
+  $badge-height: 80px;
+
+  $badge_horz: 40px;
+  $badge_vert: 20px;
+
+  @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color);  
+}
+
+
+@mixin badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color) {
   td {
     width: $badge-width/2;
     height: $badge-height/2;

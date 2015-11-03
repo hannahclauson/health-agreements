@@ -3,8 +3,10 @@ $icon-font-path: 'bootstrap/';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$badge_background: $navbar-inverse-bg;
-$badge_color:  white;
+//$badge_background: $navbar-inverse-bg;
+$dark: $navbar-inverse-bg;
+//$badge_color:  white;
+$light:  white;
 
 .research {
   // Beaker Icon Credit to by Joshua Wold (noun 19127) under Creative Commons
@@ -46,33 +48,40 @@ $badge_color:  white;
 
 .badge-icon {
 
-
   &.small {
-    $badge-width: 16px;
-    $badge-height: 16px;
-    $badge-horz: 8px;
-    $badge-vert: 4px;
-
-    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
+    &.dark {
+      @include badge_small($dark, $light)
+    }
+    &.light {
+      @include badge_small($light, $dark)
+    }
   }
 
   &.medium {
-    $badge-width: 32px;
-    $badge-height: 32px;
-    $badge-horz: 16px;
-    $badge-vert: 8px;
-
-    @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
+    &.dark {
+      @include badge_medium($dark, $light)
+    }
+    &.light {
+      @include badge_medium($light, $dark)
+    }
   }
 
+  &.large {
+    &.dark {
+      @include badge_large($dark, $light)
+    }
+    &.light {
+      @include badge_large($light, $dark)
+    }
+  }
 
-  // for content
-  $badge-width: 40px;
-  $badge-height: 40px;
+  &.extra-large {
+    &.dark {
+      @include badge_extra_large($dark, $light)
+    }
+    &.light {
+      @include badge_extra_large($light, $dark)
+    }
+  }
 
-  // for edges
-  $badge_horz: 20px;
-  $badge_vert: 10px;
-
-  @include badge_helpers($badge-width, $badge-height, $badge-horz, $badge-vert);
 }
