@@ -384,3 +384,19 @@ badges:
       -
         guideline_id: 8
         implementation: 1
+  - 
+    name: HIPAA Compliance
+    description: "Follows the guidelines set by HIPAA"
+    badge_practices_attributes:
+      - 
+        guideline_id: 7
+        implementation: 0
+      - 
+        guideline_id: 8
+        implementation: 0
+      - 
+        guideline_id: 9
+        implementation: 0
+      - 
+        guideline_id: 10
+        implementation: 0
