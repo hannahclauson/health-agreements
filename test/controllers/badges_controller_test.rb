@@ -20,6 +20,14 @@ class BadgesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:badges)
   end
 
+  test "should get index as admin" do
+    sign_in @admin
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:badges)
+  end
+
+
   test "should show" do
     get :show, :id => @badge.slug
     assert_response :success
