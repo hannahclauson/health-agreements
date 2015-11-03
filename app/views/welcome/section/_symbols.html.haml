@@ -1,0 +1,42 @@
+.copy.col-sm-6
+  .page-header
+    %h1 Badges
+  %p
+    We distill complex legal agreements (Terms of Service, Privacy Policy, End User License Agreement) into badges that are easy to understand.
+  %p 
+    These badges provide a concise summary of the practices, but have very specific requirements.
+.icons.thumbnails.col-sm-6
+  %div.span3.col-sm-12
+    %span.icon.col-sm-4
+      %a{:href => badges_path(@badges["Research"])}
+        = render partial: "shared/badge", object: @badges["Research"], locals: {'size':'extra-large', 'inverted':true}
+    %span.bullets.col-sm-8
+      %h3 
+        =link_to "Research", @badges["Research"]
+      %ul
+        %li Publishes results in peer reviewed publications
+        %li Has opt in and opt out mechanisms for users
+
+
+  %div.span3.col-sm-12
+    %span.icon.col-sm-4
+      %a{:href => badges_path(@badges["Single State Hosted"])}
+        = render partial: "shared/badge", object: @badges["Single State Hosted"], locals: {'size':'extra-large', 'inverted':true}
+    %span.bullets.col-sm-8
+      %h3 
+        =link_to "Single-State Hosted", @badges["Single State Hosted"]
+      %ul
+        %li ONLY hosts your data in a single political state
+
+
+  %div.span3.col-sm-12
+    %span.icon.col-sm-4
+      %a{:href => badges_path(@badges["HIPAA Compliance"])}
+        = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'extra-large', 'inverted':true}
+    %span.bullets.col-sm-8
+      %h3 
+        =link_to "HIPAA Compliance", @badges["HIPAA Compliance"]
+      %ul
+        %li Respect a perons right to inspect/copy/update your Personal Health Information
+        %li Provides a report on how your health data is used upon request
+
