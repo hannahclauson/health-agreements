@@ -58,10 +58,18 @@ section {
 
 
   .compare {
-    .img {
-      height: 200px;
-      -webkit-mask-image: image-url('compare.svg');
-      mask-image: image-url('compare.svg');
+    color: white;
+    background-color: transparent;
+    .wrapper {
+      text-align: center;
+      .img {
+        height: 200px;
+        width: 200px;
+        margin: 0px auto;
+        -webkit-mask-image: image-url('compare.svg');
+        mask-image: image-url('compare.svg');
+        background-color: white;
+      }
     }
 
   }
