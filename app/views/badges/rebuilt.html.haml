@@ -18,4 +18,4 @@
             %tr
               - c.badges.each do |b|
                 %td.badge-column
-                  = render partial: "shared/badge", object: b, locals: {size: 'small'}
+                  = render partial: "shared/badge", object: b, locals: {size: 'small', inverted: false}

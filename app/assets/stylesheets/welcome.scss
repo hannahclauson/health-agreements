@@ -20,13 +20,14 @@ section {
     display: inline-block;
   }
 
+  p {
+    margin-bottom: 40px;
+  }
+
   .copy {
     padding: 20px;
     padding-right: 80px;
     font-size: 16pt;
-    p {
-      margin-bottom: 40px;
-    }
   }
 
   .badge-icon {
@@ -60,8 +61,12 @@ section {
   .compare {
     color: white;
     background-color: transparent;
+    padding: 20px;
+
     .wrapper {
       text-align: center;
+      margin-bottom: 40px;
+
       .img {
         height: 200px;
         width: 200px;
