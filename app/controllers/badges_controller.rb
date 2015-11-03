@@ -43,17 +43,14 @@ class BadgesController < ApplicationController
 
   def rebuild
     current_badge
-    puts "going to rebuild"
-    puts @badge.inspect
+
     @companies = @badge.rebuild_awards!
     @companies.delete(nil)
-    puts "rebuilt!"
+
     if @companies.size == 0
       flash[:alert] = "Rebuild applied to no companies"
-      puts "EMPTY BADGE?"
       redirect_to 'show'
     else
-      puts "REBUILDT"
       render 'rebuilt'
     end
 
