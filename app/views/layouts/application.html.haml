@@ -8,7 +8,7 @@
     = yield :head
     - if variant.include? :phone
       %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-    %title HealthAgreements
+    %title= Rails.application.config.name
 
 %body{class: "#{active_page} #{variant_class}"}
   = render 'shared/navigation'

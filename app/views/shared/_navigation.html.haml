@@ -3,7 +3,7 @@
   %nav.navbar.navbar-inverse.navbar-static-top
     .container-fluid
       .navbar-header
-        %a.navbar-brand{href: "/"} Health Agreements
+        %a.navbar-brand{href: "/"}= Rails.application.config.name
         - if mobile?
           %span.menu.button.glyphicon.glyphicon-plus
       %ul.navbar-nav.nav{class: not_mobile}

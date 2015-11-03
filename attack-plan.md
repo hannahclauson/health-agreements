@@ -53,6 +53,10 @@ x      - badge icon / text styles
 x  - search by badge not autocomplete - false error
 - Home page copy
   - styles
+    - hero -- ICV
+    - section one -- badges
+    - section two -- morality
+    - tiles    
   - mobile version
 - Update copy (## est 1.0 day)
   - badges on index view should look better (probably just icon)
