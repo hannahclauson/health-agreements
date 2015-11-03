@@ -4,7 +4,7 @@
 
 @import "variables";
 
-%section {
+section {
   width: 100%;
 
   &.symbols {
@@ -16,4 +16,16 @@
     color: white;
   }
 
+  > div {
+    display: inline-block;
+  }
+
+  .copy {
+    padding: 20px;
+    font-size: 16pt;
+  }
+
+  .badge-icon {
+    width: 95px;
+  }
 }

@@ -21,29 +21,29 @@
           = render partial: "companies/search_standard", locals: {only_standard_options: true}
 
 %section.symbols
-  #copy
+  .copy.col-sm-6
     %p
       We distill complex legal agreements (Terms of Service, Privacy Policy, End User License Agreement) into symbols that are easy to understand. The symbols provide a concise summary of the practices, but have very specific requirements.
-  #icons.thumbnails
-    %div.span3
-      %span.badge
+  .icons.thumbnails.col-sm-6
+    %div.span3.col-sm-12
+      %span.badge.col-sm-3
         = render partial: "shared/badge", object: @badges["Research"], locals: {'size':'large'}
-      %span.bullets
+      %span.bullets.col-sm-9
         %h3 Research
         %ul
           %li Publishes results in peer reviewed publications
           %li Has opt in and opt out mechanisms for users
-    %div.span3
-      %span.badge
+    %div.span3.col-sm-12
+      %span.badge.col-sm-3
         = render partial: "shared/badge", object: @badges["Single State Hosted"], locals: {'size':'large'}
-      %span.bullets
+      %span.bullets.col-sm-9
         %h3 Single-State Hosted
         %ul
           %li ONLY hosts your data in a single political state
-    %div.span3
-      %span.badge
+    %div.span3.col-sm-12
+      %span.badge.col-sm-3
         = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'large'}
-      %span.bullets
+      %span.bullets.col-sm-9
         %h3 HIPAA Compliance
         %ul
           %li Respect a perons right to inspect/copy/update your Personal Health Information
