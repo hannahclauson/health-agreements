@@ -1,0 +1,14 @@
+%span{class: mobile? ? "" : "col-sm-10"}
+  .input-group
+    %span.input-group-addon Search
+    - placeholder = mobile? ? 'Search by Name' : '... by name'
+    = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: placeholder, value: (@searched ? params[:company][:name] : "")})
+    - if mobile?
+      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+      - if (only_standard_options.nil? ? true : !only_standard_options)
+        %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options
+- if !mobile?
+  %span.options.col-sm-2
+    %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+    - if (only_standard_options.nil? ? true : !only_standard_options)
+      %span.btn.btn-default.glyphicon.glyphicon-plus.toggle-options

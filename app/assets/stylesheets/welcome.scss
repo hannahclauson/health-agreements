@@ -1,3 +1,19 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+%section {
+  width: 100%;
+
+  &.symbols {
+    background-color: darken($brand-primary, 25%);
+    color: white;
+  }
+  &.morality {
+    background-color: $brand-success;
+    color: white;
+  }
+
+}

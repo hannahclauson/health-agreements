@@ -7,6 +7,20 @@
     .jumbotron
       %h2 How is your health data used?
       %p
-        As a consumer, its difficult to keep track of how your personal health data is being used. We aim to simplify this understanding. I am not a lawyer, and this is NOT legal advice. This is a good place to start to understand how your data is used at a glance
+        Consent requires : Informing. Comprehending. Volunteering.
+      %p
+        If you see a wall of text you fail the second step. We distill legal terms into symbols to faciliate understanding.
+      %p
+        The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family.
 
-      = link_to 'Learn how your data is used', companies_path, {class: 'btn btn-primary btn-lg'}
+      %p
+        Search for a company to learn how they use your health data.
+
+      #search
+        = form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
+          = render partial: "companies/search_standard", locals: {only_standard_options: true}
+
+%section.symbols
+
+%section.morality
+%section.tiles
