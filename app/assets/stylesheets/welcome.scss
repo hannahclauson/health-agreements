@@ -21,7 +21,7 @@ section {
   }
 
   p {
-    margin-bottom: 40px;
+    margin-top: 40px;
   }
 
   .copy {
@@ -57,11 +57,23 @@ section {
     }
   }
 
+  // Morality section
 
   .compare {
     color: white;
     background-color: transparent;
     padding: 20px;
+    padding-top: 40px;
+    font-size: 13pt;
+
+    .link {
+      width: 100%;
+      a {
+        padding:20px;
+        margin: 40px 80px;
+        display: block;
+      }
+    }
 
     .wrapper {
       text-align: center;
