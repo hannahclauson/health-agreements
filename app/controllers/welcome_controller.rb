@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    @badges = []
-    @badges << Badge.where(name: "Research")
-    @badges << Badge.where(name: "Multi-state Hosted")
-    @badges << Badge.where(name: "HIPAA")
+    @badges = {}
+    ["Research", "Single State Hosted", "HIPAA Compliance"].each do |name|
+      @badges[name] = Badge.where(name: name).first
+    end
 
   end
 end

@@ -36,6 +36,12 @@ $badge_color:  white;
   mask-image: image-url('multi_state_hosted.svg');
 }
 
+.hipaa-compliance {
+  // Caduceus Credit to Anna Ho (noun 50184) under Creative Commons
+  -webkit-mask-image: image-url('caduceus.svg');
+  mask-image: image-url('caduceus.svg');
+}
+
 @import "badge_helpers";
 
 .badge-icon {
