@@ -14,6 +14,9 @@ x    - section one -- badges
 x    - section two -- morality
 x    - tiles    
   - mobile version
+- Document stubs (## est 0.25 day)
+  - page for ICV context
+  - page for describing extraction process?
 - Contribute (## est 0.5 day)
   - article - form
   - company req - form
