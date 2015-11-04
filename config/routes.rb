@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   end
   get 'badges/:id/rebuild' => 'badges#rebuild', as: :rebuild_badge
 
+  get 'documents/contribute'
   get 'documents/terms_of_service'
   get 'documents/glossary'
   get 'documents/credit'

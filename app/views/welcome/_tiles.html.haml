@@ -3,28 +3,38 @@
   .thumbnail.col-sm-3
     .pictogram
     .caption
-      %h3 Company Impact
-      %p &nbsp;&nbsp;&nbsp;&nbsp;By averaging the impact factors of all the publications that use data from a company, we compute an Impact Factor per company.
+      .page-header
+        %h2 Company Impact
+
+      %p &nbsp;&nbsp;&nbsp;&nbsp;Its important to be informed about the results of your data use. So we keep track of any articles published using data from these companies.
+
+      %p &nbsp;&nbsp;&nbsp;&nbsp;By averaging the impact factors of all the publications per company, we compute an Impact Factor per company.
+
       %p
-        =link_to "View Companies Sorted by Impact Factor", companies_path(impact_factor_sort: "desc"), class: "btn btn-default"
+        =link_to "View Most Impactful Companies", companies_path(impact_factor_sort: "desc"), class: "btn btn-default", class: "btn btn-primary btn-lg"
 
   .col-sm-1
   .thumbnail.col-sm-3
     .pictogram
     .caption
-      %h3 Stats
+      .page-header
+        %h2 Stats
+      %p We've collected a lot of data so far!
       - @stats.each do |name, value|
-        %p
-          .stat
-            = render partial: 'shared/stat', locals: {value: value[:count], color: value[:color]}
-            %span.name= name             
+        .stat
+          = render partial: 'shared/stat', locals: {value: value[:count], color: value[:color]}
+          %span.name
+            = name.capitalize
+          %small= value[:desc]
+             
 
 
   .col-sm-1
   .thumbnail.col-sm-3
     .pictogram
     .caption
-      %h3 Get Involved
+      .page-header
+        %h2 Get Involved
       %p Want to contribute? 
       %p
-        %a.btn.btn-default Help Us
+        %a.btn.btn-default.btn-lg{:href => documents_contribute_path} Help Us

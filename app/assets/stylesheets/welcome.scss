@@ -64,25 +64,37 @@ section {
     }
 
     .thumbnail {
-      background-color: $navbar-inverse-bg;
-      border-color:  $navbar-inverse-bg;
-      color: white;
+      background-color: white; //$navbar-inverse-bg;
+      border-color:  white; //$navbar-inverse-bg;
+      color: $navbar-inverse-bg;
       p {
-        color: white;
+        color: $navbar-inverse-bg;
         font-size: 16pt;
       }
       h3 {
-        color: white;
+        color: $navbar-inverse-bg;
       }
       .caption {
+        .stat {
+          margin-top: 20px;
+          position: relative;
+        }
         .stat > span {
           display: inline-block;
         }
+        small {
+          position: absolute;
+          left: 90px;
+          bottom: 5px;
+          font-size: 10pt;
+        }
         .name {
           display: inline-block;
-          color: white;
-          height: 70px;
-          vertical-align: middle;
+          color: $navbar-inverse-bg;
+//          height: 70px;
+//          vertical-align: middle;
+          position: relative;
+          top: -25px;
           font-size: 18pt;
           padding: 0px 20px;
         }

@@ -3,4 +3,6 @@ class DocumentsController < ApplicationController
   end
   def glossary
   end
+  def contribute
+  end
 end
