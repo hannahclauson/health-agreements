@@ -34,8 +34,8 @@
         %tr
           %td          
             %a.badge-row{:href => badge_path(b)}
-              - badge_size = mobile? ? "medium" : ""
-              = render partial: "shared/badge", object: b, locals: {size: badge_size}
+              - badge_size = mobile? ? "medium" : "large"
+              = render partial: "shared/badge", object: b, locals: {size: badge_size, inverted: true}
           - if !mobile?
             %td          
               %a.badge-row{:href => badge_path(b)}

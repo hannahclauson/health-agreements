@@ -45,7 +45,7 @@
           %tr
             %td
               %a.badge-row{:href => badge_path(b)}
-                = render partial: "shared/badge", object: b, locals: {size: ''}
+                = render partial: "shared/badge", object: b, locals: {size: 'large', inverted: true}
             %td.name
               =link_to b.name.split("_").collect {|w| w.capitalize}.join(" "), badge_path(b)
 
