@@ -8,6 +8,8 @@
 x  - search by badge not autocomplete - false error
   - make sure tests passing
   - buy other nouns from noun project
+  - fix search on company index
+  - update badges on homepage --- should linke to each search by badge
 - Home page copy (## est 1.0 day)
 x  - styles
 x    - hero -- ICV
