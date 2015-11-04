@@ -7,6 +7,16 @@
 section {
   width: 100%;
 
+  &.banner {
+    background-image: image-url('banner.jpg');
+    background-position-y: center;
+    p {
+      color: white;
+    }
+    .jumbotron {
+      background-color: transparent;
+    }
+  }
   &.symbols {
     background-color: darken($brand-primary, 25%);
     color: white;
@@ -72,6 +82,7 @@ section {
         padding:20px;
         margin: 40px 80px;
         display: block;
+        font-size: 16pt;
       }
     }
 
