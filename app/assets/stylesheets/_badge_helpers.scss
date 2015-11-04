@@ -101,4 +101,79 @@
 
 }
 
+// STATS
+
+@mixin stat_medium($badge_background, $badge_color) {
+    $badge-width: 32px;
+    $badge-height: 32px;
+    $badge-horz: 16px;
+    $badge-vert: 8px;
+
+    @include stat_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color);  
+}
+
+// Copy/Paste of badge-helper, but adjusting where color values go
+
+@mixin stat_helpers($badge-width, $badge-height, $badge-horz, $badge-vert, $badge_background, $badge_color) {
+  td {
+    width: $badge-width/2;
+    height: $badge-height/2;
+  }
+
+  .body {
+    background-color: $badge_background;
+    width: 100%;
+    height: $badge-height;
+
+    .content {
+      -webkit-mask-size: $badge-height $badge-width;
+      color: $badge_color;
+      width: $badge-width;
+      height: ($badge-height - 4);
+
+      margin: auto;
+      padding: 5px;
+      display: block;
+    }
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+  }
+
+  .lower_left {
+    @extend .triangle;
+    border-left: $badge_horz solid $badge_background;
+    border-bottom: $badge_vert solid $badge_background;
+    border-right: $badge_horz solid transparent;
+    border-top: $badge_vert solid transparent;
+  }
+
+  .lower_right {
+    @extend .triangle;
+    border-right: $badge_horz solid $badge_background;
+    border-bottom: $badge_vert solid $badge_background;
+    border-left: $badge_horz solid transparent;
+    border-top: $badge_vert solid transparent;
+  }
+
+  .upper_left {
+    @extend .triangle;
+    border-left: $badge_horz solid $badge_background;
+    border-top: $badge_vert solid $badge_background;
+    border-right: $badge_horz solid transparent;
+    border-bottom: $badge_vert solid transparent;
+  }
+
+  .upper_right {
+    @extend .triangle;
+    border-right: $badge_horz solid $badge_background;
+    border-top: $badge_vert solid $badge_background;
+    border-left: $badge_horz solid transparent;
+    border-bottom: $badge_vert solid transparent;
+  }
+
+}
+
 

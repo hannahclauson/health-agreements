@@ -46,6 +46,21 @@ $light:  white;
 
 @import "badge_helpers";
 
+.stat-icon {
+  &.light {
+    @include stat_medium($dark, $light)
+  }
+  &.neutral_a {
+    @include stat_medium(lighten($navbar-inverse-bg, 40%), $light)
+  }
+  &.neutral_b {
+    @include stat_medium(lighten($brand-primary, 40%), $light)
+  }
+  &.dark {
+    @include stat_medium($gray-lighter, $navbar-inverse-bg)  
+  }
+}
+
 .badge-icon {
 
   &.small {

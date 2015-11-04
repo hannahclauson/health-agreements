@@ -53,11 +53,28 @@ section {
   }
   &.morality {
     padding-top:20px;
-//    background-color: $brand-success;
     background-color: lighten($navbar-inverse-bg, 40%);
     color: white;
   }
+  &.tiles {
+    background-color: white; //$gray-light;
+    .thumbnails {
+      padding:40px 60px;    
+    }
 
+    .thumbnail {
+      background-color: $navbar-inverse-bg;
+      border-color:  $navbar-inverse-bg;
+      color: white;
+      p {
+        color: white;
+        font-size: 16pt;
+      }
+      h3 {
+        color: white;
+      }
+    }
+  }
   > div {
     display: inline-block;
   }
