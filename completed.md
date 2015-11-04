@@ -241,3 +241,57 @@ X- Data Entry Phase II (##est 1 day)
 X  - another few dozen companies
 X  - refine existing data / review
 X  - refine badges (definitions / new ones / etc)
+- Add model / list of Articles/Journals where company research is published (##est 1.5 days)
+x  - add journal views/actions:
+x    - index
+x    - show
+x    - edit / update
+x    - new / create
+x    - destroy
+x    - tests for these + permissions
+x    - add basic seeds
+x  - add article views/actions:
+x    - index
+x    - show
+x    - edit / update
+x    - new / create
+x    - destroy
+x    - tests for these + permissions
+x    - add basic seeds
+x     - model tests
+x  - update company model -- articles / impact factor
+x  - Sort search by impact factor, test:
+x      - for impact factor
+x      - for impact factor recalc edge cases
+x- Company comparison view (##est 0.5 days)
+x  - add action
+x  - add view
+x  - add test
+- Make mobile version (##est 2 days)
+x  - detect mobile (webkit / and / win)
+x  - add viewport
+x  - dont support editors on mobile (modifying objs) - they work but are ugly
+x    - menu UI
+x    - show:
+x      - company
+x      - journal
+x      - badge
+x      - guideline
+x      - practice
+x    - search / companies !
+x    - index
+x      - companies
+x      - journals
+x      - guidelines
+x    - doc (tos/etc)
+x    - compare companies?
+x      - badge icon / text styles
+
+x- Update copy (## est 1.0 day)
+x  - badges on index view should look better (probably just icon)
+x  - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
+x    - Learn about guidelines / badges
+x    - Showcase Good Citizens
+x    - content to explain how data extracted / badges awarded
+x    - companies w the highest impact factor
+x    - Highlight some common searches / most frequent searches?

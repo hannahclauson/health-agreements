@@ -1,49 +1,4 @@
-- Add model / list of Articles/Journals where company research is published (##est 1.5 days)
-x  - add journal views/actions:
-x    - index
-x    - show
-x    - edit / update
-x    - new / create
-x    - destroy
-x    - tests for these + permissions
-x    - add basic seeds
-x  - add article views/actions:
-x    - index
-x    - show
-x    - edit / update
-x    - new / create
-x    - destroy
-x    - tests for these + permissions
-x    - add basic seeds
-x     - model tests
-x  - update company model -- articles / impact factor
-x  - Sort search by impact factor, test:
-x      - for impact factor
-x      - for impact factor recalc edge cases
-x- Company comparison view (##est 0.5 days)
-x  - add action
-x  - add view
-x  - add test
-- Make mobile version (##est 2 days)
-x  - detect mobile (webkit / and / win)
-x  - add viewport
-x  - dont support editors on mobile (modifying objs) - they work but are ugly
-x    - menu UI
-x    - show:
-x      - company
-x      - journal
-x      - badge
-x      - guideline
-x      - practice
-x    - search / companies !
-x    - index
-x      - companies
-x      - journals
-x      - guidelines
-x    - doc (tos/etc)
-x    - compare companies?
-x      - badge icon / text styles
-- Bugs
+- Bugs (## est 0.5 day)
   - turbolinks fucks w nav menu / listeners - need to rebind
   - fix articles show
   - decide if ill expose it / kill it
@@ -51,28 +6,24 @@ x      - badge icon / text styles
   - that damn gap by the footer
   - style for adv search on desktop
 x  - search by badge not autocomplete - false error
-- Home page copy
+  - make sure tests passing
+- Home page copy (## est 1.0 day)
   - styles
     - hero -- ICV
     - section one -- badges
     - section two -- morality
     - tiles    
   - mobile version
-- Update copy (## est 1.0 day)
-  - badges on index view should look better (probably just icon)
-  - Use these (http://getbootstrap.com/components/#thumbnails) to make callouts on home page
-    - Learn about guidelines / badges
-    - Showcase Good Citizens
-    - content to explain how data extracted / badges awarded
-    - companies w the highest impact factor
-    - Highlight some common searches / most frequent searches?
-- Contribute
+- Contribute (## est 0.5 day)
   - article - form
   - company req - form
   - legal volunteer - email
+- Setup Staging Environment (## est 0.5 day)
 - Setup WP blog / subdomain (##est 3 days)
   - prioritize BP buffer
   - publish 1-3 articles
+- Minor company update
+  - add fields for tos/pp/eula/etc - any other documents
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies
@@ -81,6 +32,13 @@ x  - search by badge not autocomplete - false error
   - paginate company index
   - include public sector data sources? data.gov
   - enter on prod DB / site
+- Data Entry Phase IV - Articles (##est 1 day)
+  - Review any articles for at least a dozen companies
+  - Some have many (23andme / etc)
+  - Probably enter ~ a few hundred articles
+  - Update homepage callout for companies w articles / articles index page
+  - maybe different badge for active / impactful research?
+  - paginate journals / articles as needed (prob need to make articles index subview of comp)
 - Soft Launch Site (##est 1 day)
   - upgrade middleware (puma / unicorn)
 x  - have mechanism for high fidelity DB backup / routinely do this
@@ -88,8 +46,16 @@ x  - decide on a name
 x  - buy domain / setup DNS
   - estimate monthly costs
   - add to my contracting firm?
-  - bugs
-    - vertical style gaps on homepage
+- Setup Notifiers (##est 1 day) -- nice to have
+  - for company updates
+  - for new articles
+  - update mailer
+    - setup company name / etc
+- Track users (##est 1 day) -- nice to have
+  - add mixpanel
+    - interesting / can track sep actions
+    - will be good once we have users
+    - will save for v1.0
 == Milestone: Soft Launch (v 1.0)
 - Setup polling data (##est 1 day)
   - crawl/save/hash all agreements so we can track changes + alert when info may be out of date
@@ -107,16 +73,6 @@ x  - buy domain / setup DNS
     - comparison view to compare two versions (visualize diff)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
-- Setup Notifiers (##est 1 day)
-  - for company updates
-  - for new articles
-  - update mailer
-    - setup company name / etc
-- Track users (##est 1 day)
-  - add mixpanel
-    - interesting / can track sep actions
-    - will be good once we have users
-    - will save for v1.0
 - UI tweaks
   - breadcrumbs? - esp for spec company practice
   - mobile nav menu coloring
@@ -125,19 +81,12 @@ x  - buy domain / setup DNS
   - maybe not a bad idea to have list of links for each company where they list their articles
   - and detect if/when those pages change / have content added
 - Crawler to generate company list (##est 1 day)
-- Data Entry Phase IV (##est 3 days)
+- Data Entry Phase V (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
   - paginate company index
 - Work w EFF / restructure badges (##est 5 days)
   - rework badges / migrate / etc
-- Data Entry Phase V - Articles (##est 1 day)
-  - Review any articles for at least a dozen companies
-  - Some have many (23andme / etc)
-  - Probably enter ~ a few hundred articles
-  - Update homepage callout for companies w articles / articles index page
-  - maybe different badge for active / impactful research?
-  - paginate journals / articles as needed (prob need to make articles index subview of comp)
 - Pre-Launch (##est 1/2 day)
   - audit ALL capitalized words to make sure they are used / match whats used in ietf RFCs
   - make sure errors are handled properly
