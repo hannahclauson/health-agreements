@@ -16,6 +16,31 @@ section {
     .jumbotron {
       background-color: transparent;
     }
+
+    #search {
+      color: white;
+      background-color: $navbar-inverse-bg;
+      display: block;
+      border-radius: 20px;
+      height: 120px;
+
+      .submit-search {
+        background-color: $gray-light;
+      }
+
+      form {
+        padding: 0px 60px;
+      }
+      p {
+        padding: 20px;
+        padding-bottom: 0px;
+      }
+
+      > * {
+        border-radius: 20px;
+      }
+    }
+
   }
   &.symbols {
     background-color: darken($brand-primary, 25%);

@@ -1,5 +1,6 @@
 .jumbotron
-  %h2 How is your health data used?
+  %div
+    %h1 How is your health data used?
   %p
     Consent requires : Informing. Comprehending. Volunteering.
   %p
@@ -7,8 +8,8 @@
   %p
     The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family.
 
-  %p
-    Search for a company to learn how they use your health data.
   #search
+    %p
+      Search for a company to learn how they use your health data.
     = form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
       = render partial: "companies/search_standard", locals: {only_standard_options: true}
