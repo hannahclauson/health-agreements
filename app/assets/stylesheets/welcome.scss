@@ -59,7 +59,8 @@ section {
   &.tiles {
     background-color: white; //$gray-light;
     .thumbnails {
-      padding:40px 60px;    
+      padding-top: 40px;
+      padding-left: 10%;
     }
 
     .thumbnail {
@@ -72,6 +73,19 @@ section {
       }
       h3 {
         color: white;
+      }
+      .caption {
+        .stat > span {
+          display: inline-block;
+        }
+        .name {
+          display: inline-block;
+          color: white;
+          height: 70px;
+          vertical-align: middle;
+          font-size: 18pt;
+          padding: 0px 20px;
+        }
       }
     }
   }

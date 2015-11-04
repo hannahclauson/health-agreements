@@ -1,7 +1,6 @@
 .thumbnails
 
-  .col-sm-1
-  .thumbnail.col-sm-2
+  .thumbnail.col-sm-3
     .pictogram
     .caption
       %h3 Company Impact
@@ -10,18 +9,19 @@
         =link_to "View Companies Sorted by Impact Factor", companies_path(impact_factor_sort: "desc"), class: "btn btn-default"
 
   .col-sm-1
-  .thumbnail.col-sm-2
+  .thumbnail.col-sm-3
     .pictogram
     .caption
       %h3 Stats
       - @stats.each do |name, value|
         %p
-          .name= name             
           .stat
             = render partial: 'shared/stat', locals: {value: value[:count], color: value[:color]}
+            %span.name= name             
+
 
   .col-sm-1
-  .thumbnail.col-sm-2
+  .thumbnail.col-sm-3
     .pictogram
     .caption
       %h3 Get Involved

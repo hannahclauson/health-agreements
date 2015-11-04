@@ -127,12 +127,13 @@
 
     .content {
       -webkit-mask-size: $badge-height $badge-width;
+      text-align: center;
       color: $badge_color;
       width: $badge-width;
       height: ($badge-height - 4);
 
+      font-size: 16pt;
       margin: auto;
-      padding: 5px;
       display: block;
     }
   }
