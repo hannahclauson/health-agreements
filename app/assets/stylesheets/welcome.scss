@@ -50,6 +50,16 @@ section {
     padding-top:20px;
     background-color: $navbar-inverse-bg; //darken($brand-primary, 25%);
     color: white;
+
+    .link {
+      width: 100%;
+      a {
+        display: block;
+        margin: 40px 60px;
+        padding: 20px;
+        font-size: 16pt;
+      }
+    }
   }
   &.morality {
     padding-top:20px;
