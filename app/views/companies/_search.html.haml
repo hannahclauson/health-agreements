@@ -1,9 +1,8 @@
 = form_tag( {:action => "index"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
   .bar
-    = render "search_standard"
 
-  = render "search_advanced"
+    = render "search_advanced"
 
     .field.form-group.hidden
       = label_tag("submit", " ", {class: "col-sm-2 control-label"})        
