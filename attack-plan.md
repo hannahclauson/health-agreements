@@ -7,6 +7,7 @@
   - style for adv search on desktop
 x  - search by badge not autocomplete - false error
   - make sure tests passing
+  - buy other nouns from noun project
 - Home page copy (## est 1.0 day)
 x  - styles
 x    - hero -- ICV
