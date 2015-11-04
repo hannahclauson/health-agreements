@@ -6,10 +6,14 @@
 
 section {
   width: 100%;
+  .clear {
+    clear: both;
+  }
 
   &.banner {
     background-image: image-url('banner.jpg');
-    background-position-y: center;
+    background-position-y: -980px;
+    
     p {
       color: white;
     }
@@ -43,11 +47,14 @@ section {
 
   }
   &.symbols {
-    background-color: darken($brand-primary, 25%);
+    padding-top:20px;
+    background-color: $navbar-inverse-bg; //darken($brand-primary, 25%);
     color: white;
   }
   &.morality {
-    background-color: $brand-success;
+    padding-top:20px;
+//    background-color: $brand-success;
+    background-color: lighten($navbar-inverse-bg, 40%);
     color: white;
   }
 
