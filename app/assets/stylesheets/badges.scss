@@ -7,7 +7,19 @@ button.rebuild {
 .badges_index {
 
   .actions a {
-    top: -20px; // dont like that this is a one-off (well two-off now, also for guidelines index)
+    top: 20px; // dont like that this is a one-off (well two-off now, also for guidelines index)
   }
+
+  li {
+    a {
+      position: relative;
+      top: -25px;
+      padding: 20px;
+    }
+    > * {
+      display: inline-block;
+    }
+  }
+
 
 }

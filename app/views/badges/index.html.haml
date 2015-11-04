@@ -10,6 +10,7 @@
   %ul.list-group
     - @badges.each do |a|
       %li.list-group-item
+        = render partial: "shared/badge", object: a, locals: {'size':'medium', 'inverted':true}
         = link_to a.name, a
         %span.actions.btn-group.btn-group-xs.btn-group-link
           - if can? :edit, Badge
