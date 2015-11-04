@@ -20,7 +20,7 @@ class WelcomeController < ApplicationController
     }
     @stats[:practices] = {
       :color => "neutral_b",
-      :count => Guideline.all.size,
+      :count => Practice.all.size,
       :desc => "Distilled from Legal Documents"
     }
     @stats[:articles] = {
