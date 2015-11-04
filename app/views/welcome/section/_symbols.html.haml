@@ -10,7 +10,7 @@
   %div.span3.col-sm-12
     %span.icon.col-sm-4
       %a{:href => badges_path(@badges["Research"])}
-        = render partial: "shared/badge", object: @badges["Research"], locals: {'size':'extra-large', 'inverted':true}
+        = render partial: "shared/badge", object: @badges["Research"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
         =link_to "Research", @badges["Research"]
@@ -22,7 +22,7 @@
   %div.span3.col-sm-12
     %span.icon.col-sm-4
       %a{:href => badges_path(@badges["Single State Hosted"])}
-        = render partial: "shared/badge", object: @badges["Single State Hosted"], locals: {'size':'extra-large', 'inverted':true}
+        = render partial: "shared/badge", object: @badges["Single State Hosted"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
         =link_to "Single-State Hosted", @badges["Single State Hosted"]
@@ -33,7 +33,7 @@
   %div.span3.col-sm-12
     %span.icon.col-sm-4
       %a{:href => badges_path(@badges["HIPAA Compliance"])}
-        = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'extra-large', 'inverted':true}
+        = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
         =link_to "HIPAA Compliance", @badges["HIPAA Compliance"]
