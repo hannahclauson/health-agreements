@@ -8,11 +8,11 @@
 x  - search by badge not autocomplete - false error
   - make sure tests passing
 - Home page copy (## est 1.0 day)
-  - styles
-    - hero -- ICV
-    - section one -- badges
-    - section two -- morality
-    - tiles    
+x  - styles
+x    - hero -- ICV
+x    - section one -- badges
+x    - section two -- morality
+x    - tiles    
   - mobile version
 - Contribute (## est 0.5 day)
   - article - form
