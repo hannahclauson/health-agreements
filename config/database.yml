@@ -21,10 +21,6 @@ test:
   <<: *default
   database: health_agreements_test
 
-staging:
-  <<: *default
-  database: ENV['DATABASE_URL']
-
 production:
   <<: *default
   database: ENV['DATABASE_URL']
