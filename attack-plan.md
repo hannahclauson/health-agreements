@@ -5,6 +5,7 @@ x  - make new app on heroku
     - should also migrate
     - should also setup notifications for these commands - papertrail / etc
   - setup to auto push to prod?
+  - setup nightly transfers of prod DB to staging
 - Bugs (## est 0.5 day)
   - turbolinks fucks w nav menu / listeners - need to rebind
   - fix articles show

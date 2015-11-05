@@ -130,7 +130,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should not report error when only badge is specified" do
     get :index,
     "company" => {"name" => ""},
-    "badge" => {"name" => "Re"},
+    "badge" => {"name" => "Mad"},
     "guideline" => {"id" => ""},
     "practice" => {"implementation" => ""},
     "commit" => "Search"
