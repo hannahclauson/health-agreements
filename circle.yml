@@ -1,10 +1,8 @@
 deployment:
   staging:
     branch: master
-    heroku:
-      appname: symbolofhealth-staging
     commands:
-      - ./build/tag.sh
+      - ./build/staging.sh
   production:
 #    branch: production
     tag: /release-.*/
