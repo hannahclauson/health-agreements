@@ -1,0 +1,13 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: symbolofhealth-staging
+  production:
+    branch: production
+    heroku:
+      appname: evening-badlands-7297
+# or add these once I want post build commands
+#    commands:
+#      - git push git@heroku.com:foo-bar-123.git $CIRCLE_SHA1:master
+#      - heroku run rake db:migrate --app foo-bar-123
