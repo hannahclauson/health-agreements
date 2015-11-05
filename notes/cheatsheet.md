@@ -69,3 +69,11 @@ $ heroku pg:reset DATABASE
 
 > evening-badlands-7297
 Resetting DATABASE_URL... done
+
+
+
+# generate SECRET_KEY_BASE env var for heroku
+
+rake secret
+
+(then enter on heroku config)

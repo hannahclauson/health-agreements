@@ -1,3 +1,10 @@
+- Setup Staging Environment (## est 0.5 day)
+x  - make new app on heroku
+    - make sure stage DB is setup
+  - setup Travis CI to auto push to staging
+    - should also migrate
+    - should also setup notifications for these commands - papertrail / etc
+  - setup to auto push to prod?
 - Bugs (## est 0.5 day)
   - turbolinks fucks w nav menu / listeners - need to rebind
   - fix articles show
@@ -12,6 +19,12 @@ x  - search by badge not autocomplete - false error
   - update badges on homepage --- should linke to each search by badge
   - navbar styles on badges index page
   - badge row styles on badges index
+  - transition all admin stuff to SOH email
+    - new relic
+    - heroku
+    - DNS
+    - thenounproject
+    - sendgrid
 - Home page copy (## est 1.0 day)
 x  - styles
 x    - hero -- ICV
@@ -26,10 +39,10 @@ x    - tiles
   - article - form
   - company req - form
   - legal volunteer - email
-- Setup Staging Environment (## est 0.5 day)
 - Setup WP blog / subdomain (##est 3 days)
   - prioritize BP buffer
   - publish 1-3 articles
+  - transition DNS to SOH email / acct
 - Minor company update
   - add fields for tos/pp/eula/etc - any other documents
 - Data Entry Phase III (##est 2 days)
