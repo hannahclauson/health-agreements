@@ -1,19 +1,23 @@
-.compare.col-sm-6
-  .wrapper
-    .img
-  %p
-    &nbsp;&nbsp;&nbsp;&nbsp;To understand the breadth of the spectrum between data-conservative and data-progressive, its helpful to look at a comparison of some companies that are dichotomous. 
+.page-header
+  %h1 Personal Values
+
+- if mobile?
+  .copy.col-sm-6
+    = render 'welcome/section/morality_copy.html.haml'
+
+  .compare.col-sm-6
+    = render 'welcome/section/morality_compare.html.haml'
+  
   .link
     %a.btn.btn-default.btn-lg{href: companies_compare_path(a: "23andme", b: "acme")} Compare
-
-.copy.col-sm-6
-  .page-header
-    %h1 Personal Moral Judgment
-  %p &nbsp;&nbsp;&nbsp;&nbsp;How you decide to share your health data is a hugely personal one.
-
-  %p &nbsp;&nbsp;&nbsp;&nbsp;Some people are data-conservative. Others are data-progressive. We don't grade companies based on their symbols or data practices.
-
-  %p &nbsp;&nbsp;&nbsp;&nbsp;Instead, we believe the best way for us to make progress w how health data is used broadly is to inform. These companies are trying to do a lot of good with your data, but sharing your data isn't for everyone.
-
   
-.clear
+  .clear
+
+- else
+  .compare.col-sm-6
+    = render 'welcome/section/morality_compare.html.haml'
+
+  .copy.col-sm-6
+    = render 'welcome/section/morality_copy.html.haml'  
+
+  .clear

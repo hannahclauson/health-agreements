@@ -13,12 +13,15 @@ section {
   &.banner {
     background-image: image-url('banner.jpg');
     background-position-y: -980px;
+    padding: 30px;
     
     p {
       color: white;
     }
     .jumbotron {
+      padding: 0px !important;
       background-color: transparent;
+      display: block;
     }
 
     #search {
@@ -187,4 +190,54 @@ section {
 
   }
 
+}
+
+// Mobile
+
+
+body.phone.welcome_index {
+  #search {
+    height: 200px;
+    form {
+      padding: 0px 30px;
+      .submit-search {
+        display: none;
+      }
+    }
+  }
+
+
+  // symbols section
+
+  section .link {
+    width: 100%;
+    a {
+      padding: 20px;
+      margin: 20px;
+      margin-top: 0px;
+      display: block;
+    }
+  }
+
+  .icon table {
+    margin: 0px auto;
+  }
+  
+  section .icons > div:nth-child(even) {
+    left:0px;
+  }
+
+  // morality section
+
+  .copy {
+    display: block;
+    padding-right: 20px;
+  }
+
+  //  tiles
+
+  .thumbnails {
+    padding: 0px;
+    display: block;
+  }
 }

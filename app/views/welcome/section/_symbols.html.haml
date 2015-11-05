@@ -5,8 +5,9 @@
     We distill complex legal agreements (Terms of Service, Privacy Policy, End User License Agreement) into badges that are easy to understand.
   %p 
     These badges provide a concise summary of the practices, but have very specific requirements.
-  .link
-    =link_to "See All Badges", badges_path(), class: "btn btn-default btn-lg"
+  - if !mobile?
+    .link
+      =link_to "See All Badges", badges_path(), class: "btn btn-default btn-lg"
 
 .icons.thumbnails.col-sm-6
   %div.span3.col-sm-12
@@ -42,4 +43,9 @@
       %ul
         %li Respect a perons right to inspect/copy/update your Personal Health Information
         %li Provides a report on how your health data is used upon request
+- if mobile?
+  .link
+    =link_to "See All Badges", badges_path(), class: "btn btn-default btn-lg"
+
+
 .clear
