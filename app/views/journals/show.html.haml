@@ -26,8 +26,6 @@
         %th Title
         %th View
         %th Download
-        - if (can? :show, Article) || (can? :edit, Article) || (can? :delete, Article)
-          %th Actions
       - @journal.articles.each do |a|
         %tr
           %td= a.title
@@ -38,10 +36,3 @@
               "Not Available"
             - else
               %a{href: a.download_url}="Download"
-          %td.actions
-            - if can? :show, Article
-              = link_to('Show', polymorphic_path([@journal,a]), {class: 'btn btn-xs btn-info'})
-            - if can? :edit, Article
-              = link_to('Edit', edit_polymorphic_path([@journal,a]), {class: 'btn btn-xs btn-info'})
-            - if can? :delete, Article
-              = link_to('Delete', polymorphic_path([@journal,a]), class: 'btn btn-xs btn-danger', method: :delete)

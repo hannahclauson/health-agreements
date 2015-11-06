@@ -1,26 +1,25 @@
-- Setup Staging Environment (## est 0.5 day)
-x  - make new app on heroku
-x    - make sure stage DB is setup
-  - setup Circle CI to:
-x    -  auto push to staging
-x    - should also migrate
-x    - should tag w a release version
-    - push to prod only by release tag
 - Bugs (## est 0.5 day)
-  - turbolinks fucks w nav menu / listeners - need to rebind
-  - fix articles show
-  - decide if ill expose it / kill it
-  - auto scroll on mobile
-  - that damn gap by the footer
-  - fix search on company index
-    - style for adv search on desktop
-    - search just disappeared altogether
+  - features
+x    - turbolinks fucks w nav menu / listeners - need to rebind
+x    - fix articles show
+x      - decide if ill expose it / kill it (KILL IIIIIT)
+    - auto scroll on mobile
+    - fix search on company index
+      - style for adv search on desktop
+      - search just disappeared altogether
+    - update badges on homepage --- should linke to each search by badge
+
+  - styles
+    - that damn gap by the footer
+    - flash message styling
+    - buy other nouns from noun project
+    - navbar styles on badges index page
+    - badge row styles on badges index
+    - homepage heading
+
 x  - search by badge not autocomplete - false error
 x  - make sure tests passing
-  - buy other nouns from noun project
-  - update badges on homepage --- should linke to each search by badge
-  - navbar styles on badges index page
-  - badge row styles on badges index
+
   - transition all admin stuff to SOH email
     - new relic
     - heroku
@@ -28,6 +27,7 @@ x  - make sure tests passing
     - thenounproject
     - sendgrid
     - bot for deployment on git --- symbolofhealthbot@gmail.com // HM
+    - circleCI - esp notifications
 - Document stubs (## est 0.25 day)
   - page for ICV context
   - page for describing extraction process?

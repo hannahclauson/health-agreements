@@ -58,4 +58,5 @@
       .panel-body
         = render 'practices/form'
 
-  = render 'articles/panel_list'
+  - if @company.articles.size > 0
+    = render 'articles/panel_list'

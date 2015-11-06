@@ -303,3 +303,13 @@ x    - section one -- badges
 x    - section two -- morality
 x    - tiles    
 x  - mobile version
+
+x- Setup Staging Environment (## est 0.5 day)
+x  - make new app on heroku
+x    - make sure stage DB is setup
+x  - setup Circle CI to:
+x    -  auto push to staging
+x    - should also migrate
+x    - should tag w a release version
+x    - push to prod only by release tag
+
