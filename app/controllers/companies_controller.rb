@@ -112,13 +112,15 @@ class CompaniesController < ApplicationController
       c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
     end
 
-    if params[:badge].present?
+    if params[:badge].present? || !params[:badge].nil?
       if params[:badge][:id].present?
         c = c.filter_badges(params[:badge][:id])
-        @advanced_search = true if params[:badge][:id].size > 0
+        @advanced_search = true
       else
-        c = c.filter_badges_by_name(params[:badge][:name]) if params[:badge][:name].present?
-        @advanced_search = true if params[:badge][:name].size > 0
+        if params[:badge][:name].present?
+          c = c.filter_badges_by_name(params[:badge][:name])
+          @advanced_search = true
+        end
       end
     end
 
@@ -126,10 +128,12 @@ class CompaniesController < ApplicationController
       if params[:guideline][:id].present?
         if params[:practice][:implementation].present?
           c = c.filter_practices_by_name_and_impl(params[:guideline][:id], params[:practice][:implementation])
-          @advanced_search = true if params[:guideline][:id].size > 0 || params[:practice][:implementation].size > 0
+          @advanced_search = true
         else
-          c = c.filter_practices_by_name(params[:guideline][:id])
-          @advanced_search = true if params[:guideline][:id].size > 0
+          if params[:guideline][:id].size > 0
+            c = c.filter_practices_by_name(params[:guideline][:id])
+            @advanced_search = true
+          end
         end
       end
 
