@@ -39,7 +39,7 @@
         = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
-        =link_to "HIPAA Compliance", companies_path(:commit => "Search", "badge[name]" => @badges["HIPAA Compliance"])
+        =link_to "HIPAA Compliance", companies_path( search_params({"badge[name]" => @badges["HIPAA Compliance"]}) )
       %ul
         %li Respect a perons right to inspect/copy/update your Personal Health Information
         %li Provides a report on how your health data is used upon request
