@@ -18,6 +18,7 @@ x    - update badges on homepage --- should link to each search by badge
     - navbar styles on badges index page
     - badge row styles on badges index
     - homepage heading
+    - badges on HP gaps are off a bit
 
 x  - search by badge not autocomplete - false error
 x  - make sure tests passing
