@@ -295,3 +295,11 @@ x    - Showcase Good Citizens
 x    - content to explain how data extracted / badges awarded
 x    - companies w the highest impact factor
 x    - Highlight some common searches / most frequent searches?
+
+x- Home page copy (## est 1.0 day)
+x  - styles
+x    - hero -- ICV
+x    - section one -- badges
+x    - section two -- morality
+x    - tiles    
+x  - mobile version

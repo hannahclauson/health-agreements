@@ -1,7 +1,8 @@
 - Setup Staging Environment (## est 0.5 day)
 x  - make new app on heroku
-    - make sure stage DB is setup
-  - setup Travis CI to auto push to staging
+x    - make sure stage DB is setup
+  - setup Circle CI to:
+    -  auto push to staging
     - should also migrate
     - should also setup notifications for these commands - papertrail / etc
   - setup to auto push to prod?
@@ -12,11 +13,12 @@ x  - make new app on heroku
   - decide if ill expose it / kill it
   - auto scroll on mobile
   - that damn gap by the footer
-  - style for adv search on desktop
-x  - search by badge not autocomplete - false error
-  - make sure tests passing
-  - buy other nouns from noun project
   - fix search on company index
+    - style for adv search on desktop
+    - search just disappeared altogether
+x  - search by badge not autocomplete - false error
+x  - make sure tests passing
+  - buy other nouns from noun project
   - update badges on homepage --- should linke to each search by badge
   - navbar styles on badges index page
   - badge row styles on badges index
@@ -26,13 +28,6 @@ x  - search by badge not autocomplete - false error
     - DNS
     - thenounproject
     - sendgrid
-- Home page copy (## est 1.0 day)
-x  - styles
-x    - hero -- ICV
-x    - section one -- badges
-x    - section two -- morality
-x    - tiles    
-  - mobile version
 - Document stubs (## est 0.25 day)
   - page for ICV context
   - page for describing extraction process?
