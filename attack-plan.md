@@ -28,6 +28,7 @@ x  - make sure tests passing
     - DNS
     - thenounproject
     - sendgrid
+    - bot for deployment on git --- symbolofhealthbot@gmail.com // HM
 - Document stubs (## est 0.25 day)
   - page for ICV context
   - page for describing extraction process?
