@@ -12,11 +12,11 @@
 .icons.thumbnails.col-sm-6
   %div.span3.col-sm-12
     %span.icon.col-sm-4
-      %a{:href => companies_path("badge[name]" => @badges["Research"])}
+      %a{:href => companies_path( search_params({"badge[name]" => @badges["Research"]}) )}
         = render partial: "shared/badge", object: @badges["Research"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
-        =link_to "Research", companies_path("badge[name]" => @badges["Research"])
+        =link_to "Research", companies_path( search_params({"badge[name]" => @badges["Research"]}) )
       %ul
         %li Publishes results in peer reviewed publications
         %li Has opt in and opt out mechanisms for users
@@ -24,18 +24,18 @@
 
   %div.span3.col-sm-12
     %span.icon.col-sm-4
-      %a{:href => companies_path("badge[name]" => @badges["Single State Hosted"])}
+      %a{:href => companies_path( search_params({"badge[name]" => @badges["Single State Hosted"]}) )}
         = render partial: "shared/badge", object: @badges["Single State Hosted"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
-        =link_to "Single-State Hosted", companies_path("badge[name]" => @badges["Single State Hosted"])
+        =link_to "Single-State Hosted", companies_path( search_params({"badge[name]" => @badges["Single State Hosted"]}) )
       %ul
         %li ONLY hosts your data in a single political state
 
 
   %div.span3.col-sm-12
     %span.icon.col-sm-4
-      %a{:href => companies_path("badge[name]" => @badges["HIPAA Compliance"])}
+      %a{:href => companies_path( search_params({"badge[name]" => @badges["HIPAA Compliance"]}) )}
         = render partial: "shared/badge", object: @badges["HIPAA Compliance"], locals: {'size':'extra-large', 'inverted':false}
     %span.bullets.col-sm-8
       %h3 
