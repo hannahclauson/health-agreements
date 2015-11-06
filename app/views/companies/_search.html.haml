@@ -1,5 +1,7 @@
 = form_tag( {:action => "index"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
+  = render partial: "search_standard", locals: {only_standard_options: false}
+
   .bar
 
     = render "search_advanced"

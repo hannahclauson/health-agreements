@@ -18,9 +18,6 @@
         = autocomplete_field(:guideline, :name, autocomplete_guideline_name_companies_path, :update_elements => {:id => "#guideline_id"}, :class => "form-control guideline-name", :value => (@searched ? params[:guideline][:name] : ""), :placeholder => placeholder )
         %input#guideline_id.hidden{:name => "guideline[id]", :value => (@searched ? params[:guideline][:id] : "") }
 
-    - if mobile?
-      %span
-        .input-group
-          = render 'search_implementation'
-    - else
-      = render 'search_implementation'
+    %span.value.implementation
+      .input-group
+        = render 'search_implementation'

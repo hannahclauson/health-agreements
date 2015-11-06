@@ -3,11 +3,11 @@
 x    - turbolinks fucks w nav menu / listeners - need to rebind
 x    - fix articles show
 x      - decide if ill expose it / kill it (KILL IIIIIT)
+x    - fix search on company index
+x      - style for adv search on desktop
+x      - search just disappeared altogether
+    - update badges on homepage --- should link to each search by badge
     - auto scroll on mobile
-    - fix search on company index
-      - style for adv search on desktop
-      - search just disappeared altogether
-    - update badges on homepage --- should linke to each search by badge
 
   - styles
     - that damn gap by the footer
@@ -100,6 +100,8 @@ x  - buy domain / setup DNS
 - Crawler to generate company list (##est 1 day)
 - MISC (##est 1 day)
   - setup nightly transfers of prod DB to staging
+  - run test suite twice - once w mobile UA
+    - e.g. that bug w search where I had removed the input, so there was an err
 - Data Entry Phase V (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
