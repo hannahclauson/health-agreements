@@ -2,11 +2,10 @@
 x  - make new app on heroku
 x    - make sure stage DB is setup
   - setup Circle CI to:
-    -  auto push to staging
-    - should also migrate
-    - should also setup notifications for these commands - papertrail / etc
-  - setup to auto push to prod?
-  - setup nightly transfers of prod DB to staging
+x    -  auto push to staging
+x    - should also migrate
+x    - should tag w a release version
+    - push to prod only by release tag
 - Bugs (## est 0.5 day)
   - turbolinks fucks w nav menu / listeners - need to rebind
   - fix articles show
@@ -99,6 +98,8 @@ x  - buy domain / setup DNS
   - maybe not a bad idea to have list of links for each company where they list their articles
   - and detect if/when those pages change / have content added
 - Crawler to generate company list (##est 1 day)
+- MISC (##est 1 day)
+  - setup nightly transfers of prod DB to staging
 - Data Entry Phase V (##est 3 days)
   - big data push - hundreds of sites as goal
   - ideally 1k companies
