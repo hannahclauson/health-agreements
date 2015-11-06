@@ -70,3 +70,6 @@ Note - A company can be 'HIPAA Compliant' meaning they have made the effort to a
 ### Safe Harbor
 
 [A set of privacy guidelines established by the US and EU](https://en.wikipedia.org/wiki/International_Safe_Harbor_Privacy_Principles)
+
+
+OMG PUSHING IS EASY
