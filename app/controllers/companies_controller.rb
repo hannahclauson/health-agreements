@@ -106,6 +106,7 @@ class CompaniesController < ApplicationController
     end
 
     @errors = []
+    @advanced_search = false
 
     if params[:company].present?
       c = c.filter_name(params[:company][:name]) if params[:company][:name].present?
@@ -117,6 +118,7 @@ class CompaniesController < ApplicationController
       else
         c = c.filter_badges_by_name(params[:badge][:name]) if params[:badge][:name].present?
       end
+      
     end
 
     if params[:guideline].present?
