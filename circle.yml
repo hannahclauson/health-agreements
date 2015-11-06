@@ -14,7 +14,7 @@ deployment:
   production:
 #    branch: production
     tag: /release-.*/
-    owner: circleci
+#    owner: circleci
     heroku:
       appname: evening-badlands-7297
 # or add these once I want post build commands
