@@ -10,6 +10,18 @@ module PracticesHelper
     end
   end
 
+  def enumerated_legal_documents(this_company)
+  #  puts "Practice:"
+ #   puts this_practice.inspect
+#    puts "company:"
+#    puts this_practice.company.inspect
+    docs = this_company.legal_documents
+
+    docs.collect do |g|
+      [g.name, g.id]
+    end
+  end
+
   def enumerated_implementations
     Practice.implementations.collect.with_index do |name, index|
       [name, index]

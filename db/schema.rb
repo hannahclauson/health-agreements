@@ -81,17 +81,29 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "legal_documents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "company_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "legal_documents", ["company_id"], name: "index_legal_documents_on_company_id", using: :btree
+
   create_table "practices", force: :cascade do |t|
     t.text     "notes"
     t.integer  "implementation"
     t.integer  "company_id"
     t.integer  "guideline_id"
+    t.integer  "legal_document_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
+  add_index "practices", ["legal_document_id"], name: "index_practices_on_legal_document_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -137,6 +149,5 @@ ActiveRecord::Schema.define(version: 20150902223734) do
 
   add_index "articles", ["company_id"], name: "index_articles_on_company_id", using: :btree
   add_index "articles", ["journal_id"], name: "index_articles_on_journal_id", using: :btree
-
 
 end

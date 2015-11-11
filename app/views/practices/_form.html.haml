@@ -12,6 +12,11 @@
       = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
 
   .field.form-group
+    = f.label :legal_document_id, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = select_tag('practice[legal_document_id]', options_for_select(enumerated_legal_documents(@company), :selected => @practice.legal_document_id), :include_blank => true)
+
+  .field.form-group
     = f.label :implementation, class: 'col-sm-2 control-label'
     .col-sm-10.input_wrapper
       = select_tag('practice[implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)

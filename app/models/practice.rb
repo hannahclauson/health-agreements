@@ -3,6 +3,7 @@ class Practice < ActiveRecord::Base
 
   belongs_to :guideline
   belongs_to :company
+  belongs_to :legal_document
 
   after_create :check_badge_eligibility
   after_update :check_badge_eligibility

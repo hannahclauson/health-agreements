@@ -43,8 +43,18 @@ x  - make sure tests passing
   - prioritize BP buffer
   - publish 1-3 articles
   - transition DNS to SOH email / acct
-- Minor company update
+- Company field update
   - add fields for tos/pp/eula/etc - any other documents
+  - add LegalDocuments
+    - has many practices
+    - belongs to company
+    - should prob event be btw comp/practice ... this way is a bit redundant
+  - add migration
+  - update view / edit
+  - don't require it as a field when creating practice
+  - go through all companies on prod
+  - once they have it
+  - then require it / test on local prod DB dump
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies

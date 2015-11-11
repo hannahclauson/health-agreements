@@ -60,3 +60,15 @@
 
   - if @company.articles.size > 0
     = render 'articles/panel_list'
+
+  - if can? :mutate, @company
+    .panel.panel-default
+      .panel-heading
+        %h2 Add a Legal Document
+      .panel-body
+        = render 'legal_documents/form'
+
+  - if @company.legal_documents.size > 0
+    = render 'legal_documents/panel_list'
+
+

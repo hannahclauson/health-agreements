@@ -11,6 +11,9 @@ class Company < ActiveRecord::Base
   has_many :journals, through: :articles
   has_many :guidelines, through: :practices
 
+  has_many :legal_documents, dependent: :destroy
+  accepts_nested_attributes_for :legal_documents
+
   before_save :generate_slug
 
   validates :name, presence: true, length: {minimum: 3}, uniqueness: true

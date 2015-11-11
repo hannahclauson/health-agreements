@@ -1,0 +1,29 @@
+.panel.panel-primary
+  .panel-heading
+    %h2 Legal Documents
+  .panel-body
+    %p
+      The following is a list of legal documents defined by #{@company.name}
+  %table.table
+    %tr.info
+      %th Name
+      %th URL
+      - if (can? :edit, Article) || (can? :delete, Article)
+        %th Actions
+    - @company.legal_documents.each do |a|
+      %tr
+        %td
+          =link_to a.journal.name, journal_path(a.journal)
+        %td
+          =link_to a.title, a.summary_url
+        %td
+          - if a.download_url.nil?
+            "Not Available"
+          - else
+            %a{href: a.download_url}="Download"
+        - if (can? :edit, Article) || (can? :delete, Article)
+          %td.actions
+            - if can? :edit, Article
+              = link_to('Edit', edit_polymorphic_path([@company,a]), {class: 'btn btn-xs btn-info'})
+            - if can? :delete, Article
+              = link_to('Delete', polymorphic_path([@company,a]), class: 'btn btn-xs btn-danger', method: :delete)

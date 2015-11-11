@@ -1,0 +1,6 @@
+class LegalDocumentsController < ApplicationController
+
+  
+  
+
+end
