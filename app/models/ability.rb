@@ -20,7 +20,8 @@ class Ability
       Badge,
       BadgePractice,
       Journal,
-      Article
+      Article,
+      LegalDocument
     ]
 
     can :view, site_objects

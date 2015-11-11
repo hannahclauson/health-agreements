@@ -8,22 +8,16 @@
     %tr.info
       %th Name
       %th URL
-      - if (can? :edit, Article) || (can? :delete, Article)
+      - if (can? :edit, LegalDocument) || (can? :delete, LegalDocument)
         %th Actions
-    - @company.legal_documents.each do |a|
+    - @company.legal_documents.each do |d|
       %tr
+        %td= d.name
         %td
-          =link_to a.journal.name, journal_path(a.journal)
-        %td
-          =link_to a.title, a.summary_url
-        %td
-          - if a.download_url.nil?
-            "Not Available"
-          - else
-            %a{href: a.download_url}="Download"
-        - if (can? :edit, Article) || (can? :delete, Article)
+          =link_to "Live URL", d.url
+        - if (can? :edit, LegalDocument) || (can? :delete, LegalDocument)
           %td.actions
-            - if can? :edit, Article
-              = link_to('Edit', edit_polymorphic_path([@company,a]), {class: 'btn btn-xs btn-info'})
-            - if can? :delete, Article
-              = link_to('Delete', polymorphic_path([@company,a]), class: 'btn btn-xs btn-danger', method: :delete)
+            - if can? :edit, LegalDocument
+              = link_to('Edit', edit_polymorphic_path([@company,d]), {class: 'btn btn-xs btn-info'})
+            - if can? :delete, LegalDocument
+              = link_to('Delete', polymorphic_path([@company,d]), class: 'btn btn-xs btn-danger', method: :delete)

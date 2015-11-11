@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get :autocomplete_practice_implementation, :on => :collection
     resources :practices
     resources :articles
+    resources :legal_documents
   end
 
   resources :journals do

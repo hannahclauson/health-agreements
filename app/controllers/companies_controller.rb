@@ -174,6 +174,7 @@ class CompaniesController < ApplicationController
   def show
     current_company
     @practice = Practice.new
+    @legal_document = LegalDocument.new
   end
 
   def destroy
