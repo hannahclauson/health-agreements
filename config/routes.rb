@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get 'documents/glossary'
   get 'documents/credit'
 
+  resources :contributions
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
