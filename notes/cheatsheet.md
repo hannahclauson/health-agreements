@@ -39,6 +39,14 @@ $ heroku pg:backups schedules --app evening-badlands-7297
 
 $heroku pg:backups restore b101 DATABASE_URL --app sushi
 
+# locally restore from dump file
+
+rake db:drop
+rake db:create
+pg_restore -O -d health_agreements_dev latest.dump
+
+# also look into this tool for prod pull / tests:
+http://www.rubydoc.info/gems/taps/0.3.24/frames
 
 # describe a table:
 
