@@ -12,8 +12,9 @@ deployment:
 #      - "git push --tags git@github.com:sjezewski/health-agreements.git"
 
   production:
-#    branch: production
-    tag: /release-.*/
+    branch: production
+# enable by tag for auto push to prod
+#    tag: /release-.*/
 #    owner: circleci
     heroku:
       appname: evening-badlands-7297
