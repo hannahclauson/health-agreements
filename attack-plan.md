@@ -55,6 +55,9 @@ x  - make sure tests passing
   - go through all companies on prod
   - once they have it
   - then require it / test on local prod DB dump
+  - add tests
+    - clone of practices sub tests rom company cont
+    - shows up in practices view -- new practice requires doc
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies

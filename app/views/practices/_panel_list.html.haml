@@ -7,6 +7,7 @@
   %table.table
     %tr.info
       %th Name
+      %th Doc
       %th Implementation
       - if !mobile?
         %th Notes
@@ -15,6 +16,7 @@
     - @company.practices.each do |p|
       %tr
         %td= p.guideline.name
+        %td= p.legal_document.nil? ? "" : p.legal_document.name
         %td= p.implementation_text
         - if !mobile?
           %td= p.notes

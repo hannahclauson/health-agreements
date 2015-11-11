@@ -15,6 +15,9 @@
         %span="How #{@company.name} implements the '#{@practice.guideline.name}' guideline"
         - if !mobile?
           %span.btn.implementation_status{:class => @practice.implementation_text}=" #{@practice.implementation_text.capitalize}"
+      %p
+        %span This practice was extracted from:
+        =link_to @practice.legal_document.name, @practice.legal_document.url
 
   .panel.panel-primary
     .panel-heading

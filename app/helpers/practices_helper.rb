@@ -16,6 +16,10 @@ module PracticesHelper
 #    puts "company:"
 #    puts this_practice.company.inspect
     docs = this_company.legal_documents
+    puts "this company:"
+    puts this_company.inspect
+    puts "docs:"
+    puts docs.inspect
 
     docs.collect do |g|
       [g.name, g.id]

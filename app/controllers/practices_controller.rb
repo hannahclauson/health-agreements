@@ -64,7 +64,7 @@ class PracticesController < ApplicationController
 
   def allowed_params
     # need to whitelist foreign_id for guideline? and owner company?
-    params.require(:practice).permit(:implementation, :notes, :guideline_id)
+    params.require(:practice).permit(:implementation, :notes, :guideline_id, :legal_document_id)
   end
 
   def current_company

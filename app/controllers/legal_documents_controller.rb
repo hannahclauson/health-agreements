@@ -2,7 +2,7 @@ class LegalDocumentsController < ApplicationController
 
   def create
     current_company
-    authorize! :create, Practice
+    authorize! :create, LegalDocument
     @legal_document = @company.legal_documents.create(allowed_params)
 
     if @legal_document.save
