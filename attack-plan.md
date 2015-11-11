@@ -7,9 +7,10 @@ x    - fix search on company index
 x      - style for adv search on desktop
 x      - search just disappeared altogether
 x    - update badges on homepage --- should link to each search by badge
-    - search should populate inputs w values that we used for the search
-      - and should show the advanced options if those were used
+x    - search should populate inputs w values that we used for the search
+x      - and should show the advanced options if those were used
     - auto scroll on mobile
+    - change 'show' buttons to 'learn more / details'
 
   - styles
     - that damn gap by the footer

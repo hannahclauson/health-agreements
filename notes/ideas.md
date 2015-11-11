@@ -23,3 +23,10 @@ Future Badge/Guideline Ideas:
   - kind of hard to measure
 - low impact publisher / high impact publisher
 - publishes studies that fail
+
+
+---
+
+- auto scan docs
+- subtract out parts covered by badges
+- expose remainder
