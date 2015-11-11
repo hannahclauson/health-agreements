@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20150902223734) do
   add_index "articles", ["journal_id"], name: "index_articles_on_journal_id", using: :btree
 
   create_table "contributions", force: :cascade do |t|
-    t.string   "type"
+    t.string   "kind"
     t.string   "url"
     t.string   "email"
     t.datetime "created_at",  null: false

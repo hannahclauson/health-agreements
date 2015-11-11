@@ -1,0 +1,17 @@
+.container
+  .page-heading
+    %h1 Submissions
+  .page-body
+
+    .panel.panel-default
+      .panel-body
+        %table.table
+          %tr
+            %th Kind
+            %th URL
+            %th Email
+          - @contributions.each do |c|
+            %tr
+              %td= c.kind
+              %td= c.url
+              %td= c.email

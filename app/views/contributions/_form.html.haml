@@ -1,0 +1,29 @@
+= form_for @contribution, html: {class: 'form-horizontal'} do |f|
+
+  = if @contribution.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contribution.errors.count, "Error")} prohibited this contribution from being saved"
+      %ul
+        - @contribution.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field.form-group.hidden
+    = f.label :kind, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :kind, {:value => value}
+
+  .field.form-group
+    = f.label :url, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :url
+
+  .field.form-group
+    = f.label :email, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = f.text_field :email
+
+  .field.form-group
+    %label.col-sm-2.control-label
+    .col-sm-10.input_wrapper
+      = f.submit "Submit #{value.capitalize}"
+

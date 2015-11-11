@@ -1,6 +1,13 @@
 class ContributionsController < ApplicationController
 
-  def index
+  def new
+    authorize! :create, Contribution
+    @contribution = Contribution.new
+  end
+
+  def submissions
+    authorize! :submissions, Contribution
+    @contributions = Contribution.all
   end
 
   def create
@@ -8,7 +15,8 @@ class ContributionsController < ApplicationController
     @contribution = Contribution.create(allowed_params)
 
     if @contribution.save
-      redirect_to contributions_path
+      flash[:notice] = "Thank you for your #{allowed_params[:kind]} submission"
+      redirect_to new_contribution_path
     else
       render 'new'
     end
@@ -18,7 +26,7 @@ class ContributionsController < ApplicationController
 
   def allowed_params
     params.require(:contribution).permit(
-                                    :type,
+                                    :kind,
                                     :url,
                                     :email
                                     )

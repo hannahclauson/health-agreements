@@ -21,10 +21,13 @@ class Ability
       BadgePractice,
       Journal,
       Article,
-      LegalDocument
+      LegalDocument,
+      Contribution
     ]
 
+    # Anon Users
     can :view, site_objects
+    can :create, Contribution
 
     if user.admin?
       can :manage, :all
@@ -32,6 +35,7 @@ class Ability
       can :mutate, site_objects
       can :rebuild, Badge
       can :manage, BadgePractice
+      can :submissions, Contribution
     end
 
   end

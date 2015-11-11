@@ -1,0 +1,26 @@
+.container
+  .page-header
+    %h1 Contribute
+
+  .panel.panel-default
+    .panel-heading
+      %h2 Request a Company
+    .panel-body
+      %p Don't see the company you're looking for? Let us know and we'll add it to our index.
+      %p (Provide your email optionally if you want to be notified when the company is added)
+      = render partial: 'form', locals: {value: "company"}
+
+  .panel.panel-default
+    .panel-heading
+      %h2 Submit an Article
+    .panel-body
+      %p Found an article using a company's health data? Submit a URL to the publication here. Note - the article must cite the use of the data from the company in the article.
+      %p (Provide your email optionally if you want to be notified when the article is added)
+      = render partial: 'form', locals: {value: "article"}
+
+  .panel.panel-default
+    .panel-heading
+      %h2 Help us Index
+    .panel-body
+      %p Interested in helping us add to our index? Provide your email to get involved.
+      = render partial: 'form', locals: {value: "volunteer"}
