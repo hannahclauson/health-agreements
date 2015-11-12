@@ -373,3 +373,7 @@ x  - make sure tests passing
 x- Document stubs (## est 0.25 day)
 x  - page for ICV context
 x  - page for describing extraction process?
+
+x- Review mobile styles
+x  - contribution
+x  - search on homepage

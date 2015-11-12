@@ -1,5 +1,3 @@
-- Review mobile styles
-
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies
