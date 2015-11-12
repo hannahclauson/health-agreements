@@ -368,3 +368,8 @@ x    - badge row styles on badges index
 x    - homepage heading
 x  - search by badge not autocomplete - false error
 x  - make sure tests passing
+
+
+x- Document stubs (## est 0.25 day)
+x  - page for ICV context
+x  - page for describing extraction process?

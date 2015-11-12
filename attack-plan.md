@@ -1,9 +1,5 @@
 - Review mobile styles
 
-- Document stubs (## est 0.25 day)
-  - page for ICV context
-  - page for describing extraction process?
-
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies

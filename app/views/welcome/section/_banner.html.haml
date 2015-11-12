@@ -1,22 +1,21 @@
 %h1 You should ALWAYS understand how your health data is shared
 
-%h2 The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family
+- if !mobile?
+  %h2 The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family
 
 %h2 
   We distill legal agreements into symbols ... so that you can make informed decisions
 
-%h2
-  %small
-    %a{href: 'documents/inform-comprehend-volunteer'} Learn More about the process
+- if !mobile?
+  %h2
+    %small
+      %a{href: 'documents/inform-comprehend-volunteer'} Learn More about the process
+- if mobile?
+  %h2 Find a company to comprehend its terms ...
 
 = form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
-
-  %span.bar{class: mobile? ? "" : "col-sm-10"}
+  %div.input-group
     - placeholder = mobile? ? 'Search by Name' : 'Search for a Company by Name ...'
     = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: placeholder, value: (@searched ? params[:company][:name] : "")})
-    - if mobile?
-      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
-  - if !mobile?
-    %span.options.col-sm-2
-      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+    %span.input-group-addon.btn.btn-primary.glyphicon.glyphicon-search.submit-search
 

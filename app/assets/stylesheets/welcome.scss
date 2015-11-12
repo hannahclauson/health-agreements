@@ -220,15 +220,50 @@ section {
 
 
 body.phone.welcome_index {
-  #search {
-    height: 200px;
-    form {
-      padding: 0px 30px;
-      .submit-search {
-        display: none;
-      }
+  .banner {
+    padding-top: 0px;
+    h2 {
+       margin-top: 40px;
     }
   }
+
+    form {
+      padding: 0px;
+      padding-top: 10px;
+
+      .input-group > * {
+        display: table-cell;
+      }
+
+      #company_name {
+//        width: auto;
+        border: 1px solid;
+        padding: 0px;
+        font-size: 16px;
+        height: 36px;
+        top: 1px;
+        padding-left: 10px;
+
+      }
+      span.submit-search {
+        display: table-cell;
+        padding: 10px; //10px 20px 10px 10px;
+        left: -5px;
+      }
+      
+      &::-webkit-input-placeholder {
+          font-weight:200;
+      }
+      &::-moz-placeholder {
+          font-weight:200;
+      }
+      &:-moz-placeholder {
+          font-weight:200;
+      }
+      &:-ms-input-placeholder {
+          font-weight:200;
+      }
+    }
 
 
   // symbols section
