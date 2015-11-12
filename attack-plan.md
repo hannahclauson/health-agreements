@@ -1,10 +1,6 @@
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies
-  - let run for a week or so to see how data performs
-  - include test company (maybe this site itself) to validate change detection
-  - paginate company index
-  - include public sector data sources? data.gov
   - enter on prod DB / site
 
 - Update badges
@@ -23,6 +19,7 @@
   - paginate journals / articles as needed (prob need to make articles index subview of comp)
 
 --- goal for ODSC ---
+
 - Finish legal doc update
   - go through all companies on prod
   - once they have it
@@ -76,6 +73,12 @@
     - comparison view to compare two versions (visualize diff)
   - alerts  / UI changes to denot
   - cost est for this amt of data / traffic
+
+  - let run for a week or so to see how data performs
+  - include test company (maybe this site itself) to validate change detection
+  - paginate company index
+  - include public sector data sources? data.gov
+
 - UI tweaks
   - breadcrumbs? - esp for spec company practice
   - mobile nav menu coloring
