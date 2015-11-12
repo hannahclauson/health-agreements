@@ -313,3 +313,15 @@ x    - should also migrate
 x    - should tag w a release version
 x    - push to prod only by release tag
 
+
+- Soft Launch Site (##est 1 day)
+  - upgrade middleware (puma / unicorn) - NA for now
+x  - have mechanism for high fidelity DB backup / routinely do this
+x  - decide on a name
+x  - buy domain / setup DNS
+  - estimate monthly costs
+  - add to my contracting firm?
+
+- Request Addition / Modification (##est 1 day)
+  - form to request a company added to list
+  - form to request an article

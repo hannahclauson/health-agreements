@@ -10,7 +10,7 @@ x    - update badges on homepage --- should link to each search by badge
 x    - search should populate inputs w values that we used for the search
 x      - and should show the advanced options if those were used
 x    - auto scroll on mobile -- this isnt a thing anymore
-    - change 'show' buttons to 'learn more / details'
+x    - change 'show' buttons to 'learn more / details'
 
   - styles
     - that damn gap by the footer
@@ -23,15 +23,6 @@ x    - auto scroll on mobile -- this isnt a thing anymore
 
 x  - search by badge not autocomplete - false error
 x  - make sure tests passing
-
-  - transition all admin stuff to SOH email
-    - new relic
-    - heroku
-    - DNS
-    - thenounproject
-    - sendgrid
-    - bot for deployment on git --- symbolofhealthbot@gmail.com // HM
-    - circleCI - esp notifications
 - Document stubs (## est 0.25 day)
   - page for ICV context
   - page for describing extraction process?
@@ -39,10 +30,8 @@ x  - make sure tests passing
   - article - form
   - company req - form
   - legal volunteer - email
-- Setup WP blog / subdomain (##est 3 days)
-  - prioritize BP buffer
-  - publish 1-3 articles
-  - transition DNS to SOH email / acct
+
+
 - Company field update
   - add fields for tos/pp/eula/etc - any other documents
   - add LegalDocuments
@@ -58,6 +47,7 @@ x  - make sure tests passing
   - add tests
     - clone of practices sub tests rom company cont
     - shows up in practices view -- new practice requires doc
+
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies
@@ -73,13 +63,23 @@ x  - make sure tests passing
   - Update homepage callout for companies w articles / articles index page
   - maybe different badge for active / impactful research?
   - paginate journals / articles as needed (prob need to make articles index subview of comp)
-- Soft Launch Site (##est 1 day)
-  - upgrade middleware (puma / unicorn)
-x  - have mechanism for high fidelity DB backup / routinely do this
-x  - decide on a name
-x  - buy domain / setup DNS
-  - estimate monthly costs
-  - add to my contracting firm?
+
+--- goal for ODSC ---
+
+  - transition all admin stuff to SOH email
+    - new relic
+    - heroku
+    - DNS
+    - thenounproject
+    - sendgrid
+    - bot for deployment on git --- symbolofhealthbot@gmail.com // HM
+    - circleCI - esp notifications
+
+
+- Setup WP blog / subdomain (##est 3 days)
+  - prioritize BP buffer
+  - publish 1-3 articles
+  - transition DNS to SOH email / acct
 - Setup Notifiers (##est 1 day) -- nice to have
   - for company updates
   - for new articles
@@ -123,6 +123,8 @@ x  - buy domain / setup DNS
   - big data push - hundreds of sites as goal
   - ideally 1k companies
   - paginate company index
+  - look into in mem caching for rails
+  - upgrade middleware (puma / unicorn) - estimate monthly costs
 - Work w EFF / restructure badges (##est 5 days)
   - rework badges / migrate / etc
 - Pre-Launch (##est 1/2 day)
@@ -132,11 +134,6 @@ x  - buy domain / setup DNS
   - marketing time
 === Milestone: Launch (v 1.1)
 
-- Request Addition / Modification (##est 1 day)
-  - form to request a company added to list
-  - form to request a modification
-  - form for new badge type?
-  - should notify editors via email when new submission in place
 
 
 Nice to Haves:
