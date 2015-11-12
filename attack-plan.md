@@ -9,7 +9,7 @@ x      - search just disappeared altogether
 x    - update badges on homepage --- should link to each search by badge
 x    - search should populate inputs w values that we used for the search
 x      - and should show the advanced options if those were used
-    - auto scroll on mobile
+x    - auto scroll on mobile -- this isnt a thing anymore
     - change 'show' buttons to 'learn more / details'
 
   - styles

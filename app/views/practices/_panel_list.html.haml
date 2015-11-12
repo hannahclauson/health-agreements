@@ -22,7 +22,7 @@
           %td= p.notes
         %td.actions
           - if can? :show, Practice
-            = link_to('Show', polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
+            = link_to('Details', polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
           - if can? :edit, Practice
             = link_to('Edit', edit_polymorphic_path([@company,p]), {class: 'btn btn-xs btn-info'})
           - if can? :delete, Practice
