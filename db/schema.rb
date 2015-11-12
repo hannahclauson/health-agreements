@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902223734) do
+ActiveRecord::Schema.define(version: 20151112155654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 20150902223734) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "summary_url"
+    t.string   "download_url"
+    t.integer  "company_id"
+    t.integer  "journal_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "articles", ["company_id"], name: "index_articles_on_company_id", using: :btree
+  add_index "articles", ["journal_id"], name: "index_articles_on_journal_id", using: :btree
 
   create_table "badge_awards", force: :cascade do |t|
     t.integer  "company_id"
@@ -55,8 +68,8 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.text     "description"
     t.string   "slug"
     t.boolean  "needs_to_rebuild", default: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -65,12 +78,20 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.text     "description"
     t.string   "url"
     t.float    "impact_factor"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
   add_index "companies", ["slug"], name: "index_companies_on_slug", using: :btree
+
+  create_table "contributions", force: :cascade do |t|
+    t.string   "kind"
+    t.string   "url"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "guidelines", force: :cascade do |t|
     t.string   "name"
@@ -81,12 +102,21 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "journals", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.float    "impact_factor"
+    t.string   "slug"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "legal_documents", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "company_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "legal_documents", ["company_id"], name: "index_legal_documents_on_company_id", using: :btree
@@ -96,13 +126,14 @@ ActiveRecord::Schema.define(version: 20150902223734) do
     t.integer  "implementation"
     t.integer  "company_id"
     t.integer  "guideline_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "legal_document_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
+  add_index "practices", ["legal_document_id"], name: "index_practices_on_legal_document_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -126,35 +157,5 @@ ActiveRecord::Schema.define(version: 20150902223734) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "journals", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.float "impact_factor"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.string   "summary_url"
-    t.string   "download_url"
-    t.integer  "company_id"
-    t.integer  "journal_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "articles", ["company_id"], name: "index_articles_on_company_id", using: :btree
-  add_index "articles", ["journal_id"], name: "index_articles_on_journal_id", using: :btree
-
-  create_table "contributions", force: :cascade do |t|
-    t.string   "kind"
-    t.string   "url"
-    t.string   "email"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
 end

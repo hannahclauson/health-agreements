@@ -67,6 +67,12 @@ rake db:schema:load
 
 (via : http://stackoverflow.com/questions/4116067/purge-or-recreate-a-ruby-on-rails-database)
 
+# to repair the v0.0 / v1.0 schema conflict, I did
+
+db:drop
+db:create
+(then restore from local bck / pgback)
+db:migrate
 
 # describe a table:
 
