@@ -48,11 +48,25 @@ pg_restore -O -d health_agreements_dev latest.dump
 # also look into this tool for prod pull / tests:
 http://www.rubydoc.info/gems/taps/0.3.24/frames
 
+# transfer prod DB to stage:
+
+ heroku pg:backups restore flailing-papaya-42::b101 DATABASE_URL
+
+e.g:
+
+ heroku pg:backups restore evening-badlands-7297::b022 DATABASE_URL --app symbolofhealth-staging
+
+or
+
+ heroku pg:backups restore 'https://s3.amazonaws.com/me/items/mydb.dump' DATABASE -a sushi
+
+
 # maybe this is what I want in lieu of rake db:setup (to run schema.rb)
 
 rake db:schema:load
 
 (via : http://stackoverflow.com/questions/4116067/purge-or-recreate-a-ruby-on-rails-database)
+
 
 # describe a table:
 
