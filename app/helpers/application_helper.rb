@@ -67,7 +67,7 @@ module ApplicationHelper
     links = {
       "Terms of Service" => "/documents/terms_of_service",
       "Glossary" => "/documents/glossary",
-      "Credit" => "/documents/credit"
+      "About Us" => "/documents/about-us"
     }
   end
 
