@@ -13,7 +13,7 @@ x    - auto scroll on mobile -- this isnt a thing anymore
 x    - change 'show' buttons to 'learn more / details'
 
   - styles
-    - assets / styles on staging
+x    - assets / styles on staging
     - that damn gap by the footer
     - flash message styling
     - buy other nouns from noun project
@@ -34,6 +34,10 @@ x  - make sure tests passing
 
 
 - Company field update
+  - fix migrations / schema
+    - split into two
+    - need to keep articles/journals in original one (since I've run schema manually on prod this way)
+    - and just add contributions / legal docs in new mig
   - add fields for tos/pp/eula/etc - any other documents
   - add LegalDocuments
     - has many practices
