@@ -49,6 +49,7 @@
 - Other small things
   - make all articles view / firehose index
     - right now its only under companies/journals
+  - maybe make 'guidelines' stat - the number of rules we look for per doc
 
 - Setup WP blog / subdomain (##est 3 days)
   - prioritize BP buffer

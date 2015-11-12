@@ -58,6 +58,7 @@ module ApplicationHelper
     {
       :companies_index => ['Companies', companies_path], # companies index
       :guidelines_index => ['Guidelines', guidelines_path], #guidelines index
+      :about_us => ['About Us', "/documents/about-us"],
       :documents_glossary => ['Glossary', "/documents/glossary"] #documents glossary
     }
   end
