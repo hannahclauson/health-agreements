@@ -11,25 +11,45 @@ section {
   }
 
   &.banner {
-    background-image: image-url('banner.jpg');
-    background-position-y: -980px;
-    padding: 30px;
-    
-    p {
-      color: white;
+    padding: 40px;
+    background-color: white;
+    color: $navbar-inverse-bg;
+
+    h2 {
+      margin-top: 60px;
     }
-    .jumbotron {
-      padding: 0px !important;
-      background-color: transparent;
-      display: block;
+
+    .search {
+      padding: 40px 0px;
+
+      #company_name {
+        border: 0px;
+        border-bottom: 8px $navbar-inverse-bg;
+        padding: 20px;
+        padding-bottom: 10px;
+        font-size: 24px;
+
+        &::-webkit-input-placeholder {
+//            font-style:bold;
+            color: $navbar-inverse-bg;
+            font-weight:500;
+        }
+
+//        :-moz-placeholder {@content}
+//        ::-moz-placeholder          {@content}
+//        :-ms-input-placeholder      {@content}
+
+      }
     }
 
     #search {
       color: white;
       background-color: $navbar-inverse-bg;
       display: block;
-      border-radius: 20px;
-      height: 120px;
+
+      h3 {
+        display: inline-block;
+      }
 
       .submit-search {
         background-color: $gray-light;
@@ -37,15 +57,10 @@ section {
 
       form {
         padding: 0px 60px;
+        display: inline-block;
       }
-      p {
-        padding: 20px;
-        padding-bottom: 0px;
-      }
+      
 
-      > * {
-        border-radius: 20px;
-      }
     }
 
   }

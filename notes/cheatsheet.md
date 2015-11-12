@@ -48,6 +48,12 @@ pg_restore -O -d health_agreements_dev latest.dump
 # also look into this tool for prod pull / tests:
 http://www.rubydoc.info/gems/taps/0.3.24/frames
 
+# maybe this is what I want in lieu of rake db:setup (to run schema.rb)
+
+rake db:schema:load
+
+(via : http://stackoverflow.com/questions/4116067/purge-or-recreate-a-ruby-on-rails-database)
+
 # describe a table:
 
 health_agreements_dev=# \d+ Companies

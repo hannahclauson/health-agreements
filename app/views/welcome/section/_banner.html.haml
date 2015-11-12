@@ -1,15 +1,17 @@
-.jumbotron
-  %div
-    %h1 How is your health data used?
-  %p
-    Consent requires : Informing. Comprehending. Volunteering.
-  %p
-    If you see a wall of text you fail the second step. We distill legal terms into symbols to faciliate understanding.
-  %p
-    The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family.
+%h1 You should ALWAYS understand how your health data is shared
 
-  #search
-    %p
-      Search for a company to learn how they use your health data.
-    = form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
-      = render partial: "companies/search_standard", locals: {only_standard_options: true}
+%h2 The stakes have never been higher. Your health data is incredibly personal and how its used can have financial, personal, and ethical consequences for you and your family
+
+%h2 We distill legal agreements into symbols ... so that you can make informed decisions
+
+= form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
+
+  %span{class: mobile? ? "" : "col-sm-10"}
+    - placeholder = mobile? ? 'Search by Name' : 'Search for a Company by Name ...'
+    = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: placeholder, value: (@searched ? params[:company][:name] : "")})
+    - if mobile?
+      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+  - if !mobile?
+    %span.options.col-sm-2
+      %span.btn.btn-primary.glyphicon.glyphicon-search.submit-search
+
