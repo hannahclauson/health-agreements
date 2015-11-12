@@ -54,7 +54,7 @@
       -webkit-mask-size: $badge-height $badge-width;
       background-color: $badge_color;
       width: $badge-width;
-      height: ($badge-height - 4);
+      height: $badge-height;
 
       margin: auto;
       padding: 5px;
@@ -130,7 +130,7 @@
       text-align: center;
       color: $badge_color;
       width: $badge-width;
-      height: ($badge-height - 4);
+      height: $badge-height;
 
       font-size: 16pt;
       margin: auto;
