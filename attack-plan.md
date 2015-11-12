@@ -1,5 +1,5 @@
 - Bugs (## est 0.5 day)
-  - features
+x  - features
 x    - turbolinks fucks w nav menu / listeners - need to rebind
 x    - fix articles show
 x      - decide if ill expose it / kill it (KILL IIIIIT)
@@ -13,6 +13,7 @@ x    - auto scroll on mobile -- this isnt a thing anymore
 x    - change 'show' buttons to 'learn more / details'
 
   - styles
+    - assets / styles on staging
     - that damn gap by the footer
     - flash message styling
     - buy other nouns from noun project
