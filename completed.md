@@ -325,3 +325,21 @@ x  - buy domain / setup DNS
 - Request Addition / Modification (##est 1 day)
   - form to request a company added to list
   - form to request an article
+x- Company field update
+x  - fix migrations / schema
+x    - split into two
+x    - need to keep articles/journals in original one (since I've run schema manually on prod this way)
+x    - and just add contributions / legal docs in new mig
+x  - add fields for tos/pp/eula/etc - any other documents
+x  - add LegalDocuments
+x    - has many practices
+x    - belongs to company
+x    - should prob event be btw comp/practice ... this way is a bit redundant
+x  - add migration
+x  - update view / edit
+x  - don't require it as a field when creating practice
+
+x- Contribute (## est 0.5 day)
+x  - article - form
+x  - company req - form
+x  - legal volunteer - email

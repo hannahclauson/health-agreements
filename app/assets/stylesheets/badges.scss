@@ -9,15 +9,17 @@ button.rebuild {
   .actions a {
     top: 20px; // dont like that this is a one-off (well two-off now, also for guidelines index)
   }
-
-  li {
-    a {
-      position: relative;
-      top: -25px;
-      padding: 20px;
-    }
-    > * {
-      display: inline-block;
+  .container {
+    li {
+      height: 85px;
+      a {
+        position: relative;
+        top: -25px;
+        padding: 20px;
+      }
+      > * {
+        display: inline-block;
+      }
     }
   }
 

@@ -6,7 +6,7 @@
 
 = form_tag({:action => "index", :controller => "companies"}, {:method => "get", :class => 'form-horizontal search'} ) do |form|
 
-  %span{class: mobile? ? "" : "col-sm-10"}
+  %span.bar{class: mobile? ? "" : "col-sm-10"}
     - placeholder = mobile? ? 'Search by Name' : 'Search for a Company by Name ...'
     = autocomplete_field(:company, :name, autocomplete_company_name_companies_path, {class: 'form-control', placeholder: placeholder, value: (@searched ? params[:company][:name] : "")})
     - if mobile?

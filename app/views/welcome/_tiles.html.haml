@@ -21,7 +21,7 @@
         %h2 Stats
       %p We've collected a lot of data so far!
       - @stats.each do |name, value|
-        .stat
+        %a.stat{href: value[:link]}
           = render partial: 'shared/stat', locals: {value: value[:count], color: value[:color]}
           %span.name
             = name.capitalize
@@ -37,4 +37,4 @@
         %h2 Get Involved
       %p Want to contribute? 
       %p
-        %a.btn.btn-default.btn-lg{:href => documents_contribute_path} Help Us
+        %a.btn.btn-default.btn-lg{:href => new_contribution_path} Help Us

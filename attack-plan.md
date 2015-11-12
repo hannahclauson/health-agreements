@@ -11,47 +11,21 @@ x    - search should populate inputs w values that we used for the search
 x      - and should show the advanced options if those were used
 x    - auto scroll on mobile -- this isnt a thing anymore
 x    - change 'show' buttons to 'learn more / details'
-
+x    - hook in new contributions forms
+x    - make links out of each stat tile
   - styles
 x    - assets / styles on staging
-    - that damn gap by the footer
-    - flash message styling
+x    - flash message styling (dont need abs pos anymore on homepage)
     - buy other nouns from noun project
-    - navbar styles on badges index page
-    - badge row styles on badges index
-    - homepage heading
-    - badges on HP gaps are off a bit
-
+x    - navbar styles on badges index page
+x    - badge row styles on badges index
+x    - homepage heading
 x  - search by badge not autocomplete - false error
 x  - make sure tests passing
+
 - Document stubs (## est 0.25 day)
   - page for ICV context
   - page for describing extraction process?
-- Contribute (## est 0.5 day)
-  - article - form
-  - company req - form
-  - legal volunteer - email
-
-
-- Company field update
-  - fix migrations / schema
-    - split into two
-    - need to keep articles/journals in original one (since I've run schema manually on prod this way)
-    - and just add contributions / legal docs in new mig
-  - add fields for tos/pp/eula/etc - any other documents
-  - add LegalDocuments
-    - has many practices
-    - belongs to company
-    - should prob event be btw comp/practice ... this way is a bit redundant
-  - add migration
-  - update view / edit
-  - don't require it as a field when creating practice
-  - go through all companies on prod
-  - once they have it
-  - then require it / test on local prod DB dump
-  - add tests
-    - clone of practices sub tests rom company cont
-    - shows up in practices view -- new practice requires doc
 
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
@@ -61,6 +35,14 @@ x  - make sure tests passing
   - paginate company index
   - include public sector data sources? data.gov
   - enter on prod DB / site
+
+- Update badges
+  - not medical advice
+  - use of site - auto opt in
+  - renewed terms - auto opt in
+  - vs comps that provide 30 day window / notification
+  - shit will happen
+
 - Data Entry Phase IV - Articles (##est 1 day)
   - Review any articles for at least a dozen companies
   - Some have many (23andme / etc)
@@ -70,8 +52,15 @@ x  - make sure tests passing
   - paginate journals / articles as needed (prob need to make articles index subview of comp)
 
 --- goal for ODSC ---
+- Finish legal doc update
+  - go through all companies on prod
+  - once they have it
+  - then require it / test on local prod DB dump
+  - add tests
+    - clone of practices sub tests rom company cont
+    - shows up in practices view -- new practice requires doc
 
-  - transition all admin stuff to SOH email
+- transition all admin stuff to SOH email
     - new relic
     - heroku
     - DNS
@@ -80,6 +69,9 @@ x  - make sure tests passing
     - bot for deployment on git --- symbolofhealthbot@gmail.com // HM
     - circleCI - esp notifications
 
+- Other small things
+  - make all articles view / firehose index
+    - right now its only under companies/journals
 
 - Setup WP blog / subdomain (##est 3 days)
   - prioritize BP buffer

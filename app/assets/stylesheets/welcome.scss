@@ -24,20 +24,25 @@ section {
 
       #company_name {
         border: 0px;
-        border-bottom: 8px $navbar-inverse-bg;
         padding: 20px;
-        padding-bottom: 10px;
         font-size: 24px;
 
         &::-webkit-input-placeholder {
-//            font-style:bold;
             color: $navbar-inverse-bg;
             font-weight:500;
         }
-
-//        :-moz-placeholder {@content}
-//        ::-moz-placeholder          {@content}
-//        :-ms-input-placeholder      {@content}
+        &::-moz-placeholder {
+            color: $navbar-inverse-bg;
+            font-weight:500;
+        }
+        &:-moz-placeholder {
+            color: $navbar-inverse-bg;
+            font-weight:500;
+        }
+        &:-ms-input-placeholder {
+            color: $navbar-inverse-bg;
+            font-weight:500;
+        }
 
       }
     }
@@ -106,6 +111,10 @@ section {
         .stat {
           margin-top: 20px;
           position: relative;
+          display: block;
+          &:hover {
+            text-decoration: none;
+          }
         }
         .stat > span {
           display: inline-block;

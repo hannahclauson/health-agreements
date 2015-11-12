@@ -11,11 +11,13 @@ class WelcomeController < ApplicationController
     @stats[:companies] = {
       :color => "dark",
       :count => Company.all.size,
+      :link => companies_path,
       :desc => ""
     }
     @stats[:badges] = {
       :color => "neutral_a",
       :count => BadgeAward.all.size,
+      :link => badges_path,
       :desc => "Awarded"
     }
     @stats[:practices] = {
@@ -31,6 +33,7 @@ class WelcomeController < ApplicationController
     @stats[:journals] = {
       :color => "dark",
       :count => Journal.all.size,
+      :link => journals_path,
       :desc => ""
     }
 
