@@ -44,7 +44,8 @@ Rails.application.routes.draw do
   get 'documents/contribute'
   get 'documents/terms_of_service'
   get 'documents/glossary'
-  get 'documents/credit'
+  get 'documents/inform-comprehend-volunteer' => 'documents#icv'
+  get 'documents/about-us' => 'documents#about_us'
 
   get 'contributions/submissions' => 'contributions#submissions'
   resources :contributions

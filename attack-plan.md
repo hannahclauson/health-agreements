@@ -1,27 +1,4 @@
-- Bugs (## est 0.5 day)
-x  - features
-x    - turbolinks fucks w nav menu / listeners - need to rebind
-x    - fix articles show
-x      - decide if ill expose it / kill it (KILL IIIIIT)
-x    - fix search on company index
-x      - style for adv search on desktop
-x      - search just disappeared altogether
-x    - update badges on homepage --- should link to each search by badge
-x    - search should populate inputs w values that we used for the search
-x      - and should show the advanced options if those were used
-x    - auto scroll on mobile -- this isnt a thing anymore
-x    - change 'show' buttons to 'learn more / details'
-x    - hook in new contributions forms
-x    - make links out of each stat tile
-  - styles
-x    - assets / styles on staging
-x    - flash message styling (dont need abs pos anymore on homepage)
-    - buy other nouns from noun project
-x    - navbar styles on badges index page
-x    - badge row styles on badges index
-x    - homepage heading
-x  - search by badge not autocomplete - false error
-x  - make sure tests passing
+- Review mobile styles
 
 - Document stubs (## est 0.25 day)
   - page for ICV context
