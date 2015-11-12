@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 20150902223734) do
 
   add_index "practices", ["company_id"], name: "index_practices_on_company_id", using: :btree
   add_index "practices", ["guideline_id"], name: "index_practices_on_guideline_id", using: :btree
-  add_index "practices", ["legal_document_id"], name: "index_practices_on_legal_document_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
