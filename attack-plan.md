@@ -104,6 +104,10 @@
   - make sure errors are handled properly
 - Launch Site (##est 1 day)
   - marketing time
+- Setup editor onboarding
+  - make quiz / example doc
+  - hire volunteers to help w data entry
+  - Look into automating distillation / better editor tools
 === Milestone: Launch (v 1.1)
 
 
