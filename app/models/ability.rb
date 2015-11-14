@@ -36,6 +36,8 @@ class Ability
       can :rebuild, Badge
       can :manage, BadgePractice
       can :submissions, Contribution
+      can :mutate, GuidelineTag
+      can :destroy, GuidelineTag
     end
 
   end

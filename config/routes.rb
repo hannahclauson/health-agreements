@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   get 'contributions/submissions' => 'contributions#submissions'
   resources :contributions
-
+  resources :guideline_tags
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
