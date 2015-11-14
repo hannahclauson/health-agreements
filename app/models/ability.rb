@@ -36,8 +36,11 @@ class Ability
       can :rebuild, Badge
       can :manage, BadgePractice
       can :submissions, Contribution
+
+      # Special permissions for guideline tags
       can :mutate, GuidelineTag
       can :destroy, GuidelineTag
+      can :index, GuidelineTag
     end
 
   end
