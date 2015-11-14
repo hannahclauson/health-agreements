@@ -41,7 +41,7 @@
   - make all articles view / firehose index
     - right now its only under companies/journals
   - maybe make 'guidelines' stat - the number of rules we look for per doc
-
+  - make link for new guidelines
 - Setup WP blog / subdomain (##est 3 days)
   - prioritize BP buffer
   - publish 1-3 articles
@@ -108,6 +108,13 @@
   - make quiz / example doc
   - hire volunteers to help w data entry
   - Look into automating distillation / better editor tools
+  - speaking of...
+- On guideline show, show list of companies implementing guideline
+  - helpful for auditing guidelines
+- Add tags to guidelines
+  - helpful to list similar ones together
+  - otherwise present alpha sorted
+  - also would be very helpful in dropdown for new practice -- or may autocomplete
 === Milestone: Launch (v 1.1)
 
 
