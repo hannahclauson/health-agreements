@@ -1,6 +1,6 @@
 = content_for :head do
   %title="#{@guideline.normalized_name} Guideline"
-
+  %small="Tagged as: #{@guideline.guideline_tag.nil? ? '' : @guideline.guideline_tag.name}"
 .container
   .page-header
     %h1="#{@guideline.normalized_name} Guideline"

@@ -23,10 +23,10 @@ class GuidelineTagsController < ApplicationController
   end
 
   def destroy
-    current_company
+    current_guideline_tag
     @guideline_tag.destroy
 
-    redirect_to companies_path
+    redirect_to guideline_tags_path
 
   end
 

@@ -1,0 +1,15 @@
+.container
+  .page-header
+    %h1 All Guideline Tags
+    %p Tags to help sort guidelines
+    - if can? :create, GuidelineTag
+      =link_to("New", new_guideline_tag_path, {class: 'btn btn-xs btn-info object_action'})
+
+  %ul.list-group
+    - @guideline_tags.each do |g|
+      %li.list-group-item
+        = link_to(g.name, guideline_tag_path(g))
+        - if (can? :delete, GuidelineTag)
+          %span.actions.btn-group.btn-group-xs.btn-group-link
+            - if can? :delete, GuidelineTag
+              = link_to("Delete", guideline_tag_path(g), class: "btn btn-xs btn-danger", method: :delete)
