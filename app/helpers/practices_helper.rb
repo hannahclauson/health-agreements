@@ -4,10 +4,25 @@ module PracticesHelper
   # - This is used only when creating/editing a practice, as only the avail
   # guidelines are valid options
   def enumerated_guidelines
-    guidelines = Guideline.all
-    guidelines.collect do |g|
-      [g.name, g.id]
+#    guidelines = Guideline.all
+
+    guidelines = Guideline.order("guideline_tag_id")
+
+    last_tag = nil
+
+    entries = []
+
+    guidelines.each do |g|
+      this_tag_name = g.guideline_tag.nil? ? nil : g.guideline_tag.name
+      if last_tag.nil? || this_tag_name != last_tag
+        last_tag = this_tag_name
+        entries << [this_tag_name, nil]
+      end
+
+      entries << [g.name, g.id]
     end
+
+    entries
   end
 
   def enumerated_legal_documents(this_company)
