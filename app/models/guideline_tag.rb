@@ -1,3 +1,3 @@
 class GuidelineTag < ActiveRecord::Base
-  has_many :guideline
+  has_many :guidelines
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112165020) do
+ActiveRecord::Schema.define(version: 20151114003406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20151112165020) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "guideline_tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guidelines", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -100,7 +106,10 @@ ActiveRecord::Schema.define(version: 20151112165020) do
     t.text     "false_description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "guideline_tag_id"
   end
+
+  add_index "guidelines", ["guideline_tag_id"], name: "index_guidelines_on_guideline_tag_id", using: :btree
 
   create_table "journals", force: :cascade do |t|
     t.string   "name"

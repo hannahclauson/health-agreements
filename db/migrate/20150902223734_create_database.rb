@@ -20,6 +20,7 @@ class CreateDatabase < ActiveRecord::Migration
       t.string   "name"
       t.text     "description"
       t.string   "slug"
+      t.boolean  "needs_to_rebuild", default: false
       t.datetime "created_at",  null: false
       t.datetime "updated_at",  null: false
     end
@@ -40,6 +41,7 @@ class CreateDatabase < ActiveRecord::Migration
       t.string   "slug"
       t.text     "description"
       t.string   "url"
+      t.float    "impact_factor"
       t.datetime "created_at",  null: false
       t.datetime "updated_at",  null: false
     end

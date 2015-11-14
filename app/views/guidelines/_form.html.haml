@@ -28,6 +28,11 @@
       = f.text_field :false_description
 
   .field.form-group
+    = f.label :guideline_tag_id, class: 'col-sm-2 control-label'
+    .col-sm-10.input_wrapper
+      = select_tag('guideline[guideline_tag_id]', options_for_select(enumerated_guideline_tags), :include_blank => true)
+
+  .field.form-group
     %label.col-sm-2.control-label
     .col-sm-10.input_wrapper
       = f.submit
