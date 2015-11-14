@@ -2,6 +2,7 @@ class Guideline < ActiveRecord::Base
   has_many :practices, dependent: :destroy
   has_many :badge_practices, dependent: :destroy
   has_many :badges, through: :badge_practices
+  belongs_to :guideline_tag
 
   validates :name, presence: true, length: {minimum: 3}, uniqueness: true
   validates :description, presence: true, length: {minimum: 10}

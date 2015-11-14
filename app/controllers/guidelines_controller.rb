@@ -56,6 +56,6 @@ class GuidelinesController < ApplicationController
   helper_method :current_guideline
 
   def guideline_params
-    params.require(:guideline).permit(:name, :description, :true_description, :false_description)
+    params.require(:guideline).permit(:name, :description, :true_description, :false_description, :guideline_tag_id)
   end
 end

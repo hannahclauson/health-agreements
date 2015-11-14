@@ -33,7 +33,7 @@ class GuidelineTagsController < ApplicationController
   private
 
   def current_guideline_tag
-    @guideline_tag ||= GuidelineTag.where(slug: params[:id]).first
+    @guideline_tag ||= GuidelineTag.where(id: params[:id]).first
     authorize! action_name.to_sym, @guideline_tag
   end
 
