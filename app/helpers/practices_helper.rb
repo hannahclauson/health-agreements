@@ -14,12 +14,18 @@ module PracticesHelper
 
     guidelines.each do |g|
       this_tag_name = g.guideline_tag.nil? ? nil : g.guideline_tag.name
-      if last_tag.nil? || this_tag_name != last_tag
-        last_tag = this_tag_name
-        entries << [this_tag_name, nil]
+
+      if this_tag_name != last_tag
+        if this_tag_name.nil?
+          entries << ["Other", nil]
+        else
+          entries << [this_tag_name, nil]
+        end
       end
 
-      entries << [g.name, g.id]
+      last_tag = this_tag_name
+
+      entries << ["- #{g.name}", g.id]
     end
 
     entries
