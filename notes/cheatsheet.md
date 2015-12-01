@@ -143,7 +143,18 @@ And rerunning the select, I see it added.
 
 And re-running db:migrate on staging ... the final migration (20151114003406) is added and working! Great
 
+# Push build to production
 
+Check circleCI: https://circleci.com/gh/sjezewski/health-agreements
+
+(oh ... I turned off pushing to prod once new tag appears 
+... I could make that into detecting a tag + on a branch?)
+
+Once build succeeds:
+
+$ git fetch --tags
+
+To see tags. Should see release-1.0.buildnum
 
 
 # generate SECRET_KEY_BASE env var for heroku
