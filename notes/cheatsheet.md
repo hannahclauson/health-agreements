@@ -105,6 +105,46 @@ $ heroku pg:reset DATABASE
 Resetting DATABASE_URL... done
 
 
+# Doing a pg:restore to make staging mirror production ... but then rake is out of sync
+# See: http://stackoverflow.com/questions/33998209/how-can-i-fix-my-migrations-activerecordmigrator-current-version-and-dbmigra
+
+In this case, I'm dumping prod -> stage, and want to test the new guideline tagging on staging
+
+But, when I do the pg:restore from prod, then do the migration, it errs w 'already existing relation'. It looks like its trying to rerun the "20151112165020" migration (legal documents) even though that already exists in the DB. So, I'll add that migration timestamp to the DB:
+
+First check the migration DB status:
+
+    heroku run ./bin/rails dbconsole --remote staging
+
+(This will ask for password. Its after the ":" in the DATABASE_URL env var on heroku)
+
+Then:
+
+    \d+ schema_migrations
+
+And:
+
+    SELECT * FROM schema_migrations;
+
+And I see:
+
+=> SELECT * FROM schema_migrations;
+    version     
+----------------
+ 20150902223734
+ 20151112155654
+(2 rows)
+
+So then I:
+
+    insert into schema_migrations(version) values ('20151112165020');
+
+And rerunning the select, I see it added.
+
+And re-running db:migrate on staging ... the final migration (20151114003406) is added and working! Great
+
+
+
 
 # generate SECRET_KEY_BASE env var for heroku
 

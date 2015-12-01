@@ -2,6 +2,9 @@
   .page-header
     %h1="Editing #{@guideline.name} Info:"
 
+  .page-container
+    =link_to "New Tag", new_guideline_tag_path
+
   = render 'form'
 
   = link_to 'Back', guidelines_path, {class: 'btn btn-default'}
