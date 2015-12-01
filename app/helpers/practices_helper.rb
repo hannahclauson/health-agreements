@@ -4,31 +4,33 @@ module PracticesHelper
   # - This is used only when creating/editing a practice, as only the avail
   # guidelines are valid options
   def enumerated_guidelines
-#    guidelines = Guideline.all
+    tags = GuidelineTag.order(:name)
+    guidelines = {}
 
-#    guidelines = Guideline.order("guideline_tag_id")
-    tags = GuidelineTag.all
-    guidelines = Guideline.order(guideline_tag_id: tags)
-
+    Guideline.all.each do |g|
+      tag_name = g.guideline_tag_id.nil? ? "Other" : g.guideline_tag.name
+      guidelines[tag_name] ||= []
+      guidelines[tag_name] << g
+    end
 
     last_tag = nil
-
     entries = []
 
-    guidelines.each do |g|
-      this_tag_name = g.guideline_tag.nil? ? nil : g.guideline_tag.name
+    tags.each do |tag|
+      guidelines_by_tag = guidelines[tag.name]
 
-      if this_tag_name != last_tag
-        if this_tag_name.nil?
-          entries << ["Other", nil]
-        else
-          entries << [this_tag_name, nil]
-        end
+      next if guidelines_by_tag.nil?
+
+      entries << [tag.name, nil]
+
+      guidelines_by_tag.each do |g|
+        entries << ["- #{g.name}", g.id]
       end
+    end
 
-      last_tag = this_tag_name
-
-      entries << ["- #{g.name}", g.id]
+    entries << ["Other", nil]
+    guidelines["Other"].each do |g|
+        entries << ["- #{g.name}", g.id]
     end
 
     entries

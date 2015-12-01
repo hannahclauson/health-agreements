@@ -1,6 +1,6 @@
 - Update Guideline UI
 x  - add basic tagging 
-  - present tags / grouped guidelines in alpha
+x  - present tags / grouped guidelines in alpha
   - update UI to have big list of options w checkboxes so you only have to submit once
 
 - Data Entry Phase III (##est 2 days)
