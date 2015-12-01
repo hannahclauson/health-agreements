@@ -1,3 +1,8 @@
+- Update Guideline UI
+x  - add basic tagging 
+  - present tags / grouped guidelines in alpha
+  - update UI to have big list of options w checkboxes so you only have to submit once
+
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
   - should have about a hundred companies

@@ -6,7 +6,10 @@ module PracticesHelper
   def enumerated_guidelines
 #    guidelines = Guideline.all
 
-    guidelines = Guideline.order("guideline_tag_id")
+#    guidelines = Guideline.order("guideline_tag_id")
+    tags = GuidelineTag.all
+    guidelines = Guideline.order(guideline_tag_id: tags)
+
 
     last_tag = nil
 
