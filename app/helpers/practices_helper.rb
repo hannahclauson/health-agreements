@@ -13,27 +13,7 @@ module PracticesHelper
       guidelines[tag_name] << g
     end
 
-    last_tag = nil
-    entries = []
-
-    tags.each do |tag|
-      guidelines_by_tag = guidelines[tag.name]
-
-      next if guidelines_by_tag.nil?
-
-      entries << [tag.name, nil]
-
-      guidelines_by_tag.each do |g|
-        entries << ["- #{g.name}", g.id]
-      end
-    end
-
-    entries << ["Other", nil]
-    guidelines["Other"].each do |g|
-        entries << ["- #{g.name}", g.id]
-    end
-
-    entries
+    guidelines
   end
 
   def enumerated_legal_documents(this_company)

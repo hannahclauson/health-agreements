@@ -1,0 +1,48 @@
+= form_for [@company, @practice], html: {class: 'form-horizontal'} do |f|
+  = if @practice.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@practice.errors.count, "Error")} prohibited this practice from being saved"
+      %ul
+        - @practice.errors.full_messages.each do |msg|
+          %li= msg
+  %table
+
+    - enumerated_guidelines.each do |tag, guidelines|
+
+
+      %tr
+        %td= tag
+
+      - guidelines.each do |g|
+        %tr
+          %td
+            = check_box_tag 'practices[][enabled]', g.name
+          %td
+            - # this will be hidden, but for now show:
+            .field.form-group
+              = f.label g.name, class: 'col-sm-2 control-label'
+              .col-sm-10.input_wrapper
+                = select_tag 'practices[][guideline_id]', 'z', :value => g.id
+
+          %td
+            .field.form-group.hidden
+              = f.label :legal_document_id, class: 'col-sm-2 control-label'
+              .col-sm-10.input_wrapper
+                = select_tag('practices[][legal_document_id]', options_for_select(enumerated_legal_documents(@company), :selected => @practice.legal_document_id), :include_blank => true)
+
+          %td
+            .field.form-group
+              = f.label :implementation, class: 'col-sm-2 control-label'
+              .col-sm-10.input_wrapper
+                = select_tag('practices[][implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)
+
+          %td
+            .field.form-group
+              = f.label :notes, class: 'col-sm-2 control-label'
+              .col-sm-10.input_wrapper
+                = f.text_field 'practices[][notes]'
+
+  .field.form-group
+    %label.col-sm-2.control-label
+    .col-sm-10.input_wrapper
+      = f.submit

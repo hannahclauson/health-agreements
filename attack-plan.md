@@ -2,6 +2,9 @@
 x  - add basic tagging 
 x  - present tags / grouped guidelines in alpha
   - update UI to have big list of options w checkboxes so you only have to submit once
+    - update view
+    - update controller to accept multiple additions
+    - and what happens if there is a duplicate / conflict? For now I'll just assume its overridden ... maybe later will want a confirmation dialogue
 
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified
