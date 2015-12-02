@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get :autocomplete_guideline_name, :on => :collection
     get :autocomplete_practice_implementation, :on => :collection
     resources :practices
+#    get '/practices/batch_create', to: 'practices#batch_create'
     resources :articles
     resources :legal_documents
   end

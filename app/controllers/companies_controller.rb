@@ -161,6 +161,8 @@ class CompaniesController < ApplicationController
 
 
   def create
+    puts "IN COMPANY CREATE"
+
     authorize! :create, Company
     @company = Company.create(company_params)
 
