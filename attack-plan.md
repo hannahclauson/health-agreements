@@ -5,6 +5,9 @@ x  - present tags / grouped guidelines in alpha
     - update view
     - update controller to accept multiple additions
     - and what happens if there is a duplicate / conflict? For now I'll just assume its overridden ... maybe later will want a confirmation dialogue
+    - need a bulk_edit view in case of errors
+    - should probably have 'list' type of addition as separate view as well
+    - bcz after first create, not so useful / cluttered UI
 
 - Data Entry Phase III (##est 2 days)
   - make sure all document links are specified

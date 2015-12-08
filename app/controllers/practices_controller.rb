@@ -2,6 +2,19 @@ class PracticesController < ApplicationController
 
   def batch_create
     puts "IN BATCH CREATE"
+    current_company
+
+    authorize! :create, Practice
+
+    raise StandardError.new("fuck")
+
+    @practices = @company.practices.create(bulk_allowed_params)
+
+    if @practices.save
+      redirect_to company_path(@company)
+    else
+      render 'bulk_edit'
+    end
 
   end
 
