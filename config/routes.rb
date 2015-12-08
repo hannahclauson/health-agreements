@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     get :autocomplete_badge_name, :on => :collection
     get :autocomplete_guideline_name, :on => :collection
     get :autocomplete_practice_implementation, :on => :collection
+
+    post '/practices/batch_create', to: 'practices#batch_create'
     resources :practices
-#    get '/practices/batch_create', to: 'practices#batch_create'
+
     resources :articles
     resources :legal_documents
   end
