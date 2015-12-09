@@ -1,19 +1,20 @@
 = form_tag company_practices_batch_create_path(@company), method: :post,  html: {class: 'form-horizontal'} do
-  = if @practices.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@practices.errors.count, "Error")} prohibited this practice from being saved"
-      %ul
-        - @practices.errors.full_messages.each do |msg|
-          %li= msg
+  - @practices.each do |practice_guideline_id, practice|
+    = if practice.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice from being saved"
+        %ul
+          - practice.errors.full_messages.each do |msg|
+            %li= msg
   %table
 
     - enumerated_guidelines.each do |tag, guidelines|
-
 
       %tr
         %td= tag
 
       - guidelines.each do |g|
+        - practice = @practices[g.id]
         %tr
           %td
             = check_box_tag 'practices[][enabled]', g.id
@@ -28,13 +29,15 @@
             .field.form-group.hidden
               = label_tag :legal_document_id, "Legal Document", class: 'col-sm-2 control-label'
               .col-sm-10.input_wrapper
-                = select_tag('practices[][legal_document_id]', options_for_select(enumerated_legal_documents(@company), :selected => @practice.legal_document_id), :include_blank => true)
+                - value = practice.nil? ? nil : practice.legal_document_id
+                = select_tag('practices[][legal_document_id]', options_for_select(enumerated_legal_documents(@company), :selected => value), :include_blank => true)
 
           %td
             .field.form-group
               = label_tag :implementation, "Implementation", class: 'col-sm-2 control-label'
               .col-sm-10.input_wrapper
-                = select_tag('practices[][implementation]', options_for_select(enumerated_implementations, :selected => @practice.implementation), :include_blank => true)
+                - value = practice.nil? ? nil : practice.implementation
+                = select_tag('practices[][implementation]', options_for_select(enumerated_implementations, :selected => value), :include_blank => true)
 
           %td
             .field.form-group

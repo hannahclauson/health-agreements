@@ -55,8 +55,9 @@
     .panel.panel-default
       .panel-heading
         %h2 Add a Practice
+        =link_to "Batch Edit", company_practices_batch_edit_path(@company)
       .panel-body
-        = render 'practices/long_form'
+        = render 'practices/form'
 
   - if @company.articles.size > 0
     = render 'articles/panel_list'

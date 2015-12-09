@@ -1,19 +1,36 @@
 class PracticesController < ApplicationController
 
+  def batch_edit
+    current_company
+
+    raw_practices = @company.practices
+
+    @practices = {}
+    raw_practices.each do |practice|
+      @practices[practice.guideline.id] = practice
+    end
+
+  end
+
   def batch_create
     puts "IN BATCH CREATE"
     current_company
 
     authorize! :create, Practice
 
-    raise StandardError.new("fuck")
+    raw_practices = @company.practices.create(bulk_allowed_params)
 
-    @practices = @company.practices.create(bulk_allowed_params)
+    @practices = {}
+    raw_practices.each do |practice|
+      if practice.save
+        @practices[practice.guideline.id] = practice
+      end
+    end
 
-    if @practices.save
+    if practices.length == raw_practices.length
       redirect_to company_path(@company)
     else
-      render 'bulk_edit'
+      render 'batch_edit'
     end
 
   end
