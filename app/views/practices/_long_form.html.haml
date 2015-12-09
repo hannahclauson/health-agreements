@@ -6,12 +6,12 @@
         %ul
           - practice.errors.full_messages.each do |msg|
             %li= msg
-  %table
+  %table.table
 
     - enumerated_guidelines.each do |tag, guidelines|
 
       %tr
-        %td= tag
+        %td.tag{colspan: 5}= tag
 
       - guidelines.each do |g|
         - practice = @practices[g.id]
@@ -19,30 +19,29 @@
           %td
             = check_box_tag 'practices[][enabled]', g.id
           %td
-            - # this will be hidden, but for now show:
             .field.form-group
-              = label_tag 'practices[][guideline_id]', g.name, class: 'col-sm-2 control-label'
-              .col-sm-10.input_wrapper
+              = label_tag 'practices[][guideline_id]', g.name, class: 'control-label'
+              .col-sm-10.input_wrapper.hidden
                 = select_tag 'practices[][guideline_id]', 'z', :value => g.id
 
           %td
             .field.form-group.hidden
-              = label_tag :legal_document_id, "Legal Document", class: 'col-sm-2 control-label'
-              .col-sm-10.input_wrapper
+              = label_tag :legal_document_id, "Legal Document", class: 'control-label'
+              .input_wrapper
                 - value = practice.nil? ? nil : practice.legal_document_id
                 = select_tag('practices[][legal_document_id]', options_for_select(enumerated_legal_documents(@company), :selected => value), :include_blank => true)
 
           %td
             .field.form-group
-              = label_tag :implementation, "Implementation", class: 'col-sm-2 control-label'
-              .col-sm-10.input_wrapper
+              = label_tag :implementation, "Implementation", class: 'control-label'
+              .input_wrapper
                 - value = practice.nil? ? nil : practice.implementation
                 = select_tag('practices[][implementation]', options_for_select(enumerated_implementations, :selected => value), :include_blank => true)
 
           %td
             .field.form-group
-              = label_tag :notes, "Notes", class: 'col-sm-2 control-label'
-              .col-sm-10.input_wrapper
+              = label_tag :notes, "Notes", class: 'control-label'
+              .input_wrapper
                 = text_field_tag 'practices[][notes]'
 
   .field.form-group
