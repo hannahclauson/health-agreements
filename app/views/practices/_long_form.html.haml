@@ -17,7 +17,7 @@
         - practice = @practices[g.id]
         %tr
           %td
-            = check_box_tag 'practices[][enabled]', g.id
+            = check_box_tag 'practices[][enabled]', g.id, !practice.nil?
           %td
             .field.form-group
               = label_tag 'practices[][guideline_id]', g.name, class: 'control-label'
