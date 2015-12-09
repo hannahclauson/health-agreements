@@ -15,6 +15,7 @@
 
       - guidelines.each do |g|
         - practice = @practices[g.id]
+        - next if !practice.nil?
         %tr
           %td
             = check_box_tag 'practices[][enabled]', g.id, !practice.nil?

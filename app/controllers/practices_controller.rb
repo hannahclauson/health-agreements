@@ -1,6 +1,6 @@
 class PracticesController < ApplicationController
 
-  def batch_edit
+  def batch_new
     current_company
 
     raw_practices = @company.practices
@@ -26,6 +26,8 @@ class PracticesController < ApplicationController
         @practices[practice.guideline.id] = practice
       end
     end
+
+    raise StandardError("fuck")
 
     if practices.length == raw_practices.length
       redirect_to company_path(@company)

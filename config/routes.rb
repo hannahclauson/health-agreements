@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get :autocomplete_practice_implementation, :on => :collection
 
     post '/practices/batch_create', to: 'practices#batch_create'
-    get '/practices/batch_edit', to: 'practices#batch_edit'
+    get '/practices/batch_new', to: 'practices#batch_new'
     resources :practices
 
     resources :articles
