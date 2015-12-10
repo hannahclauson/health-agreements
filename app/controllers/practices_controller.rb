@@ -21,19 +21,24 @@ class PracticesController < ApplicationController
     raw_practices = params["practices"]
     @practices = {}
 
+    puts "SDFLGJHSDFJKGH"
+
+    all_saved = true
     raw_practices.each do |raw_practice|
+      puts "[#{raw_practice['state']}]"
+      puts raw_practice
+      next unless !raw_practice["state"].nil? && raw_practice["state"] == "enabled"
+
       raw_practice = bulk_allowed_params(raw_practice)
       practice = @company.practices.create(raw_practice)
 
-      if practice.save
-        @practices[practice.guideline.id] = practice
-      end
+      all_saved = all_saved && practice.save
+      @practices[practice.guideline.id] = practice
     end
 
-    if @practices.length == raw_practices.length
+    if all_saved
       redirect_to company_path(@company)
     else
-      raise StandardError "fuck"
       render 'batch_new'
     end
 

@@ -1,8 +1,8 @@
 = form_tag company_practices_batch_create_path(@company), method: :post,  html: {class: 'form-horizontal'} do
   - @practices.each do |practice_guideline_id, practice|
-    = if practice.errors.any?
+    - if practice.errors.any?
       #error_explanation
-        %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice from being saved"
+        %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice (#{practice.name})from being saved"
         %ul
           - practice.errors.full_messages.each do |msg|
             %li= msg
@@ -18,7 +18,7 @@
         - next if !practice.nil?
         %tr
           %td
-            = check_box_tag 'practices[][enabled]', g.id, !practice.nil?
+            = check_box_tag 'practices[][state]', "enabled", !practice.nil?
           %td
             .field.form-group
               = label_tag 'practices[][guideline_id]', g.name, class: 'control-label'
