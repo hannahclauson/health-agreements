@@ -23,10 +23,10 @@
             .field.form-group
               = label_tag 'practices[][guideline_id]', g.name, class: 'control-label'
               .col-sm-10.input_wrapper.hidden
-                = select_tag 'practices[][guideline_id]', 'z', :value => g.id
+                = text_field_tag 'practices[][guideline_id]', g.id
 
           %td
-            .field.form-group.hidden
+            .field.form-group
               = label_tag :legal_document_id, "Legal Document", class: 'control-label'
               .input_wrapper
                 - value = practice.nil? ? nil : practice.legal_document_id

@@ -18,21 +18,23 @@ class PracticesController < ApplicationController
 
     authorize! :create, Practice
 
-    raw_practices = @company.practices.create(bulk_allowed_params)
-
+    raw_practices = params["practices"]
     @practices = {}
-    raw_practices.each do |practice|
+
+    raw_practices.each do |raw_practice|
+      raw_practice = bulk_allowed_params(raw_practice)
+      practice = @company.practices.create(raw_practice)
+
       if practice.save
         @practices[practice.guideline.id] = practice
       end
     end
 
-    raise StandardError("fuck")
-
-    if practices.length == raw_practices.length
+    if @practices.length == raw_practices.length
       redirect_to company_path(@company)
     else
-      render 'batch_edit'
+      raise StandardError "fuck"
+      render 'batch_new'
     end
 
   end
@@ -102,8 +104,8 @@ class PracticesController < ApplicationController
 
   private
 
-  def bulk_allowed_params
-    params.permit({practice: [:implementation, :notes, :guideline_id, :legal_document_id]})
+  def bulk_allowed_params(p)
+    p.permit(:implementation, :notes, :guideline_id, :legal_document_id)
   end
 
   def allowed_params
