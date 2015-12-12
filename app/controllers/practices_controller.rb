@@ -5,6 +5,7 @@ class PracticesController < ApplicationController
 
     raw_practices = @company.practices
 
+    @errors_present = false
     @practices = {}
     raw_practices.each do |practice|
       @practices[practice.guideline.id] = practice
@@ -27,10 +28,13 @@ class PracticesController < ApplicationController
       raw_practice = bulk_allowed_params(raw_practice)
       practice = @company.practices.create(raw_practice)
 
-      all_saved = all_saved && practice.save
-      @practices[practice.guideline.id] = practice
+      if !practice.save
+        all_saved = false
+        @practices[practice.guideline.id] = practice
+      end
     end
 
+    @errors_present = !all_saved
     if all_saved
       redirect_to company_path(@company)
     else

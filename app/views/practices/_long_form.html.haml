@@ -1,11 +1,6 @@
 = form_tag company_practices_batch_create_path(@company), method: :post,  html: {class: 'form-horizontal'} do
-  - @practices.each do |practice_guideline_id, practice|
-    - if practice.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice (#{practice.name})from being saved"
-        %ul
-          - practice.errors.full_messages.each do |msg|
-            %li= msg
+  - #@practices.each do |practice_guideline_id, practice|
+
   %table.table
 
     - enumerated_guidelines.each do |tag, guidelines|
@@ -15,7 +10,8 @@
 
       - guidelines.each do |g|
         - practice = @practices[g.id]
-        - next if !practice.nil?
+        - next if @errors_present && practice.nil?
+        - next if !practice.nil? && !@errors_present
         %tr
           %td
             = check_box_tag 'practices[][state]', "enabled", !practice.nil?
@@ -44,6 +40,14 @@
               = label_tag :notes, "Notes", class: 'control-label'
               .input_wrapper
                 = text_field_tag 'practices[][notes]'
+        - if !practice.nil? && practice.errors.any?
+          %tr
+            %td#error_explanation{colspan: 5}
+              %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice (#{practice.guideline.name})from being saved"
+              %ul
+                - practice.errors.full_messages.each do |msg|
+                  %li= msg
+
 
   .field.form-group
     %label.col-sm-2.control-label

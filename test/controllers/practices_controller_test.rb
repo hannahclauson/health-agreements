@@ -110,7 +110,20 @@ class PracticesControllerTest < ActionController::TestCase
 
   # Tests for batch creation
 
-  
+  test "should not access batch new" do
+  end
+
+  test "should access batch new" do
+  end
+
+  test "should create several new practices" do
+  end
+
+  test "should report error inline for practice" do
+  end
+
+  test "should report errors for several practices w errors" do
+  end
 
   # Admin only actions
 
