@@ -108,6 +108,10 @@ class PracticesControllerTest < ActionController::TestCase
     end
   end
 
+  # Tests for batch creation
+
+  
+
   # Admin only actions
 
   test "should not delete (anon user)" do
