@@ -13,7 +13,6 @@ class PracticesController < ApplicationController
   end
 
   def batch_create
-    puts "IN BATCH CREATE"
     current_company
 
     authorize! :create, Practice
@@ -21,12 +20,8 @@ class PracticesController < ApplicationController
     raw_practices = params["practices"]
     @practices = {}
 
-    puts "SDFLGJHSDFJKGH"
-
     all_saved = true
     raw_practices.each do |raw_practice|
-      puts "[#{raw_practice['state']}]"
-      puts raw_practice
       next unless !raw_practice["state"].nil? && raw_practice["state"] == "enabled"
 
       raw_practice = bulk_allowed_params(raw_practice)
@@ -46,8 +41,6 @@ class PracticesController < ApplicationController
 
   def create
     current_company
-
-    puts "IN PRACTICES CREATE"
 
     authorize! :create, Practice
     @practice = @company.practices.create(allowed_params)

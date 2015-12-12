@@ -55,7 +55,7 @@
     .panel.panel-default
       .panel-heading
         %h2 Add a Practice
-        =link_to "Batch New", company_practices_batch_new_path(@company)
+        =link_to "Batch New", company_practices_batch_new_path(@company), class: "btn btn-info btn-xs batch_new"
       .panel-body
         = render 'practices/form'
 
