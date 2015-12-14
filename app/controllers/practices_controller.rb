@@ -23,7 +23,7 @@ class PracticesController < ApplicationController
 
     all_saved = true
     raw_practices.each do |raw_practice|
-      next unless !raw_practice["state"].nil? && raw_practice["state"] == "enabled"
+      next unless params["enabled"][raw_practice[:guideline_id].to_s] == "enabled"
 
       raw_practice = bulk_allowed_params(raw_practice)
       practice = @company.practices.create(raw_practice)

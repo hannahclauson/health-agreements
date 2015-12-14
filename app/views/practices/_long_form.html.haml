@@ -14,7 +14,8 @@
         - next if !practice.nil? && !@errors_present
         %tr
           %td
-            = check_box_tag 'practices[][state]', "enabled", !practice.nil?
+            = check_box_tag "enabled[#{g.id}]", "enabled", !practice.nil?
+
           %td
             .field.form-group
               = label_tag 'practices[][guideline_id]', g.name, class: 'control-label'
@@ -43,7 +44,7 @@
         - if !practice.nil? && practice.errors.any?
           %tr
             %td#error_explanation{colspan: 5}
-              %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice (#{practice.guideline.name})from being saved"
+              %h2= "#{pluralize(practice.errors.count, "Error")} prohibited this practice (#{practice.guideline.name}) from being saved"
               %ul
                 - practice.errors.full_messages.each do |msg|
                   %li= msg
