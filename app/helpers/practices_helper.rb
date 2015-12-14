@@ -13,10 +13,6 @@ module PracticesHelper
       guidelines[tag_name] << g
     end
 
-    guidelines.each do |k,v|
-      puts k, v.size
-    end
-
     guidelines
   end
 

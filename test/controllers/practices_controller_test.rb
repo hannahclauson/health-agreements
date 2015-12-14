@@ -111,12 +111,43 @@ class PracticesControllerTest < ActionController::TestCase
   # Tests for batch creation
 
   test "should not access batch new" do
+    access_denied(@practice) do
+      get company_practices_batch_new_path @company
+    end
   end
 
   test "should access batch new" do
+    sign_in @editor
+#    get company_practices_batch_new_path @company
+    get :batch_new, company: @company
+    assert_response :success
   end
 
   test "should create several new practices" do
+    sign_in @editor
+
+    g2 = create(:guideline, name: 'foo')
+    g3 = create(:guideline, name: 'bar')
+
+    count = Practice.all.size
+
+    post company_practices_batch_create_path @company,
+      enabled: [
+        g2.id,
+        g3.id
+      ],
+      practices: [
+      {
+        implementation: 1
+      },
+      {
+        implementation: 2
+      }
+      ]
+
+    assert_response :success
+    assert_equal count+2, Practice.all.size
+
   end
 
   test "should report error inline for practice" do
