@@ -112,15 +112,21 @@ class PracticesControllerTest < ActionController::TestCase
 
   test "should not access batch new" do
     access_denied(@practice) do
-      get company_practices_batch_new_path @company
+      get :batch_new, company_id: @company
     end
   end
 
   test "should access batch new" do
     sign_in @editor
-#    get company_practices_batch_new_path @company
-    get :batch_new, company: @company
+    get :batch_new, company_id: @company
+    puts response.headers
+    puts response.location
+    puts response.headers['location']
+    assert_equal nil, flash[:alert]
     assert_response :success
+  end
+
+  test "should create several new practices and report several other errors" do
   end
 
   test "should create several new practices" do
@@ -131,22 +137,24 @@ class PracticesControllerTest < ActionController::TestCase
 
     count = Practice.all.size
 
-    post company_practices_batch_create_path @company,
-      enabled: [
-        g2.id,
-        g3.id
-      ],
-      practices: [
+    post :batch_create, company_id: @company,
+      :enabled => {
+        g2.id.to_s => "enabled",
+        g3.id.to_s => "enabled"
+      },
+      :practices => [
       {
-        implementation: 1
+        :implementation => 1,
+        :guideline_id => g2.id
       },
       {
-        implementation: 2
+        :implementation => 2,
+        :guideline_id => g3.id
       }
       ]
 
-    assert_response :success
     assert_equal count+2, Practice.all.size
+    assert_redirected_to company_path(@company)
 
   end
 
