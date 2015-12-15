@@ -119,14 +119,8 @@ class PracticesControllerTest < ActionController::TestCase
   test "should access batch new" do
     sign_in @editor
     get :batch_new, company_id: @company
-    puts response.headers
-    puts response.location
-    puts response.headers['location']
     assert_equal nil, flash[:alert]
     assert_response :success
-  end
-
-  test "should create several new practices and report several other errors" do
   end
 
   test "should create several new practices" do
@@ -158,10 +152,101 @@ class PracticesControllerTest < ActionController::TestCase
 
   end
 
+  test "should not create practice unless checkbox is clicked" do
+  end
+
   test "should report error inline for practice" do
+    sign_in @editor
+
+    count = Practice.all.size
+    g2 = create(:guideline, name: 'foo')
+
+
+    post :batch_create, company_id: @company,
+      :enabled => {
+        g2.id.to_s => "enabled"
+      },
+      :practices => [
+      {
+        :implementation => nil,
+        :guideline_id => g2.id
+      }
+      ]
+
+    assert_equal count, Practice.all.size
+    assert_equal 2, assigns[:practices][g2.id].errors.size
+    assert_response :success
   end
 
   test "should report errors for several practices w errors" do
+    sign_in @editor
+
+    count = Practice.all.size
+    g2 = create(:guideline, name: 'foo')
+    g3 = create(:guideline, name: 'bar')
+
+
+    post :batch_create, company_id: @company,
+      :enabled => {
+        g2.id.to_s => "enabled",
+        g3.id.to_s => "enabled"
+      },
+      :practices => [
+      {
+        :implementation => nil,
+        :guideline_id => g2.id
+      },
+      {
+        :implementation => nil,
+        :guideline_id => g3.id
+      }
+      ]
+
+    assert_equal count, Practice.all.size
+    assert_equal 2, assigns[:practices][g2.id].errors.size
+    assert_equal 2, assigns[:practices][g3.id].errors.size
+    assert_response :success
+  end
+
+  test "should create several new practices and report several other errors" do
+    sign_in @editor
+
+    count = Practice.all.size
+    g2 = create(:guideline, name: 'foo')
+    g3 = create(:guideline, name: 'bar')
+    g4 = create(:guideline, name: 'baz')
+    g5 = create(:guideline, name: 'zzz')
+
+    post :batch_create, company_id: @company,
+      :enabled => {
+        g2.id.to_s => "enabled",
+        g3.id.to_s => "enabled",
+        g4.id.to_s => "enabled",
+        g5.id.to_s => "enabled"
+      },
+      :practices => [
+      {
+        :implementation => nil,
+        :guideline_id => g2.id
+      },
+      {
+        :implementation => nil,
+        :guideline_id => g3.id
+      },
+      {
+        :implementation => 1,
+        :guideline_id => g4.id
+      },
+      {
+        :implementation => 2,
+        :guideline_id => g5.id
+      }
+      ]
+
+    assert_equal count+2, Practice.all.size
+    assert_equal 2, assigns[:practices][g2.id].errors.size
+    assert_equal 2, assigns[:practices][g3.id].errors.size
+    assert_response :success
   end
 
   # Admin only actions
