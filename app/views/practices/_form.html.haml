@@ -14,7 +14,7 @@
   .field.form-group
     = f.label :guideline_id, class: 'col-sm-2 control-label'
     .col-sm-10.input_wrapper
-      = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines, :selected => @practice.guideline_id), :include_blank => true)
+      = select_tag('practice[guideline_id]', options_for_select(enumerated_guidelines_for_select, :selected => @practice.guideline_id), :include_blank => true)
 
   .field.form-group
     = f.label :implementation, class: 'col-sm-2 control-label'

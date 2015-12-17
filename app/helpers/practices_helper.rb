@@ -3,6 +3,7 @@ module PracticesHelper
   # Seems like it should be in guidelines helper, but it belongs here
   # - This is used only when creating/editing a practice, as only the avail
   # guidelines are valid options
+
   def enumerated_guidelines
     tags = GuidelineTag.order(:name)
     guidelines = {}
@@ -14,6 +15,33 @@ module PracticesHelper
     end
 
     guidelines
+  end
+
+  def enumerated_guidelines_for_select
+    guidelines = enumerated_guidelines
+    tags = GuidelineTag.order(:name)
+
+    last_tag = nil
+    entries = []
+
+    tags.each do |tag|
+      guidelines_by_tag = guidelines[tag.name]
+
+      next if guidelines_by_tag.nil?
+
+      entries << [tag.name, nil]
+
+      guidelines_by_tag.each do |g|
+        entries << ["- #{g.name}", g.id]
+      end
+    end
+
+    entries << ["Other", nil]
+    guidelines["Other"].each do |g|
+      entries << ["- #{g.name}", g.id]
+    end
+
+    entries
   end
 
   def enumerated_legal_documents(this_company)
