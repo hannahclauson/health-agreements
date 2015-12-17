@@ -3,10 +3,13 @@
 
   %table.table
 
-    - enumerated_guidelines.each do |tag, guidelines|
+    - guidelines_by_tag = enumerated_guidelines
+    - @tags.each do |tag|
+      - guidelines = guidelines_by_tag[tag.name]
+      - next if guidelines.nil?
 
       %tr
-        %td.tag{colspan: 5}= tag
+        %td.tag{colspan: 5}= tag.name
 
       - guidelines.each do |g|
         - practice = @practices[g.id]

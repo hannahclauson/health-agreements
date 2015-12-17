@@ -13,6 +13,8 @@ class PracticesController < ApplicationController
       @practices[practice.guideline.id] = practice
     end
 
+    @tags = GuidelineTag.order(:name)
+
   end
 
   def batch_create
