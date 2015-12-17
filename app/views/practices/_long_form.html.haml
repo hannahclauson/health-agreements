@@ -5,11 +5,11 @@
 
     - guidelines_by_tag = enumerated_guidelines
     - @tags.each do |tag|
-      - guidelines = guidelines_by_tag[tag.name]
+      - guidelines = guidelines_by_tag[tag]
       - next if guidelines.nil?
 
       %tr
-        %td.tag{colspan: 5}= tag.name
+        %td.tag{colspan: 5}= tag
 
       - guidelines.each do |g|
         - practice = @practices[g.id]

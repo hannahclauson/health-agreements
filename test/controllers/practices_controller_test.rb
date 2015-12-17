@@ -5,7 +5,11 @@ class PracticesControllerTest < ActionController::TestCase
 
   setup do
     @company = create(:company)
-    @guideline = create(:guideline, name: 'single_state')
+    tag_a = create(:guideline_tag, name: "Good")
+    tab_b = create(:guideline_tag, name: "Bad")
+
+    @guideline = create(:guideline, name: 'single_state', guideline_tag: tag_a)
+    guideline_b = create(:guideline, name: 'yupyupyup')
     @practice = create(:practice, guideline: @guideline, company: @company)
 
     @editor = create(:user)

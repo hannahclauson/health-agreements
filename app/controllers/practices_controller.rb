@@ -13,7 +13,7 @@ class PracticesController < ApplicationController
       @practices[practice.guideline.id] = practice
     end
 
-    @tags = GuidelineTag.order(:name)
+    all_tags
 
   end
 
@@ -22,6 +22,8 @@ class PracticesController < ApplicationController
     authorize! :create, @company
 
     authorize! :create, Practice
+
+    all_tags
 
     raw_practices = params["practices"]
     @practices = {}
@@ -110,6 +112,10 @@ class PracticesController < ApplicationController
   end
 
   private
+
+  def all_tags
+    @tags = [GuidelineTag.order(:name).pluck(:name), "Other"].flatten
+  end
 
   def bulk_allowed_params(p)
     p.permit(:implementation, :notes, :guideline_id, :legal_document_id)
